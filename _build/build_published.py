@@ -92,9 +92,9 @@ for f in FEATURES:
 <div class="lb" id="lb" role="dialog" aria-label="Enlarged page"><button type="button">Close</button><img alt=""></div>
 <script>(function(){{var lb=document.getElementById('lb'),im=lb.querySelector('img');document.querySelectorAll('[data-lb]').forEach(function(a){{a.addEventListener('click',function(e){{e.preventDefault();im.src=a.getAttribute('href');lb.classList.add('on');lb.scrollTop=0}})}});lb.addEventListener('click',function(){{lb.classList.remove('on')}});document.addEventListener('keydown',function(e){{if(e.key==='Escape')lb.classList.remove('on')}})}})();</script>'''
     open(f'{d}/index.html', 'w').write(page(f'{f["title"]} · Published Features · Artists for Trauma', art, t['intro']))
-    cards.append((f.get('sort') or f['num'], f'<a class="pfc" href="/published-features/{f["slug"]}/"><div class="ph"><img src="/published-features/{f["slug"]}/pages/p{f["thumb"]:03d}.jpg" alt="" loading="lazy"></div><small>{ISSUE["pub"]} · {ISSUE["issue"]} · {ISSUE["date"]}</small><b>{html.escape(f["title"])}</b><small>{html.escape(f["people"])}</small></a>'))
+    cards.append(((f.get('sort') or f['num'], f['pages'][0]), f'<a class="pfc" href="/published-features/{f["slug"]}/"><div class="ph"><img src="{f.get("cover") or f"/published-features/{f['slug']}/pages/p{f['thumb']:03d}.jpg"}" alt="{html.escape("AwareNow " + f["issue"] + " cover")}" loading="lazy"></div><small>{ISSUE["pub"]} · {ISSUE["issue"]} · {ISSUE["date"]}</small><b>{html.escape(f["title"])}</b><small>{html.escape(f["people"])}</small></a>'))
 idx = f'''<section class="band"><div class="wrap"><h1><span>Published</span> Features</h1>
 <p>Stories about Artists for Trauma, our Fellow Travelers and collaborators, as published in AwareNow magazine from 2021, including Laura Sharpe’s column ‘Fellow Travelers’.</p></div></section>
-<div class="wrap"><div class="pfl">{''.join(c for _, c in sorted(cards, key=lambda x: -x[0]))}</div></div>'''
+<div class="wrap"><div class="pfl">{''.join(c for _, c in sorted(cards, key=lambda x: x[0]))}</div></div>'''
 open(f'{base}/index.html', 'w').write(page('Published Features · Artists for Trauma', idx, 'Stories about Artists for Trauma published in AwareNow and other magazines.'))
 print('built', len(FEATURES), 'features')

@@ -2228,7 +2228,8 @@
    ]
   ],
   "people": "Eddie Donaldson",
-  "cover": "/published-features/covers/dreams-edition.jpg"
+  "cover": "/published-features/covers/dreams-edition.jpg",
+  "cover_in_article": true
  },
  {
   "slug": "awarenow-powerone-day-by-day",

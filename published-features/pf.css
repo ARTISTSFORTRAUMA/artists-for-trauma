@@ -12,6 +12,8 @@
 .spread a{display:block;background:#fff;line-height:0}
 .spread img{width:100%;height:auto;display:block}
 .spread a:first-child{box-shadow:inset -14px 0 18px -14px rgba(0,0,0,.35)}
+.spread.cov{grid-template-columns:1fr;max-width:50%;margin:0 auto}
+@media (max-width:820px){.spread.cov{max-width:100%}}
 .pgno{color:#aaa;font-size:.9rem;text-align:center;margin-top:-6px}
 @media (max-width:820px){.spread{grid-template-columns:1fr;box-shadow:none;gap:14px}.spread a{box-shadow:0 8px 20px rgba(0,0,0,.4)!important}}
 .lb{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;z-index:100;overflow:auto;cursor:zoom-out}

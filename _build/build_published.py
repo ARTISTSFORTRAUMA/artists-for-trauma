@@ -22,6 +22,8 @@ CSS = '''
 .spread a{display:block;background:#fff;line-height:0}
 .spread img{width:100%;height:auto;display:block}
 .spread a:first-child{box-shadow:inset -14px 0 18px -14px rgba(0,0,0,.35)}
+.spread.cov{grid-template-columns:1fr;max-width:50%;margin:0 auto}
+@media (max-width:820px){.spread.cov{max-width:100%}}
 .pgno{color:#aaa;font-size:.9rem;text-align:center;margin-top:-6px}
 @media (max-width:820px){.spread{grid-template-columns:1fr;box-shadow:none;gap:14px}.spread a{box-shadow:0 8px 20px rgba(0,0,0,.4)!important}}
 .lb{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;z-index:100;overflow:auto;cursor:zoom-out}
@@ -77,7 +79,8 @@ for f in FEATURES:
         Image.open(f'{AWN}/{f["folder"]}/p{n:03d}.jpg').convert('RGB').save(f'{d}/pages/p{n:03d}.jpg', 'JPEG', quality=86, optimize=True, progressive=True)
     ISSUE = {'pub': 'AwareNow', 'issue': f"{f['issue']} · Issue {f['num']}" if f.get('num') else f['issue'], 'date': f['date'], 'url': f['url']}
     pairs = [f['pages'][i:i+2] for i in range(0, len(f['pages']), 2)]
-    spreads = ''.join('<div class="spread">' + ''.join(f'<a href="pages/p{n:03d}.jpg" data-lb><img src="pages/p{n:03d}.jpg" alt="{html.escape(ISSUE["pub"])} page {n}" loading="{"eager" if i==0 else "lazy"}" width="1133" height="1467"></a>' for n in pr) + '</div>' for i, pr in enumerate(pairs))
+    cov = (f'<div class="spread cov"><a href="{f["cover"]}" data-lb><img src="{f["cover"]}" alt="{html.escape(ISSUE["pub"] + " " + f["issue"])} front cover" loading="eager" width="1133" height="1467"></a></div>' if f.get('cover_in_article') and f.get('cover') else '')
+    spreads = cov + ''.join('<div class="spread">' + ''.join(f'<a href="pages/p{n:03d}.jpg" data-lb><img src="pages/p{n:03d}.jpg" alt="{html.escape(ISSUE["pub"])} page {n}" loading="{"eager" if i==0 else "lazy"}" width="1133" height="1467"></a>' for n in pr) + '</div>' for i, pr in enumerate(pairs))
     t = {'intro': f['intro'], 'body': f['body']}
     body = ''.join(para(p, f) for p in t['body'])
     extra = ''.join(f'<p class="caps"><b>{html.escape(h)}:</b> {html.escape(x)}</p>' for h, x in f['extra'])

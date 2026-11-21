@@ -11,3 +11,5 @@ These scripts generate the static pages in this repo. Netlify serves the repo as
 1. Find the issue on issuu.com/awarenessties and its document id (the `image.isu.pub/<id>/jpg/page_1.jpg` pattern). Page images: `https://image.isu.pub/<id>/jpg/page_<n>.jpg` (needs image.isu.pub in Claude's allowed domains, already added).
 2. OCR the text pages at 3x with tesseract (`--psm 3`), clean up, and add an entry to awarenow-features.json (folder = where the page jpgs are).
 3. Run build_published.py with the repo path, check, commit, push. Netlify publishes in about a minute.
+
+Optional feature fields: `sort` (number used to order the Published Features grid when an issue has no number, e.g. 30.5 for "The Dreams Edition: Love Louisville Style"); leave `num` null and the "Issue N" label is omitted. Body paragraphs that contain line breaks (poems, lists) keep them on the page.

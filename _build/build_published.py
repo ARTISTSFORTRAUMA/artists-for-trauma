@@ -33,6 +33,7 @@ CSS = '''
 .txt p{margin:0 0 18px;font-size:23px;line-height:1.18}
 .txt p b{font-weight:700}
 .txt .q b{color:var(--pink-ink)}
+.txt .pre{white-space:pre-line}
 .txt .caps{font-size:1rem;color:var(--mute);border-left:4px solid var(--line);padding-left:14px}
 .txt .credit{font-size:1rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px;margin-top:30px}
 .pfl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:26px;padding-block:32px}
@@ -63,7 +64,7 @@ def para(p, f):
         is_q = who in ('ALLIÉ', 'ALLIE', 'EDDIE') or (who == 'LAURA' and 'Laura Sharpe' in f['by'] and f['people'] != 'Laura Sharpe') or (who == 'AARON' and 'Laquita' in f['people'])
         name = 'Allié' if who in ('ALLIÉ', 'ALLIE') else who.title()
         return f'<p{" class=\"q\"" if is_q else ""}><b>{html.escape(name)}:</b> {html.escape(p[m.end():])}</p>'
-    return f'<p>{html.escape(p)}</p>'
+    return f'<p{" class=\"pre\"" if chr(10) in p else ""}>{html.escape(p)}</p>'
 
 base = f'{SITE}/published-features'
 os.makedirs(base, exist_ok=True)
@@ -74,7 +75,7 @@ for f in FEATURES:
     for n in f['pages']:
         if os.path.exists(f'{d}/pages/p{n:03d}.jpg'): continue  # already published
         Image.open(f'{AWN}/{f["folder"]}/p{n:03d}.jpg').convert('RGB').save(f'{d}/pages/p{n:03d}.jpg', 'JPEG', quality=86, optimize=True, progressive=True)
-    ISSUE = {'pub': 'AwareNow', 'issue': f"{f['issue']} · Issue {f['num']}", 'date': f['date'], 'url': f['url']}
+    ISSUE = {'pub': 'AwareNow', 'issue': f"{f['issue']} · Issue {f['num']}" if f.get('num') else f['issue'], 'date': f['date'], 'url': f['url']}
     pairs = [f['pages'][i:i+2] for i in range(0, len(f['pages']), 2)]
     spreads = ''.join('<div class="spread">' + ''.join(f'<a href="pages/p{n:03d}.jpg" data-lb><img src="pages/p{n:03d}.jpg" alt="{html.escape(ISSUE["pub"])} page {n}" loading="{"eager" if i==0 else "lazy"}" width="1133" height="1467"></a>' for n in pr) + '</div>' for i, pr in enumerate(pairs))
     t = {'intro': f['intro'], 'body': f['body']}
@@ -91,7 +92,7 @@ for f in FEATURES:
 <div class="lb" id="lb" role="dialog" aria-label="Enlarged page"><button type="button">Close</button><img alt=""></div>
 <script>(function(){{var lb=document.getElementById('lb'),im=lb.querySelector('img');document.querySelectorAll('[data-lb]').forEach(function(a){{a.addEventListener('click',function(e){{e.preventDefault();im.src=a.getAttribute('href');lb.classList.add('on');lb.scrollTop=0}})}});lb.addEventListener('click',function(){{lb.classList.remove('on')}});document.addEventListener('keydown',function(e){{if(e.key==='Escape')lb.classList.remove('on')}})}})();</script>'''
     open(f'{d}/index.html', 'w').write(page(f'{f["title"]} · Published Features · Artists for Trauma', art, t['intro']))
-    cards.append((f['num'], f'<a class="pfc" href="/published-features/{f["slug"]}/"><div class="ph"><img src="/published-features/{f["slug"]}/pages/p{f["thumb"]:03d}.jpg" alt="" loading="lazy"></div><small>{ISSUE["pub"]} · {ISSUE["issue"]} · {ISSUE["date"]}</small><b>{html.escape(f["title"])}</b><small>{html.escape(f["people"])}</small></a>'))
+    cards.append((f.get('sort') or f['num'], f'<a class="pfc" href="/published-features/{f["slug"]}/"><div class="ph"><img src="/published-features/{f["slug"]}/pages/p{f["thumb"]:03d}.jpg" alt="" loading="lazy"></div><small>{ISSUE["pub"]} · {ISSUE["issue"]} · {ISSUE["date"]}</small><b>{html.escape(f["title"])}</b><small>{html.escape(f["people"])}</small></a>'))
 idx = f'''<section class="band"><div class="wrap"><h1><span>Published</span> Features</h1>
 <p>Stories about Artists for Trauma, our Fellow Travelers and collaborators, as published in AwareNow magazine from 2021, including Laura Sharpe’s column ‘Fellow Travelers’.</p></div></section>
 <div class="wrap"><div class="pfl">{''.join(c for _, c in sorted(cards, key=lambda x: -x[0]))}</div></div>'''

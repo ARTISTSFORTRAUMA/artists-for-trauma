@@ -5,6 +5,7 @@ a{color:inherit}img{max-width:100%;height:auto;display:block}
 .wrap{max-width:1240px;margin:0 auto;padding:0 20px}
 .top{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:5}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.top nav.main a.n{font-size:1.05rem}
 .top img{height:44px;width:auto}
 .top nav{display:flex;gap:20px;align-items:center;flex-wrap:nowrap;white-space:nowrap}
 .top nav a{text-decoration:none;font-weight:600;font-size:1.05rem}.top nav a:hover{color:var(--pink-ink)}
@@ -53,3 +54,26 @@ footer{margin-top:72px;background:var(--grad);padding-block:36px}footer .wrap{di
 .pn small{display:block;color:var(--mute);font-weight:600;font-size:.9rem;margin-bottom:4px}
 .pn .nx{text-align:right}
 .note{margin-top:28px;font-size:1rem;color:var(--mute)}
+
+/* main menu, old-site layout */
+nav.main{display:flex;align-items:center;gap:14px}
+nav.main .menu{display:flex;align-items:center;gap:clamp(12px,1.3vw,20px)}
+nav.main a.n{display:inline-flex !important;align-items:center;gap:4px;text-decoration:none;font-family:var(--head);font-weight:600;font-size:1.12rem;white-space:nowrap;color:inherit}
+nav.main a.n i{font-style:normal;font-size:.7em;opacity:.7}
+nav.main a.n:hover,nav.main .dd:hover>a.n{color:var(--pink-ink)}
+nav.main .dd{position:relative}
+nav.main .ddm{display:none;position:absolute;top:100%;left:-12px;min-width:230px;background:#fff;border:1px solid #d9d9d9;border-top:3px solid var(--pink);box-shadow:0 10px 24px rgba(0,0,0,.12);padding:6px 0;z-index:50}
+nav.main .dd:hover .ddm,nav.main .dd:focus-within .ddm{display:block}
+nav.main .ddm a{display:block;padding:9px 16px;text-decoration:none;font-family:var(--head);font-weight:600;font-size:1.05rem;color:#000;white-space:nowrap}
+nav.main .ddm a:hover{background:#f3f3ee;color:var(--pink-ink)}
+nav.main .menubtn{display:none;font:700 1.05rem var(--head);padding:9px 14px;border:2px solid #000;background:#fff;border-radius:2px;cursor:pointer}
+@media (max-width:1180px){
+  nav.main .menubtn{display:inline-flex}
+  nav.main .menu{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid #d9d9d9;box-shadow:0 14px 28px rgba(0,0,0,.14);flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 18px;max-height:80vh;overflow:auto;z-index:60}
+  nav.main.open .menu{display:flex}
+  nav.main .menu a.n{padding:12px 0;border-bottom:1px solid #eee;font-size:1.25rem;box-shadow:none !important}
+  nav.main .dd{border-bottom:1px solid #eee}nav.main .dd>a.n{border-bottom:0;width:100%}
+  nav.main .dd .ddm{display:block;position:static;border:0;box-shadow:none;padding:0 0 8px 14px;min-width:0}
+  nav.main .dd .ddm a{padding:8px 0;font-size:1.1rem;color:#444}
+  nav.main a.n i{display:none}
+}

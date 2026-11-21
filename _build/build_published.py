@@ -44,6 +44,15 @@ CSS = '''
 .pfc .ph img{width:100%;height:100%;object-fit:cover}
 .pfc small{color:var(--mute);font-weight:600;font-size:.95rem}
 .pfc b{font-size:1.5rem;line-height:1}.pfc:hover b{color:var(--pink-ink)}
+.pfi{display:grid;gap:10px;align-content:start}
+.pfi .ph{display:block;aspect-ratio:1133/1467;overflow:hidden;background:#eee;box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.pfi .ph img{width:100%;height:100%;object-fit:cover;transition:transform .3s}.pfi .ph:hover img{transform:scale(1.02)}
+.pfi small{color:var(--mute);font-weight:600;font-size:.95rem}
+.pfi ul{list-style:none;margin:0;padding:0;display:grid}
+.pfi li{border-top:1px solid var(--line)}.pfi li:first-child{border-top:0}
+.pfi li a{display:grid;gap:2px;padding:9px 0;text-decoration:none}
+.pfi li b{font-size:1.3rem;line-height:1.02}.pfi li a:hover b{color:var(--pink-ink)}
+.pfi li span{color:var(--mute);font-weight:600;font-size:.9rem}
 '''
 
 def page(title, body, desc):
@@ -95,9 +104,20 @@ for f in FEATURES:
 <div class="lb" id="lb" role="dialog" aria-label="Enlarged page"><button type="button">Close</button><img alt=""></div>
 <script>(function(){{var lb=document.getElementById('lb'),im=lb.querySelector('img');document.querySelectorAll('[data-lb]').forEach(function(a){{a.addEventListener('click',function(e){{e.preventDefault();im.src=a.getAttribute('href');lb.classList.add('on');lb.scrollTop=0}})}});lb.addEventListener('click',function(){{lb.classList.remove('on')}});document.addEventListener('keydown',function(e){{if(e.key==='Escape')lb.classList.remove('on')}})}})();</script>'''
     open(f'{d}/index.html', 'w').write(page(f'{f["title"]} · Published Features · Artists for Trauma', art, t['intro']))
-    cards.append(((f.get('sort') or f['num'], f['pages'][0]), f'<a class="pfc" href="/published-features/{f["slug"]}/"><div class="ph"><img src="{f.get("cover") or f"/published-features/{f['slug']}/pages/p{f['thumb']:03d}.jpg"}" alt="{html.escape("AwareNow " + f["issue"] + " cover")}" loading="lazy"></div><small>{ISSUE["pub"]} · {ISSUE["issue"]} · {ISSUE["date"]}</small><b>{html.escape(f["title"])}</b><small>{html.escape(f["people"])}</small></a>'))
+    cards.append(dict(key=(f.get('sort') or f['num'], f['pages'][0]), url=f['url'], label=f"{ISSUE['pub']} · {ISSUE['issue']} · {ISSUE['date']}",
+                      cover=f.get('cover') or f"/published-features/{f['slug']}/pages/p{f['thumb']:03d}.jpg", issue=f['issue'], slug=f['slug'], title=f['title'], people=f['people']))
+def issue_cards(cards):
+    groups = {}
+    for c in sorted(cards, key=lambda c: c['key']):
+        groups.setdefault(c['url'], []).append(c)
+    out = []
+    for fs in groups.values():
+        first = fs[0]
+        items = ''.join(f'<li><a href="/published-features/{c["slug"]}/"><b>{html.escape(c["title"])}</b><span>{html.escape(c["people"])}</span></a></li>' for c in fs)
+        out.append(f'<div class="pfi"><a class="ph" href="/published-features/{first["slug"]}/"><img src="{first["cover"]}" alt="{html.escape("AwareNow " + first["issue"] + " cover")}" loading="lazy"></a><small>{first["label"]}</small><ul>{items}</ul></div>')
+    return ''.join(out)
 idx = f'''<section class="band"><div class="wrap"><h1><span>Published</span> Features</h1>
 <p>Stories about Artists for Trauma, our Fellow Travelers and collaborators, as published in AwareNow magazine from 2021, including Laura Sharpe’s column ‘Fellow Travelers’.</p></div></section>
-<div class="wrap"><div class="pfl">{''.join(c for _, c in sorted(cards, key=lambda x: x[0]))}</div></div>'''
+<div class="wrap"><div class="pfl">{issue_cards(cards)}</div></div>'''
 open(f'{base}/index.html', 'w').write(page('Published Features · Artists for Trauma', idx, 'Stories about Artists for Trauma published in AwareNow and other magazines.'))
 print('built', len(FEATURES), 'features')

@@ -70,6 +70,7 @@ figcaption{font-size:1rem;color:var(--mute);font-weight:600}
 .wide{max-width:1240px;width:100%}
 .g{display:grid;gap:6px}
 .story>.g+.g{margin-top:-30px}
+.story>.g+.wrap.wide:has(.pq.boxed),.story>.wrap.wide:has(.pq.boxed)+.g{margin-top:-30px}
 /* Side caption: runs up the left edge of its photo, outside the frame, so the photo bottoms line up */
 .g figure:has(figcaption.side){position:relative}
 .g figcaption.side{position:absolute;left:0;bottom:0;margin:0;white-space:nowrap;line-height:1.2;transform-origin:0 100%;transform:rotate(-90deg) translateY(-8px)}

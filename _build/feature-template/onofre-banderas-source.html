@@ -99,6 +99,10 @@ figcaption{font-size:1rem;color:var(--mute);font-weight:600}
 .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,38%);gap:22px;align-items:start}.duo>div{display:grid;gap:inherit;align-content:start}.col figure.inset{margin:4px 0 0}.col figure.inset img{width:100%;display:block;border-radius:2px}.col figure.inset figcaption{font-size:.9rem;margin-top:6px;font-weight:600}
 @media (max-width:600px){.duo{grid-template-columns:1fr}}
 @media (max-width:820px){.hero h1{font-size:min(var(--name-size),12.5vw) !important}}
+/* Phones: the pixel nudges were set on a desktop screen, so photos go back to their plain framing */
+@media (max-width:760px){.boxed figure img,.hero.full .ph img{transform:none!important}.pq figcaption.side{display:none}
+.hero.full .wrap{grid-template-columns:minmax(0,1fr)}.hero.full .ph{min-height:0;height:auto;aspect-ratio:4/5}
+.pq.boxed figure,.g.boxed figure{display:block;aspect-ratio:4/5!important;min-height:0}.boxed figure .crop{display:block;height:100%;overflow:hidden!important}.boxed figure img{width:100%;height:100%}.pq.boxed{padding:20px 20px 0}.pq.boxed .q{padding:0 0 20px}}
 @media (min-width:761px){.pq.boxed .q{align-self:center;padding-top:0}}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -250,14 +254,14 @@ footer p span{color:#fff;white-space:nowrap}
 
   <div class="story">
     <div class="wrap col">
-      <p class="lede" style="position:relative;top:-5px">Artist, Trauma Survivor, Father and Community Leader</p>
+      <p class="lede">Artist, Trauma Survivor, Father and Community Leader</p>
       <p>After surviving a shooting with a 12 gauge shotgun, Onofre Banderas, Ono, turned trauma into purpose through art.</p>
     </div>
 
     <div class="wrap wide">
       <div class="pq ir boxed">
-        <div class="q" style="position:relative;top:-7px;left:61px"><blockquote class="long">“Sometimes you just gotta go through the pain &amp; suffering. That is the only way you get to really appreciate life.”</blockquote><cite>Onofre Banderas</cite></div>
-        <figure><span class="crop"><img src="{{tank}}" alt="Onofre Banderas in a black tank top and hat" style="object-position:27% 100%;transform-origin:27% 100%;transform:translate(-70px, 49px) scale(1.13)"></span></figure>
+        <div class="q" style="position:relative;top:81px;left:95px"><blockquote class="long">“Sometimes you just gotta go through the pain &amp; suffering. That is the only way you get to really appreciate life.”</blockquote><cite>Onofre Banderas</cite></div>
+        <figure><span class="crop"><img src="{{tank}}" alt="Onofre Banderas in a black tank top and hat" style="object-position:27% 100%;transform-origin:27% 100%;transform:translate(-70px, 47px) scale(1.15)"></span></figure>
       </div>
     </div>
 
@@ -278,7 +282,7 @@ footer p span{color:#fff;white-space:nowrap}
       </div>
     </div>
 
-    <div class="wrap col" style="position:relative;top:-7px">
+    <div class="wrap col">
       <h2><small>2019</small>Ono’s life changed in an instant</h2>
       <p>An ordinary stop at a local taco stand became a life changing tragedy. While waiting in line, Ono became the victim of an assault with a deadly weapon.</p>
       <p class="hl">He was shot twice with a 12-gauge shotgun, once in the stomach and once in his left hand.</p>
@@ -292,7 +296,7 @@ footer p span{color:#fff;white-space:nowrap}
       </div>
     </div>
 
-    <div class="wrap col" style="position:relative;top:3px">
+    <div class="wrap col">
       <p>He spent months in the hospital fighting for his life, underwent countless surgeries, and woke from a coma facing a future filled with uncertainty. In an instant, the life he had always known was gone.</p>
       <p class="hl">Ono shares that recovery became just as much a mental battle as a physical one.</p>
       <p>When Ono woke up from his coma, he couldn’t walk. He had lost the use and sensitivity of his left hand and was learning to live with a colostomy bag.</p>
@@ -332,7 +336,7 @@ footer p span{color:#fff;white-space:nowrap}
       </div>
     </div>
 
-    <div class="wrap col" style="position:relative;top:-11px">
+    <div class="wrap col">
       <p>That simple act of kindness became a turning point.</p>
       <p>Laura and Artists for Trauma restored Ono’s hope and reconnected him with creativity during one of the darkest chapters of his life, he became determined to one day pay that same compassion forward.</p>
       <h2><small>Rehabilitation</small>Rebuilding strength</h2>
@@ -349,7 +353,7 @@ footer p span{color:#fff;white-space:nowrap}
       </div>
     </div>
 
-    <div class="wrap col" style="position:relative;top:-5px">
+    <div class="wrap col">
       <p class="hl">Today, Ono volunteers using creativity to support others navigating trauma just as it supported him during his own recovery.</p>
       <h2><small>Creativity</small>More than self expression</h2>
       <p class="hl">Ono’s life-altering traumatic experience transformed the way he views creativity.</p>
@@ -363,7 +367,7 @@ footer p span{color:#fff;white-space:nowrap}
       <figure><span class="crop"><img src="{{collar}}" alt="Onofre Banderas holding the collar of his jersey" style="object-position:60.5% 100%;transform-origin:60.5% 100%;transform:translate(0px, 300px) scale(1.53)"></span></figure>
     </div>
 
-    <div class="wrap col" style="position:relative;top:-8px">
+    <div class="wrap col">
       <h2><small>Pura Avenida</small>A 600 foot public artwork</h2>
       <p class="hl">That philosophy now shapes the work Ono does through Pura Avenida.</p>
       <p>A community driven arts organization that creates public art, celebrates culture, brings artists and neighborhoods together through creativity.</p>

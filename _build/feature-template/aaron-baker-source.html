@@ -346,7 +346,7 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap big">
-      <blockquote style="text-transform:none"><span>“Apathy in life</span> <span>accelerates entropy.”</span></blockquote>
+      <blockquote class="nofit" style="text-transform:none;font-size:clamp(2.4rem,4.4vw,3.3rem);line-height:.95"><span>“Apathy in life</span> <span>accelerates entropy.”</span></blockquote>
       <cite>Aaron Baker</cite>
     </div>
 
@@ -431,7 +431,7 @@ footer p span{color:#fff;white-space:nowrap}
 /* Fit big pull-quote lines to the article text width */
 (function(){
   function fit(){
-    document.querySelectorAll('.big blockquote').forEach(function(q){
+    document.querySelectorAll('.big blockquote:not(.nofit)').forEach(function(q){
       q.style.fontSize='';q.style.width='';
       if(window.innerWidth<1100) return;
       var spans=q.querySelectorAll('span');if(!spans.length) return;

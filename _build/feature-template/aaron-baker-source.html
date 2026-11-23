@@ -109,6 +109,7 @@ figcaption{font-size:1rem;color:var(--mute);font-weight:600}
 .big blockquote{margin:0;font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:700;line-height:.95;text-transform:uppercase}
 @media (min-width:1100px){.big blockquote span{display:block;white-space:nowrap}}
 
+.crop{display:block;overflow:hidden;border-radius:2px}
 .book{font-style:italic;font-weight:700}
 .big cite{font-style:normal;font-size:1.1rem;color:var(--mute);font-weight:500}
 .inline{border-left:3px solid var(--fg);padding:4px 0 4px 22px;font-size:1.6rem;font-weight:700;line-height:1.08}
@@ -215,7 +216,7 @@ footer p span{color:#fff;white-space:nowrap}
     <div class="wrap wide">
       <div class="pq ir">
         <div class="q"><blockquote class="two"><span>“Comfortable being</span> <span>uncomfortable.”</span></blockquote><cite>Aaron Baker</cite></div>
-        <figure><img src="{{jacket}}" alt="Aaron Baker in a leather jacket, leaning on a cane"></figure>
+        <figure><span class="crop"><img src="{{jacket}}" alt="Aaron Baker in a leather jacket, leaning on a cane" style="object-position:100% 47.5%;transform-origin:100% 47.5%;transform:scale(1.55)"></span></figure>
       </div>
     </div>
 

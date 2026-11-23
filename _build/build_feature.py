@@ -37,5 +37,6 @@ more = {'Ford Austin': 'ford-austin', 'Chelsie Hill': 'chelsie-hill', 'Onofre Ba
 for n, s in more.items():
     html = html.replace(f'<a href="#top" aria-label="{n}">', f'<a href="/#feature-{s}" aria-label="{n}">')
 html = html.replace('<img src="/features/', '<img loading="lazy" src="/features/').replace('<img loading="lazy" src="/features/' + slug + '/img/' + paths.get('hero', 'x'), '<img src="/features/' + slug + '/img/' + paths.get('hero', 'x'), 1)
+html = html.replace('</body>', '<script src="/features/tune.js" defer></script>\n</body>', 1) if 'tune.js' not in html else html
 open(f'{out}/index.html', 'w').write(html)
 print('built', f'/features/{slug}/', len(names), 'images')

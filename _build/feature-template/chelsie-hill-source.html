@@ -70,6 +70,10 @@ figcaption{font-size:1rem;color:var(--mute);font-weight:600}
 .wide{max-width:1240px;width:100%}
 .g{display:grid;gap:6px}
 .story>.g+.g{margin-top:-30px}
+/* Side caption: runs up the left edge of its photo, outside the frame, so the photo bottoms line up */
+.g figure:has(figcaption.side){position:relative}
+.g figcaption.side{position:absolute;left:0;bottom:0;margin:0;white-space:nowrap;line-height:1.2;transform-origin:0 100%;transform:rotate(-90deg) translateY(-8px)}
+@media (max-width:760px){.g figcaption.side{position:static;transform:none;margin:6px 0 0}}
 /* Pull quotes on white-backdrop studio shots sit in a box in the cover colour, so the photo is anchored, like the opening box */
 .pq.boxed{background:var(--grad);padding:clamp(20px,3.4vw,48px);padding-block:clamp(20px,2.6vw,32px);border-radius:2px}
 .pq.boxed.ir,.pq.boxed.il{padding-left:clamp(20px,3.4vw,48px);padding-right:clamp(20px,3.4vw,48px)}
@@ -377,7 +381,7 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap wide g g3">
-      <figure><span class="crop"><img src="{{wh}}" alt="Chelsie Hill on the cover of Women’s Health" style="aspect-ratio:3/4;object-position:4% 30%;transform-origin:4% 30%;transform:scale(1)"></span><figcaption>Women’s Health cover by Caleb &amp; Gladys</figcaption></figure>
+      <figure><span class="crop"><img src="{{wh}}" alt="Chelsie Hill on the cover of Women’s Health" style="aspect-ratio:3/4;object-position:4% 30%;transform-origin:4% 30%;transform:scale(1)"></span><figcaption class="side">Women’s Health cover by Caleb &amp; Gladys</figcaption></figure>
       <figure><span class="crop"><img src="{{gym1}}" alt="Chelsie Hill training in a home gym" style="aspect-ratio:3/4;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1.16)"></span></figure>
       <figure><span class="crop"><img src="{{gym2}}" alt="Chelsie Hill standing with support in a gym" style="aspect-ratio:3/4;object-position:50% 28.5%;transform-origin:50% 28.5%;transform:scale(1.07)"></span></figure>
     </div>

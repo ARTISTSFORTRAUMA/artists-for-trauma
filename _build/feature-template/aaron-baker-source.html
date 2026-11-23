@@ -105,7 +105,10 @@ figcaption{font-size:1rem;color:var(--mute);font-weight:600}
 @media (min-width:1100px){.pq blockquote.two span{display:block;white-space:nowrap}}
 .pq figure img{height:auto}
 @media (min-width:601px){.col h2.one{white-space:nowrap}}
-.pq.up .q{align-self:start;padding-top:var(--q-top,13%)}
+/* Pull quotes: photos inset equally from both edges, same width; quotes start the same distance below the photo top */
+.pq.il{grid-template-columns:minmax(0,47%) minmax(0,1fr);padding-left:clamp(0px,6vw,72px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,47%);padding-right:clamp(0px,6vw,72px)}
+@media (min-width:761px){.pq .q,.pq.up .q{align-self:start;padding-top:150px}}
 @media (max-width:760px){.pq .q,.pq.up .q,.wrap.col,.wrap.big,.lede{top:0 !important;left:0 !important}.pq.up .q{padding-top:clamp(24px,4vw,56px)}}
 @media (max-width:760px){.pq,.pq.il,.pq.ir{grid-template-columns:1fr;padding:0}.pq.ir .q{padding-left:24px}.pq.ir figure{order:-1}.pq figure{min-height:0;aspect-ratio:4/3}}
 .big{text-align:center;max-width:760px;width:100%;margin:0 auto;display:grid;gap:14px}
@@ -222,12 +225,12 @@ footer p span{color:#fff;white-space:nowrap}
 
     <div class="wrap wide">
       <div class="pq ir up">
-        <div class="q" style="position:relative;top:76px"><blockquote class="two"><span>“Comfortable being</span> <span>uncomfortable.”</span></blockquote><cite>Aaron Baker</cite></div>
+        <div class="q"><blockquote class="two"><span>“Comfortable being</span> <span>uncomfortable.”</span></blockquote><cite>Aaron Baker</cite></div>
         <figure><span class="crop"><img src="{{jacket}}" alt="Aaron Baker in a leather jacket, leaning on a cane" style="object-position:100% 47.5%;transform-origin:100% 47.5%;transform:scale(1.55)"></span></figure>
       </div>
     </div>
 
-    <div class="wrap col" style="position:relative;top:-14px">
+    <div class="wrap col">
       <h2><small>1999</small>The edge of control</h2>
       <p>In 1999, a motocross accident sent Aaron headfirst into the ground, fracturing his C4, 5, &amp; 6 cervical vertebrae and leaving him paralyzed from the chin down. The physical conditions of his life changed, but the instincts of an athlete remained: adapt to what is in front of you and keep moving toward what might be possible.</p>
       <h2><small>Today</small>An alchemist with an athletic outlook</h2>
@@ -237,7 +240,7 @@ footer p span{color:#fff;white-space:nowrap}
       <p>Then comes the tension at the center of that belief:</p>
     </div>
 
-    <div class="wrap big" style="position:relative;top:-10px">
+    <div class="wrap big">
       <blockquote><span>“Life is a dance between making it happen</span> <span>and allowing it to happen.”</span></blockquote>
       <cite>Aaron Baker</cite>
     </div>
@@ -258,7 +261,7 @@ footer p span{color:#fff;white-space:nowrap}
 
     <div class="wrap wide">
       <div class="pq ir">
-        <div class="q" style="position:relative;top:-45px"><blockquote class="long">“I have a spinal cord injury. I have to accept that. I’m not satisfied with staying there.”</blockquote><cite>Aaron Baker</cite></div>
+        <div class="q"><blockquote class="long">“I have a spinal cord injury. I have to accept that. I’m not satisfied with staying there.”</blockquote><cite>Aaron Baker</cite></div>
         <figure><span class="crop"><img src="{{close}}" alt="Aaron Baker in a burgundy suit, looking off to the side" style="object-position:100% 31.5%;transform-origin:100% 31.5%;transform:scale(1.34)"></span></figure>
       </div>
     </div>
@@ -266,7 +269,7 @@ footer p span{color:#fff;white-space:nowrap}
     <div class="wrap col">
       <p>Acceptance gives him somewhere honest to begin. Curiosity keeps that starting point from becoming an ending.</p>
       <p>Aaron can acknowledge what is true without assuming he knows everything about what comes next.</p>
-      <p class="inline">“Who knows what’s possible?”</p>
+      <p>“Who knows what’s possible?”</p>
       <h2><small>Family</small>Strength is never entirely solitary</h2>
       <p>Aaron did not develop that outlook alone. His mother, Laquita Dian, was beside him through the aftermath of his injury.</p>
       <p>Later, Aaron and his mother became involved in building a rehabilitation, adaptive fitness, and wellness facility in Los Angeles, extending the lessons of his own recovery into a space centered on movement, wellness, and possibility.</p>
@@ -303,7 +306,7 @@ footer p span{color:#fff;white-space:nowrap}
     <div class="wrap wide">
       <div class="pq il">
         <figure><span class="crop"><img src="{{arms}}" alt="Aaron Baker in a burgundy suit, arms open, seated in his wheelchair" style="object-position:53.5% 64%;transform-origin:53.5% 64%;transform:scale(1.26)"></span></figure>
-        <div class="q" style="position:relative;top:-88px"><blockquote><span style="white-space:nowrap">Being before Doing.</span></blockquote><cite>The B.A.S.I.C.S. Method</cite></div>
+        <div class="q"><blockquote><span style="white-space:nowrap">Being before Doing.</span></blockquote><cite>The B.A.S.I.C.S. Method</cite></div>
       </div>
     </div>
 
@@ -313,7 +316,7 @@ footer p span{color:#fff;white-space:nowrap}
       <h2><small>Creation</small>Life is a big canvas</h2>
       <p>That thinking also lives on the page. In his memoir, <em class="book">The Rebellious Recovery: Transform Your Adversity Into Adventure</em>, Aaron gives language to ideas he has spent years testing against his own life.</p>
       <p>Yet he is far more interested in creation than retrospection.</p>
-      <p class="inline">“I’m focused on creation, living forward, looking forward, building anew,” he says. “Life is a big canvas.”</p>
+      <p>“I’m focused on creation, living forward, looking forward, building anew,” he says. “Life is a big canvas.”</p>
       <p>The past provides material, but Aaron’s attention remains fixed on what can be created from it now.</p>
     </div>
 
@@ -336,7 +339,7 @@ footer p span{color:#fff;white-space:nowrap}
 
     <div class="wrap wide">
       <div class="pq ir">
-        <div class="q" style="position:relative;top:-70px;left:7px"><blockquote class="two"><span>“Life is a</span> <span>big canvas.”</span></blockquote><cite>Aaron Baker</cite></div>
+        <div class="q"><blockquote class="two"><span>“Life is a</span> <span>big canvas.”</span></blockquote><cite>Aaron Baker</cite></div>
         <figure><span class="crop"><img src="{{tee}}" alt="Aaron Baker in a white T-shirt and jeans, seated in his wheelchair" style="object-position:38.5% 44.5%;transform-origin:38.5% 44.5%;transform:scale(1.14)"></span></figure>
       </div>
     </div>
@@ -376,7 +379,7 @@ footer p span{color:#fff;white-space:nowrap}
     <div class="wrap wide">
       <div class="pq il">
         <figure><span class="crop"><img src="{{crate}}" alt="Aaron Baker in a plaid shirt, seated beside a wooden crate" style="object-position:68% 74.5%;transform-origin:68% 74.5%;transform:scale(1.26)"></span></figure>
-        <div class="q" style="position:relative;top:-78px;left:-4px"><blockquote class="long">“Inspiration is a wheel. What I give you, you give me, and then we give others.”</blockquote><cite>Aaron Baker</cite></div>
+        <div class="q"><blockquote class="long">“Inspiration is a wheel. What I give you, you give me, and then we give others.”</blockquote><cite>Aaron Baker</cite></div>
       </div>
     </div>
 
@@ -387,7 +390,7 @@ footer p span{color:#fff;white-space:nowrap}
 
     <div class="wrap wide">
       <div class="pq ir">
-        <div class="q" style="position:relative;top:-63px"><blockquote class="two"><span>“Who knows</span> <span>what’s possible?”</span></blockquote><cite>Aaron Baker</cite></div>
+        <div class="q"><blockquote class="two"><span>“Who knows</span> <span>what’s possible?”</span></blockquote><cite>Aaron Baker</cite></div>
         <figure><span class="crop"><img src="{{smile}}" alt="Aaron Baker smiling, seated with a cane" style="object-position:100% 61.5%;transform-origin:100% 61.5%;transform:scale(1.3)"></span></figure>
       </div>
     </div>

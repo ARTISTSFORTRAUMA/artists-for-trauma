@@ -1,0 +1,480 @@
+<title>Chelsie Hill · Clean Feature</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap">
+<style>
+/* Layout: clean AFT feature — white page, hairline rules, black type, uncropped photo breaks; colour only in site header/footer */
+:root{
+  --bg:#ffffff; --fg:#000000; --mute:#555555; --line:#d9d9d9; --soft:#f3f3ee;
+  --pink:#f567af; --pink-ink:#c93683;
+  --grad:linear-gradient(115deg,#866e55 0%,#7c664f 48%,#715d48 100%);
+  --head:"gotham-condensed","Barlow Condensed","Arial Narrow",sans-serif;
+  --sp:clamp(48px,6vw,80px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{background:var(--bg);color:var(--fg);font-family:var(--head);font-weight:500;font-size:24px;line-height:1.15}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:700;line-height:.92;letter-spacing:-.01em;text-wrap:balance}
+img{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px}
+.eyebrow{font-weight:600;font-size:1rem;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:700 1.15rem var(--head);text-decoration:none;padding:12px 24px;border-radius:2px;background:#000;color:#fff}
+.btn:hover{background:var(--pink);color:#000}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+
+/* header (same as home page) */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.bar .lm{height:56px;width:auto;object-fit:contain}
+.bar .lw{height:40px;width:auto;object-fit:contain}
+nav.main{display:flex;gap:clamp(14px,1.6vw,24px);align-items:center;margin-right:auto;margin-left:12px}
+nav.main a{text-decoration:none;font-weight:600;font-size:1.15rem}
+nav.main a:hover,nav.main a.on{text-decoration:underline;text-underline-offset:6px}
+@media (max-width:1140px){nav.main a.n{display:none}}
+@media (max-width:620px){.bar .lw{display:none}}
+
+/* hero */
+.crumb{font-size:1.05rem;color:var(--mute);padding-block:18px}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--fg)}
+.hero{background:var(--grad);color:#000}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:stretch;padding-block:clamp(20px,2.6vw,32px)}
+.hero .txt{display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:20px;text-align:center;padding-block:4px}
+.hero .eyebrow{color:#000;font-size:clamp(1.1rem,1.9vw,1.5rem);letter-spacing:.04em}
+.hero h1{font-size:clamp(5rem,12.6vw,10.4rem);font-weight:800;text-transform:uppercase;line-height:.8;letter-spacing:-.01em}
+.hero h1 span{display:block;color:#fff}
+.hero .deck{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:700;line-height:1.08}
+.hero .deck em{font-style:normal}
+.hero .credits{font-size:clamp(1rem,1.5vw,1.25rem);font-weight:500;display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center}
+.hero .credits b{font-weight:700}
+.hero .ph{aspect-ratio:1.18;max-width:100%}
+.hero .ph{overflow:hidden;border-radius:2px}
+.hero .ph img{object-position:center top;transform:scale(1.16);transform-origin:47% 82%}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero .txt{padding-bottom:0}}
+
+/* story */
+.story{padding-block:36px;display:grid;gap:36px}
+.col{max-width:760px;margin:0 auto;display:grid;gap:20px}
+.lede{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:700;line-height:.95}
+
+.col h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;margin-top:8px;line-height:.89}
+.col h2:first-child{margin-top:0}
+.col h2 small{display:block;font-size:1rem;letter-spacing:.08em;color:var(--mute);margin-bottom:8px}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figcaption{font-size:1rem;color:var(--mute);font-weight:600}
+.wide{max-width:1240px;width:100%}
+.g{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g .t{aspect-ratio:3/4}.g .l{aspect-ratio:4/3}.g .s{aspect-ratio:1}
+@media (max-width:760px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3 figure:first-child{grid-column:1/-1}}
+
+.uncrop{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.uncrop figure{flex:0 1 auto}
+.uncrop img{width:auto;height:auto;max-height:560px;max-width:100%;object-fit:contain}
+@media (max-width:760px){.uncrop figure{flex:1 1 40%}.uncrop img{width:100%;max-height:none}}
+/* stats band */
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:0}
+.stats b{display:block;font-size:clamp(2.4rem,4.3vw,3.6rem);font-weight:700;line-height:.9}
+.stats span{font-size:1.1rem;font-weight:500;display:block;margin-top:8px;color:var(--mute)}
+@media (max-width:760px){.stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* quotes */
+.pq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:center}
+.pq .q{padding:clamp(24px,4vw,56px);display:grid;align-content:center;gap:16px}
+
+
+
+.pq blockquote{margin:0;font-size:clamp(1.7rem,3.1vw,2.7rem);font-weight:700;line-height:.95}
+.pq cite{font-style:normal;font-weight:500;font-size:1.3rem;color:var(--mute)}
+.pq figure{min-height:340px}
+
+.pq.il{grid-template-columns:minmax(0,48%) minmax(0,1fr);padding-left:clamp(0px,5vw,64px)}
+.pq.il .q{padding-left:clamp(20px,2.6vw,32px);padding-right:clamp(16px,2vw,24px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,46%);padding-right:clamp(0px,6vw,72px)}
+.pq.ir .q{padding-left:clamp(24px,6vw,76px);padding-right:32px;justify-self:end;width:fit-content;max-width:100%}
+.pq.il .q{padding-left:32px}
+.pq figure{min-height:0}
+.pq blockquote.long{font-size:clamp(1.6rem,2.9vw,2.45rem);font-weight:700;line-height:.95}
+@media (min-width:1100px){.pq blockquote.two span{display:block;white-space:nowrap}}
+.pq figure img{height:auto}
+@media (min-width:601px){.col h2.one{white-space:nowrap}}
+/* Pull quotes: photos inset equally from both edges, same width; quotes start the same distance below the photo top */
+.pq.il{grid-template-columns:minmax(0,47%) minmax(0,1fr);padding-left:clamp(0px,6vw,72px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,47%);padding-right:clamp(0px,6vw,72px)}
+@media (min-width:761px){.pq .q,.pq.up .q{align-self:start;padding-top:150px}}
+@media (max-width:760px){.pq .q,.pq.up .q,.wrap.col,.wrap.big,.lede{top:0 !important;left:0 !important}.pq.up .q{padding-top:clamp(24px,4vw,56px)}}
+@media (max-width:760px){.pq,.pq.il,.pq.ir{grid-template-columns:1fr;padding:0}.pq.ir .q{padding-left:24px}.pq.ir figure{order:-1}.pq figure{min-height:0;aspect-ratio:4/3}}
+.big{text-align:center;max-width:760px;width:100%;margin:0 auto;display:grid;gap:14px}
+.big blockquote{margin:0;font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:700;line-height:.95;text-transform:uppercase}
+@media (min-width:1100px){.big blockquote span{display:block;white-space:nowrap}}
+
+.crop{display:block;overflow:hidden;border-radius:2px}
+.story .lede,.story h2,.pq blockquote,.inline,.big blockquote,.basics b{font-weight:600;-webkit-text-stroke:.4px currentColor}
+.col h2 small{-webkit-text-stroke:0}
+.col h2{text-transform:none;font-size:clamp(2.4rem,4.4vw,3.3rem);line-height:.95}
+.col h2 small{text-transform:uppercase}
+.book{font-style:italic;font-weight:700}
+.big cite{font-style:normal;font-size:1.1rem;color:var(--mute);font-weight:500}
+.inline{border-left:3px solid var(--fg);padding:4px 0 4px 22px;font-size:1.6rem;font-weight:700;line-height:1.08}
+
+/* closing */
+.closing{position:relative;width:calc(100% - 40px);max-width:1200px;margin:0 auto;aspect-ratio:2.65;min-height:300px;display:grid;align-items:start;color:#fff;background:#222;border-radius:2px;overflow:hidden}
+.closing img{position:absolute;inset:0;border-radius:0}
+.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0) 55%)}
+.closing .wrap{position:relative;z-index:1;padding:clamp(20px,3vw,32px);display:grid;gap:10px;width:100%;max-width:none}
+.closing blockquote{margin:0;max-width:520px;font-size:clamp(1.7rem,3.3vw,2.9rem);font-weight:700;line-height:.95}
+.closing cite{font-style:normal;font-weight:600;font-size:1.1rem}
+
+@media (max-width:760px){
+.closing{aspect-ratio:auto;min-height:0;background:none;color:var(--fg);display:block;overflow:visible}
+.closing img{position:static;aspect-ratio:2.67;height:auto;border-radius:2px}
+.closing::after{display:none}
+.closing .wrap{padding:16px 0 0}
+.closing cite{color:var(--mute)}
+}
+/* credits + more */
+.credbox{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-wrap:wrap;gap:10px 40px;font-size:1.1rem}
+.credbox b{display:block;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.more{display:grid;gap:22px}
+.more .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.more h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;line-height:.89}
+.more .all{font-weight:700;font-size:1.15rem;text-decoration:none}.more .all::after{content:" →"}
+.rack{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.rack a{aspect-ratio:3/4;display:block;transition:transform .15s}
+.rack a:hover{transform:translateY(-4px)}
+@media (max-width:760px){.rack{grid-template-columns:repeat(3,minmax(0,1fr))}.rack a:nth-child(n+4){display:none}}
+.give .wrap{border-top:1px solid var(--line)}
+.give .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:36px}
+.give h2{font-size:clamp(2rem,3.6vw,2.8rem);line-height:.89}
+.give p{font-size:1.2rem;margin-top:8px;max-width:52ch;color:var(--mute)}
+footer{background:var(--grad);color:#000}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-block:32px}
+footer img{height:44px;width:auto;object-fit:contain}
+footer p{font-weight:700;font-size:1.15rem}
+footer p span{color:#fff;white-space:nowrap}
+/* Chelsie Hill: hero shows the cover portrait; colours from the cover (taupe band, cream title page) */
+.hero.full .ph{aspect-ratio:4/5}.hero.full .ph img{transform:none;object-position:50% 60%;height:100%;width:100%;object-fit:cover}
+/* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
+   Spacing and sizes are variables so they can be tuned in one place. */
+.hero{--cov:"Playfair Display",Georgia,"Times New Roman",serif;
+  --gap-eyebrow:48px;--gap-name:44px;--gap-deck:106px;--name-size:7.4rem;--name-lh:.78;--deck-size:2.15rem;--deck-lh:.9;--deck-gap:1px;--gap-top:16px}
+.hero .txt{justify-content:flex-start;gap:0;padding-top:var(--gap-top)}
+.hero .eyebrow{color:#fff;margin-bottom:var(--gap-eyebrow)}
+.hero h1{font-family:var(--cov);font-weight:800;color:#f6f1e3;letter-spacing:-.02em;display:inline-block;text-align:left;text-transform:none;line-height:var(--name-lh);font-size:min(var(--name-size),9vw);margin-bottom:var(--gap-name)}
+.hero h1 span{color:#fff;display:block;text-align:right}.hero h1 .fn{color:#f6f1e3;text-align:left}
+.hero .deck{color:#fff;font-size:min(var(--deck-size),3.4vw);line-height:var(--deck-lh);margin-bottom:var(--gap-deck)}
+.hero .deck b{display:block;color:#f6f1e3;font-weight:700;margin-bottom:var(--deck-gap)}
+.hero .credits{color:#fff}
+@media (max-width:820px){.hero h1{font-size:min(var(--name-size),17vw)}.hero .deck{font-size:min(var(--deck-size),7.4vw)}}
+/* Bold display text in the article in the box mauve */
+.story .lede,.story h2,.pq blockquote,.inline,.big blockquote,.basics b{color:#7c664f}
+.inline{border-left-color:#7c664f}
+.col h2 small{color:#000;font-size:1.25rem;letter-spacing:.06em;margin-bottom:6px}
+.big cite{color:#000;font-weight:700;font-size:1.6rem}
+.basics .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px 24px;padding-block:0}
+.basics .grp{grid-column:span 3;font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:6px}
+.basics b{display:block;font-size:clamp(3rem,5vw,4.2rem);font-weight:700;line-height:.9}
+.basics span{font-size:1.2rem;font-weight:500;display:block;margin-top:6px;color:var(--mute)}
+@media (max-width:760px){.basics .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" aria-label="Artists for Trauma home"><img class="lm" src="{{logomark}}" alt=""></a>
+    <nav class="main" aria-label="Main">
+      <a class="n" href="#top">Home</a>
+      <a class="n" href="#top">Programs</a>
+      <a class="n on" href="#top">Features</a>
+      <a class="n" href="#top">Videos</a>
+      <a class="n" href="#top">About</a>
+      <a class="n" href="#top">Events</a>
+      <a class="btn" href="#top" style="background:var(--pink);color:#000">Give with Zeffy</a>
+    </nav>
+    <img class="lw" src="{{logoword}}" alt="Artists For Trauma">
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap crumb"><a href="#top">Home</a> / <a href="#top">Features</a> / Chelsie Hill</div>
+
+  <section class="hero full">
+    <div class="wrap">
+      <div class="txt">
+        <div class="eyebrow">AFT &amp; Laura Sharpe's Artists Profile</div>
+        <h1><span class="fn">Chelsie</span> <span>Hill</span></h1>
+        <p class="deck"><b>Creating Space.</b></p>
+        <div class="credits"><span><b>Cover &amp; design</b> Per Bernal</span><span><b>Interview</b> Tattiahna Welsh</span></div>
+      </div>
+      <div class="ph"><img src="{{hero}}" alt="Chelsie Hill smiling, seated in her wheelchair in a sleeveless top and wide trousers"></div>
+    </div>
+  </section>
+
+  <div class="story">
+    <div class="wrap col">
+      <p class="lede">Chelsie on dance, advocacy, representation, and creating a community where no one has to explain who they are.</p>
+      <p>Dance has been the constant in Chelsie Hill’s life, even when everything else changed. She started at three and was competing by five.</p>
+      <p>She grew up in Monterey, CA, immersed in rehearsals, conventions, competitions, and the sisterhood she found among dancers.</p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{child}}" alt="Chelsie Hill as a young girl in a dance costume, holding an award" style="aspect-ratio:4/3;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{teen}}" alt="Chelsie Hill as a teenager: a silhouette in a wheelchair beside a photo of her posing" style="aspect-ratio:4/3;object-position:50% 40%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Monterey</small>A future built on dance</h2>
+      <p>Chelsie knew where she wanted dance to take her: Los Angeles, where she imagined becoming a professional backup dancer. Dance was where Chelsie felt most herself, and the future she pictured was inseparable from it.</p>
+      <p>At seventeen, a life-altering accident changed the future she had dreamed of. She got into a car with a friend who had been drinking. They hit a tree head-on, leaving Chelsie with a broken back, paralyzed from the waist down.</p>
+      <p>When a doctor told her she was paralyzed, Chelsie’s mind went immediately to the identity she had carried since childhood. Chelsie had hardly any time to process what it meant to lose the ability to walk; she could only think about what it meant for her ability to dance.</p>
+      <p>She spent 51 days in the hospital with few role models of young wheelchair users building careers, families, or futures she could recognize. Even as she struggled to accept her new reality, dance was still her priority.</p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{trophy}}" alt="Chelsie Hill holding a dance trophy, and in a hospital bed after the accident" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{team}}" alt="Chelsie Hill and her high school dance team in wheelchairs by the water" style="aspect-ratio:1;object-position:40% 60%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>Two weeks after returning home, her father sourced wheelchairs for her high school dance team. Her teammates learned to dance in the chairs, and Chelsie, still wearing her back brace, performed alongside them.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir">
+        <div class="q"><blockquote class="long">“That’s when I realized, oh, that fire is still in me.”</blockquote><cite>Chelsie Hill</cite></div>
+        <figure><span class="crop"><img src="{{armup}}" alt="Chelsie Hill in her wheelchair, one arm raised high" style="object-position:50% 50%"></span></figure>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Auti Angel</small>Another source of direction</h2>
+      <p>That drive found another source of direction through wheelchair dancer Auti Angel, whom Chelsie had first seen in a Snoop Dogg music video that her father showed her while she was hospitalized.</p>
+      <p>When they later met, Chelsie told Auti that she used to be a dancer. Auti stopped her.</p>
+      <p class="inline">“Once a dancer, always a dancer.”</p>
+      <p>“That one sentence altered my entire world,” Chelsie remembers.</p>
+    </div>
+
+    <div class="wrap wide g g3">
+      <figure><span class="crop"><img src="{{autimeet}}" alt="Chelsie Hill and Auti Angel with arms raised in front of a brick wall" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{snoop}}" alt="Auti Angel with Snoop Dogg" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{auti}}" alt="Auti Angel posing in her wheelchair" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Advocacy</small>Making it personal</h2>
+      <p>The accident also gave Chelsie a responsibility she continues to carry. As a passenger in a drunk-driving crash, Chelsie has made prevention part of her advocacy, speaking to high school and college students about drunk and distracted driving.</p>
+      <p>She remembers being young and feeling invincible; now, she sits before students and makes the consequences personal.</p>
+      <p class="inline">“I was just like you. I was a dancer. I was good in school. I did all these things, and I became paralyzed, and my entire life was altered.”</p>
+      <p>Her message holds two truths at once: one decision can change a life, and that changed life can still become something extraordinary.</p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{mystory}}" alt="Chelsie Hill speaking to a full auditorium of students" style="aspect-ratio:4/3;object-position:30% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{hospital}}" alt="Chelsie Hill in hospital after the crash, and standing before it" style="aspect-ratio:4/3;object-position:50% 40%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>2012</small>Women who already understood</h2>
+      <p>Rollettes began with Chelsie wanting to meet women who understood her life. In 2012, she reached out on Instagram and invited six women to Monterey. They danced, went to dinner, and moved through her hometown together, experiencing something deceptively simple: the ease of being with women who already understood.</p>
+      <p>For once, the details of life in a wheelchair required no explanation. That feeling stayed with Chelsie and became the foundation for a community where women with disabilities could enter, already knowing they belonged.</p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{graffiti}}" alt="The Rollettes in white tops and wheelchairs in front of a graffiti wall" style="aspect-ratio:4/3;object-position:50% 60%"></span></figure>
+      <figure><span class="crop"><img src="{{studio}}" alt="Dancers in brown dresses seated in wheelchairs in a sunlit studio" style="aspect-ratio:4/3;object-position:55% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Los Angeles</small>Creating what was missing</h2>
+      <p>When Chelsie moved to Los Angeles in 2014, she entered the dance world she had dreamed of since childhood, taking classes with able-bodied dancers, learning choreography, and adapting the movement to spaces that had not been designed with her in mind.</p>
+      <p>Online, she saw the same absence. Wheelchair dancers were rarely seen in the professional dance content she watched, so Chelsie began creating what she and her friends could not find.</p>
+      <p>The ambition became larger than getting Chelsie into the room. She was beginning to build a room of her own. And women came.</p>
+      <p>By 2017, Rollettes Experience had grown to 30 women from three countries. A year later, attendance jumped to 118. It was then that Chelsie understood what had formed around her.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img src="{{crowd}}" alt="A crowd of women in wheelchairs cheering at Rollettes Experience" style="aspect-ratio:16/9;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap big">
+      <blockquote><span>“This is so much bigger than me.</span> <span>This is a movement.”</span></blockquote>
+      <cite>Chelsie Hill</cite>
+    </div>
+
+    <div class="wrap col">
+      <p>“This is a community of women that need each other and need a sisterhood.”</p>
+      <p>Dance remained at its center, but Rollettes Experience expanded around it to include education, advocacy, accessibility, wellness, mentorship, and conversations about navigating life with a disability.</p>
+      <h2><small>Rollettes Experience</small>Build the door</h2>
+      <p>The choreography brought them together, but the community gave them a reason to return.</p>
+      <p>As Rollettes grew, Chelsie still had to convince others that what she was building mattered. Early on, she remembers pitching companies that described Rollettes Experience as “cute,” unable to see its potential on a broader scale.</p>
+      <p>Instead of waiting for the industry to understand her vision, Chelsie created the proof herself. Her philosophy became simple:</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img src="{{tees}}" alt="The Rollettes in black T-shirts posing in their wheelchairs" style="aspect-ratio:16/9;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap big">
+      <blockquote><span>“Build it, and they will come.</span> <span>Build the door, and they’ll go through it.”</span></blockquote>
+      <cite>Chelsie Hill</cite>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Paris</small>A larger stage</h2>
+      <p>Fourteen years after that first gathering in Monterey, the rooms are considerably larger. But Chelsie’s approach remains the same.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq il">
+        <figure><span class="crop"><img src="{{hairflip}}" alt="Chelsie Hill tossing her hair, seated in her wheelchair" style="object-position:50% 50%"></span></figure>
+        <div class="q"><blockquote class="long">“If the space you need doesn’t exist, create it.”</blockquote><cite>Chelsie Hill</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <p>In 2024, that journey took Chelsie to Paris, where she performed in the Opening Ceremony of the Paralympic Games.</p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{paris}}" alt="Chelsie Hill performing with a partner at the Paralympic Games Opening Ceremony in Paris" style="aspect-ratio:4/5;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{ceremony}}" alt="Performers on stage at the Paris 2024 Paralympic Games Opening Ceremony" style="aspect-ratio:4/5;object-position:50% 40%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Artists for Trauma</small>The first to say yes</h2>
+      <p>Laura Sharpe, founder of Artists for Trauma (AFT), saw what Chelsie was building early on in 2014. Chelsie still remembers Laura’s words:</p>
+      <p class="inline">“I love what you’re doing. I want to support it. I want to get involved.”</p>
+      <p>Laura helped cover the cost of the studio space for one of the early Rollettes camps, making AFT the first organization to sponsor them. Chelsie still sees that early support in how far Rollettes has come.</p>
+      <p>Shortly after their collaboration began, AFT sponsored the Rollettes at a 2015 Special Olympics Host Town Event, hosted by Kaiser Permanente Woodland Hills, Valley Cultural Center, and Macy’s.</p>
+      <p>Their partnership has continued to grow over the years, most recently at the 2026 Rollettes Experience at the Burbank Marriott Convention Center, where AFT returned with an interactive art workshop on July 24, bringing hands-on creative expression to a weekend centered on dance, education, empowerment, and community.</p>
+    </div>
+
+    <div class="wrap wide g g4">
+      <figure><span class="crop"><img src="{{aft1}}" alt="Artists for Trauma at Rollettes Experience 2026" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{aft2}}" alt="The AFT volunteer team at Rollettes Experience 2026" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{aft3}}" alt="Friendship flowers made at the 2026 AFT workshop" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{aft4}}" alt="AFT volunteer Alex Baker at the 2026 workshop" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>2026</small>The room is getting bigger</h2>
+      <p>2026 also marks another chapter of growth for Rollettes Experience, as the community expands beyond its Los Angeles home with an experience in Houston.</p>
+      <p>What began with a small gathering of women in Monterey is now reaching new cities, giving more women and children with disabilities the opportunity to find the connection Chelsie first discovered more than a decade ago.</p>
+    </div>
+
+    <div class="wrap wide g g3">
+      <figure><span class="crop"><img src="{{wh}}" alt="Chelsie Hill on the cover of Women’s Health" style="aspect-ratio:3/4;object-position:50% 30%"></span><figcaption>Women’s Health cover by Caleb &amp; Gladys</figcaption></figure>
+      <figure><span class="crop"><img src="{{gym1}}" alt="Chelsie Hill training in a home gym" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{gym2}}" alt="Chelsie Hill standing with support in a gym" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>For AFT, the continued collaboration reflects the same principle that has connected Laura and Chelsie from the beginning: creativity can become a point of connection after a life-altering experience.</p>
+      <p>Years after Laura first helped secure a studio for a small gathering of women, AFT remains part of the community that grew from it.</p>
+      <p><b>The room has changed. Now, it is getting bigger.</b></p>
+      <h2><small>Today</small>Held the door open</h2>
+      <p>Today, Chelsie measures what she built less by how many people fill the room than by what happens once they enter it. She watches girls arrive without knowing anyone and leave with friends.</p>
+      <p>Younger attendees meet women navigating careers, relationships, motherhood, and adulthood with disabilities, examples Chelsie herself struggled to see at seventeen.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img src="{{kids}}" alt="Rollettes dancers with young girls in wheelchairs" style="aspect-ratio:16/9;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap wide g g3">
+      <figure><span class="crop"><img src="{{flowers}}" alt="Three dancers in white with flower crowns, seated in wheelchairs" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{boundless}}" alt="Chelsie Hill with a dancer at the Boundless Talent Showcase" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{trio}}" alt="Chelsie Hill with two dancers in a studio" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap big">
+      <blockquote><span>“Rollettes Experience isn’t for me anymore.</span> <span>It’s for all of the people that attend every year.”</span></blockquote>
+      <cite>Chelsie Hill</cite>
+    </div>
+
+    <div class="wrap col">
+      <p>Now a mother herself, Chelsie is raising a daughter who will grow up seeing disability, leadership, dance, and community not as exceptions, but as part of everyday life.</p>
+      <p>It is a future Chelsie once struggled to see for herself, now made visible for the next generation.</p>
+    </div>
+
+    <div class="wrap wide g g3">
+      <figure><span class="crop"><img src="{{pregnant}}" alt="Chelsie Hill pregnant, in a bathtub filled with flowers" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{robe}}" alt="Chelsie Hill in a white robe holding her newborn daughter" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{mom}}" alt="Chelsie Hill with her daughter on her lap" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>Chelsie did not ask to fit into a room that already existed. She made her own.</p>
+      <p><b>And then she held the door open.</b></p>
+    </div>
+
+    <div class="wrap col">
+      <div class="credbox">
+        <div><b>Series</b>AFT &amp; Laura Sharpe's Artists Profile</div>
+        <div><b>Cover &amp; design</b>Per Bernal</div>
+        <div><b>Interview</b>Tattiahna Welsh</div>
+        <div><b>Follow</b>@artistsfortrauma</div>
+      </div>
+    </div>
+    <div class="wrap more">
+      <div class="head"><h2>More features</h2><a class="all" href="#top">See all features</a></div>
+      <div class="rack">
+        <a href="#top" aria-label="Aaron Baker"><img src="{{f_aaron}}" alt=""></a>
+        <a href="#top" aria-label="Ford Austin"><img src="{{f_ford}}" alt=""></a>
+        <a href="#top" aria-label="Onofre Banderas"><img src="{{f_onofre}}" alt=""></a>
+        <a href="#top" aria-label="Lilian Raven"><img src="{{f_lilian}}" alt=""></a>
+        <a href="#top" aria-label="Fiona Dowdee"><img src="{{f_fiona}}" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="give">
+    <div class="wrap">
+      <div><h2>Be part of the story.</h2><p>Every survivor’s journey is bigger than one injury, one loss, one setback. Artists for Trauma is here to help support that journey through creativity, connectivity, and community.</p></div>
+      <a class="btn" href="#top">Give with Zeffy</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="{{logoword}}" alt="Artists For Trauma">
+    <p>Where Recovery is an Art. Powered by <span>human spirit™</span></p>
+  </div>
+</footer>
+
+<script>
+/* Fit big pull-quote lines to the article text width */
+(function(){
+  function fit(){
+    document.querySelectorAll('.big blockquote:not(.nofit)').forEach(function(q){
+      q.style.fontSize='';q.style.width='';
+      if(window.innerWidth<1100) return;
+      var spans=q.querySelectorAll('span');if(!spans.length) return;
+      var max=0;spans.forEach(function(s){var r=document.createRange();r.selectNodeContents(s);max=Math.max(max,r.getBoundingClientRect().width)});
+      var target=0;var big=q.closest('.big');[big.previousElementSibling,big.nextElementSibling].forEach(function(c){if(c)c.querySelectorAll('p').forEach(function(p){var r=document.createRange();r.selectNodeContents(p);[].forEach.call(r.getClientRects(),function(b){target=Math.max(target,b.width)})})});
+      target=Math.min(target||q.parentElement.getBoundingClientRect().width,q.parentElement.getBoundingClientRect().width);
+      if(max>0){var fs=parseFloat(getComputedStyle(q).fontSize);q.style.fontSize=(fs*target/max).toFixed(1)+'px';q.style.width=target.toFixed(0)+'px'}
+    });
+  }
+  function snug(){
+    document.querySelectorAll('.pq.ir .q').forEach(function(q){
+      q.style.transform='';
+      if(window.innerWidth<761) return;
+      var R=0;q.querySelectorAll('blockquote,cite').forEach(function(e){var r=document.createRange();r.selectNodeContents(e);[].forEach.call(r.getClientRects(),function(b){if(b.width>2)R=Math.max(R,b.right)})});
+      var img=q.parentElement.querySelector('figure').getBoundingClientRect();
+      var shift=img.left-32-R;if(shift>0.5)q.style.transform='translateX('+shift.toFixed(1)+'px)';
+    });
+  }
+  var _fit=fit;fit=function(){_fit();snug()};
+  window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
+  fit();
+})();
+</script>

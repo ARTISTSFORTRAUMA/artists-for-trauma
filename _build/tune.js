@@ -53,7 +53,7 @@
   p.insertBefore(ph,p.querySelector('h4').nextSibling);
   var sel=null,done={};
   var st2=document.createElement('style');st2.textContent='.tunewrap{display:block;overflow:hidden;border-radius:2px}.tunesel{outline:4px solid #f567af;outline-offset:-4px}main img{cursor:crosshair}';document.head.appendChild(st2);
-  function nameOf(img){return img.getAttribute('src').split('/').pop()}
+  function nameOf(img){return (img.dataset.orig||img.getAttribute('src')).split('/').pop()}
   function state(img){var o=(img.style.objectPosition||getComputedStyle(img).objectPosition).split(' ');
     var px=function(v){return /%$/.test(v)?parseFloat(v):(v==='left'||v==='top'?0:v==='right'||v==='bottom'?100:50)};
     var m=(img.style.transform||'').match(/scale\(([\d.]+)\)/);return{z:m?+m[1]:1,x:px(o[0]),y:px(o[1]||o[0]),br:0,ct:0,hl:0,sh:0,sa:0,wa:0}}
@@ -66,16 +66,30 @@
     x=x+(t.sh/100)*0.4*Math.pow(1-Math.min(Math.max(x,0),1),3);
     x=x+(t.hl/100)*0.4*Math.pow(Math.min(Math.max(x,0),1),3);
     return Math.min(Math.max(x,0),1)}
-  var svgNS='http://www.w3.org/2000/svg',svg=document.createElementNS(svgNS,'svg');svg.setAttribute('width',0);svg.setAttribute('height',0);svg.style.position='absolute';document.body.appendChild(svg);var fid=0;
+  /* Preview by recalculating pixels on a canvas (works in Safari, Chrome, Firefox; same maths as tone.py) */
+  var srcs={},pend={};
   function tone(img,t){
-    var zero=!t.br&&!t.ct&&!t.hl&&!t.sh&&!t.sa&&!t.wa;if(zero){img.style.filter='';return}
-    var id=img.dataset.tf||('tf'+(++fid));img.dataset.tf=id;var f=document.getElementById(id);if(f)f.remove();
-    f=document.createElementNS(svgNS,'filter');f.id=id;f.setAttribute('color-interpolation-filters','sRGB');
-    var tv=[];for(var i=0;i<256;i++)tv.push(curve(i/255,t).toFixed(4));tv=tv.join(' ');
-    var ct=document.createElementNS(svgNS,'feComponentTransfer');['R','G','B'].forEach(function(c){var fn=document.createElementNS(svgNS,'feFunc'+c);fn.setAttribute('type','table');fn.setAttribute('tableValues',tv);ct.appendChild(fn)});f.appendChild(ct);
-    var sm=document.createElementNS(svgNS,'feColorMatrix');sm.setAttribute('type','saturate');sm.setAttribute('values',(1+t.sa/100).toFixed(3));f.appendChild(sm);
-    var w=t.wa/100*0.1,wm=document.createElementNS(svgNS,'feColorMatrix');wm.setAttribute('type','matrix');wm.setAttribute('values',(1+w).toFixed(4)+' 0 0 0 0  0 1 0 0 0  0 0 '+(1-w).toFixed(4)+' 0 0  0 0 0 1 0');f.appendChild(wm);
-    svg.appendChild(f);img.style.filter='url(#'+id+')'}
+    if(!img.dataset.orig)img.dataset.orig=img.getAttribute('src');
+    var zero=!t.br&&!t.ct&&!t.hl&&!t.sh&&!t.sa&&!t.wa;
+    if(zero){if(img.getAttribute('src')!==img.dataset.orig)img.src=img.dataset.orig;return}
+    pend[img.dataset.orig]=[img,t];
+    if(pend.raf)return;pend.raf=requestAnimationFrame(function(){pend.raf=0;Object.keys(pend).forEach(function(k){if(k==='raf')return;var q=pend[k];delete pend[k];render(q[0],q[1])})});
+  }
+  function render(img,t){
+    var o=img.dataset.orig,src=srcs[o];
+    if(!src){src=srcs[o]=new Image();src.onload=function(){render(img,t)};src.src=o;return}
+    if(!src.complete||!src.naturalWidth)return;
+    var r=img.getBoundingClientRect(),dpr=window.devicePixelRatio||1,W=src.naturalWidth,H=src.naturalHeight;
+    var sc=Math.min(1,Math.max(r.width,r.height)*dpr*1.3/Math.max(W,H));var w=Math.round(W*sc),h=Math.round(H*sc);
+    var c=document.createElement('canvas');c.width=w;c.height=h;var x=c.getContext('2d');x.drawImage(src,0,0,w,h);
+    var d=x.getImageData(0,0,w,h),p=d.data,lut=new Float32Array(256);for(var i=0;i<256;i++)lut[i]=curve(i/255,t);
+    var s=1+t.sa/100,m=[.213+.787*s,.715-.715*s,.072-.072*s,.213-.213*s,.715+.285*s,.072-.072*s,.213-.213*s,.715-.715*s,.072+.928*s],wm=t.wa/100*.1;
+    for(i=0;i<p.length;i+=4){var R=lut[p[i]],G=lut[p[i+1]],B=lut[p[i+2]];
+      var r2=m[0]*R+m[1]*G+m[2]*B,g2=m[3]*R+m[4]*G+m[5]*B,b2=m[6]*R+m[7]*G+m[8]*B;
+      r2=Math.min(Math.max(r2,0),1)*(1+wm);b2=Math.min(Math.max(b2,0),1)*(1-wm);g2=Math.min(Math.max(g2,0),1);
+      p[i]=Math.min(r2,1)*255+.5;p[i+1]=g2*255+.5;p[i+2]=Math.min(b2,1)*255+.5}
+    x.putImageData(d,0,0);img.src=c.toDataURL('image/jpeg',.92);
+  }
   function apply(img,v){wrap(img);img.style.objectPosition=v.x+'% '+v.y+'%';img.style.transformOrigin=v.x+'% '+v.y+'%';img.style.transform='scale('+v.z+')';tone(img,v);done[nameOf(img)]=v}
   var pc=ph.querySelector('.pc'),rs=pc.querySelectorAll('input');
   document.querySelector('main').addEventListener('click',function(e){

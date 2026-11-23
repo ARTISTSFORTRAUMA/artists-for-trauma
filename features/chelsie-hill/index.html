@@ -75,6 +75,12 @@ figcaption{font-size:1rem;color:var(--mute);font-weight:600}
 .wide{max-width:1240px;width:100%}
 .g{display:grid;gap:6px}
 .story>.g+.g{margin-top:-30px}
+/* Pull quotes on white-backdrop studio shots sit in a box in the cover colour, so the photo is anchored, like the opening box */
+.pq.boxed{background:var(--grad);padding:clamp(20px,3.4vw,48px);border-radius:2px}
+.pq.boxed.ir,.pq.boxed.il{padding-left:clamp(20px,3.4vw,48px);padding-right:clamp(20px,3.4vw,48px)}
+.pq.boxed blockquote{color:#f6f1e3}.pq.boxed cite{color:#fff}
+.pq.boxed figure{background:#fff}
+@media (min-width:761px){.pq.boxed .q{align-self:center;padding-top:0}}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -254,8 +260,8 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap wide">
-      <div class="pq ir">
-        <div class="q" style="position:relative;top:137px;left:1px"><blockquote class="long">“That’s when I realized, oh, that fire is still in me.”</blockquote><cite>Chelsie Hill</cite></div>
+      <div class="pq ir boxed">
+        <div class="q"><blockquote class="long">“That’s when I realized, oh, that fire is still in me.”</blockquote><cite>Chelsie Hill</cite></div>
         <figure><span class="crop"><img loading="lazy" src="/features/chelsie-hill/img/armup.jpg" alt="Chelsie Hill in her wheelchair, one arm raised high" style="object-position:38.5% 37%;transform-origin:38.5% 37%;transform:scale(1.27)"></span></figure>
       </div>
     </div>
@@ -339,9 +345,9 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap wide">
-      <div class="pq il">
+      <div class="pq il boxed">
         <figure><span class="crop"><img loading="lazy" src="/features/chelsie-hill/img/hairflip.jpg" alt="Chelsie Hill tossing her hair, seated in her wheelchair" style="object-position:59.5% 42.5%;transform-origin:59.5% 42.5%;transform:scale(1.26)"></span></figure>
-        <div class="q" style="position:relative;top:-10px;left:3px"><blockquote class="long">“If the space you need doesn’t exist, create it.”</blockquote><cite>Chelsie Hill</cite></div>
+        <div class="q"><blockquote class="long">“If the space you need doesn’t exist, create it.”</blockquote><cite>Chelsie Hill</cite></div>
       </div>
     </div>
 

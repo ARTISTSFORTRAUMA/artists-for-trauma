@@ -115,7 +115,7 @@
   document.querySelector('main').addEventListener('click',function(e){
     if(e.target.closest('img,#tune'))return;var el=e.target.closest(TSEL);if(!el)return;e.preventDefault();e.stopPropagation();
     if(tsel)tsel.classList.remove('tunetsel');tsel=el;el.classList.add('tunetsel');
-    var v=tdone[tname(el)]||{x:0,y:0};tc.hidden=false;tx.querySelector('.hint').hidden=true;tc.querySelector('.nm').textContent=tname(el);
+    var v=tdone[tname(el)]||{x:parseFloat(el.style.left)||0,y:parseFloat(el.style.top)||0};tc.hidden=false;tx.querySelector('.hint').hidden=true;tc.querySelector('.nm').textContent=tname(el);
     trs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]});
     p.classList.remove('c');
   },true);

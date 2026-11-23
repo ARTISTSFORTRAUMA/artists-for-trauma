@@ -5,6 +5,7 @@
   var hero=document.querySelector('.hero');if(!hero)return;
   var cs=getComputedStyle(hero);if(!cs.getPropertyValue('--gap-name').trim())return;
   var C=[
+    ['Space above profile line','--gap-top',0,200,1,'px'],
     ['Space under profile line','--gap-eyebrow',0,120,1,'px'],
     ['Name size','--name-size',3,12,.1,'rem'],
     ['Name line spacing','--name-lh',.6,1.3,.01,''],

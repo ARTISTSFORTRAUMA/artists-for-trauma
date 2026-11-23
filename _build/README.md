@@ -13,3 +13,7 @@ These scripts generate the static pages in this repo. Netlify serves the repo as
 3. Run build_published.py with the repo path, check, commit, push. Netlify publishes in about a minute.
 
 Optional feature fields: `sort` (number used to order the Published Features grid when an issue has no number, e.g. 30.5 for "The Dreams Edition: Love Louisville Style"); leave `num` null and the "Issue N" label is omitted. Body paragraphs that contain line breaks (poems, lists) keep them on the page.
+
+## Feature articles (Template #1)
+`build_feature.py <source.html> <images.json> <slug> .` builds /features/<slug>/ from a Template #1 source (photos are `{{name}}` placeholders). Images go to features/<slug>/img/; an image already there is kept, so a high-res replacement can be dropped in under the same name and the page rebuilt. Add the slug to `ARTICLES` in index.html so its cover on the homepage opens the article.
+- Ford Austin: _build/feature-template/ford-austin-source.html → /features/ford-austin/

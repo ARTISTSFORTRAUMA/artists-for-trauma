@@ -1,0 +1,398 @@
+<title>Ford Austin · Clean Feature</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap">
+<style>
+/* Layout: clean AFT feature — white page, hairline rules, black type, uncropped photo breaks; colour only in site header/footer */
+:root{
+  --bg:#ffffff; --fg:#000000; --mute:#555555; --line:#d9d9d9; --soft:#f3f3ee;
+  --pink:#f567af; --pink-ink:#c93683;
+  --grad:linear-gradient(115deg,#ffeb68 0%,#fed438 42%,#f3a538 100%);
+  --head:"gotham-condensed","Barlow Condensed","Arial Narrow",sans-serif;
+  --sp:clamp(48px,6vw,80px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{background:var(--bg);color:var(--fg);font-family:var(--head);font-weight:500;font-size:24px;line-height:1.15}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:700;line-height:.92;letter-spacing:-.01em;text-wrap:balance}
+img{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px}
+.eyebrow{font-weight:600;font-size:1rem;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:700 1.15rem var(--head);text-decoration:none;padding:12px 24px;border-radius:2px;background:#000;color:#fff}
+.btn:hover{background:var(--pink);color:#000}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+
+/* header (same as home page) */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.bar .lm{height:56px;width:auto;object-fit:contain}
+.bar .lw{height:40px;width:auto;object-fit:contain}
+nav.main{display:flex;gap:clamp(14px,1.6vw,24px);align-items:center;margin-right:auto;margin-left:12px}
+nav.main a{text-decoration:none;font-weight:600;font-size:1.15rem}
+nav.main a:hover,nav.main a.on{text-decoration:underline;text-underline-offset:6px}
+@media (max-width:1140px){nav.main a.n{display:none}}
+@media (max-width:620px){.bar .lw{display:none}}
+
+/* hero */
+.crumb{font-size:1.05rem;color:var(--mute);padding-block:18px}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--fg)}
+.hero{background:var(--grad);color:#000}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:stretch;padding-block:clamp(20px,2.6vw,32px)}
+.hero .txt{display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:20px;text-align:center;padding-block:4px}
+.hero .eyebrow{color:#000;font-size:clamp(1.1rem,1.9vw,1.5rem);letter-spacing:.04em}
+.hero h1{font-size:clamp(5rem,12.6vw,10.4rem);font-weight:800;text-transform:uppercase;line-height:.8;letter-spacing:-.01em}
+.hero h1 span{display:block;color:#fff}
+.hero .deck{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:700;line-height:1.08}
+.hero .deck em{font-style:normal}
+.hero .credits{font-size:clamp(1rem,1.5vw,1.25rem);font-weight:500;display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center}
+.hero .credits b{font-weight:700}
+.hero .ph{aspect-ratio:1.18;max-width:100%}
+.hero .ph{overflow:hidden;border-radius:2px}
+.hero .ph img{object-position:center top;transform:scale(1.16);transform-origin:47% 82%}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero .txt{padding-bottom:0}}
+
+/* story */
+.story{padding-block:36px;display:grid;gap:36px}
+.col{max-width:760px;margin:0 auto;display:grid;gap:20px}
+.lede{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:700;line-height:.95}
+
+.col h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;margin-top:8px;line-height:.89}
+.col h2:first-child{margin-top:0}
+.col h2 small{display:block;font-size:1rem;letter-spacing:.08em;color:var(--mute);margin-bottom:8px}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figcaption{font-size:1rem;color:var(--mute);font-weight:600}
+.wide{max-width:1240px;width:100%}
+.g{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g .t{aspect-ratio:3/4}.g .l{aspect-ratio:4/3}.g .s{aspect-ratio:1}
+@media (max-width:760px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3 figure:first-child{grid-column:1/-1}}
+
+.uncrop{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.uncrop figure{flex:0 1 auto}
+.uncrop img{width:auto;height:auto;max-height:560px;max-width:100%;object-fit:contain}
+@media (max-width:760px){.uncrop figure{flex:1 1 40%}.uncrop img{width:100%;max-height:none}}
+/* stats band */
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:0}
+.stats b{display:block;font-size:clamp(2.4rem,4.3vw,3.6rem);font-weight:700;line-height:.9}
+.stats span{font-size:1.1rem;font-weight:500;display:block;margin-top:8px;color:var(--mute)}
+@media (max-width:760px){.stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* quotes */
+.pq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:center}
+.pq .q{padding:clamp(24px,4vw,56px);display:grid;align-content:center;gap:16px}
+
+
+
+.pq blockquote{margin:0;font-size:clamp(1.7rem,3.1vw,2.7rem);font-weight:700;line-height:.95}
+.pq cite{font-style:normal;font-weight:500;font-size:1.3rem;color:var(--mute)}
+.pq figure{min-height:340px}
+
+.pq.il{grid-template-columns:minmax(0,48%) minmax(0,1fr);padding-left:clamp(0px,5vw,64px)}
+.pq.il .q{padding-left:clamp(20px,2.6vw,32px);padding-right:clamp(16px,2vw,24px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,46%);padding-right:clamp(0px,6vw,72px)}
+.pq.ir .q{padding-left:clamp(24px,6vw,76px);padding-right:32px;justify-self:end;width:fit-content;max-width:100%}
+.pq.il .q{padding-left:32px}
+.pq figure{min-height:0}
+.pq blockquote.long{font-size:clamp(1.6rem,2.9vw,2.45rem);font-weight:700;line-height:.95}
+@media (min-width:1100px){.pq blockquote.two span{display:block;white-space:nowrap}}
+.pq figure img{height:auto}
+@media (max-width:760px){.pq,.pq.il,.pq.ir{grid-template-columns:1fr;padding:0}.pq.ir .q{padding-left:24px}.pq.ir figure{order:-1}.pq figure{min-height:0;aspect-ratio:4/3}}
+.big{text-align:center;max-width:760px;width:100%;margin:0 auto;display:grid;gap:14px}
+.big blockquote{margin:0;font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:700;line-height:.95;text-transform:uppercase}
+@media (min-width:1100px){.big blockquote span{display:block;white-space:nowrap}}
+
+.big cite{font-style:normal;font-size:1.1rem;color:var(--mute);font-weight:500}
+.inline{border-left:3px solid var(--fg);padding:4px 0 4px 22px;font-size:1.6rem;font-weight:700;line-height:1.08}
+
+/* closing */
+.closing{position:relative;width:calc(100% - 40px);max-width:1200px;margin:0 auto;aspect-ratio:2.65;min-height:300px;display:grid;align-items:start;color:#fff;background:#222;border-radius:2px;overflow:hidden}
+.closing img{position:absolute;inset:0;border-radius:0}
+.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0) 55%)}
+.closing .wrap{position:relative;z-index:1;padding:clamp(20px,3vw,32px);display:grid;gap:10px;width:100%;max-width:none}
+.closing blockquote{margin:0;max-width:520px;font-size:clamp(1.7rem,3.3vw,2.9rem);font-weight:700;line-height:.95}
+.closing cite{font-style:normal;font-weight:600;font-size:1.1rem}
+
+@media (max-width:760px){
+.closing{aspect-ratio:auto;min-height:0;background:none;color:var(--fg);display:block;overflow:visible}
+.closing img{position:static;aspect-ratio:2.67;height:auto;border-radius:2px}
+.closing::after{display:none}
+.closing .wrap{padding:16px 0 0}
+.closing cite{color:var(--mute)}
+}
+/* credits + more */
+.credbox{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-wrap:wrap;gap:10px 40px;font-size:1.1rem}
+.credbox b{display:block;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.more{display:grid;gap:22px}
+.more .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.more h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;line-height:.89}
+.more .all{font-weight:700;font-size:1.15rem;text-decoration:none}.more .all::after{content:" →"}
+.rack{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.rack a{aspect-ratio:3/4;display:block;transition:transform .15s}
+.rack a:hover{transform:translateY(-4px)}
+@media (max-width:760px){.rack{grid-template-columns:repeat(3,minmax(0,1fr))}.rack a:nth-child(n+4){display:none}}
+.give .wrap{border-top:1px solid var(--line)}
+.give .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:36px}
+.give h2{font-size:clamp(2rem,3.6vw,2.8rem);line-height:.89}
+.give p{font-size:1.2rem;margin-top:8px;max-width:52ch;color:var(--mute)}
+footer{background:var(--grad);color:#000}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-block:32px}
+footer img{height:44px;width:auto;object-fit:contain}
+footer p{font-weight:700;font-size:1.15rem}
+footer p span{color:#fff;white-space:nowrap}
+</style>
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" aria-label="Artists for Trauma home"><img class="lm" src="{{logomark}}" alt=""></a>
+    <nav class="main" aria-label="Main">
+      <a class="n" href="#top">Home</a>
+      <a class="n" href="#top">Programs</a>
+      <a class="n on" href="#top">Features</a>
+      <a class="n" href="#top">Videos</a>
+      <a class="n" href="#top">About</a>
+      <a class="n" href="#top">Events</a>
+      <a class="btn" href="#top" style="background:var(--pink);color:#000">Give with Zeffy</a>
+    </nav>
+    <img class="lw" src="{{logoword}}" alt="Artists For Trauma">
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap crumb"><a href="#top">Home</a> / <a href="#top">Features</a> / Ford Austin</div>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="txt">
+        <div class="eyebrow">AFT &amp; Laura Sharpe's Artists Profile</div>
+        <h1>Ford <span>Austin</span></h1>
+        <p class="deck">The first student artist.<br><em>From trauma to creative healing.</em></p>
+        <div class="credits"><span><b>Cover photo &amp; design</b> Per Bernal</span><span><b>Interview &amp; story</b> Tattiahna Welsh</span></div>
+      </div>
+      <div class="ph"><img src="{{hero}}" alt="Ford Austin seated on a stool in a grey suit"></div>
+    </div>
+  </section>
+
+  <div class="story">
+    <div class="wrap col">
+      <p class="lede">Six months after surviving a catastrophic car accident, Ford Austin finally returned home from Cedars-Sinai Medical Center in Los Angeles.</p>
+      <p>The lifesaving surgeries were behind Ford, but the road ahead remained uncertain. Recovery no longer revolved around operating rooms and intensive care units. Instead, it unfolded quietly at home, with each day bringing him new physical, emotional and mental challenges.</p>
+      <p>Beside him, through every moment, was his wife, Lauree Dash Austin. After months of hospitalization and rehabilitation, she had become far more than a spouse. She was Ford's advocate, researcher, organizer and constant source of strength.</p>
+      <p>Although neither of them knew it yet, another trauma survivor would soon enter their lives and forever change Ford's recovery, leading him to become the first student artist of Artists for Trauma.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq il">
+        <figure><img src="{{couple}}" alt="Ford and Lauree Austin" style="aspect-ratio:1.46"></figure>
+        <div class="q"><blockquote class="two"><span>“No one can hold something</span> <span>this epic alone.”</span></blockquote><cite>Lauree Dash Austin</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Before</small>A life built on storytelling</h2>
+      <p>Long before trauma became part of their story, Ford and Lauree had built lives rooted in creativity and storytelling. Ford spent decades pursuing his passion as an actor before expanding into writing, directing and producing independent films.</p>
+      <p>Lauree built an Emmy Award-winning career producing television that educated, inspired and connected audiences through meaningful stories.</p>
+      <p>Creativity wasn't simply their profession. It's how they experienced life together and how they strengthened the partnership they shared. After years of building successful careers, they looked forward to the future with excitement. Neither could have imagined that their greatest challenge would become the story that inspires countless others.</p>
+    </div>
+
+    <div class="wrap wide g g3">
+      <figure><img class="s" src="{{bw}}" alt="Ford and Lauree, black and white portrait" style="aspect-ratio:1"></figure>
+      <figure><img src="{{gala}}" alt="Ford and Lauree at a gala" style="aspect-ratio:1"></figure>
+      <figure><img src="{{emmy}}" alt="Ford and Lauree on the Emmys red carpet" style="aspect-ratio:1;object-position:center 30%"></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>March 9, 2011</small>Everything changed</h2>
+      <p>Everything changed in the early morning hours of March 9, 2011. Driving home after a late night at the studio in LA, Ford was involved in a devastating car accident that left him fighting for his life.</p>
+      <p>He suffered a traumatic brain injury, a shattered pelvis, broken hip and femur, collapsed lungs, a ruptured spleen, kidney failure, extensive internal injuries and cardiac arrest. The trauma was so severe doctors estimated Ford had only a one percent chance of surviving.</p>
+    </div>
+  </div>
+
+  <section class="stats" aria-label="Ford's injuries and recovery in numbers">
+    <div class="wrap">
+      <div><b>1%</b><span>Doctors' estimate of his chance of survival</span></div>
+      <div><b>10 days</b><span>In a medically induced coma</span></div>
+      <div><b>6 months</b><span>In hospital and rehabilitation</span></div>
+      <div><b>15 years</b><span>Since the night that changed everything</span></div>
+    </div>
+  </section>
+
+  <div class="story">
+    <div class="wrap wide g g2">
+      <figure><img src="{{car}}" style="aspect-ratio:3/2" alt="The wrecked car after the accident"><figcaption>The aftermath of the accident, March 2011.</figcaption></figure>
+      <figure><img src="{{icu}}" style="aspect-ratio:3/2" alt="Ford in intensive care"><figcaption>Ford in intensive care at Cedars-Sinai.</figcaption></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>In a matter of moments, the life they spent years building was replaced by a fight to keep Ford alive. Teams of trauma surgeons and specialists worked around the clock to stabilize his injuries. Ford underwent surgery after surgery and was kept in a medically induced coma for 10 days, while Lauree faced the risk of losing the person she loved most.</p>
+      <p>Lauree stepped into a role she never expected herself to fill. Each morning she attended trauma rounds, took detailed notes, researched procedures, sought second opinions and built relationships with the physicians, nurses and specialists guiding Ford's care.</p>
+      <p>She was part of the team responsible for his recovery, and she was determined to understand every decision made on Ford's behalf.</p>
+      <p class="inline">Lauree came to embrace a lesson that continues to shape the way she views caregiving: “Nobody can hold something this epic alone.”</p>
+    </div>
+
+    <div class="wrap wide">
+      <figure style="display:block"><img src="{{bedside}}" alt="Lauree beside Ford's hospital bed" style="width:100%;aspect-ratio:2.3;height:auto;object-position:center 45%"></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>Today, Ford and Lauree continue to speak with profound gratitude about the extraordinary team of trauma surgeons, physicians, nurses, rehab specialists, therapists, family members and friends who never stopped believing in Ford's recovery, and helped carry both of them through those dark weeks and months.</p>
+    </div>
+
+    <div class="wrap wide g g4">
+      <figure><img class="t" src="{{calrehab}}" alt="Ford at the California Rehabilitation Institute" style="object-position:22% center"></figure>
+      <figure><img class="t" src="{{rehab1}}" alt="Ford in his hospital bed during recovery"></figure>
+      <figure><img class="t" src="{{rehab2}}" alt="Ford walking with a cane in physical therapy" style="object-position:center 15%"></figure>
+      <figure><img class="t" src="{{rehab4}}" alt="Ford celebrating with his care team"></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Coming home</small>Survival and healing were not the same</h2>
+      <p>When returning home after six months of hospitalization, Ford faced paralysis on the left side of his body, damaged vocal cords from intubation, and the daunting task of relearning many of life's simplest tasks. Recovery came through many small victories, slowly restoring his independence.</p>
+      <p>Medicine saved his life, but survival and true healing were not the same. His body was recovering. Rebuilding confidence, identity and hope, however, required what no prescription could provide by itself.</p>
+      <p>Doctor Andrea Feinberg saw that need and introduced the couple to Laura Sharpe, a fellow trauma survivor whose journey inspired a different perspective on recovery. Laura had lived experience of catastrophic trauma and could offer hope no clinical expertise could provide alone.</p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><img class="l" src="{{trio}}" alt="Laura Sharpe with Ford and Lauree"><figcaption>Laura, Ford &amp; Lauree</figcaption></figure>
+      <figure><img class="l" src="{{feinberg}}" alt="Dr. Andrea Feinberg" style="object-position:center 25%"><figcaption>Dr. Andrea Feinberg</figcaption></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>When entering the home of Ford and Lauree, Laura didn't ask about surgeries, medications or rehabilitation. Instead, she smiled and introduced herself with a simple sentence that immediately put Ford at ease.</p>
+    </div>
+
+    <div class="wrap big">
+      <blockquote><span>“Hi, my name is Laura</span> <span>Sharpe. I'm like you!”</span></blockquote>
+      <cite>Laura Sharpe, introducing herself to Ford</cite>
+    </div>
+
+    <div class="wrap col">
+      <p>Laura came as a fellow traveler on a journey that Ford was just beginning. He later described her arrival as bringing “a beautiful white light” into one of the darkest chapters of his recovery.</p>
+      <h2><small>A new kind of healing</small>The opportunity to thrive</h2>
+      <p>As the trio spent more time together, Laura shared a philosophy that had emerged through her own recovery. She believed healing extended beyond the physical body, and that creativity could help survivors rediscover confidence, rebuild identity and reconnect with a sense of purpose that trauma often steals away.</p>
+      <p>Laura envisioned a non-profit organization where art, music, storytelling and human connection would become important parts of the healing process. She believed that every trauma survivor deserved not only the opportunity to recover, but also the opportunity to thrive.</p>
+      <p>Ford and Lauree began to see recovery not simply as returning to the life they had before, but as discovering what life could become after trauma. One day, Laura shared her vision with Ford in a way neither of them would ever forget.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir">
+        <div class="q"><blockquote class="long">“I want to start an organization called Artists for Trauma, and I want you to be the first student artist. I want to help you.”</blockquote><cite>Laura Sharpe to Ford. He embraced her vision without hesitation.</cite></div>
+        <figure><img src="{{vision2}}" alt="Ford Austin in a navy blazer, leaning on a wooden stool" style="aspect-ratio:1.31;object-position:49% center"></figure>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Creativity as recovery</small>Walk, talk and sing</h2>
+      <p>As Laura continued navigating her own recovery, the two supported each other equally through wins and losses, and healing strengthened through friendship as much as therapy. What began as a conversation was the beginning of Ford's lifelong connection with Laura and Artists for Trauma, and a friendship that continues to this day.</p>
+      <p>The two explored creative ideas that complemented traditional rehabilitation and discovered that creativity wasn't separate from recovery, but a part of the recovery itself.</p>
+      <p>Virtual skiing and tennis on a Nintendo Wii helped Ford rebuild balance and coordination, transforming physical therapy into something engaging and fun. After weeks of intubation damaged his vocal cords, Laura connected Ford with singing lessons that gradually helped restore the voice Ford feared he had lost forever.</p>
+      <p>Those experiences restored confidence, rebuilt identity and reminded Ford that even after a near-fatal trauma, there was still room for joy, creativity and growth. Looking back, Ford credits AFT with helping him reclaim pieces of himself that once seemed lost.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir">
+        <div class="q"><blockquote class="two"><span>“AFT helped me to once</span> <span>again walk, talk and sing.”</span></blockquote><cite>Ford Austin</cite></div>
+        <figure style="overflow:hidden;border-radius:2px"><img src="{{aft2}}" alt="Ford Austin in a grey suit and white sneakers, seated on a wooden block" style="aspect-ratio:0.93;object-position:100% center;transform:scale(1.1);transform-origin:50% 50%"></figure>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <p>As the organization grew, his recovery reflected its mission, demonstrating how creativity and community can complement medical care.</p>
+      <p>Ford became much more than AFT's first student artist. A physician's referral evolved into a lifelong friendship, uniting Ford, Lauree and Laura by a shared commitment to helping others navigate life after trauma. For Ford and Lauree, the organization became an extension of the physicians, nurses, therapists, rehab specialists, family and friends whose unwavering support made Ford's recovery possible.</p>
+      <h2><small>Today</small>Full circle</h2>
+      <p>Ford continues to act, write, direct and produce while mentoring fellow trauma survivors. He has completed multiple 5K races and competes in croquet as well.</p>
+      <p>Inspired by her caregiving experience, Lauree completed a 400-hour meditation teacher training and advanced studies in mindfulness, Yoga Nidra, Mindful Self-Compassion and contemplative practice. She now helps others navigate trauma, grief and life's most difficult transitions.</p>
+    </div>
+
+    <div class="wrap wide g g4">
+      <figure><img class="t" src="{{poster}}" alt="Poster for the film Digging to Death"></figure>
+      <figure><img class="t" src="{{croquet}}" alt="Ford playing croquet"></figure>
+      <figure><img class="t" src="{{tennis}}" alt="Ford on the tennis court"></figure>
+      <figure><img class="t" src="{{okc}}" alt="Ford and Lauree at a theater event"></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>Ford's journey has come full circle. Today, he serves on the board of Artists for Trauma, continuing the mission that began when Laura Sharpe invited him to become AFT's first student artist. With his own experience of trauma, Ford believes one of the greatest ways to honor his recovery is by giving back and helping others find hope.</p>
+      <p>For Lauree, AFT has become, in her own words, “part of the fabric of my life.” She, Ford and Laura Sharpe continue “walking the path of our lives together,” supporting trauma survivors and reminding them that healing is never a journey taken alone.</p>
+      <p>Fifteen years after their lives changed forever, their friendship continues to inspire the mission of Artists for Trauma and the countless trauma survivors, thrivers and difference makers whose lives it touches.</p>
+    </div>
+  </div>
+
+  <section class="closing">
+    <img src="{{sunset2}}" alt="Ford on a bench facing the ocean at sunset">
+    <div class="wrap">
+      <blockquote>“I don't believe there's ever a point of no return. Every day I get better.”</blockquote>
+      <cite>Ford Austin</cite>
+    </div>
+  </section>
+
+  <div class="story">
+    <div class="wrap col">
+      <div class="credbox">
+        <div><b>Series</b>AFT &amp; Laura Sharpe's Artists Profile</div>
+        <div><b>Cover photo &amp; design</b>Per Bernal</div>
+        <div><b>Interview &amp; story</b>Tattiahna Welsh</div>
+      </div>
+    </div>
+    <div class="wrap more">
+      <div class="head"><h2>More features</h2><a class="all" href="#top">See all features</a></div>
+      <div class="rack">
+        <a href="#top" aria-label="Chelsie Hill"><img src="{{f_chelsie}}" alt=""></a>
+        <a href="#top" aria-label="Onofre Banderas"><img src="{{f_onofre}}" alt=""></a>
+        <a href="#top" aria-label="Aaron Baker"><img src="{{f_aaron}}" alt=""></a>
+        <a href="#top" aria-label="Lilian Raven"><img src="{{f_lilian}}" alt=""></a>
+        <a href="#top" aria-label="Fiona Dowdee"><img src="{{f_fiona}}" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="give">
+    <div class="wrap">
+      <div><h2>Help the next student artist begin.</h2><p>Your gift brings art, music and community to trauma survivors in recovery.</p></div>
+      <a class="btn" href="#top">Give with Zeffy</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="{{logoword}}" alt="Artists For Trauma">
+    <p>Where Recovery is an Art. Powered by <span>human spirit™</span></p>
+  </div>
+</footer>
+
+<script>
+/* Fit big pull-quote lines to the article text width */
+(function(){
+  function fit(){
+    document.querySelectorAll('.big blockquote').forEach(function(q){
+      q.style.fontSize='';q.style.width='';
+      if(window.innerWidth<1100) return;
+      var spans=q.querySelectorAll('span');if(!spans.length) return;
+      var max=0;spans.forEach(function(s){var r=document.createRange();r.selectNodeContents(s);max=Math.max(max,r.getBoundingClientRect().width)});
+      var target=0;var big=q.closest('.big');[big.previousElementSibling,big.nextElementSibling].forEach(function(c){if(c)c.querySelectorAll('p').forEach(function(p){var r=document.createRange();r.selectNodeContents(p);[].forEach.call(r.getClientRects(),function(b){target=Math.max(target,b.width)})})});
+      target=Math.min(target||q.parentElement.getBoundingClientRect().width,q.parentElement.getBoundingClientRect().width);
+      if(max>0){var fs=parseFloat(getComputedStyle(q).fontSize);q.style.fontSize=(fs*target/max).toFixed(1)+'px';q.style.width=target.toFixed(0)+'px'}
+    });
+  }
+  function snug(){
+    document.querySelectorAll('.pq.ir .q').forEach(function(q){
+      q.style.transform='';
+      if(window.innerWidth<761) return;
+      var R=0;q.querySelectorAll('blockquote,cite').forEach(function(e){var r=document.createRange();r.selectNodeContents(e);[].forEach.call(r.getClientRects(),function(b){if(b.width>2)R=Math.max(R,b.right)})});
+      var img=q.parentElement.querySelector('figure').getBoundingClientRect();
+      var shift=img.left-32-R;if(shift>0.5)q.style.transform='translateX('+shift.toFixed(1)+'px)';
+    });
+  }
+  var _fit=fit;fit=function(){_fit();snug()};
+  window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
+  fit();
+})();
+</script>

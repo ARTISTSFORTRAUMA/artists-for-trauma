@@ -17,5 +17,5 @@ Optional feature fields: `sort` (number used to order the Published Features gri
 ## Feature articles (Template #1)
 `build_feature.py <source.html> <images.json> <slug> .` builds /features/<slug>/ from a Template #1 source (photos are `{{name}}` placeholders). Images go to features/<slug>/img/; an image already there is kept, so a high-res replacement can be dropped in under the same name and the page rebuilt. Add the slug to `ARTICLES` in index.html so its cover on the homepage opens the article.
 - Ford Austin: _build/feature-template/ford-austin-source.html → /features/ford-austin/
-- Aaron Baker: _build/feature-template/aaron-baker-source.html → /features/aaron-baker/ (box colour #f5e6da, the cream of the "A" in the V7 cover; last name and footer accent #7d7376; images pre-placed in img/, run with a non-existent json path)
+- Aaron Baker: _build/feature-template/aaron-baker-source.html → /features/aaron-baker/ (box colour #7d7376 from the V7 PDF; images pre-placed in img/, run with a non-existent json path)
 - Photos: always convert Adobe RGB originals to sRGB and embed the sRGB profile, or they look flat in browsers.

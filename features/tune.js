@@ -105,9 +105,9 @@
 
   /* ---- Text blocks: click a quote, headline or paragraph block, then move it ---- */
   var tx=document.createElement('div');
-  tx.innerHTML='<h4 style="margin:14px 0 4px;border-top:1px solid #ddd;padding-top:10px">Text blocks</h4><p class="hint" style="margin:0;color:#666">Click a quote, headline or the opening paragraph to select it.</p><div class="tc" hidden><p class="nm" style="margin:6px 0;font-weight:600"></p><label>Up / down: <b>0</b> px <span style="color:#888">(minus = up)</span></label><input type=range min=-300 max=300 step=1 value=0 data-k=y><label>Left / right: <b>0</b> px <span style="color:#888">(minus = left)</span></label><input type=range min=-300 max=300 step=1 value=0 data-k=x><button class=rs1 style="background:#777;margin-top:8px">Reset this block</button></div>';
+  tx.innerHTML='<h4 style="margin:14px 0 4px;border-top:1px solid #ddd;padding-top:10px">Text blocks</h4><p class="hint" style="margin:0;color:#666">Click any text, including the opening box lines, to select it.</p><div class="tc" hidden><p class="nm" style="margin:6px 0;font-weight:600"></p><label>Up / down: <b>0</b> px <span style="color:#888">(minus = up)</span></label><input type=range min=-300 max=300 step=1 value=0 data-k=y><label>Left / right: <b>0</b> px <span style="color:#888">(minus = left)</span></label><input type=range min=-300 max=300 step=1 value=0 data-k=x><button class=rs1 style="background:#777;margin-top:8px">Reset this block</button></div>';
   ph.parentNode.insertBefore(tx,ph.nextSibling);
-  var TSEL='.pq .q,.big,.inline,.col h2,.lede,.basics,.col',tsel=null,tdone={};
+  var TSEL='.pq .q,.big,.inline,.col h2,.lede,.basics,.col,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits',tsel=null,tdone={};
   var st3=document.createElement('style');st3.textContent='.tunetsel{outline:3px dashed #f567af;outline-offset:6px}';document.head.appendChild(st3);
   function tname(el){return '“'+el.textContent.replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')+'…”'}
   var tc=tx.querySelector('.tc'),trs=tc.querySelectorAll('input');

@@ -41,7 +41,7 @@
     var out=['Settings for '+location.pathname];
     p.querySelectorAll('input[type=range][data-v]').forEach(function(r){out.push(r.previousSibling.textContent)});
     Object.keys(col).forEach(function(s){out.push(K.filter(function(k){return k[1]===s})[0][0]+' colour: '+col[s])});
-    Object.keys(done).forEach(function(n){var v=done[n];out.push('Photo '+n+': zoom '+v.z+', left/right '+v.x+'%, up/down '+v.y+'%')});
+    Object.keys(done).forEach(function(n){var v=done[n];out.push('Photo '+n+': zoom '+v.z+', left/right '+v.x+'%, up/down '+v.y+'%, brightness '+v.br+', contrast '+v.ct+', highlights '+v.hl+', shadows '+v.sh+', saturation '+v.sa+', warmth '+v.wa)});
     var t=out.join('\n');
     (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied. Paste it in the chat.'},function(){prompt('Copy these settings:',t)});
   };
@@ -49,16 +49,34 @@
 
   /* ---- Photos: click a photo, then zoom and move it inside its box ---- */
   var ph=document.createElement('div');
-  ph.innerHTML='<h4 style="margin:0 0 4px">Photos</h4><p class="hint" style="margin:0;color:#666">Click a photo on the page to select it.</p><div class="pc" hidden><p class="nm" style="margin:6px 0;font-weight:600"></p><label>Zoom: <b>1</b></label><input type=range min=1 max=3 step=.01 data-k=z><label>Left / right: <b>50</b>%</label><input type=range min=0 max=100 step=.5 data-k=x><label>Up / down: <b>50</b>%</label><input type=range min=0 max=100 step=.5 data-k=y></div>';
+  ph.innerHTML='<h4 style="margin:0 0 4px">Photos</h4><p class="hint" style="margin:0;color:#666">Click a photo on the page to select it.</p><div class="pc" hidden><p class="nm" style="margin:6px 0;font-weight:600"></p><label>Zoom: <b>1</b></label><input type=range min=1 max=3 step=.01 data-k=z><label>Left / right: <b>50</b>%</label><input type=range min=0 max=100 step=.5 data-k=x><label>Up / down: <b>50</b>%</label><input type=range min=0 max=100 step=.5 data-k=y><label>Brightness: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=br><label>Contrast: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=ct><label>Highlights: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=hl><label>Shadows: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=sh><label>Saturation: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=sa><label>Warmth: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=wa><button class=rs0 style="background:#777;margin-top:8px">Reset this photo</button></div>';
   p.insertBefore(ph,p.querySelector('h4').nextSibling);
   var sel=null,done={};
   var st2=document.createElement('style');st2.textContent='.tunewrap{display:block;overflow:hidden;border-radius:2px}.tunesel{outline:4px solid #f567af;outline-offset:-4px}main img{cursor:crosshair}';document.head.appendChild(st2);
   function nameOf(img){return img.getAttribute('src').split('/').pop()}
   function state(img){var o=(img.style.objectPosition||getComputedStyle(img).objectPosition).split(' ');
     var px=function(v){return /%$/.test(v)?parseFloat(v):(v==='left'||v==='top'?0:v==='right'||v==='bottom'?100:50)};
-    var m=(img.style.transform||'').match(/scale\(([\d.]+)\)/);return{z:m?+m[1]:1,x:px(o[0]),y:px(o[1]||o[0])}}
+    var m=(img.style.transform||'').match(/scale\(([\d.]+)\)/);return{z:m?+m[1]:1,x:px(o[0]),y:px(o[1]||o[0]),br:0,ct:0,hl:0,sh:0,sa:0,wa:0}}
   function wrap(img){if(img.closest('.ph,.tunewrap'))return;var w=document.createElement('span');w.className='tunewrap';img.parentNode.insertBefore(w,img);w.appendChild(img)}
-  function apply(img,v){wrap(img);img.style.objectPosition=v.x+'% '+v.y+'%';img.style.transformOrigin=v.x+'% '+v.y+'%';img.style.transform='scale('+v.z+')';done[nameOf(img)]=v}
+
+  /* Tone curve. Must match _build/tone.py exactly (applied to the files when publishing). */
+  function curve(x,t){
+    x=x*Math.pow(2,t.br/100);
+    x=(x-0.5)*(1+t.ct/100)+0.5;
+    x=x+(t.sh/100)*0.4*Math.pow(1-Math.min(Math.max(x,0),1),3);
+    x=x+(t.hl/100)*0.4*Math.pow(Math.min(Math.max(x,0),1),3);
+    return Math.min(Math.max(x,0),1)}
+  var svgNS='http://www.w3.org/2000/svg',svg=document.createElementNS(svgNS,'svg');svg.setAttribute('width',0);svg.setAttribute('height',0);svg.style.position='absolute';document.body.appendChild(svg);var fid=0;
+  function tone(img,t){
+    var zero=!t.br&&!t.ct&&!t.hl&&!t.sh&&!t.sa&&!t.wa;if(zero){img.style.filter='';return}
+    var id=img.dataset.tf||('tf'+(++fid));img.dataset.tf=id;var f=document.getElementById(id);if(f)f.remove();
+    f=document.createElementNS(svgNS,'filter');f.id=id;f.setAttribute('color-interpolation-filters','sRGB');
+    var tv=[];for(var i=0;i<256;i++)tv.push(curve(i/255,t).toFixed(4));tv=tv.join(' ');
+    var ct=document.createElementNS(svgNS,'feComponentTransfer');['R','G','B'].forEach(function(c){var fn=document.createElementNS(svgNS,'feFunc'+c);fn.setAttribute('type','table');fn.setAttribute('tableValues',tv);ct.appendChild(fn)});f.appendChild(ct);
+    var sm=document.createElementNS(svgNS,'feColorMatrix');sm.setAttribute('type','saturate');sm.setAttribute('values',(1+t.sa/100).toFixed(3));f.appendChild(sm);
+    var w=t.wa/100*0.1,wm=document.createElementNS(svgNS,'feColorMatrix');wm.setAttribute('type','matrix');wm.setAttribute('values',(1+w).toFixed(4)+' 0 0 0 0  0 1 0 0 0  0 0 '+(1-w).toFixed(4)+' 0 0  0 0 0 1 0');f.appendChild(wm);
+    svg.appendChild(f);img.style.filter='url(#'+id+')'}
+  function apply(img,v){wrap(img);img.style.objectPosition=v.x+'% '+v.y+'%';img.style.transformOrigin=v.x+'% '+v.y+'%';img.style.transform='scale('+v.z+')';tone(img,v);done[nameOf(img)]=v}
   var pc=ph.querySelector('.pc'),rs=pc.querySelectorAll('input');
   document.querySelector('main').addEventListener('click',function(e){
     var img=e.target.closest('img');if(!img||img.closest('.rack,#tune,header'))return;e.preventDefault();e.stopPropagation();
@@ -67,6 +85,7 @@
     rs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]});
     p.classList.remove('c');
   },true);
+  pc.querySelector('.rs0').onclick=function(){if(!sel)return;var v=state(sel);v.z=1;delete done[nameOf(sel)];apply(sel,v);delete done[nameOf(sel)];rs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]})};
   rs.forEach(function(r){r.oninput=function(){if(!sel)return;var v={};rs.forEach(function(q){v[q.dataset.k]=+q.value;q.previousElementSibling.querySelector('b').textContent=q.value});apply(sel,v)}});
   var r=document.createElement('button');r.textContent='Reset';r.style.background='#777';r.onclick=function(){location.reload()};p.appendChild(r);
   p.querySelector('.min').onclick=function(){p.classList.toggle('c')};

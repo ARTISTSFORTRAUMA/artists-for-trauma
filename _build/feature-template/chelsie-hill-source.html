@@ -109,7 +109,7 @@ figcaption{font-size:1rem;color:var(--mute);font-weight:600}
 .pq.il{grid-template-columns:minmax(0,47%) minmax(0,1fr);padding-left:clamp(0px,6vw,72px)}
 .pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,47%);padding-right:clamp(0px,6vw,72px)}
 @media (min-width:761px){.pq .q,.pq.up .q{align-self:start;padding-top:150px}}
-@media (max-width:760px){.pq .q,.pq.up .q,.wrap.col,.wrap.big,.lede{top:0 !important;left:0 !important}.pq.up .q{padding-top:clamp(24px,4vw,56px)}}
+@media (max-width:760px){.pq .q,.pq.up .q,.wrap.col,.wrap.big,.lede,.col h2{top:0 !important;left:0 !important}.pq.up .q{padding-top:clamp(24px,4vw,56px)}}
 @media (max-width:760px){.pq,.pq.il,.pq.ir{grid-template-columns:1fr;padding:0}.pq.ir .q{padding-left:24px}.pq.ir figure{order:-1}.pq figure{min-height:0;aspect-ratio:4/3}}
 .big{text-align:center;max-width:760px;width:100%;margin:0 auto;display:grid;gap:14px}
 .big blockquote{margin:0;font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:700;line-height:.95;text-transform:uppercase}
@@ -164,7 +164,7 @@ footer p span{color:#fff;white-space:nowrap}
 /* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
    Spacing and sizes are variables so they can be tuned in one place. */
 .hero{--cov:"Playfair Display",Georgia,"Times New Roman",serif;
-  --gap-eyebrow:48px;--gap-name:44px;--gap-deck:106px;--name-size:7.4rem;--name-lh:.78;--deck-size:2.15rem;--deck-lh:.9;--deck-gap:1px;--gap-top:16px}
+  --gap-eyebrow:47px;--gap-name:5px;--gap-deck:87px;--name-size:7.2rem;--name-lh:.91;--deck-size:5rem;--deck-lh:1.6;--deck-gap:3px;--gap-top:25px}
 .hero .txt{justify-content:flex-start;gap:0;padding-top:var(--gap-top)}
 .hero .eyebrow{color:#fff;margin-bottom:var(--gap-eyebrow)}
 .hero h1{font-family:var(--cov);font-weight:800;color:#f6f1e3;letter-spacing:-.02em;display:inline-block;text-align:left;text-transform:none;line-height:var(--name-lh);font-size:min(var(--name-size),9vw);margin-bottom:var(--gap-name)}
@@ -212,7 +212,7 @@ footer p span{color:#fff;white-space:nowrap}
         <p class="deck"><b>Creating Space.</b></p>
         <div class="credits"><span><b>Cover &amp; design</b> Per Bernal</span><span><b>Interview</b> Tattiahna Welsh</span></div>
       </div>
-      <div class="ph"><img src="{{hero}}" alt="Chelsie Hill smiling, seated in her wheelchair in a sleeveless top and wide trousers"></div>
+      <div class="ph"><img src="{{hero}}" alt="Chelsie Hill smiling, seated in her wheelchair in a sleeveless top and wide trousers" style="object-position:57.5% 58%;transform-origin:57.5% 58%;transform:scale(1.38)"></div>
     </div>
   </section>
 
@@ -224,8 +224,8 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap wide g g2">
-      <figure><span class="crop"><img src="{{child}}" alt="Chelsie Hill as a young girl in a dance costume, holding an award" style="aspect-ratio:4/3;object-position:50% 40%"></span></figure>
-      <figure><span class="crop"><img src="{{teen}}" alt="Chelsie Hill as a teenager: a silhouette in a wheelchair beside a photo of her posing" style="aspect-ratio:4/3;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{child}}" alt="Chelsie Hill as a young girl in a dance costume, holding an award" style="aspect-ratio:4/3;object-position:11.5% 0%;transform-origin:11.5% 0%;transform:scale(1)"></span></figure>
+      <figure><span class="crop"><img src="{{teen}}" alt="Chelsie Hill as a teenager: a silhouette in a wheelchair beside a photo of her posing" style="aspect-ratio:4/3;object-position:49.5% 0%;transform-origin:49.5% 0%;transform:scale(1)"></span></figure>
     </div>
 
     <div class="wrap col">
@@ -237,8 +237,8 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap wide g g2">
-      <figure><span class="crop"><img src="{{trophy}}" alt="Chelsie Hill holding a dance trophy, and in a hospital bed after the accident" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img src="{{team}}" alt="Chelsie Hill and her high school dance team in wheelchairs by the water" style="aspect-ratio:1;object-position:40% 60%"></span></figure>
+      <figure><span class="crop"><img src="{{trophy}}" alt="Chelsie Hill holding a dance trophy, and in a hospital bed after the accident" style="aspect-ratio:1;object-position:0% 0%;transform-origin:0% 0%;transform:scale(1)"></span></figure>
+      <figure><span class="crop"><img src="{{team}}" alt="Chelsie Hill and her high school dance team in wheelchairs by the water" style="aspect-ratio:1;object-position:79% 60%;transform-origin:79% 60%;transform:scale(1)"></span></figure>
     </div>
 
     <div class="wrap col">
@@ -247,12 +247,12 @@ footer p span{color:#fff;white-space:nowrap}
 
     <div class="wrap wide">
       <div class="pq ir">
-        <div class="q"><blockquote class="long">“That’s when I realized, oh, that fire is still in me.”</blockquote><cite>Chelsie Hill</cite></div>
-        <figure><span class="crop"><img src="{{armup}}" alt="Chelsie Hill in her wheelchair, one arm raised high" style="object-position:50% 50%"></span></figure>
+        <div class="q" style="position:relative;top:137px;left:1px"><blockquote class="long">“That’s when I realized, oh, that fire is still in me.”</blockquote><cite>Chelsie Hill</cite></div>
+        <figure><span class="crop"><img src="{{armup}}" alt="Chelsie Hill in her wheelchair, one arm raised high" style="object-position:38.5% 37%;transform-origin:38.5% 37%;transform:scale(1.27)"></span></figure>
       </div>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-16px">
       <h2><small>Auti Angel</small>Another source of direction</h2>
       <p>That drive found another source of direction through wheelchair dancer Auti Angel, whom Chelsie had first seen in a Snoop Dogg music video that her father showed her while she was hospitalized.</p>
       <p>When they later met, Chelsie told Auti that she used to be a dancer. Auti stopped her.</p>
@@ -261,12 +261,12 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap wide g g3">
-      <figure><span class="crop"><img src="{{autimeet}}" alt="Chelsie Hill and Auti Angel with arms raised in front of a brick wall" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
-      <figure><span class="crop"><img src="{{snoop}}" alt="Auti Angel with Snoop Dogg" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
-      <figure><span class="crop"><img src="{{auti}}" alt="Auti Angel posing in her wheelchair" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{autimeet}}" alt="Chelsie Hill and Auti Angel with arms raised in front of a brick wall" style="aspect-ratio:3/4;object-position:70% 100%;transform-origin:70% 100%;transform:scale(1.09)"></span></figure>
+      <figure><span class="crop"><img src="{{snoop}}" alt="Auti Angel with Snoop Dogg" style="aspect-ratio:3/4;object-position:39.5% 88%;transform-origin:39.5% 88%;transform:scale(1.02)"></span></figure>
+      <figure><span class="crop"><img src="{{auti}}" alt="Auti Angel posing in her wheelchair" style="aspect-ratio:3/4;object-position:76.5% 53.5%;transform-origin:76.5% 53.5%;transform:scale(1.04)"></span></figure>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-7px">
       <h2><small>Advocacy</small>Making it personal</h2>
       <p>The accident also gave Chelsie a responsibility she continues to carry. As a passenger in a drunk-driving crash, Chelsie has made prevention part of her advocacy, speaking to high school and college students about drunk and distracted driving.</p>
       <p>She remembers being young and feeling invincible; now, she sits before students and makes the consequences personal.</p>
@@ -275,22 +275,22 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap wide g g2">
-      <figure><span class="crop"><img src="{{mystory}}" alt="Chelsie Hill speaking to a full auditorium of students" style="aspect-ratio:4/3;object-position:30% 50%"></span></figure>
-      <figure><span class="crop"><img src="{{hospital}}" alt="Chelsie Hill in hospital after the crash, and standing before it" style="aspect-ratio:4/3;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{mystory}}" alt="Chelsie Hill speaking to a full auditorium of students" style="aspect-ratio:4/3;object-position:85.5% 36%;transform-origin:85.5% 36%;transform:scale(1)"></span></figure>
+      <figure><span class="crop"><img src="{{hospital}}" alt="Chelsie Hill in hospital after the crash, and standing before it" style="aspect-ratio:4/3;object-position:58.5% 5.5%;transform-origin:58.5% 5.5%;transform:scale(1)"></span></figure>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-5px">
       <h2><small>2012</small>Women who already understood</h2>
       <p>Rollettes began with Chelsie wanting to meet women who understood her life. In 2012, she reached out on Instagram and invited six women to Monterey. They danced, went to dinner, and moved through her hometown together, experiencing something deceptively simple: the ease of being with women who already understood.</p>
       <p>For once, the details of life in a wheelchair required no explanation. That feeling stayed with Chelsie and became the foundation for a community where women with disabilities could enter, already knowing they belonged.</p>
     </div>
 
     <div class="wrap wide g g2">
-      <figure><span class="crop"><img src="{{graffiti}}" alt="The Rollettes in white tops and wheelchairs in front of a graffiti wall" style="aspect-ratio:4/3;object-position:50% 60%"></span></figure>
-      <figure><span class="crop"><img src="{{studio}}" alt="Dancers in brown dresses seated in wheelchairs in a sunlit studio" style="aspect-ratio:4/3;object-position:55% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{graffiti}}" alt="The Rollettes in white tops and wheelchairs in front of a graffiti wall" style="aspect-ratio:4/3;object-position:39.5% 68.5%;transform-origin:39.5% 68.5%;transform:scale(1)"></span></figure>
+      <figure><span class="crop"><img src="{{studio}}" alt="Dancers in brown dresses seated in wheelchairs in a sunlit studio" style="aspect-ratio:4/3;object-position:84% 100%;transform-origin:84% 100%;transform:scale(1.03)"></span></figure>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-12px">
       <h2><small>Los Angeles</small>Creating what was missing</h2>
       <p>When Chelsie moved to Los Angeles in 2014, she entered the dance world she had dreamed of since childhood, taking classes with able-bodied dancers, learning choreography, and adapting the movement to spaces that had not been designed with her in mind.</p>
       <p>Online, she saw the same absence. Wheelchair dancers were rarely seen in the professional dance content she watched, so Chelsie began creating what she and her friends could not find.</p>
@@ -299,15 +299,15 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap wide g g1">
-      <figure><span class="crop"><img src="{{crowd}}" alt="A crowd of women in wheelchairs cheering at Rollettes Experience" style="aspect-ratio:16/9;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{crowd}}" alt="A crowd of women in wheelchairs cheering at Rollettes Experience" style="aspect-ratio:16/9;object-position:50% 90.5%;transform-origin:50% 90.5%;transform:scale(1)"></span></figure>
     </div>
 
-    <div class="wrap big">
+    <div class="wrap big" style="position:relative;top:-12px">
       <blockquote><span>“This is so much bigger than me.</span> <span>This is a movement.”</span></blockquote>
       <cite>Chelsie Hill</cite>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-25px">
       <p>“This is a community of women that need each other and need a sisterhood.”</p>
       <p>Dance remained at its center, but Rollettes Experience expanded around it to include education, advocacy, accessibility, wellness, mentorship, and conversations about navigating life with a disability.</p>
       <h2><small>Rollettes Experience</small>Build the door</h2>
@@ -317,36 +317,36 @@ footer p span{color:#fff;white-space:nowrap}
     </div>
 
     <div class="wrap wide g g1">
-      <figure><span class="crop"><img src="{{tees}}" alt="The Rollettes in black T-shirts posing in their wheelchairs" style="aspect-ratio:16/9;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{tees}}" alt="The Rollettes in black T-shirts posing in their wheelchairs" style="aspect-ratio:16/9;object-position:47.5% 69%;transform-origin:47.5% 69%;transform:scale(1.19)"></span></figure>
     </div>
 
-    <div class="wrap big">
+    <div class="wrap big" style="position:relative;top:-16px">
       <blockquote><span>“Build it, and they will come.</span> <span>Build the door, and they’ll go through it.”</span></blockquote>
       <cite>Chelsie Hill</cite>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-23px">
       <h2><small>Paris</small>A larger stage</h2>
       <p>Fourteen years after that first gathering in Monterey, the rooms are considerably larger. But Chelsie’s approach remains the same.</p>
     </div>
 
     <div class="wrap wide">
       <div class="pq il">
-        <figure><span class="crop"><img src="{{hairflip}}" alt="Chelsie Hill tossing her hair, seated in her wheelchair" style="object-position:50% 50%"></span></figure>
-        <div class="q"><blockquote class="long">“If the space you need doesn’t exist, create it.”</blockquote><cite>Chelsie Hill</cite></div>
+        <figure><span class="crop"><img src="{{hairflip}}" alt="Chelsie Hill tossing her hair, seated in her wheelchair" style="object-position:59.5% 42.5%;transform-origin:59.5% 42.5%;transform:scale(1.26)"></span></figure>
+        <div class="q" style="position:relative;top:-10px;left:3px"><blockquote class="long">“If the space you need doesn’t exist, create it.”</blockquote><cite>Chelsie Hill</cite></div>
       </div>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:1px">
       <p>In 2024, that journey took Chelsie to Paris, where she performed in the Opening Ceremony of the Paralympic Games.</p>
     </div>
 
     <div class="wrap wide g g2">
-      <figure><span class="crop"><img src="{{paris}}" alt="Chelsie Hill performing with a partner at the Paralympic Games Opening Ceremony in Paris" style="aspect-ratio:4/5;object-position:50% 40%"></span></figure>
-      <figure><span class="crop"><img src="{{ceremony}}" alt="Performers on stage at the Paris 2024 Paralympic Games Opening Ceremony" style="aspect-ratio:4/5;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{paris}}" alt="Chelsie Hill performing with a partner at the Paralympic Games Opening Ceremony in Paris" style="aspect-ratio:4/5;object-position:81% 90.5%;transform-origin:81% 90.5%;transform:scale(1.09)"></span></figure>
+      <figure><span class="crop"><img src="{{ceremony}}" alt="Performers on stage at the Paris 2024 Paralympic Games Opening Ceremony" style="aspect-ratio:4/5;object-position:6% 93%;transform-origin:6% 93%;transform:scale(1.12)"></span></figure>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-2px">
       <h2><small>Artists for Trauma</small>The first to say yes</h2>
       <p>Laura Sharpe, founder of Artists for Trauma (AFT), saw what Chelsie was building early on in 2014. Chelsie still remembers Laura’s words:</p>
       <p class="inline">“I love what you’re doing. I want to support it. I want to get involved.”</p>
@@ -362,51 +362,51 @@ footer p span{color:#fff;white-space:nowrap}
       <figure><span class="crop"><img src="{{aft4}}" alt="AFT volunteer Alex Baker at the 2026 workshop" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-6px">
       <h2><small>2026</small>The room is getting bigger</h2>
       <p>2026 also marks another chapter of growth for Rollettes Experience, as the community expands beyond its Los Angeles home with an experience in Houston.</p>
       <p>What began with a small gathering of women in Monterey is now reaching new cities, giving more women and children with disabilities the opportunity to find the connection Chelsie first discovered more than a decade ago.</p>
     </div>
 
     <div class="wrap wide g g3">
-      <figure><span class="crop"><img src="{{wh}}" alt="Chelsie Hill on the cover of Women’s Health" style="aspect-ratio:3/4;object-position:50% 30%"></span><figcaption>Women’s Health cover by Caleb &amp; Gladys</figcaption></figure>
-      <figure><span class="crop"><img src="{{gym1}}" alt="Chelsie Hill training in a home gym" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img src="{{gym2}}" alt="Chelsie Hill standing with support in a gym" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{wh}}" alt="Chelsie Hill on the cover of Women’s Health" style="aspect-ratio:3/4;object-position:4% 30%;transform-origin:4% 30%;transform:scale(1)"></span><figcaption>Women’s Health cover by Caleb &amp; Gladys</figcaption></figure>
+      <figure><span class="crop"><img src="{{gym1}}" alt="Chelsie Hill training in a home gym" style="aspect-ratio:3/4;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1.16)"></span></figure>
+      <figure><span class="crop"><img src="{{gym2}}" alt="Chelsie Hill standing with support in a gym" style="aspect-ratio:3/4;object-position:50% 28.5%;transform-origin:50% 28.5%;transform:scale(1.07)"></span></figure>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-6px">
       <p>For AFT, the continued collaboration reflects the same principle that has connected Laura and Chelsie from the beginning: creativity can become a point of connection after a life-altering experience.</p>
       <p>Years after Laura first helped secure a studio for a small gathering of women, AFT remains part of the community that grew from it.</p>
       <p><b>The room has changed. Now, it is getting bigger.</b></p>
-      <h2><small>Today</small>Held the door open</h2>
+      <h2 style="position:relative;top:-9px"><small>Today</small>Held the door open</h2>
       <p>Today, Chelsie measures what she built less by how many people fill the room than by what happens once they enter it. She watches girls arrive without knowing anyone and leave with friends.</p>
       <p>Younger attendees meet women navigating careers, relationships, motherhood, and adulthood with disabilities, examples Chelsie herself struggled to see at seventeen.</p>
     </div>
 
     <div class="wrap wide g g1">
-      <figure><span class="crop"><img src="{{kids}}" alt="Rollettes dancers with young girls in wheelchairs" style="aspect-ratio:16/9;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{kids}}" alt="Rollettes dancers with young girls in wheelchairs" style="aspect-ratio:16/9;object-position:42.5% 50%;transform-origin:42.5% 50%;transform:scale(1.02)"></span></figure>
     </div>
 
     <div class="wrap wide g g3">
-      <figure><span class="crop"><img src="{{flowers}}" alt="Three dancers in white with flower crowns, seated in wheelchairs" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img src="{{boundless}}" alt="Chelsie Hill with a dancer at the Boundless Talent Showcase" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img src="{{trio}}" alt="Chelsie Hill with two dancers in a studio" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{flowers}}" alt="Three dancers in white with flower crowns, seated in wheelchairs" style="aspect-ratio:1;object-position:50% 37.5%;transform-origin:50% 37.5%;transform:scale(1.03)"></span></figure>
+      <figure><span class="crop"><img src="{{boundless}}" alt="Chelsie Hill with a dancer at the Boundless Talent Showcase" style="aspect-ratio:1;object-position:50% 41%;transform-origin:50% 41%;transform:scale(1.04)"></span></figure>
+      <figure><span class="crop"><img src="{{trio}}" alt="Chelsie Hill with two dancers in a studio" style="aspect-ratio:1;object-position:55.5% 17%;transform-origin:55.5% 17%;transform:scale(1)"></span></figure>
     </div>
 
-    <div class="wrap big">
+    <div class="wrap big" style="position:relative;top:-2px">
       <blockquote><span>“Rollettes Experience isn’t for me anymore.</span> <span>It’s for all of the people that attend every year.”</span></blockquote>
       <cite>Chelsie Hill</cite>
     </div>
 
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-12px">
       <p>Now a mother herself, Chelsie is raising a daughter who will grow up seeing disability, leadership, dance, and community not as exceptions, but as part of everyday life.</p>
       <p>It is a future Chelsie once struggled to see for herself, now made visible for the next generation.</p>
     </div>
 
     <div class="wrap wide g g3">
-      <figure><span class="crop"><img src="{{pregnant}}" alt="Chelsie Hill pregnant, in a bathtub filled with flowers" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img src="{{robe}}" alt="Chelsie Hill in a white robe holding her newborn daughter" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
-      <figure><span class="crop"><img src="{{mom}}" alt="Chelsie Hill with her daughter on her lap" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{pregnant}}" alt="Chelsie Hill pregnant, in a bathtub filled with flowers" style="aspect-ratio:3/4;object-position:35.5% 0%;transform-origin:35.5% 0%;transform:scale(1.07)"></span></figure>
+      <figure><span class="crop"><img src="{{robe}}" alt="Chelsie Hill in a white robe holding her newborn daughter" style="aspect-ratio:3/4;object-position:50% 0%;transform-origin:50% 0%;transform:scale(1.05)"></span></figure>
+      <figure><span class="crop"><img src="{{mom}}" alt="Chelsie Hill with her daughter on her lap" style="aspect-ratio:3/4;object-position:34.5% 40%;transform-origin:34.5% 40%;transform:scale(1.19)"></span></figure>
     </div>
 
     <div class="wrap col">

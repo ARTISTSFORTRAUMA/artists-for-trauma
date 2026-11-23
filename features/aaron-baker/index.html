@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aaron Baker · Features · Artists for Trauma</title>
+<link rel="stylesheet" href="https://use.typekit.net/scq8iav.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap">
+<style>
+/* Layout: clean AFT feature — white page, hairline rules, black type, uncropped photo breaks; colour only in site header/footer */
+:root{
+  --bg:#ffffff; --fg:#000000; --mute:#555555; --line:#d9d9d9; --soft:#f3f3ee;
+  --pink:#f567af; --pink-ink:#c93683;
+  --grad:linear-gradient(115deg,#8e8284 0%,#7d7376 48%,#6f6568 100%);
+  --head:"gotham-condensed","Barlow Condensed","Arial Narrow",sans-serif;
+  --sp:clamp(48px,6vw,80px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{background:var(--bg);color:var(--fg);font-family:var(--head);font-weight:500;font-size:24px;line-height:1.15}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:700;line-height:.92;letter-spacing:-.01em;text-wrap:balance}
+img{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px}
+.eyebrow{font-weight:600;font-size:1rem;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:700 1.15rem var(--head);text-decoration:none;padding:12px 24px;border-radius:2px;background:#000;color:#fff}
+.btn:hover{background:var(--pink);color:#000}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+
+/* header (same as home page) */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.bar .lm{height:56px;width:auto;object-fit:contain}
+.bar .lw{height:40px;width:auto;object-fit:contain}
+nav.main{display:flex;gap:clamp(14px,1.6vw,24px);align-items:center;margin-right:auto;margin-left:12px}
+nav.main a{text-decoration:none;font-weight:600;font-size:1.15rem}
+nav.main a:hover,nav.main a.on{text-decoration:underline;text-underline-offset:6px}
+@media (max-width:1140px){nav.main a.n{display:none}}
+@media (max-width:620px){.bar .lw{display:none}}
+
+/* hero */
+.crumb{font-size:1.05rem;color:var(--mute);padding-block:18px}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--fg)}
+.hero{background:var(--grad);color:#000}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:stretch;padding-block:clamp(20px,2.6vw,32px)}
+.hero .txt{display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:20px;text-align:center;padding-block:4px}
+.hero .eyebrow{color:#000;font-size:clamp(1.1rem,1.9vw,1.5rem);letter-spacing:.04em}
+.hero h1{font-size:clamp(5rem,12.6vw,10.4rem);font-weight:800;text-transform:uppercase;line-height:.8;letter-spacing:-.01em}
+.hero h1 span{display:block;color:#fff}
+.hero .deck{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:700;line-height:1.08}
+.hero .deck em{font-style:normal}
+.hero .credits{font-size:clamp(1rem,1.5vw,1.25rem);font-weight:500;display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center}
+.hero .credits b{font-weight:700}
+.hero .ph{aspect-ratio:1.18;max-width:100%}
+.hero .ph{overflow:hidden;border-radius:2px}
+.hero .ph img{object-position:center top;transform:scale(1.16);transform-origin:47% 82%}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero .txt{padding-bottom:0}}
+
+/* story */
+.story{padding-block:36px;display:grid;gap:36px}
+.col{max-width:760px;margin:0 auto;display:grid;gap:20px}
+.lede{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:700;line-height:.95}
+
+.col h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;margin-top:8px;line-height:.89}
+.col h2:first-child{margin-top:0}
+.col h2 small{display:block;font-size:1rem;letter-spacing:.08em;color:var(--mute);margin-bottom:8px}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figcaption{font-size:1rem;color:var(--mute);font-weight:600}
+.wide{max-width:1240px;width:100%}
+.g{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g .t{aspect-ratio:3/4}.g .l{aspect-ratio:4/3}.g .s{aspect-ratio:1}
+@media (max-width:760px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3 figure:first-child{grid-column:1/-1}}
+
+.uncrop{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.uncrop figure{flex:0 1 auto}
+.uncrop img{width:auto;height:auto;max-height:560px;max-width:100%;object-fit:contain}
+@media (max-width:760px){.uncrop figure{flex:1 1 40%}.uncrop img{width:100%;max-height:none}}
+/* stats band */
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:0}
+.stats b{display:block;font-size:clamp(2.4rem,4.3vw,3.6rem);font-weight:700;line-height:.9}
+.stats span{font-size:1.1rem;font-weight:500;display:block;margin-top:8px;color:var(--mute)}
+@media (max-width:760px){.stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* quotes */
+.pq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:center}
+.pq .q{padding:clamp(24px,4vw,56px);display:grid;align-content:center;gap:16px}
+
+
+
+.pq blockquote{margin:0;font-size:clamp(1.7rem,3.1vw,2.7rem);font-weight:700;line-height:.95}
+.pq cite{font-style:normal;font-weight:500;font-size:1.3rem;color:var(--mute)}
+.pq figure{min-height:340px}
+
+.pq.il{grid-template-columns:minmax(0,48%) minmax(0,1fr);padding-left:clamp(0px,5vw,64px)}
+.pq.il .q{padding-left:clamp(20px,2.6vw,32px);padding-right:clamp(16px,2vw,24px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,46%);padding-right:clamp(0px,6vw,72px)}
+.pq.ir .q{padding-left:clamp(24px,6vw,76px);padding-right:32px;justify-self:end;width:fit-content;max-width:100%}
+.pq.il .q{padding-left:32px}
+.pq figure{min-height:0}
+.pq blockquote.long{font-size:clamp(1.6rem,2.9vw,2.45rem);font-weight:700;line-height:.95}
+@media (min-width:1100px){.pq blockquote.two span{display:block;white-space:nowrap}}
+.pq figure img{height:auto}
+@media (max-width:760px){.pq,.pq.il,.pq.ir{grid-template-columns:1fr;padding:0}.pq.ir .q{padding-left:24px}.pq.ir figure{order:-1}.pq figure{min-height:0;aspect-ratio:4/3}}
+.big{text-align:center;max-width:760px;width:100%;margin:0 auto;display:grid;gap:14px}
+.big blockquote{margin:0;font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:700;line-height:.95;text-transform:uppercase}
+@media (min-width:1100px){.big blockquote span{display:block;white-space:nowrap}}
+
+.big cite{font-style:normal;font-size:1.1rem;color:var(--mute);font-weight:500}
+.inline{border-left:3px solid var(--fg);padding:4px 0 4px 22px;font-size:1.6rem;font-weight:700;line-height:1.08}
+
+/* closing */
+.closing{position:relative;width:calc(100% - 40px);max-width:1200px;margin:0 auto;aspect-ratio:2.65;min-height:300px;display:grid;align-items:start;color:#fff;background:#222;border-radius:2px;overflow:hidden}
+.closing img{position:absolute;inset:0;border-radius:0}
+.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0) 55%)}
+.closing .wrap{position:relative;z-index:1;padding:clamp(20px,3vw,32px);display:grid;gap:10px;width:100%;max-width:none}
+.closing blockquote{margin:0;max-width:520px;font-size:clamp(1.7rem,3.3vw,2.9rem);font-weight:700;line-height:.95}
+.closing cite{font-style:normal;font-weight:600;font-size:1.1rem}
+
+@media (max-width:760px){
+.closing{aspect-ratio:auto;min-height:0;background:none;color:var(--fg);display:block;overflow:visible}
+.closing img{position:static;aspect-ratio:2.67;height:auto;border-radius:2px}
+.closing::after{display:none}
+.closing .wrap{padding:16px 0 0}
+.closing cite{color:var(--mute)}
+}
+/* credits + more */
+.credbox{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-wrap:wrap;gap:10px 40px;font-size:1.1rem}
+.credbox b{display:block;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.more{display:grid;gap:22px}
+.more .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.more h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;line-height:.89}
+.more .all{font-weight:700;font-size:1.15rem;text-decoration:none}.more .all::after{content:" →"}
+.rack{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.rack a{aspect-ratio:3/4;display:block;transition:transform .15s}
+.rack a:hover{transform:translateY(-4px)}
+@media (max-width:760px){.rack{grid-template-columns:repeat(3,minmax(0,1fr))}.rack a:nth-child(n+4){display:none}}
+.give .wrap{border-top:1px solid var(--line)}
+.give .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:36px}
+.give h2{font-size:clamp(2rem,3.6vw,2.8rem);line-height:.89}
+.give p{font-size:1.2rem;margin-top:8px;max-width:52ch;color:var(--mute)}
+footer{background:var(--grad);color:#000}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-block:32px}
+footer img{height:44px;width:auto;object-fit:contain}
+footer p{font-weight:700;font-size:1.15rem}
+footer p span{color:#fff;white-space:nowrap}
+/* Aaron Baker: hero shows the full cover portrait; B.A.S.I.C.S. band */
+.hero.full .ph{aspect-ratio:auto}.hero.full .ph img{transform:none;object-position:center;height:auto}
+.basics .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px 24px;padding-block:0}
+.basics .grp{grid-column:span 3;font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:6px}
+.basics b{display:block;font-size:clamp(3rem,5vw,4.2rem);font-weight:700;line-height:.9}
+.basics span{font-size:1.2rem;font-weight:500;display:block;margin-top:6px;color:var(--mute)}
+@media (max-width:760px){.basics .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a href="/" aria-label="Artists for Trauma home"><img class="lm" src="/features/aaron-baker/img/logomark.png" alt=""></a>
+    <nav class="main" aria-label="Main">
+      <a class="n" href="/">Home</a>
+      <a class="n" href="/#programs">Programs</a>
+      <a class="n on" href="/#features">Features</a>
+      <a class="n" href="/#videos">Videos</a>
+      <a class="n" href="/#about">About</a>
+      <a class="n" href="/#events">Events</a>
+      <a class="btn" href="https://www.zeffy.com/" style="background:var(--pink);color:#000">Give with Zeffy</a>
+    </nav>
+    <img class="lw" src="/features/aaron-baker/img/logoword.png" alt="Artists For Trauma">
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap crumb"><a href="/">Home</a> / <a href="/#features">Features</a> / Aaron Baker</div>
+
+  <section class="hero full">
+    <div class="wrap">
+      <div class="txt">
+        <div class="eyebrow">AFT &amp; Laura Sharpe's Artists Profile</div>
+        <h1>Aaron <span>Baker</span></h1>
+        <p class="deck">The will to rise.<br><em>An alchemist with an athletic outlook.</em></p>
+        <div class="credits"><span><b>Design &amp; photo</b> Per Bernal</span><span><b>Interview</b> Tattiahna Welsh</span></div>
+      </div>
+      <div class="ph"><img src="/features/aaron-baker/img/hero.jpg" alt="Aaron Baker in a black leather jacket, seated in his wheelchair holding a cane"></div>
+    </div>
+  </section>
+
+  <div class="story">
+    <div class="wrap col">
+      <p class="lede">Aaron Baker on possibility, purpose, the power of the mind, and what we choose to make from the lives we are given.</p>
+      <p>Aaron learned early what it meant to exist at the edge of control. As a professional motocross athlete, he calculated risk at speed, adapted to changing conditions, and became, as he puts it, “comfortable being uncomfortable.”</p>
+      <p>Preparation mattered, but certainty was an illusion. Eventually, you had to commit.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq il">
+        <figure><img loading="lazy" src="/features/aaron-baker/img/jacket.jpg" alt="Aaron Baker in a leather jacket, leaning on a cane"></figure>
+        <div class="q"><blockquote class="two"><span>“Comfortable being</span> <span>uncomfortable.”</span></blockquote><cite>Aaron Baker</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>1999</small>The edge of control</h2>
+      <p>In 1999, a motocross accident sent Aaron headfirst into the ground, fracturing his C4, 5, &amp; 6 cervical vertebrae and leaving him paralyzed from the chin down. The physical conditions of his life changed, but the instincts of an athlete remained: adapt to what is in front of you and keep moving toward what might be possible.</p>
+      <h2><small>Today</small>An alchemist with an athletic outlook</h2>
+      <p>Today, Aaron describes himself as an “alchemist with an athletic outlook.”</p>
+      <p>The alchemist is interested in transformation, in taking whatever material life presents and asking what else can be made from it. The athlete provides the method: study, repetition, adaptation, and the willingness to work without a guaranteed outcome.</p>
+      <p>“I like to look at possibility versus probability,” Aaron says. “I like to think that life happens for me, not to me. I’m not a victim of life. I choose.”</p>
+      <p>Then comes the tension at the center of that belief:</p>
+    </div>
+
+    <div class="wrap big">
+      <blockquote><span>“Life is a dance between making it happen</span> <span>and allowing it to happen.”</span></blockquote>
+      <cite>Aaron Baker</cite>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><img loading="lazy" src="/features/aaron-baker/img/gesture.jpg" alt="Aaron Baker in a burgundy suit, gesturing as he speaks" style="aspect-ratio:4/5;object-position:center 30%"></figure>
+      <figure><img loading="lazy" src="/features/aaron-baker/img/helmet.jpg" alt="Aaron Baker in a burgundy suit, holding a motorcycle helmet" style="aspect-ratio:4/5;object-position:center 30%"></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>The mind</small>Six inches between my ears</h2>
+      <p>For Aaron, the mind is its own kind of terrain. The discipline once required to compete became a way of approaching a body whose conditions had fundamentally changed.</p>
+      <p>He became a student of that body, learning its complications while looking for places where change might still be possible.</p>
+      <p class="inline">“The only difference between me and the fastest rider or the happiest person in the world is the six inches between my ears,” he says.</p>
+      <p>Thought cannot erase physical reality, but it can influence how we meet it. The mind is where Aaron locates agency: not in controlling the outcome, but in deciding how fully he will participate in pursuing it.</p>
+      <p>That distinction matters because Aaron’s worldview is not built around denying reality.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir">
+        <div class="q"><blockquote class="long">“I have a spinal cord injury. I have to accept that. I’m not satisfied with staying there.”</blockquote><cite>Aaron Baker</cite></div>
+        <figure><img loading="lazy" src="/features/aaron-baker/img/close.jpg" alt="Aaron Baker in a burgundy suit, looking off to the side"></figure>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <p>Acceptance gives him somewhere honest to begin. Curiosity keeps that starting point from becoming an ending.</p>
+      <p>Aaron can acknowledge what is true without assuming he knows everything about what comes next.</p>
+      <p class="inline">“Who knows what’s possible?”</p>
+      <h2><small>Family</small>Strength is never entirely solitary</h2>
+      <p>Aaron did not develop that outlook alone. His mother, Laquita Dian, was beside him through the aftermath of his injury.</p>
+      <p>Later, Aaron and his mother became involved in building a rehabilitation, adaptive fitness, and wellness facility in Los Angeles, extending the lessons of his own recovery into a space centered on movement, wellness, and possibility.</p>
+      <p>Her role complements the familiar story of individual will. Aaron believes deeply in personal agency, but his life also demonstrates the importance of the people willing to remain beside us while that agency is being rebuilt.</p>
+      <p>Strength can be deeply personal without ever being entirely solitary.</p>
+    </div>
+
+    <div class="wrap wide g g3">
+      <figure><img loading="lazy" src="/features/aaron-baker/img/stage.jpg" alt="Laura Sharpe and Aaron Baker in conversation on stage" style="aspect-ratio:1"></figure>
+      <figure><img loading="lazy" src="/features/aaron-baker/img/signing.jpg" alt="Aaron Baker signing books at the California Rehabilitation Institute" style="aspect-ratio:1"></figure>
+      <figure><img loading="lazy" src="/features/aaron-baker/img/bikes.jpg" alt="Aaron Baker with a group of adaptive cyclists" style="aspect-ratio:1"></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Mind seeds</small>Being before doing</h2>
+      <p>Aaron calls the ideas we plant in one another “mind seeds.”</p>
+      <p>He has distilled six of his own into a philosophy he calls the B.A.S.I.C.S. Method, grounded in a simple principle: Being before Doing.</p>
+    </div>
+  </div>
+
+  <section class="basics" aria-label="The B.A.S.I.C.S. Method">
+    <div class="wrap">
+      <div class="grp">Being</div><div class="grp">Doing</div>
+      <div><b>B</b><span>Breath</span></div>
+      <div><b>A</b><span>Awareness</span></div>
+      <div><b>S</b><span>Surrender</span></div>
+      <div><b>I</b><span>Inspiration</span></div>
+      <div><b>C</b><span>Choice</span></div>
+      <div><b>S</b><span>Share</span></div>
+    </div>
+  </section>
+
+  <div class="story">
+    <div class="wrap wide">
+      <div class="pq il">
+        <figure><img loading="lazy" src="/features/aaron-baker/img/arms.jpg" alt="Aaron Baker in a burgundy suit, arms open, seated in his wheelchair"></figure>
+        <div class="q"><blockquote class="two"><span>Being</span> <span>before Doing.</span></blockquote><cite>The B.A.S.I.C.S. Method</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <p>The progression moves from the internal outward. Become present. Understand where you are. Accept what is in front of you. Choose how to meet it. Commit. Then share what you have learned.</p>
+      <p>B.A.S.I.C.S. is where Aaron’s philosophy becomes practice, a way of navigating uncertainty without pretending uncertainty can be eliminated.</p>
+      <h2><small>Creation</small>Life is a big canvas</h2>
+      <p>That thinking also lives on the page. In his memoir, <em>The Rebellious Recovery: Transform Your Adversity Into Adventure</em>, Aaron gives language to ideas he has spent years testing against his own life.</p>
+      <p>Yet he is far more interested in creation than retrospection.</p>
+      <p class="inline">“I’m focused on creation, living forward, looking forward, building anew,” he says. “Life is a big canvas.”</p>
+      <p>The past provides material, but Aaron’s attention remains fixed on what can be created from it now.</p>
+    </div>
+
+    <div class="wrap wide g g3">
+      <figure><img loading="lazy" src="/features/aaron-baker/img/book.jpg" alt="The Rebellious Recovery by Aaron Baker, book cover" style="aspect-ratio:3/4;object-fit:contain;background:#fff"></figure>
+      <figure><img loading="lazy" src="/features/aaron-baker/img/cyclist.jpg" alt="Aaron Baker riding an adaptive trike on a dirt trail" style="aspect-ratio:3/4"></figure>
+      <figure><img loading="lazy" src="/features/aaron-baker/img/marathon.jpg" alt="Laura Sharpe and Aaron Baker at the Los Angeles Marathon" style="aspect-ratio:3/4"></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Artists for Trauma</small>An unspoken understanding</h2>
+      <p>That idea of creation is also where Aaron’s path intersects with Artists for Trauma (AFT) and its founder, Laura Sharpe. The two first connected through Aaron’s work in rehabilitation and adaptive fitness.</p>
+      <p>An AFT pop-up studio and project soon followed. Aaron remembers an immediate “kinship” and “unspoken understanding” between them, the beginning of a collaboration that has continued for years.</p>
+      <p>Today, Aaron serves on AFT’s Board of Directors. The connection makes sense within Aaron’s larger philosophy. Laura built AFT around creative expression and human connection after life-altering trauma; Aaron was exploring many of those same questions through the body and mind.</p>
+      <p>Their approaches were different, but their instinct was similar: Trauma may change the conditions of a life without having to determine the limits of one.</p>
+      <p>Art made that intersection personal. While learning to write with his left hand, he began painting, later exhibiting his work. Creativity was another way of exploring adaptation: an idea beginning in the mind and moving through the body.</p>
+      <p>That philosophy extends through his foundation, Adversity into Adventure, which expands access to rehabilitation, recreation, and neurological research, an approach it calls its “3R Ethos.”</p>
+      <p>That mission intersects with AFT as the two are now turning a custom wheelchair into a work of art, fusing mobility, identity, and creative expression.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir">
+        <div class="q"><blockquote class="two"><span>“Life is a</span> <span>big canvas.”</span></blockquote><cite>Aaron Baker</cite></div>
+        <figure><img loading="lazy" src="/features/aaron-baker/img/tee.jpg" alt="Aaron Baker in a white T-shirt and jeans, seated in his wheelchair"></figure>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <p>Aaron believes that it is another form of alchemy: not erasing what an object is, but expanding what it can represent.</p>
+      <p>There is an urgency underneath his curiosity and he says:</p>
+    </div>
+
+    <div class="wrap big">
+      <blockquote><span>“Apathy in life</span> <span>accelerates entropy.”</span></blockquote>
+      <cite>Aaron Baker</cite>
+    </div>
+
+    <div class="wrap col">
+      <p>The idea reveals a sharper edge to his philosophy: movement matters. Not because every effort guarantees progress, but because disengaging from your own life carries its own consequence.</p>
+      <p>For Aaron, there remains a “fierce rage against the pain,” a reason to continue pushing simply because he can.</p>
+      <p>That outlook continues through his work with Adversity Into Adventure, Permobil, Wings for Life, and several other organizations that he serves.</p>
+      <h2><small>Beyond himself</small>How many people can I affect?</h2>
+      <p>It also exists within the life he has built with his wife, Katelyn, and their daughter.</p>
+    </div>
+
+    <div class="wrap wide g g3">
+      <figure><img loading="lazy" src="/features/aaron-baker/img/family.jpg" alt="Aaron Baker with his wife Katelyn and their daughter" style="aspect-ratio:3/4;object-position:center 35%"></figure>
+      <figure><img loading="lazy" src="/features/aaron-baker/img/van.jpg" alt="Aaron Baker's family beside the Adversity into Adventure van in the desert" style="aspect-ratio:3/4;object-position:62% center"></figure>
+      <figure><img loading="lazy" src="/features/aaron-baker/img/bridge.jpg" alt="Aaron Baker and his family on a bridge among red rock cliffs" style="aspect-ratio:3/4"></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>Aaron is still moving, but increasingly the question is what that movement can create for people beyond himself.</p>
+      <p>He asks himself, “Am I satisfied with my effort?”</p>
+      <p>But his measure of a meaningful life increasingly extends beyond himself: “How many people can I affect?”</p>
+      <p>That may be where the alchemist and athlete ultimately meet. Experience is transformed by what we do with it, but its meaning grows when it moves beyond us.</p>
+      <p>Aaron puts it another way:</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq il">
+        <figure><img loading="lazy" src="/features/aaron-baker/img/crate.jpg" alt="Aaron Baker in a plaid shirt, seated beside a wooden crate"></figure>
+        <div class="q"><blockquote class="long">“Inspiration is a wheel. What I give you, you give me, and then we give others.”</blockquote><cite>Aaron Baker</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <p>It is also what makes Aaron’s connection with Laura Sharpe and Artists for Trauma feel less like a partnership than an extension of the way he already sees the world: Creation becomes connection, connection becomes service, and what one person discovers can become a possibility for someone else.</p>
+      <p>The will to rise begins within the individual. Its meaning grows in what we give once we do.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir">
+        <div class="q"><blockquote class="two"><span>“Who knows</span> <span>what’s possible?”</span></blockquote><cite>Aaron Baker</cite></div>
+        <figure><img loading="lazy" src="/features/aaron-baker/img/smile.jpg" alt="Aaron Baker smiling, seated with a cane"></figure>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <div class="credbox">
+        <div><b>Series</b>AFT &amp; Laura Sharpe's Artists Profile</div>
+        <div><b>Design &amp; photo</b>Per Bernal</div>
+        <div><b>Interview</b>Tattiahna Welsh</div>
+        <div><b>Follow</b>@imaaronbaker · @artistsfortrauma</div>
+        <div><b>Learn more</b>adversityintoadventure.org</div>
+      </div>
+    </div>
+    <div class="wrap more">
+      <div class="head"><h2>More features</h2><a class="all" href="/#features">See all features</a></div>
+      <div class="rack">
+        <a href="/#feature-ford-austin" aria-label="Ford Austin"><img loading="lazy" src="/features/aaron-baker/img/f_ford.jpg" alt=""></a>
+        <a href="/#feature-chelsie-hill" aria-label="Chelsie Hill"><img loading="lazy" src="/features/aaron-baker/img/f_chelsie.jpg" alt=""></a>
+        <a href="/#feature-onofre-banderas" aria-label="Onofre Banderas"><img loading="lazy" src="/features/aaron-baker/img/f_onofre.jpg" alt=""></a>
+        <a href="/#feature-lilian-raven" aria-label="Lilian Raven"><img loading="lazy" src="/features/aaron-baker/img/f_lilian.jpg" alt=""></a>
+        <a href="/#feature-fiona-dowdee" aria-label="Fiona Dowdee"><img loading="lazy" src="/features/aaron-baker/img/f_fiona.jpg" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="give">
+    <div class="wrap">
+      <div><h2>Be part of the story.</h2><p>Every survivor’s journey is bigger than one injury, one loss, one setback. Artists for Trauma is here to help support that journey through creativity, connectivity, and community.</p></div>
+      <a class="btn" href="https://www.zeffy.com/">Give with Zeffy</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img loading="lazy" src="/features/aaron-baker/img/logoword.png" alt="Artists For Trauma">
+    <p>Where Recovery is an Art. Powered by <span>human spirit™</span></p>
+  </div>
+</footer>
+
+<script>
+/* Fit big pull-quote lines to the article text width */
+(function(){
+  function fit(){
+    document.querySelectorAll('.big blockquote').forEach(function(q){
+      q.style.fontSize='';q.style.width='';
+      if(window.innerWidth<1100) return;
+      var spans=q.querySelectorAll('span');if(!spans.length) return;
+      var max=0;spans.forEach(function(s){var r=document.createRange();r.selectNodeContents(s);max=Math.max(max,r.getBoundingClientRect().width)});
+      var target=0;var big=q.closest('.big');[big.previousElementSibling,big.nextElementSibling].forEach(function(c){if(c)c.querySelectorAll('p').forEach(function(p){var r=document.createRange();r.selectNodeContents(p);[].forEach.call(r.getClientRects(),function(b){target=Math.max(target,b.width)})})});
+      target=Math.min(target||q.parentElement.getBoundingClientRect().width,q.parentElement.getBoundingClientRect().width);
+      if(max>0){var fs=parseFloat(getComputedStyle(q).fontSize);q.style.fontSize=(fs*target/max).toFixed(1)+'px';q.style.width=target.toFixed(0)+'px'}
+    });
+  }
+  function snug(){
+    document.querySelectorAll('.pq.ir .q').forEach(function(q){
+      q.style.transform='';
+      if(window.innerWidth<761) return;
+      var R=0;q.querySelectorAll('blockquote,cite').forEach(function(e){var r=document.createRange();r.selectNodeContents(e);[].forEach.call(r.getClientRects(),function(b){if(b.width>2)R=Math.max(R,b.right)})});
+      var img=q.parentElement.querySelector('figure').getBoundingClientRect();
+      var shift=img.left-32-R;if(shift>0.5)q.style.transform='translateX('+shift.toFixed(1)+'px)';
+    });
+  }
+  var _fit=fit;fit=function(){_fit();snug()};
+  window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
+  fit();
+})();
+</script>
+
+</body>
+</html>

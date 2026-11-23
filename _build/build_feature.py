@@ -6,7 +6,7 @@ src, imgs, slug, repo = sys.argv[1:5]
 html = open(src).read()
 out = f'{repo}/features/{slug}'; os.makedirs(f'{out}/img', exist_ok=True)
 names = sorted(set(re.findall(r'\{\{([a-z0-9_]+)\}\}', html)))
-data = json.load(open(imgs)) if imgs.endswith('.json') else None
+data = json.load(open(imgs)) if imgs.endswith('.json') and os.path.exists(imgs) else {}
 paths = {}
 for n in names:
     have = [f for f in os.listdir(f'{out}/img') if os.path.splitext(f)[0] == n]
@@ -33,7 +33,7 @@ html = html.replace('href="#top">See all features', 'href="/#features">See all f
 html = html.replace('<a href="#top" aria-label="Artists for Trauma home">', '<a href="/" aria-label="Artists for Trauma home">')
 html = html.replace('<a href="#top">Home</a> / <a href="#top">Features</a>', '<a href="/">Home</a> / <a href="/#features">Features</a>')
 html = re.sub(r'<a class="btn" href="#top"', '<a class="btn" href="https://www.zeffy.com/"', html)
-more = {'Chelsie Hill': 'chelsie-hill', 'Onofre Banderas': 'onofre-banderas', 'Aaron Baker': 'aaron-baker', 'Lilian Raven': 'lilian-raven', 'Fiona Dowdee': 'fiona-dowdee'}
+more = {'Ford Austin': 'ford-austin', 'Chelsie Hill': 'chelsie-hill', 'Onofre Banderas': 'onofre-banderas', 'Aaron Baker': 'aaron-baker', 'Lilian Raven': 'lilian-raven', 'Fiona Dowdee': 'fiona-dowdee'}
 for n, s in more.items():
     html = html.replace(f'<a href="#top" aria-label="{n}">', f'<a href="/#feature-{s}" aria-label="{n}">')
 html = html.replace('<img src="/features/', '<img loading="lazy" src="/features/').replace('<img loading="lazy" src="/features/' + slug + '/img/' + paths.get('hero', 'x'), '<img src="/features/' + slug + '/img/' + paths.get('hero', 'x'), 1)

@@ -10,6 +10,7 @@
     ['Name size','--name-size',3,12,.1,'rem'],
     ['Name line spacing','--name-lh',.6,1.3,.01,''],
     ['Name letter spacing','--name-ls',-.1,.2,.005,'em'],
+    ['Last name shift left','--ln-shift',0,400,1,'px'],
     ['Space under name','--gap-name',0,120,1,'px'],
     ['Title size','--deck-size',1,5,.05,'rem'],
     ['Title line spacing','--deck-lh',.8,1.6,.01,''],

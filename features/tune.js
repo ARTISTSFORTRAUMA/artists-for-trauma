@@ -42,7 +42,7 @@
     var out=['Settings for '+location.pathname];
     p.querySelectorAll('input[type=range][data-v]').forEach(function(r){out.push(r.previousSibling.textContent)});
     Object.keys(col).forEach(function(s){out.push(K.filter(function(k){return k[1]===s})[0][0]+' colour: '+col[s])});
-    Object.keys(done).forEach(function(n){var v=done[n];out.push('Photo '+n+': zoom '+v.z+', left/right '+v.x+'%, up/down '+v.y+'%, move up/down '+(v.my||0)+'px, brightness '+v.br+', contrast '+v.ct+', highlights '+v.hl+', shadows '+v.sh+', saturation '+v.sa+', warmth '+v.wa)});
+    Object.keys(done).forEach(function(n){var v=done[n];out.push('Photo '+n+': zoom '+v.z+', left/right '+v.x+'%, up/down '+v.y+'%, move up/down '+(v.my||0)+'px, move left/right '+(v.mx||0)+'px, brightness '+v.br+', contrast '+v.ct+', highlights '+v.hl+', shadows '+v.sh+', saturation '+v.sa+', warmth '+v.wa)});
     Object.keys(tdone).forEach(function(n){var v=tdone[n];out.push('Text '+n+': up/down '+v.y+'px, left/right '+v.x+'px')});
     var t=out.join('\n');
     (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied. Paste it in the chat.'},function(){prompt('Copy these settings:',t)});
@@ -51,14 +51,14 @@
 
   /* ---- Photos: click a photo, then zoom and move it inside its box ---- */
   var ph=document.createElement('div');
-  ph.innerHTML='<h4 style="margin:0 0 4px">Photos</h4><p class="hint" style="margin:0;color:#666">Click a photo on the page to select it.</p><div class="pc" hidden><p class="nm" style="margin:6px 0;font-weight:600"></p><label>Zoom: <b>1</b> <span style="color:#888">(below 1 = zoom out)</span></label><input type=range min=.4 max=3 step=.01 data-k=z><label>Left / right: <b>50</b>%</label><input type=range min=0 max=100 step=.5 data-k=x><label>Up / down: <b>50</b>%</label><input type=range min=0 max=100 step=.5 data-k=y><label>Move up / down: <b>0</b> px <span style="color:#888">(minus = up)</span></label><input type=range min=-400 max=400 step=1 data-k=my><label>Brightness: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=br><label>Contrast: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=ct><label>Highlights: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=hl><label>Shadows: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=sh><label>Saturation: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=sa><label>Warmth: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=wa><button class=rs0 style="background:#777;margin-top:8px">Reset this photo</button></div>';
+  ph.innerHTML='<h4 style="margin:0 0 4px">Photos</h4><p class="hint" style="margin:0;color:#666">Click a photo on the page to select it.</p><div class="pc" hidden><p class="nm" style="margin:6px 0;font-weight:600"></p><label>Zoom: <b>1</b> <span style="color:#888">(below 1 = zoom out)</span></label><input type=range min=.2 max=4 step=.01 data-k=z><label>Left / right: <b>50</b>%</label><input type=range min=0 max=100 step=.5 data-k=x><label>Up / down: <b>50</b>%</label><input type=range min=0 max=100 step=.5 data-k=y><label>Move up / down: <b>0</b> px <span style="color:#888">(minus = up)</span></label><input type=range min=-600 max=600 step=1 data-k=my><label>Move left / right: <b>0</b> px <span style="color:#888">(minus = left)</span></label><input type=range min=-600 max=600 step=1 data-k=mx><label>Brightness: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=br><label>Contrast: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=ct><label>Highlights: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=hl><label>Shadows: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=sh><label>Saturation: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=sa><label>Warmth: <b>0</b></label><input type=range min=-100 max=100 step=1 value=0 data-k=wa><button class=rs0 style="background:#777;margin-top:8px">Reset this photo</button></div>';
   p.insertBefore(ph,p.querySelector('h4').nextSibling);
   var sel=null,done={};
   var st2=document.createElement('style');st2.textContent='.tunewrap{display:block;overflow:hidden;border-radius:2px}.tunesel{outline:4px solid #f567af;outline-offset:-4px}main img{cursor:crosshair}';document.head.appendChild(st2);
   function nameOf(img){return (img.dataset.orig||img.getAttribute('src')).split('/').pop()}
   function state(img){var o=(img.style.objectPosition||getComputedStyle(img).objectPosition).split(' ');
     var px=function(v){return /%$/.test(v)?parseFloat(v):(v==='left'||v==='top'?0:v==='right'||v==='bottom'?100:50)};
-    var m=(img.style.transform||'').match(/scale\(([\d.]+)\)/),t=(img.style.transform||'').match(/translateY\((-?[\d.]+)px\)/);return{z:m?+m[1]:1,x:px(o[0]),y:px(o[1]||o[0]),my:t?+t[1]:0,br:0,ct:0,hl:0,sh:0,sa:0,wa:0}}
+    var m=(img.style.transform||'').match(/scale\(([\d.]+)\)/),t=(img.style.transform||'').match(/translate\((-?[\d.]+)px, *(-?[\d.]+)px\)/)||(img.style.transform||'').match(/translateY\((-?[\d.]+)px\)()/);return{z:m?+m[1]:1,x:px(o[0]),y:px(o[1]||o[0]),my:t?(t[2]===''||t[2]===undefined?+t[1]:+t[2]):0,mx:t&&t[2]!==''&&t[2]!==undefined?+t[1]:0,br:0,ct:0,hl:0,sh:0,sa:0,wa:0}}
   function wrap(img){if(img.closest('.ph,.tunewrap'))return;var w=document.createElement('span');w.className='tunewrap';img.parentNode.insertBefore(w,img);w.appendChild(img)}
 
   /* Tone curve. Must match _build/tone.py exactly (applied to the files when publishing). */
@@ -92,7 +92,7 @@
       p[i]=Math.min(r2,1)*255+.5;p[i+1]=g2*255+.5;p[i+2]=Math.min(b2,1)*255+.5}
     x.putImageData(d,0,0);img.src=c.toDataURL('image/jpeg',.92);
   }
-  function apply(img,v){wrap(img);img.style.objectPosition=v.x+'% '+v.y+'%';img.style.transformOrigin=v.x+'% '+v.y+'%';img.style.transform=(v.my?'translateY('+v.my+'px) ':'')+'scale('+v.z+')';tone(img,v);done[nameOf(img)]=v}
+  function apply(img,v){wrap(img);img.style.objectPosition=v.x+'% '+v.y+'%';img.style.transformOrigin=v.x+'% '+v.y+'%';img.style.transform=((v.mx||v.my)?'translate('+(v.mx||0)+'px, '+(v.my||0)+'px) ':'')+'scale('+v.z+')';tone(img,v);done[nameOf(img)]=v}
   var pc=ph.querySelector('.pc'),rs=pc.querySelectorAll('input');
   document.querySelector('main').addEventListener('click',function(e){
     var img=e.target.closest('img');if(!img||img.closest('.rack,#tune,header'))return;e.preventDefault();e.stopPropagation();
@@ -101,7 +101,7 @@
     rs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]});
     p.classList.remove('c');
   },true);
-  pc.querySelector('.rs0').onclick=function(){if(!sel)return;var v=state(sel);v.z=1;v.my=0;delete done[nameOf(sel)];apply(sel,v);delete done[nameOf(sel)];rs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]})};
+  pc.querySelector('.rs0').onclick=function(){if(!sel)return;var v=state(sel);v.z=1;v.my=0;v.mx=0;delete done[nameOf(sel)];apply(sel,v);delete done[nameOf(sel)];rs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]})};
   rs.forEach(function(r){r.oninput=function(){if(!sel)return;var v={};rs.forEach(function(q){v[q.dataset.k]=+q.value;q.previousElementSibling.querySelector('b').textContent=q.value});apply(sel,v)}});
 
   /* ---- Text blocks: click a quote, headline or paragraph block, then move it ---- */

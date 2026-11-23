@@ -169,10 +169,10 @@ footer p span{color:#fff;white-space:nowrap}
 /* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
    Spacing and sizes are variables so they can be tuned in one place. */
 .hero{--cov:"gotham-narrow","gotham","Montserrat","Helvetica Neue",Arial,sans-serif;
-  --gap-eyebrow:47px;--gap-name:5px;--gap-deck:87px;--name-size:7.2rem;--name-lh:.91;--deck-size:5rem;--deck-lh:1.6;--deck-gap:3px;--gap-top:25px}
+  --gap-eyebrow:47px;--gap-name:5px;--gap-deck:87px;--name-ls:.01em;--name-size:7.2rem;--name-lh:.91;--deck-size:5rem;--deck-lh:1.6;--deck-gap:3px;--gap-top:25px}
 .hero .txt{justify-content:flex-start;gap:0;padding-top:var(--gap-top)}
 .hero .eyebrow{color:#fff;margin-bottom:var(--gap-eyebrow)}
-.hero h1{font-family:var(--cov);font-weight:700;color:#f6f1e3;letter-spacing:-.045em;display:inline-block;text-align:left;line-height:var(--name-lh);font-size:min(var(--name-size),9vw);margin-bottom:var(--gap-name)}
+.hero h1{font-family:var(--cov);font-weight:700;color:#f6f1e3;letter-spacing:var(--name-ls);display:inline-block;text-align:left;line-height:var(--name-lh);font-size:min(var(--name-size),9vw);margin-bottom:var(--gap-name)}
 .hero h1 span{color:#fff;display:block;text-align:right}.hero h1 .fn{color:#f6f1e3;text-align:left}
 .hero .deck{color:#fff;font-size:min(var(--deck-size),3.4vw);line-height:var(--deck-lh);margin-bottom:var(--gap-deck)}
 .hero .deck b{display:block;color:#f6f1e3;font-weight:700;margin-bottom:var(--deck-gap)}

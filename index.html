@@ -329,6 +329,11 @@ section[id]{scroll-margin-top:100px}
 .vcard b{font:700 1.35rem/.95 var(--head)}
 .vcard small{font:500 1rem var(--head);color:var(--mute);display:block;margin-top:2px}
 .vplayer{aspect-ratio:16/9;position:relative;overflow:hidden;background:#111}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vsub{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:clamp(28px,4vw,48px) 0 14px;border-top:1px solid rgba(0,0,0,.12);padding-top:18px}
+.vsub h3{margin:0;font:700 clamp(1.4rem,2.4vw,1.9rem)/1 var(--head)}
+.vwall.v4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.vwall.v4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .vplayer img{border-radius:0;opacity:.55}
 .vplayer span{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font:600 1.2rem var(--head);text-align:center}
 @media (max-width:860px){.vwall{grid-template-columns:1fr 1fr}}
@@ -561,8 +566,10 @@ new IntersectionObserver(function(e){hd.classList.toggle('stuck',!e[0].isInterse
 
   <section id="videos">
     <div class="wrap rule pink">
-      <div class="head"><div><span class="eyebrow">AFT Films</span><h2>Videos</h2><p>In their own words: survivors, artists and advocates share how creativity carried them forward. Press play on a story.</p></div><a class="more" href="https://www.youtube.com/user/ArtistsForTrauma">YouTube channel</a></div>
+      <div class="head"><div><span class="eyebrow">AFT Films</span><h2>Videos</h2><p>In their own words: survivors, artists and advocates share how creativity carried them forward. Press play on a story.</p></div><a class="more" href="https://www.youtube.com/channel/UCGpepJ2mM5nC3VUw_9d7isQ" target="_blank" rel="noopener">YouTube channel</a></div>
       <div class="vwall" id="vwall"></div>
+      <div class="vsub"><h3>From the archive</h3><a class="btn" href="https://www.youtube.com/channel/UCGpepJ2mM5nC3VUw_9d7isQ" target="_blank" rel="noopener">See all on YouTube</a></div>
+      <div class="vwall v4" id="vwall2"></div>
     </div>
   </section>
 
@@ -844,14 +851,15 @@ function route(){
   }
   if (!pview.hidden) { pview.hidden = true; home.hidden = false; const el = location.hash && document.querySelector(location.hash); if (el) requestAnimationFrame(() => el.scrollIntoView({behavior:'instant'})); else window.scrollTo(0,0); }
   const vm = location.hash.match(/^#video-(.+)$/);
-  const vk = vm ? VIDEOS.findIndex(v => v[0] === vm[1]) : -1;
+  const VG = vm ? [VIDEOS, ARCHIVE].find(g => g.some(v => v[0] === vm[1])) : null;
+  const vk = VG ? VG.findIndex(v => v[0] === vm[1]) : -1;
   if (vk >= 0) {
-    const [id,n,s,im] = VIDEOS[vk], L = VIDEOS.length, prev = VIDEOS[(vk+L-1)%L], next = VIDEOS[(vk+1)%L];
+    const [id,n,s,im,yt] = VG[vk], L = VG.length, prev = VG[(vk+L-1)%L], next = VG[(vk+1)%L];
     pview.hidden = true;
     fview.innerHTML = `<div class="wrap"><a class="fback" href="#videos">← All videos</a>
       <div style="display:grid;gap:18px;border-top:4px solid var(--pink);padding-top:20px;max-width:1040px">
       <span class="eyebrow">AFT Films</span><h1 style="font-size:clamp(2.6rem,5vw,4.4rem);line-height:.92">${esc(n)}</h1><div class="dek" style="font:700 1.5rem var(--head);color:var(--pink-ink)">${esc(s)}</div>
-      <div class="vplayer"><img src="${IMG[im]}" alt=""><span>Video player goes here</span></div>
+      <div class="vplayer">${yt ? `<iframe src="https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&rel=0&playsinline=1" title="${esc(n)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>` : `<img src="${vthumb(im)}" alt=""><span>Video coming soon</span>`}</div>
       <div class="fnav"><a href="#video-${prev[0]}"><small>← Previous</small>${esc(prev[1])}</a><a href="#video-${next[0]}" style="text-align:right"><small>Next →</small>${esc(next[1])}</a></div>
       </div></div>`;
     home.hidden = true; fview.hidden = false; window.scrollTo(0,0); return;
@@ -871,8 +879,9 @@ function route(){
     </div></article></div>`;
   home.hidden = true; fview.hidden = false; window.scrollTo(0,0);
 }
-addEventListener('hashchange', route); route();
+addEventListener('hashchange', route);
 
+const vthumb = im => IMG[im] || im;
 const VIDEOS = [
   ['solodome','Solodome','Kris Cadle & Joshua Chaney','v_solodome'],
   ['tommy-hollenstein','Tommy Hollenstein','Art in motion','v_tommy'],
@@ -880,6 +889,15 @@ const VIDEOS = [
   ['page-gamboa','Page Gamboa','Part 1: Low Rider for Life and meeting Laura Sharpe','v_page'],
   ['lilian-raven','Lilian Raven','Fashion born from survival','v_lilian'],
   ['aaron-baker','Aaron Baker','The will to rise','v_aaron']];
+const yti = id => `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+const ARCHIVE = [
+  ['powered-by-human-spirit','Powered By Human Spirit','Trailer',yti('OjVmJFYt2gg'),'OjVmJFYt2gg'],
+  ['laura-sharpe-introduction','Laura Sharpe','An introduction to Artists for Trauma',yti('po-NRS_1wj4'),'po-NRS_1wj4'],
+  ['creativity-connectivity-community','Creativity. Connectivity. Community.','Artists for Trauma',yti('B9E3YFITBxI'),'B9E3YFITBxI'],
+  ['fashion-show-macys','AFT Fashion Show','With Macy’s',yti('kfW9gX5Ypck'),'kfW9gX5Ypck']];
+const vcard = ([id,n,s,im]) => `<a class="vcard" href="#video-${id}"><div class="ph"><img src="${vthumb(im)}" alt="${esc(n)} video still" loading="lazy"><span class="pl" aria-hidden="true"></span></div><div><b>${esc(n)}</b><small>${esc(s)}</small></div></a>`;
+document.getElementById('vwall2').innerHTML = ARCHIVE.map(vcard).join('');
+route();
 document.getElementById('vwall').innerHTML = VIDEOS.map(([id,n,s,im]) => `<a class="vcard" href="#video-${id}"><div class="ph"><img src="${IMG[im]}" alt="${esc(n)} video still"><span class="pl" aria-hidden="true"></span></div><div><b>${esc(n)}</b><small>${esc(s)}</small></div></a>`).join('');
 
 (() => {

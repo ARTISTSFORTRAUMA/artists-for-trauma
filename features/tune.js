@@ -42,6 +42,7 @@
     p.querySelectorAll('input[type=range][data-v]').forEach(function(r){out.push(r.previousSibling.textContent)});
     Object.keys(col).forEach(function(s){out.push(K.filter(function(k){return k[1]===s})[0][0]+' colour: '+col[s])});
     Object.keys(done).forEach(function(n){var v=done[n];out.push('Photo '+n+': zoom '+v.z+', left/right '+v.x+'%, up/down '+v.y+'%, brightness '+v.br+', contrast '+v.ct+', highlights '+v.hl+', shadows '+v.sh+', saturation '+v.sa+', warmth '+v.wa)});
+    Object.keys(tdone).forEach(function(n){var v=tdone[n];out.push('Text '+n+': up/down '+v.y+'px, left/right '+v.x+'px')});
     var t=out.join('\n');
     (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied. Paste it in the chat.'},function(){prompt('Copy these settings:',t)});
   };
@@ -101,6 +102,25 @@
   },true);
   pc.querySelector('.rs0').onclick=function(){if(!sel)return;var v=state(sel);v.z=1;delete done[nameOf(sel)];apply(sel,v);delete done[nameOf(sel)];rs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]})};
   rs.forEach(function(r){r.oninput=function(){if(!sel)return;var v={};rs.forEach(function(q){v[q.dataset.k]=+q.value;q.previousElementSibling.querySelector('b').textContent=q.value});apply(sel,v)}});
+
+  /* ---- Text blocks: click a quote, headline or paragraph block, then move it ---- */
+  var tx=document.createElement('div');
+  tx.innerHTML='<h4 style="margin:14px 0 4px;border-top:1px solid #ddd;padding-top:10px">Text blocks</h4><p class="hint" style="margin:0;color:#666">Click a quote, headline or the opening paragraph to select it.</p><div class="tc" hidden><p class="nm" style="margin:6px 0;font-weight:600"></p><label>Up / down: <b>0</b> px <span style="color:#888">(minus = up)</span></label><input type=range min=-300 max=300 step=1 value=0 data-k=y><label>Left / right: <b>0</b> px <span style="color:#888">(minus = left)</span></label><input type=range min=-300 max=300 step=1 value=0 data-k=x><button class=rs1 style="background:#777;margin-top:8px">Reset this block</button></div>';
+  ph.parentNode.insertBefore(tx,ph.nextSibling);
+  var TSEL='.pq .q,.big,.inline,.col h2,.lede,.basics',tsel=null,tdone={};
+  var st3=document.createElement('style');st3.textContent='.tunetsel{outline:3px dashed #f567af;outline-offset:6px}';document.head.appendChild(st3);
+  function tname(el){return '“'+el.textContent.replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')+'…”'}
+  var tc=tx.querySelector('.tc'),trs=tc.querySelectorAll('input');
+  function tapply(el,v){el.style.position='relative';el.style.top=v.y+'px';el.style.left=v.x+'px';if(v.x||v.y)tdone[tname(el)]=v;else delete tdone[tname(el)]}
+  document.querySelector('main').addEventListener('click',function(e){
+    if(e.target.closest('img,#tune'))return;var el=e.target.closest(TSEL);if(!el)return;e.preventDefault();e.stopPropagation();
+    if(tsel)tsel.classList.remove('tunetsel');tsel=el;el.classList.add('tunetsel');
+    var v=tdone[tname(el)]||{x:0,y:0};tc.hidden=false;tx.querySelector('.hint').hidden=true;tc.querySelector('.nm').textContent=tname(el);
+    trs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]});
+    p.classList.remove('c');
+  },true);
+  trs.forEach(function(r){r.oninput=function(){if(!tsel)return;var v={};trs.forEach(function(q){v[q.dataset.k]=+q.value;q.previousElementSibling.querySelector('b').textContent=q.value});tapply(tsel,v)}});
+  tc.querySelector('.rs1').onclick=function(){if(!tsel)return;tapply(tsel,{x:0,y:0});trs.forEach(function(r){r.value=0;r.previousElementSibling.querySelector('b').textContent=0})};
   var r=document.createElement('button');r.textContent='Reset';r.style.background='#777';r.onclick=function(){location.reload()};p.appendChild(r);
   p.querySelector('.min').onclick=function(){p.classList.toggle('c')};
   document.body.appendChild(p);

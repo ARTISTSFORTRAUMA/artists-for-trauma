@@ -1,0 +1,445 @@
+<title>Lilian Raven · Clean Feature</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap">
+<style>
+/* Layout: clean AFT feature — white page, hairline rules, black type, uncropped photo breaks; colour only in site header/footer */
+:root{
+  --bg:#ffffff; --fg:#000000; --mute:#555555; --line:#d9d9d9; --soft:#f3f3ee;
+  --pink:#f567af; --pink-ink:#c93683;
+  --grad:#d6ebee;
+  --head:"gotham-condensed","Barlow Condensed","Arial Narrow",sans-serif;
+  --sp:clamp(48px,6vw,80px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{background:var(--bg);color:var(--fg);font-family:var(--head);font-weight:500;font-size:24px;line-height:1.15}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:700;line-height:.92;letter-spacing:-.01em;text-wrap:balance}
+img{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px}
+.eyebrow{font-weight:600;font-size:1rem;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:700 1.15rem var(--head);text-decoration:none;padding:12px 24px;border-radius:2px;background:#000;color:#fff}
+.btn:hover{background:var(--pink);color:#000}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+
+/* header (same as home page) */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.bar .lm{height:56px;width:auto;object-fit:contain}
+.bar .lw{height:40px;width:auto;object-fit:contain}
+nav.main{display:flex;gap:clamp(14px,1.6vw,24px);align-items:center;margin-right:auto;margin-left:12px}
+nav.main a{text-decoration:none;font-weight:600;font-size:1.15rem}
+nav.main a:hover,nav.main a.on{text-decoration:underline;text-underline-offset:6px}
+@media (max-width:1140px){nav.main a.n{display:none}}
+@media (max-width:620px){.bar .lw{display:none}}
+
+/* hero */
+.crumb{font-size:1.05rem;color:var(--mute);padding-block:18px}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--fg)}
+.hero{background:var(--grad);color:#000}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:stretch;padding-block:clamp(20px,2.6vw,32px)}
+.hero .txt{display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:20px;text-align:center;padding-block:4px}
+.hero .eyebrow{color:#000;font-size:clamp(1.1rem,1.9vw,1.5rem);letter-spacing:.04em}
+.hero h1{font-size:clamp(5rem,12.6vw,10.4rem);font-weight:800;text-transform:uppercase;line-height:.8;letter-spacing:-.01em}
+.hero h1 span{display:block;color:#fff}
+.hero .deck{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:700;line-height:1.08}
+.hero .deck em{font-style:normal}
+.hero .credits{font-size:clamp(1rem,1.5vw,1.25rem);font-weight:500;display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center}
+.hero .credits b{font-weight:700}
+.hero .ph{aspect-ratio:1.18;max-width:100%}
+.hero .ph{overflow:hidden;border-radius:2px}
+.hero .ph img{object-position:center top;transform:scale(1.16);transform-origin:47% 82%}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero .txt{padding-bottom:0}}
+
+/* story */
+.story{padding-block:36px;display:grid;gap:36px}
+.col{max-width:760px;margin:0 auto;display:grid;gap:20px}
+.lede{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:700;line-height:.95}
+
+.col h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;margin-top:8px;line-height:.89}
+.col h2:first-child{margin-top:0}
+.col h2 small{display:block;font-size:1rem;letter-spacing:.08em;color:#c86f00;margin-bottom:8px}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figcaption{font-size:1rem;color:var(--mute);font-weight:600}
+.wide{max-width:1240px;width:100%}
+.g{display:grid;gap:6px}
+.story>.g+.g{margin-top:-30px}
+/* Side caption: runs up the left edge of its photo, outside the frame, so the photo bottoms line up */
+.g figure:has(figcaption.side){position:relative}
+.g figcaption.side{position:absolute;left:0;bottom:0;margin:0;white-space:nowrap;line-height:1.2;transform-origin:0 100%;transform:rotate(-90deg) translateY(-8px)}
+@media (max-width:760px){.g figcaption.side{position:static;transform:none;margin:6px 0 0}}
+/* Pull quotes on white-backdrop studio shots sit in a box in the cover colour, so the photo is anchored, like the opening box */
+.pq.boxed{background:var(--grad);padding:clamp(20px,3.4vw,48px);padding-block:clamp(20px,2.6vw,32px);border-radius:2px}
+.pq.boxed.ir,.pq.boxed.il{padding-left:clamp(20px,3.4vw,48px);padding-right:clamp(20px,3.4vw,48px)}
+.pq.boxed blockquote{color:#000}.pq.boxed cite{color:#000}
+/* Ono: cut-out studio portraits stand on the cover yellow, whole figure in view */
+.boxed figure{background:none;aspect-ratio:4/5;min-height:0}
+/* Photos stand on the bottom edge of their yellow box, like the cover */
+.pq.boxed{padding-bottom:0}.pq.boxed figure{align-self:end}
+.g.boxed{padding-bottom:0!important;align-items:end}
+/* Photos may run past their frame anywhere inside the yellow box; the box edge is the only crop */
+.pq.boxed,.g.boxed{overflow:hidden}.pq.boxed .q{position:relative;z-index:1}.boxed figure,.boxed .crop,.boxed .tunewrap{overflow:visible!important}
+/* Opening photo runs edge to edge, top and bottom */
+.hero.full .wrap{padding-block:0}.hero.full .ph{align-self:stretch;aspect-ratio:auto;min-height:640px;height:100%}
+.hero .txt{padding-bottom:32px}
+.hero.full .ph{overflow:visible}.hero.full{overflow:hidden}.hero.full .ph img{position:relative;top:var(--hero-down,40px)}
+.boxed figure .crop{height:100%}
+.boxed figure img{width:100%;height:100%;object-fit:contain;object-position:50% 100%}
+.g.boxed{background:var(--grad);padding:clamp(20px,2.6vw,32px) clamp(20px,3.4vw,48px)}
+.g.boxed figure{aspect-ratio:3/4}
+.pq figure:has(figcaption.side){position:relative}
+.pq figcaption.side{position:absolute;left:0;bottom:0;margin:0;white-space:nowrap;line-height:1.2;transform-origin:0 100%;transform:rotate(-90deg) translateY(-8px);color:#000}
+.hl{background:#d6ebee;color:#000;font-weight:700;padding:10px 14px;margin-inline:-14px}
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,38%);gap:22px;align-items:start}.duo>div{display:grid;gap:inherit;align-content:start}.col figure.inset{margin:4px 0 0}.col figure.inset img{width:100%;display:block;border-radius:2px}.col figure.inset figcaption{font-size:.9rem;margin-top:6px;font-weight:600}
+@media (max-width:600px){.duo{grid-template-columns:1fr}}
+@media (max-width:820px){.hero h1{font-size:min(var(--name-size),12.5vw) !important}}
+/* Phones: the pixel nudges were set on a desktop screen, so photos go back to their plain framing */
+@media (max-width:760px){.boxed figure img,.hero.full .ph img{transform:none!important}.pq figcaption.side{display:none}
+.hero.full .wrap{grid-template-columns:minmax(0,1fr)}.hero.full .ph{min-height:0;height:auto;aspect-ratio:4/5}
+.pq.boxed figure,.g.boxed figure{display:block;aspect-ratio:4/5!important;min-height:0}.boxed figure .crop{display:block;height:100%;overflow:hidden!important}.boxed figure img{width:100%;height:100%}.pq.boxed{padding:20px 20px 0}.pq.boxed .q{padding:0 0 20px}}
+@media (min-width:761px){.pq.boxed .q{align-self:center;padding-top:0}}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g .t{aspect-ratio:3/4}.g .l{aspect-ratio:4/3}.g .s{aspect-ratio:1}
+@media (max-width:760px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3 figure:first-child{grid-column:1/-1}}
+
+.uncrop{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.uncrop figure{flex:0 1 auto}
+.uncrop img{width:auto;height:auto;max-height:560px;max-width:100%;object-fit:contain}
+@media (max-width:760px){.uncrop figure{flex:1 1 40%}.uncrop img{width:100%;max-height:none}}
+/* stats band */
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:0}
+.stats b{display:block;font-size:clamp(2.4rem,4.3vw,3.6rem);font-weight:700;line-height:.9}
+.stats span{font-size:1.1rem;font-weight:500;display:block;margin-top:8px;color:var(--mute)}
+@media (max-width:760px){.stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* quotes */
+.pq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:center}
+.pq .q{padding:clamp(24px,4vw,56px);display:grid;align-content:center;gap:16px}
+
+
+
+.pq blockquote{margin:0;font-size:clamp(1.7rem,3.1vw,2.7rem);font-weight:700;line-height:.95}
+.pq cite{font-style:normal;font-weight:500;font-size:1.3rem;color:var(--mute)}
+.pq figure{min-height:340px}
+
+.pq.il{grid-template-columns:minmax(0,48%) minmax(0,1fr);padding-left:clamp(0px,5vw,64px)}
+.pq.il .q{padding-left:clamp(20px,2.6vw,32px);padding-right:clamp(16px,2vw,24px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,46%);padding-right:clamp(0px,6vw,72px)}
+.pq.ir .q{padding-left:clamp(24px,6vw,76px);padding-right:32px;justify-self:end;width:fit-content;max-width:100%}
+.pq.il .q{padding-left:32px}
+.pq figure{min-height:0}
+.pq blockquote.long{font-size:clamp(1.6rem,2.9vw,2.45rem);font-weight:700;line-height:.95}
+@media (min-width:1100px){.pq blockquote.two span{display:block;white-space:nowrap}}
+.pq figure img{height:auto}
+@media (min-width:601px){.col h2.one{white-space:nowrap}}
+/* Pull quotes: photos inset equally from both edges, same width; quotes start the same distance below the photo top */
+.pq.il{grid-template-columns:minmax(0,47%) minmax(0,1fr);padding-left:clamp(0px,6vw,72px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,47%);padding-right:clamp(0px,6vw,72px)}
+@media (min-width:761px){.pq .q,.pq.up .q{align-self:start;padding-top:150px}}
+@media (max-width:760px){.pq .q,.pq.up .q,.wrap.col,.wrap.big,.lede,.col h2,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits{top:0 !important;left:0 !important}.pq.up .q{padding-top:clamp(24px,4vw,56px)}}
+@media (max-width:760px){.pq,.pq.il,.pq.ir{grid-template-columns:1fr;padding:0}.pq.ir .q{padding-left:24px}.pq.ir figure{order:-1}.pq figure{min-height:0;aspect-ratio:4/3}}
+.big{text-align:center;max-width:760px;width:100%;margin:0 auto;display:grid;gap:14px}
+.big blockquote{margin:0;font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:700;line-height:.95;text-transform:uppercase}
+@media (min-width:1100px){.big blockquote span{display:block;white-space:nowrap}}
+.big blockquote.nofit{font-size:clamp(2rem,3.6vw,3rem);line-height:1;text-wrap:balance}.big blockquote.nofit span{display:block;white-space:normal}
+
+.crop{display:block;overflow:hidden;border-radius:2px}
+.story .lede,.story h2,.pq blockquote,.inline,.big blockquote,.basics b{font-weight:600;-webkit-text-stroke:.4px currentColor}
+.col h2 small{-webkit-text-stroke:0}
+.col h2{text-transform:none;font-size:clamp(2.4rem,4.4vw,3.3rem);line-height:.95}
+.col h2 small{text-transform:uppercase}
+.book{font-style:italic;font-weight:700}
+.big cite{font-style:normal;font-size:1.1rem;color:var(--mute);font-weight:500}
+.inline{border-left:3px solid var(--fg);padding:4px 0 4px 22px;font-size:1.6rem;font-weight:700;line-height:1.08}
+
+/* closing */
+.closing{position:relative;width:calc(100% - 40px);max-width:1200px;margin:0 auto;aspect-ratio:2.65;min-height:300px;display:grid;align-items:start;color:#fff;background:#222;border-radius:2px;overflow:hidden}
+.closing img{position:absolute;inset:0;border-radius:0}
+.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0) 55%)}
+.closing .wrap{position:relative;z-index:1;padding:clamp(20px,3vw,32px);display:grid;gap:10px;width:100%;max-width:none}
+.closing blockquote{margin:0;max-width:520px;font-size:clamp(1.7rem,3.3vw,2.9rem);font-weight:700;line-height:.95}
+.closing cite{font-style:normal;font-weight:600;font-size:1.1rem}
+
+@media (max-width:760px){
+.closing{aspect-ratio:auto;min-height:0;background:none;color:var(--fg);display:block;overflow:visible}
+.closing img{position:static;aspect-ratio:2.67;height:auto;border-radius:2px}
+.closing::after{display:none}
+.closing .wrap{padding:16px 0 0}
+.closing cite{color:var(--mute)}
+}
+/* credits + more */
+.credbox{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-wrap:wrap;gap:10px 40px;font-size:1.1rem}
+.credbox b{display:block;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.more{display:grid;gap:22px}
+.more .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.more h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;line-height:.89}
+.more .all{font-weight:700;font-size:1.15rem;text-decoration:none}.more .all::after{content:" →"}
+.rack{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.rack a{aspect-ratio:3/4;display:block;transition:transform .15s}
+.rack a:hover{transform:translateY(-4px)}
+@media (max-width:760px){.rack{grid-template-columns:repeat(3,minmax(0,1fr))}.rack a:nth-child(n+4){display:none}}
+.give .wrap{border-top:1px solid var(--line)}
+.give .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:36px}
+.give h2{font-size:clamp(2rem,3.6vw,2.8rem);line-height:.89}
+.give p{font-size:1.2rem;margin-top:8px;max-width:52ch;color:var(--mute)}
+footer{background:var(--grad);color:#000}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-block:32px}
+footer img{height:44px;width:auto;object-fit:contain}
+footer p{font-weight:700;font-size:1.15rem}
+footer p span{color:#fff;white-space:nowrap}
+/* Chelsie Hill: hero shows the cover portrait; colours from the cover (taupe band, cream title page) */
+.hero.full .ph{aspect-ratio:4/5}.hero.full .ph img{transform:none;object-position:50% 100%;height:100%;width:100%;object-fit:contain}
+/* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
+   Spacing and sizes are variables so they can be tuned in one place. */
+.hero{--cov:"Outfit","Helvetica Neue",Arial,sans-serif;
+  --gap-eyebrow:46px;--gap-name:28px;--gap-deck:59px;--name-ls:-.01em;--name-size:6.4rem;--name-lh:.86;--deck-size:2.2rem;--deck-lh:1.04;--deck-gap:7px;--gap-top:64px}
+.hero .txt{justify-content:flex-start;gap:0;padding-top:var(--gap-top)}
+.hero .eyebrow{color:#000;margin-bottom:var(--gap-eyebrow)}
+.hero h1{font-family:var(--cov);font-weight:500;color:#f58d00;letter-spacing:var(--name-ls);display:block;text-align:center;line-height:var(--name-lh);font-size:min(var(--name-size),9vw);margin-bottom:var(--gap-name)}
+.hero h1 span{color:#f58d00;display:block;text-align:center}.hero h1 .fn{color:#f58d00}
+.hero .deck{color:#000;font-weight:600;font-size:min(var(--deck-size),3.4vw);line-height:var(--deck-lh);margin-bottom:var(--gap-deck)}
+.hero .deck b{display:block;color:#3f8f9b;font-family:var(--cov);font-weight:500;text-transform:uppercase;margin-bottom:var(--deck-gap)}
+.hero .credits{color:#000}
+@media (max-width:820px){.hero h1{font-size:min(var(--name-size),17vw)}.hero .deck{font-size:min(var(--deck-size),7.4vw)}}
+/* Bold display text in the article in the box mauve */
+.story .lede,.story h2,.pq blockquote,.inline,.big blockquote,.basics b{color:#000}
+.inline{border-left-color:#f58d00}
+.col h2 small{color:#000;font-size:1.25rem;letter-spacing:.06em;margin-bottom:6px}
+.big cite{color:#000;font-weight:700;font-size:1.6rem}
+.basics .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px 24px;padding-block:0}
+.basics .grp{grid-column:span 3;font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:6px}
+.basics b{display:block;font-size:clamp(3rem,5vw,4.2rem);font-weight:700;line-height:.9}
+.basics span{font-size:1.2rem;font-weight:500;display:block;margin-top:6px;color:var(--mute)}
+@media (max-width:760px){.basics .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" aria-label="Artists for Trauma home"><img class="lm" src="{{logomark}}" alt=""></a>
+    <nav class="main" aria-label="Main">
+      <a class="n" href="#top">Home</a>
+      <a class="n" href="#top">Programs</a>
+      <a class="n on" href="#top">Features</a>
+      <a class="n" href="#top">Videos</a>
+      <a class="n" href="#top">About</a>
+      <a class="n" href="#top">Events</a>
+      <a class="btn" href="#top" style="background:var(--pink);color:#000">Give with Zeffy</a>
+    </nav>
+    <img class="lw" src="{{logoword}}" alt="Artists For Trauma">
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap crumb"><a href="#top">Home</a> / <a href="#top">Features</a> / Lilian Raven</div>
+
+  <section class="hero full">
+    <div class="wrap">
+      <div class="txt">
+        <div class="eyebrow">AFT &amp; Laura Sharpe's Artists Profile</div>
+        <h1><span class="fn">Lilian</span> <span>Raven</span></h1>
+        <p class="deck"><b>Fashion Born From Survival</b>Designer · Seamstress · Sewing Teacher</p>
+        <div class="credits"><span><b>Photo/Design</b> Per Bernal</span><span><b>Interview</b> Tattiahna Welsh</span><span>June 2026</span></div>
+      </div>
+      <div class="ph"><img src="{{hero}}" alt="Lilian Raven in a black fur gown, hands lifted to her teal and pink hair"></div>
+    </div>
+  </section>
+
+  <div class="story">
+    <div class="wrap col">
+      <p class="lede">Inside Lilian’s studio, fashion feels less like an industry and more like an extension of who she is.</p>
+      <p>Every garment, fabric choice, and silhouette is approached with intention, craftsmanship, and bold creativity. She sees design as both construction and storytelling, using texture and shape to communicate identity.</p>
+      <p>As a Los Angeles-based fashion designer, seamstress, and sewing teacher, Lilian has remained committed to mentoring young creatives while helping preserve sewing as a craft passed from one generation to the next.</p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{studio1}}" alt="Lilian Raven at her sewing machine in her studio" style="aspect-ratio:3/2;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{studio2}}" alt="Lilian Raven sewing camouflage fabric" style="aspect-ratio:3/2;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Survival</small>A source of calm</h2>
+      <p>Creativity entered Lilian’s life through survival. At four years old, she was severely burned by fire, leaving her with injuries that shaped much of her childhood and recovery.</p>
+      <p>During that period, one of the few things that brought her comfort was watching her mother sew. Seeing fabric transformed by hand became a source of calm during a time when very little else did.</p>
+      <p class="hl">Creativity became a way for Lilian to heal, rebuild her confidence, and rediscover herself beyond the trauma.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir boxed">
+        <div class="q"><blockquote class="long">“I’m just a happy trauma survivor, thankful to still be alive and still be here in the world, and to be able to live my life to the fullest.”</blockquote><cite>Lilian Raven</cite></div>
+        <figure><span class="crop"><img src="{{gown}}" alt="Lilian Raven in her black fur gown, hands on her hips"></span></figure>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>13 years old</small>Her first sewing machine</h2>
+      <p>At 13 years old, Lilian received her first sewing machine, finally allowing her to create for herself. What began as fascination quickly became something much deeper.</p>
+      <p>Lilian started making small pieces on her own, experimenting with fabric and teaching herself through the process. Sewing absorbed her in a way that nothing else had, giving her focus, purpose, and a creative outlet during a difficult chapter of her life.</p>
+      <p>What started inside her mother’s home slowly became the foundation for the life she would later build through fashion.</p>
+      <h2><small>London to Los Angeles</small>From Camden to Melrose</h2>
+      <p>Lilian eventually opened her own storefront in Camden Town, London’s most recognizable spaces for avant-garde and underground fashion, before later bringing her work to Melrose Avenue in Los Angeles.</p>
+    </div>
+
+    <div class="wrap wide g" style="grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)">
+      <figure><span class="crop"><img src="{{london}}" alt="Lilian Raven in a long coat on a London bridge, in black and white" style="aspect-ratio:4/3;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{triple}}" alt="Three black-and-white frames of Lilian Raven posing in a patterned dress" style="aspect-ratio:21/20;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>But as her career evolved, she realized her deepest connection to fashion was not being front-facing within the industry. What fulfilled her most was helping others discover confidence, healing, and self-expression through creativity.</p>
+      <p>That realization led her toward teaching and mentorship.</p>
+      <h2><small>Teaching</small>Bringing the art back</h2>
+      <p>Teaching sewing became just as meaningful to Lilian as designing clothing. As she worked with more young creatives, she saw how making something with your own hands could build confidence and self-expression.</p>
+      <p class="inline">“At the time, when I started, it was a dying art... so I just wanted to bring the art back into schools and communities.”</p>
+      <p>Stepping away from storefront fashion allowed Lilian to focus more deeply on mentorship, creativity, and connection through making.</p>
+    </div>
+
+    <div class="wrap wide g g3">
+      <figure><span class="crop"><img src="{{ws1}}" alt="A student at a sewing machine in one of Lilian Raven’s workshops" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{ws2}}" alt="Students sewing together at a workshop table" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{classes}}" alt="Lilian Raven teaching at a sewing class" style="aspect-ratio:3/4;object-position:50% 50%"></span></figure>
+    </div>
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{workshop}}" alt="The Fashion Design Workshops studio" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{scars}}" alt="Lilian Raven Clothing: Instead of my scars, they looked at my clothes" style="aspect-ratio:1;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Artists for Trauma</small>Our core values aligned</h2>
+      <p>Lilian’s connection with Artists for Trauma began through one of her sewing students, who introduced her to founder Laura Sharpe. What immediately resonated with Lilian was the organization’s shared understanding of survival, creativity, and emotional healing.</p>
+      <p class="inline">“Laura, when I spoke to her, her story impacted me because it’s all trauma-based... our core values aligned.”</p>
+      <p>Through Artists for Trauma, Lilian found another space where fashion and art could help people reconnect with themselves through creativity.</p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{laura1}}" alt="Laura Sharpe and Lilian Raven on a porch" style="aspect-ratio:4/5;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{laura2}}" alt="Lilian Raven and Laura Sharpe in the studio" style="aspect-ratio:4/5;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Turning Scars Into Art</small>Flipping the whole script</h2>
+      <p>One of Lilian’s earliest collaborations with Artists for Trauma grew out of a project she had already been developing called “Turning Scars Into Art.”</p>
+      <p class="inline">“It was pictures of me artistically drawn, highlighting my scars and my features. It was done beautifully... it was just like flipping the whole script.”</p>
+      <p>Around the same time, Laura Sharpe was organizing an installation at California Rehabilitation Institute centered around trauma survivors and healing through art. Lilian’s work became part of the installation.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img src="{{risky}}" alt="Lilian Raven with fellow artists at an Artists for Trauma event" style="aspect-ratio:3/2;object-position:50% 40%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Love Your Body</small>Space to be seen</h2>
+      <p>Another collaboration between Lilian, Laura, and Artists for Trauma came through Karen Michelle’s Love Your Body event. Representing Artists for Trauma, Lilian presented designs on a runway that challenged the fashion industry’s narrow standards of beauty and belonging.</p>
+      <p>Centered on empowerment and inclusivity, the event created space for women and girls of all shapes, sizes, ages, ethnicities, and abilities to feel seen and celebrated.</p>
+      <p>For Lilian, it reflected a belief that has guided her work from the beginning: <b>fashion should create space for people to be authentically themselves.</b></p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{love1}}" alt="Lilian Raven’s white gown presented at the Love Your Body event" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{love2}}" alt="A model in Lilian Raven’s white gown on the runway" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Family</small>The next generation</h2>
+      <p>Outside of fashion, one of Lilian’s proudest roles is being a mother. Creativity has always been part of her household, and she has encouraged the next generation to fully embrace who they are.</p>
+      <p>Over time, her son went from asking her to make clothes to learning how to create them himself alongside her in the studio, continuing the same creative connection Lilian once experienced beside her own mother.</p>
+    </div>
+
+    <div class="wrap wide g g2">
+      <figure><span class="crop"><img src="{{goat}}" alt="Lilian Raven’s son holding a goat" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+      <figure><span class="crop"><img src="{{son}}" alt="Lilian Raven with her son as a boy" style="aspect-ratio:3/4;object-position:50% 40%"></span></figure>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq il boxed">
+        <figure><span class="crop"><img src="{{bold}}" alt="Lilian Raven in her black fur gown, one hand at her temple"></span></figure>
+        <div class="q"><blockquote class="long">“The people who have gone through things, you know, we’re supposed to shrink. I don’t do that. That is not me. I’m bold.”</blockquote><cite>Lilian Raven</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <p class="hl">At the center of Lilian’s work is the belief that people should never feel pressured to make themselves smaller because of what they have survived.</p>
+      <p>Through fashion, teaching, and art, Lilian encourages people to express themselves fully rather than hiding from their experiences.</p>
+      <h2><small>Today</small>Creating space</h2>
+      <p>Today, Lilian continues to build a life rooted in fashion, teaching, and community. Through her work, she has transformed survival into creativity, using art and self expression to help others feel visible, empowered, &amp; understood.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img src="{{truck}}" alt="Lilian Raven laughing with friends in the back of a moving truck" style="aspect-ratio:3/2;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>What once began beside her mother’s sewing machine has grown into a life dedicated to <b>healing, connection, and creating space for people to fully be themselves.</b></p>
+    </div>
+
+    <div class="wrap col">
+      <div class="credbox">
+        <div><b>Series</b>Laura Sharpe's Artists Profile</div>
+        <div><b>Photo/Design</b>Per Bernal</div>
+        <div><b>Interview</b>Tattiahna Welsh</div>
+        <div><b>Follow</b>@artistsfortrauma</div>
+      </div>
+    </div>
+    <div class="wrap more">
+      <div class="head"><h2>More features</h2><a class="all" href="#top">See all features</a></div>
+      <div class="rack">
+        <a href="#top" aria-label="Chelsie Hill"><img src="{{f_chelsie}}" alt=""></a>
+        <a href="#top" aria-label="Onofre Banderas"><img src="{{f_onofre}}" alt=""></a>
+        <a href="#top" aria-label="Aaron Baker"><img src="{{f_aaron}}" alt=""></a>
+        <a href="#top" aria-label="Ford Austin"><img src="{{f_ford}}" alt=""></a>
+        <a href="#top" aria-label="Fiona Dowdee"><img src="{{f_fiona}}" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="give">
+    <div class="wrap">
+      <div><h2>Be part of the story.</h2><p>Every survivor’s journey is bigger than one injury, one loss, one setback. Artists for Trauma is here to help support that journey through creativity, connectivity, and community.</p></div>
+      <a class="btn" href="#top">Give with Zeffy</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="{{logoword}}" alt="Artists For Trauma">
+    <p>Where Recovery is an Art. Powered by <span>human spirit™</span></p>
+  </div>
+</footer>
+
+<script>
+/* Fit big pull-quote lines to the article text width */
+(function(){
+  function fit(){
+    document.querySelectorAll('.big blockquote:not(.nofit)').forEach(function(q){
+      q.style.fontSize='';q.style.width='';
+      if(window.innerWidth<1100) return;
+      var spans=q.querySelectorAll('span');if(!spans.length) return;
+      var max=0;spans.forEach(function(s){var r=document.createRange();r.selectNodeContents(s);max=Math.max(max,r.getBoundingClientRect().width)});
+      var target=0;var big=q.closest('.big');[big.previousElementSibling,big.nextElementSibling].forEach(function(c){if(c)c.querySelectorAll('p').forEach(function(p){var r=document.createRange();r.selectNodeContents(p);[].forEach.call(r.getClientRects(),function(b){target=Math.max(target,b.width)})})});
+      target=Math.min(target||q.parentElement.getBoundingClientRect().width,q.parentElement.getBoundingClientRect().width);
+      if(max>0){var fs=parseFloat(getComputedStyle(q).fontSize);q.style.fontSize=(fs*target/max).toFixed(1)+'px';q.style.width=target.toFixed(0)+'px'}
+    });
+  }
+  function snug(){
+    document.querySelectorAll('.pq.ir .q').forEach(function(q){
+      q.style.transform='';
+      if(window.innerWidth<761) return;
+      var R=0;q.querySelectorAll('blockquote,cite').forEach(function(e){var r=document.createRange();r.selectNodeContents(e);[].forEach.call(r.getClientRects(),function(b){if(b.width>2)R=Math.max(R,b.right)})});
+      var img=q.parentElement.querySelector('figure').getBoundingClientRect();
+      var shift=img.left-32-R;if(shift>0.5)q.style.transform='translateX('+shift.toFixed(1)+'px)';
+    });
+  }
+  var _fit=fit;fit=function(){_fit();snug()};
+  window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
+  fit();
+})();
+</script>

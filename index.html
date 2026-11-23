@@ -830,12 +830,12 @@ const FEATURES = [
   ['risky','RISKY (Kelly Graval)','Keep On Keepin’ On','West Coast Writing Pioneer','','f_risky'],
   ['thomas-duncan','Dr. Thomas K. Duncan','The Art of Healing','D.O., FACS, FICS · How the healing journey extends beyond the operating room','','f_duncan'],
   ['tobias-forrest','Tobias Forrest','Redefining Diverse Abilities in the Entertainment Industry','Actor · Artist · Singer · Advocate','','f_tobias'],
-  ['carlo-kellem','Carlo Kellem','From Ringside to Regulation','The Boxing Commissioner · Oni Fights 5 MMA, Galt House Hotel, October 10, 2026','','f_carlo'],
-  ['greg-fante','Greg Fante','The Coach of Louisville','Laura Sharpe’s Athletes Profile · October 2026','','f_greg'],
-  ['kent-seton','Kent Seton','Building Connection Across Business, Philanthropy and Human Potential','Lawyer · Former Professional Athlete · Founder of AthletesTouch · CEO & Chairman, Edward Charles Foundation','','f_kent'],
-  ['damon-bell','Damon Bell','“The Demon”: From the Other Side of the Cage','Athletes for Trauma presents · Oni Fights 5 MMA · October 10, 2026','Hard work never betrays you.','f_damon'],
+  ['tommy-hollenstein','Tommy Hollenstein','Art in Motion','Phil. 4:13','','f_tommy'],
   ['quan-b','Quan.B','Rhythm & Roots','Faith · Family · Music','','f_quan'],
-  ['tommy-hollenstein','Tommy Hollenstein','Art in Motion','Phil. 4:13','','f_tommy']];
+  ['damon-bell','Damon Bell','“The Demon”: From the Other Side of the Cage','Athletes for Trauma presents · Oni Fights 5 MMA · October 10, 2026','Hard work never betrays you.','f_damon'],
+  ['carlo-kellem','Carlo Kellem','From Ringside to Regulation','The Boxing Commissioner · Oni Fights 5 MMA, Galt House Hotel, October 10, 2026','','f_carlo'],
+  ['kent-seton','Kent Seton','Building Connection Across Business, Philanthropy and Human Potential','Lawyer · Former Professional Athlete · Founder of AthletesTouch · CEO & Chairman, Edward Charles Foundation','','f_kent'],
+  ['greg-fante','Greg Fante','The Coach of Louisville','Laura Sharpe’s Athletes Profile · October 2026','','f_greg']];
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const ARTICLES = new Set(['ford-austin','aaron-baker','chelsie-hill','onofre-banderas','lilian-raven']); const fhref = id => ARTICLES.has(id) ? `/features/${id}/` : `#feature-${id}`;
 const cover = ([id,n,d,,,im]) => `<a class="fcover" href="${fhref(id)}" aria-label="${esc(n)}: ${esc(d)}"><img src="${IMG[im]}" alt="${esc(n)} magazine cover"><span class="cap"><span><b>${esc(n)}</b><small>${esc(d)}</small></span><i>→</i></span></a>`;

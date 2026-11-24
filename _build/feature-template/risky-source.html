@@ -202,7 +202,7 @@ footer p span{color:#505050}
 /* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
    Spacing and sizes are variables so they can be tuned in one place. */
 .hero{--cov:"elza-text","Inter Tight","Helvetica Neue",Arial,sans-serif;
-  --gap-eyebrow:28px;--gap-name:10px;--gap-deck:56px;--name-ls:-0.05em;--name-size:9rem;--name-lh:0.86;--deck-size:2.45rem;--deck-lh:1.05;--deck-gap:22px;--gap-top:63px;--txt-scale:1;--eyebrow-size:1.5rem;--credits-size:1.2rem}
+  --gap-eyebrow:46px;--gap-name:0px;--gap-deck:43px;--name-ls:-0.05em;--name-size:9.2rem;--name-lh:0.78;--deck-size:2.4rem;--deck-lh:0.94;--deck-gap:34px;--gap-top:57px;--txt-scale:1.16;--eyebrow-size:1.4rem;--credits-size:1.45rem}
 /* Whole cover text block scales together; profile line and credits sized separately */
 .hero .txt{zoom:var(--txt-scale)}.hero .eyebrow{font-size:var(--eyebrow-size)}.hero .credits{font-size:var(--credits-size)}
 .hero{color:#fff}
@@ -252,13 +252,13 @@ footer p span{color:#505050}
 
   <section class="hero full">
     <div class="wrap">
-      <div class="txt">
+      <div class="txt" style="position:relative;top:0px;left:10px">
         <div class="eyebrow">AFT &amp; Laura Sharpe's Artists Profile</div>
-        <h1><span>Risky</span></h1>
+        <h1 style="position:relative;top:-30px"><span>Risky</span></h1>
         <p class="deck"><b>keep on keepin on</b>Kelly Graval · West Coast Writing Pioneer</p>
         <div class="credits"><span><b>Cover Photo &amp; Design</b> Per Bernal</span></div>
       </div>
-      <div class="ph"><img src="{{hero}}" alt="Kelly “Risk” Graval standing in a doorway in front of a purple floral mural" style="object-position:50% 100%;transform-origin:50% 100%;transform:translate(-36px, 44px) scale(1.29);clip-path:inset(0% 4% 0% 2.5%)"></div>
+      <div class="ph"><img src="{{hero}}" alt="Kelly “Risk” Graval standing in a doorway in front of a purple floral mural" style="object-position:50% 100%;transform-origin:50% 100%;transform:translate(-36px, 44px) scale(1.29);clip-path:inset(0% 10% 0% 10.5%)"></div>
     </div>
   </section>
 

@@ -837,7 +837,7 @@ const FEATURES = [
   ['kent-seton','Kent Seton','Building Connection Across Business, Philanthropy and Human Potential','Lawyer · Former Professional Athlete · Founder of AthletesTouch · CEO & Chairman, Edward Charles Foundation','','f_kent'],
   ['greg-fante','Greg Fante','The Coach of Louisville','Laura Sharpe’s Athletes Profile · October 2026','','f_greg']];
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-const ARTICLES = new Set(['ford-austin','aaron-baker','chelsie-hill','onofre-banderas','lilian-raven','fiona-dowdee']); const fhref = id => ARTICLES.has(id) ? `/features/${id}/` : `#feature-${id}`;
+const ARTICLES = new Set(['ford-austin','aaron-baker','chelsie-hill','onofre-banderas','lilian-raven','fiona-dowdee','risky']); const fhref = id => ARTICLES.has(id) ? `/features/${id}/` : `#feature-${id}`;
 const cover = ([id,n,d,,,im]) => `<a class="fcover" href="${fhref(id)}" aria-label="${esc(n)}: ${esc(d)}"><img src="${IMG[im]}" alt="${esc(n)} magazine cover"><span class="cap"><span><b>${esc(n)}</b><small>${esc(d)}</small></span><i>→</i></span></a>`;
 document.getElementById('fwall').innerHTML = FEATURES.map(cover).join('');
 const home = document.getElementById('top'), fview = document.getElementById('fview');

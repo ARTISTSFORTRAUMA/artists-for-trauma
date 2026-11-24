@@ -6,7 +6,7 @@ src, txt = sys.argv[1], open(sys.argv[2]).read()
 s = open(src).read()
 VARS = {'Space above profile line':'--gap-top','Space under profile line':'--gap-eyebrow','Name size':'--name-size',
         'Name line spacing':'--name-lh','Name letter spacing':'--name-ls','Space under name':'--gap-name',
-        'Title size':'--deck-size','Title line spacing':'--deck-lh','Space between title lines':'--deck-gap','Space above credits':'--gap-deck','Whole text size':'--txt-scale','Profile line size':'--eyebrow-size','Credits size':'--credits-size'}
+        'Title size':'--deck-size','Title line spacing':'--deck-lh','Space between title lines':'--deck-gap','Space above credits':'--gap-deck','Whole text size':'--txt-scale','Profile line size':'--eyebrow-size','Credits size':'--credits-size','Space between name and job line':'--sub-gap'}
 for label, var in VARS.items():
     m = re.search(r'^' + re.escape(label) + r': (\S+)', txt, re.M)
     if m and var + ':' in s:

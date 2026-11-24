@@ -211,7 +211,8 @@ footer p span{color:#505050}
 .hero .deck{color:#fff;font-weight:600;font-size:min(var(--deck-size),3.4vw);line-height:var(--deck-lh);margin-bottom:var(--gap-deck)}
 .hero .deck b{display:block;color:var(--yel);font-family:var(--cov);font-weight:700;letter-spacing:-.04em;margin-bottom:var(--deck-gap)}
 .hero .credits{color:#fff}
-.hero.full .ph{overflow:hidden}.hero.full .ph img{object-fit:cover;object-position:50% 50%;top:0}
+/* Cover photo: whole frame shown, free to zoom and move anywhere inside the box (box edge is the crop) */
+.hero.full .ph{overflow:visible}.hero.full .ph img{object-fit:contain;object-position:50% 100%;top:0;transform-origin:50% 100%}
 @media (max-width:820px){.hero h1{font-size:min(var(--name-size),20vw)}.hero .deck{font-size:min(var(--deck-size),7.4vw)}}
 /* Bold display text in the article in the box mauve */
 .story .lede,.story h2,.pq blockquote,.inline,.big blockquote,.basics b{color:#000}

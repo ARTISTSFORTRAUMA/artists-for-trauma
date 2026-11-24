@@ -6,7 +6,7 @@
 <title>Tobias Forrest · Features · Artists for Trauma</title>
 <link rel="stylesheet" href="https://use.typekit.net/scq8iav.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Poppins:wght@500;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap">
 <style>
 /* Layout: clean AFT feature — white page, hairline rules, black type, uncropped photo breaks; colour only in site header/footer */
@@ -242,6 +242,10 @@ footer p span{color:#f70909}
 .big.boxq{background:var(--grad);text-align:left;padding:clamp(24px,3vw,36px) 34px;max-width:788px;justify-items:start}
 .big.boxq blockquote{color:#fff!important;text-transform:none;line-height:.95}.big.boxq cite{color:#000!important}
 .col p.cap{font-size:1rem;color:var(--mute);font-weight:600;margin:0}
+/* Credits set on the cover, under the name, in the cover's font */
+.hero.cover .ph{position:relative}
+.hero.cover .credits.cov{position:absolute;left:0;top:0;z-index:3;display:flex;flex-direction:column;gap:.15em;align-items:flex-start;font-family:"Poppins",sans-serif;font-weight:500;font-size:var(--covfs,1rem);transform:translate(var(--covx,0),var(--covy,0));line-height:1.15;color:#fff;text-align:left;margin:0}
+.hero.cover .credits.cov b{font-weight:700}
 </style>
 
 </head>
@@ -267,7 +271,7 @@ footer p span{color:#f70909}
 
   <section class="hero full cover">
     <div class="wrap">
-      <div class="ph"><img src="/features/tobias-forrest/img/hero.jpg" alt="Tobias Forrest. Multihyphenate Performer. Actor. Artist. Singer. Advocate. Redefining diverse abilities in the entertainment industry."></div>
+      <div class="ph"><div class="credits cov"><span><b>Cover &amp; Design by</b> Per Bernal</span><span><b>Story by</b> Tattiahna Welsh</span></div><img src="/features/tobias-forrest/img/hero.jpg" alt="Tobias Forrest. Multihyphenate Performer. Actor. Artist. Singer. Advocate. Redefining diverse abilities in the entertainment industry."></div>
     </div>
   </section>
 
@@ -389,7 +393,8 @@ footer p span{color:#f70909}
     <div class="wrap col">
       <div class="credbox">
         <div><b>Series</b>Laura Sharpe's Artists Profile</div>
-        <div><b>Photo &amp; Design</b>Per Bernal</div>
+        <div><b>Cover &amp; Design</b>Per Bernal</div>
+        <div><b>Story</b>Tattiahna Welsh</div>
         <div><b>Follow</b>@artistsfortrauma</div>
       </div>
     </div>
@@ -448,6 +453,12 @@ footer p span{color:#f70909}
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
   fit();
 })();
+</script>
+<script>
+/* place the cover credits under the name on the cover image, scaled with it */
+(function(){var img=document.querySelector('.hero.cover .ph img'),c=document.querySelector('.hero.cover .credits.cov');if(!img||!c)return;img.loading='eager';
+function covfit(){var r=img.getBoundingClientRect(),pr=img.parentNode.getBoundingClientRect(),w=r.width,h=r.height;if(!w)return;c.style.setProperty('--covfs',(w*.023)+'px');c.style.setProperty('--covx',(r.left-pr.left+w*.034)+'px');c.style.setProperty('--covy',(r.top-pr.top+h*.246)+'px')}
+if(img.complete)requestAnimationFrame(covfit);img.addEventListener('load',covfit);addEventListener('resize',covfit);addEventListener('load',covfit);if(window.ResizeObserver)new ResizeObserver(covfit).observe(img)})();
 </script>
 
 <script src="/features/tune.js" defer></script>

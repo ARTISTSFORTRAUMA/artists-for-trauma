@@ -94,7 +94,7 @@
       var r2=m[0]*R+m[1]*G+m[2]*B,g2=m[3]*R+m[4]*G+m[5]*B,b2=m[6]*R+m[7]*G+m[8]*B;
       r2=Math.min(Math.max(r2,0),1)*(1+wm);b2=Math.min(Math.max(b2,0),1)*(1-wm);g2=Math.min(Math.max(g2,0),1);
       p[i]=Math.min(r2,1)*255+.5;p[i+1]=g2*255+.5;p[i+2]=Math.min(b2,1)*255+.5}
-    x.putImageData(d,0,0);img.src=c.toDataURL('image/jpeg',.92);
+    x.putImageData(d,0,0);img.src=/\.(webp|png)(\?|$)/i.test(o)?c.toDataURL('image/png'):c.toDataURL('image/jpeg',.92);
   }
   function apply(img,v){wrap(img);img.style.objectPosition=v.x+'% '+v.y+'%';img.style.transformOrigin=v.x+'% '+v.y+'%';img.style.transform=((v.mx||v.my)?'translate('+(v.mx||0)+'px, '+(v.my||0)+'px) ':'')+'scale('+v.z+')';img.style.clipPath=(v.kt||v.kr||v.kb||v.kl)?'inset('+(v.kt||0)+'% '+(v.kr||0)+'% '+(v.kb||0)+'% '+(v.kl||0)+'%)':'';tone(img,v);done[nameOf(img)]=v}
   var pc=ph.querySelector('.pc'),rs=pc.querySelectorAll('input');

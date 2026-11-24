@@ -235,6 +235,9 @@ footer p span{color:#505050}
 @media (max-width:760px){.basics .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:760px){.story>.wrap.col:first-child,.story>.wrap.big{margin-bottom:0 !important}}
 @media (min-width:601px){.big blockquote.two span{white-space:nowrap}}
+/* Closing quote in a box in the cover colours, set left like the boxed quotes */
+.big.boxq{background:var(--grad);text-align:left;padding:clamp(24px,3vw,36px) 34px;max-width:788px;justify-items:start}
+.big.boxq blockquote{color:var(--yel)!important;text-transform:none;line-height:.95}.big.boxq cite{color:#fff!important}
 </style>
 
 </head>
@@ -419,7 +422,7 @@ footer p span{color:#505050}
       <p>What Kelly has built goes beyond the work itself. It lives in the spaces he has created, the artists he has brought in, and the way the art form continues to move forward without him needing to define it.</p>
     </div>
 
-    <div class="wrap big">
+    <div class="wrap big boxq">
       <blockquote class="nofit two"><span>“I just want the art form</span> <span>to keep moving.”</span></blockquote>
       <cite>Kelly Graval</cite>
     </div>

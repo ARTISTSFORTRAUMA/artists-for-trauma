@@ -1,73 +1,93 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About · Artists for Trauma</title><meta name="description" content="Creativity. Connectivity. Community. – It takes a Village! AFT provides FUN, adaptive, artistic platforms designed to provide free of charge, evidence-based, in"><meta name="robots" content="noindex">
-<link rel="stylesheet" href="https://use.typekit.net/scq8iav.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap"><link rel="stylesheet" href="/blog/blog.css"><link rel="stylesheet" href="/media/pages.css"></head><body>
+<link rel="stylesheet" href="https://use.typekit.net/scq8iav.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap"><link rel="stylesheet" href="/blog/blog.css"><link rel="stylesheet" href="/media/pages.css"><style>
+.ab .wrap{max-width:1080px;margin:0 auto;padding:clamp(24px,3vw,44px) max(5vw,16px) clamp(40px,5vw,64px)}
+.ab .tag{text-align:center;max-width:760px;margin:0 auto clamp(32px,4vw,48px)}
+.ab .tag h1{font:700 clamp(1.8rem,3.6vw,2.8rem)/1.05 var(--head,"gotham-condensed",sans-serif);text-transform:uppercase;margin:0 0 14px}
+.ab .tag p{font-size:1.15rem;line-height:1.6;margin:0}
+.ab .row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:start;margin-bottom:clamp(32px,4vw,48px)}
+.ab .vid{position:relative;aspect-ratio:16/9;background:#111}
+.ab .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ab h2.h{font:700 clamp(1.5rem,2.8vw,2.1rem)/1.05 var(--head,"gotham-condensed",sans-serif);text-transform:uppercase;margin:0 0 16px}
+.ab h3.q{font:700 1.3rem/1.15 var(--head,"gotham-condensed",sans-serif);text-transform:uppercase;letter-spacing:.02em;margin:22px 0 10px;color:var(--pink-ink,#c93683)}
+.ab p{line-height:1.65;margin:0 0 14px;font-size:1.05rem}
+.ab .lead{font-weight:700}
+.ab .pic img{width:100%;display:block}
+.ab .free{text-align:center;font:700 clamp(1.3rem,2.6vw,1.9rem)/1.15 var(--head,"gotham-condensed",sans-serif);text-transform:uppercase;margin:clamp(40px,5vw,64px) 0 24px;padding-top:clamp(32px,4vw,48px);border-top:1px solid rgba(0,0,0,.12)}
+.arts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 24px;list-style:none;padding:0;margin:0 auto;max-width:900px;text-align:center}
+.arts li{font:600 1.25rem/1.3 var(--head,"gotham-condensed",sans-serif);text-transform:uppercase;letter-spacing:.04em;padding:10px 0;border-bottom:3px solid var(--pink,#f567af)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.5vw,28px)}
+.stats>div{background:#f4f4f0;padding:24px 22px}
+.stats h3{font:700 1.35rem/1.1 var(--head,"gotham-condensed",sans-serif);text-transform:uppercase;margin:0 0 14px}
+.stats ul{margin:0 0 14px;padding-left:18px}.stats li{margin:0 0 9px;line-height:1.5}
+.stats .src{font-size:.85rem;color:#555;margin:0}.stats .src a{color:var(--pink-ink,#c93683)}
+.more2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.5vw,28px)}
+.more2 a{display:block;background:#000;color:#fff;text-align:center;padding:34px 20px;text-decoration:none}
+.more2 b{display:block;font:700 clamp(1.4rem,2.6vw,2rem)/1 var(--head,"gotham-condensed",sans-serif);text-transform:uppercase;margin-bottom:10px}
+.more2 span{color:var(--pink,#f567af);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.95rem}
+.more2 a:hover span{text-decoration:underline}
+.vbtn{display:inline-block;border:0;cursor:pointer;background:var(--pink,#f567af);color:#fff;font:700 1.05rem/1 var(--head,"gotham-condensed",sans-serif);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:15px 34px;border-radius:999px}
+.vbtn:hover{background:var(--pink-ink,#c93683)}
+.ab .sec{text-align:center;font:700 clamp(1.5rem,3vw,2.3rem)/1.1 var(--head,"gotham-condensed",sans-serif);text-transform:uppercase;margin:clamp(48px,6vw,80px) 0 clamp(24px,3vw,36px);padding-top:clamp(32px,4vw,48px);border-top:1px solid rgba(0,0,0,.12)}
+.vtest{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,36px);text-align:center}
+.vtest blockquote{margin:0;font-size:1.15rem;line-height:1.5;font-style:italic}
+.vtest cite{display:block;margin-top:12px;font:600 1.05rem/1 var(--head,"gotham-condensed",sans-serif);font-style:normal;letter-spacing:.06em;color:var(--pink-ink,#c93683)}
+.ctr{text-align:center}
+@media(max-width:860px){.stats{grid-template-columns:1fr}.arts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.ab .row,.more2,.vtest{grid-template-columns:1fr}.ab .row.r2 .pic{order:-1}}
+</style>
+</head><body>
 <header class="top"><div class="wrap"><a href="/" aria-label="Artists for Trauma home"><img src="/images/art_full.png" alt="Artists for Trauma"></a>
 <nav class="main" aria-label="Main"><button class="menubtn" aria-expanded="false" aria-controls="mainmenu">Menu</button><div class="menu" id="mainmenu"><a class="n" href="/">Home</a><div class="dd"><a class="n" href="/about/" aria-haspopup="true">About<i aria-hidden="true">▾</i></a><div class="ddm"><a href="/about/">About</a><a href="/lauras-story/">Laura's Story</a><a href="/team/">Team</a></div></div><a class="n" href="/#features">Features</a><a class="n" href="/partners/">Partners</a><div class="dd"><a class="n" href="/published-features/" aria-haspopup="true">Press/Media<i aria-hidden="true">▾</i></a><div class="ddm"><a href="/published-features/">Published Features</a><a href="/lyb-2021/">LYB 2021</a><a href="/videos/">Videos</a><a href="/mediapress/">Media/Press</a></div></div><div class="dd"><a class="n" href="/become-a-student-artist/" aria-haspopup="true">Get Involved<i aria-hidden="true">▾</i></a><div class="ddm"><a href="/become-a-student-artist/">Become a Student Artist</a><a href="/become-a-volunteer-artist/">Become a Volunteer</a><a href="/calendar/">Events</a><a href="/blog/">Blogs</a><a href="/workshops/">Workshops</a></div></div><a class="n" href="/contact/">Contact</a><a class="n" href="/digital-flyers-for-our-events/">Digital Flyers</a><a class="n" href="https://athletes-for-trauma.netlify.app/">Athletes for Trauma</a></div><a class="btn" href="/#give">Give with Zeffy</a></nav></div></header>
-<main class="post wide"><a class="crumb" href="/site-archive/">← All imported pages</a><h1>About</h1>
-<div class="archnote">Imported from the old artistsfortrauma.org (page first published 2018-11-13). Under review before launch.</div>
-<div class="body">
-<h2>Creativity. Connectivity. Community. – It takes a Village!</h2>
-<p>AFT provides FUN, adaptive, artistic platforms designed to provide free of charge, evidence-based, interactive, healing programs of art &amp; wonder to support the mental, physical and emotional well being of all trauma survivors.</p>
-<div class="embed"><iframe allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/Zqu0ORE__18?version=3&amp;rel=1&amp;showsearch=0&amp;showinfo=1&amp;iv_load_policy=1&amp;fs=1&amp;hl=en-US&amp;autohide=2&amp;wmode=transparent" title="Video"></iframe></div>
-<h2>About Artists For Trauma</h2>
-<p><strong>Trauma is the #1 cause of death for Americans between 1 and 44 years old. Each year, trauma accounts for 41 million ER visits and 2 million hospital admissions.</strong></p>
-<p>Founded by trauma survivor Laura Sharpe in 2011, AFT was inspired by her personal journey to recovery, in which Sharpe connected with the world of art as a source of healing from her near-mortal wounds.</p>
-<p>AFT reveals and shares the blueprint of Sharpe’s astonishing recovery to help other Level 1 trauma survivors positively reconnect with themselves, their families and their communities.</p>
-<p>The organization aims to expedite recovery through artistic expression and human connection, providing a creative portal to help patients process complex emotions, regain confidence and build self-acceptance after suffering a traumatic experience.</p>
-<p>Trauma claims many victims and takes many forms; a car crash, burning inferno, plane crash, accident on the job, gun shot, explosion, a catastrophic fall, incident of war, rape, emotional and physical violence, racism and discrimination. Sometimes survivors don’t even remember the moment of impact and sometimes all they can remember is waking up in the hospital with their lives irrevocably changed. Disfigurement, disability and a long and difficult process of recovery are often results of trauma.</p>
-<p><strong>What is the challenge of surviving this level of trauma?</strong></p>
-<p>Re-creating a new version of one’s life… physically, mentally and emotionally. Artists for Trauma provides the platform for the trauma survivor to participate in “creative engagement”, a proven pathway to positively re-connect with themselves and their community.</p>
-<p>Awareness gives one the sensitivity to see possibilities and potential both within themself and in the world, while creativity gives one the ability to engage with the transformation of everything that awareness comes into contact with. AFT provides trauma survivors a means to heighten their awareness, creativity and engagement by pairing them with an artist from an art discipline that speaks to their heart.</p>
-<img alt="Palms smeared with blue and teal paint" loading="lazy" src="/media/2018/11/paint1-copy.png"/>
-<h2>All Artists for Trauma workshops are FREE of charge to veterans and civilian trauma survivors.</h2>
-<h3>Photography</h3>
-<h3>Filmmaking</h3>
-<h3>Painting</h3>
-<h3>Pottery</h3>
-<h3>Drawing</h3>
-<h3>Yoga</h3>
-<h3>Tai Chi</h3>
-<h3>Meditation</h3>
-<h3>Creative writing</h3>
-<h3>Dance</h3>
-<h3>Music</h3>
-<h3>And more!</h3>
-<h2>SOME CAUSES OF DISABLING AND/OR DISFIGURING TRAUMA STATISTICS:</h2>
-<p><strong>Spinal Cord Injuries in the United States: </strong></p>
-<p><a href="http://www.sci-info-pages.com/facts.html" rel="noopener" target="_blank">sci-info-pages.com</a></p>
-<p>250,000 Americans are spinal cord injured</p>
-<p>52% of spinal cord injured individuals are considered paraplegis and 47% quadriplegic; Approximately 11,000 new injuries occur each year.</p>
-<p>82% are male 56% of injuries occur between the ages of 16 &amp; 30</p>
-<p>SCI most commonly caused by:</p>
-<p>Vehicle-Traffic Crash: 37%</p>
-<p>Violence: 28% Falls: 21%</p>
-<p>Sports-related: 6%</p>
-<p>Other: 8%</p>
-<p>The most rapidly increasing cause of disabling and/or disfiguring trauma is due to violence; vehicular accident injuries are decreasing in number.</p>
-<p>89% of all SCI individuals are discharged from hospitals to a private home. 4.3% are discharged to nursing homes.</p>
-<p><strong>Traumatic Brain Injuries (TBI) in the United States:</strong></p>
-<p><a href="#">braintrauma.org</a></p>
-<p>At least 5.3 million Americans, 2% of the U.S. population, currently live with disabilities resulting from TBI</p>
-<p>Approximately 230,000 survivors of TBI in the United States experience long-term disability, making</p>
-<p>TBI a major public health problem.</p>
-<p>TBI most commonly caused by:</p>
-<p>Falls: 35.2%</p>
-<p>Vehicle-Traffic Crashes: 17.3%</p>
-<p>Struck by/against events: 16.5%</p>
-<p>Assaults: 10.0%</p>
-<p>BLASTS are a leading cause of TBI for active duty military personnel in war zones.</p>
-<p>The Centers for Disease Control and Prevention estimate that at least 5.3 million Americans currently have a long-term or lifelong need for help to perform activities of daily living as a result of a TBI.</p>
-<p><strong>Burns: </strong></p>
-<p><a href="#">who.in</a></p>
-<p>Globally – An estimated 265,000 deaths every year are caused by burns – the vast majority occur in low and middle-income communities.</p>
-<p>In 2008 over 410,000 burn injuries occurred in the United States</p>
-<p>Non-fatal burn injuries are a leading cause of morbidity.</p>
-<p>Burns are among the leading causes of disability-adjusted life years.</p>
-<h2>Learn about Laura’s story</h2>
-<a href="/lauras-story/">Laura's Story</a> 
-<h2>Get to know the team</h2>
-<a href="/team/">Meet The Team</a> 
+<main class="ab"><div class="wrap">
+<div class="tag"><h1>Creativity. Connectivity. Community. – It takes a Village!</h1>
+<p>AFT offers fun, adaptive art programs, free of charge and evidence-based, that support the mental, physical and emotional well-being of trauma survivors.</p></div>
+<div class="row">
+<div class="vid"><iframe src="https://www.youtube.com/embed/Zqu0ORE__18" title="Artists for Trauma" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div><h2 class="h">About Artists For Trauma</h2>
+<p class="lead">Injury is the leading cause of death for Americans ages 1 to 44. Each year, injuries lead to more than 43 million emergency department visits and over 270,000 deaths.</p>
+<p>Trauma survivor Laura Sharpe founded AFT in 2011, inspired by her own recovery, in which art became a source of healing from near-fatal injuries.</p>
+<p>AFT shares the blueprint of that recovery to help other Level 1 trauma survivors reconnect with themselves, their families and their communities. Through artistic expression and human connection, we help survivors process complex emotions, rebuild confidence and find self-acceptance, and speed their recovery.</p></div>
+</div>
+<div class="row r2">
+<div><p>Trauma takes many forms: a car crash, a fire, a plane crash, an accident on the job, a gunshot, an explosion, a catastrophic fall, war, rape, emotional and physical violence, racism and discrimination. Some survivors don’t remember the moment of impact. Some remember only waking up in the hospital, their lives changed for good. Disfigurement, disability and a long, difficult recovery often follow.</p>
+<h3 class="q">What is the challenge of surviving this level of trauma?</h3>
+<p>Re-creating a new version of one’s life… physically, mentally and emotionally. Artists for Trauma gives survivors a platform for “creative engagement,” a proven pathway to reconnect with themselves and their community.</p>
+<p>Awareness lets us see the possibilities within ourselves and the world; creativity lets us act on them. AFT strengthens both by pairing each survivor with an artist whose discipline speaks to their heart.</p></div>
+<div class="pic"><img src="/media/2018/11/paint1-copy.png" alt="Palms smeared with blue and teal paint" loading="lazy"></div>
+</div>
+<h2 class="free">All Artists for Trauma workshops are FREE of charge to veterans and civilian trauma survivors.</h2>
+<ul class="arts"><li>Photography</li><li>Filmmaking</li><li>Painting</li><li>Pottery</li><li>Drawing</li><li>Yoga</li><li>Tai Chi</li><li>Meditation</li><li>Creative writing</li><li>Dance</li><li>Music</li><li>And more!</li></ul>
+<h2 class="sec">Some causes of disabling and/or disfiguring trauma statistics:</h2>
+<div class="stats">
+<div><h3>Spinal Cord Injuries in the United States</h3><ul>
+<li>About 311,000 Americans live with a traumatic spinal cord injury.</li>
+<li>About 18,500 new injuries occur each year.</li>
+<li>78% of new injuries happen to men; the average age at injury is 44.</li>
+<li>About 60% of injuries result in tetraplegia and 40% in paraplegia.</li>
+<li>Leading causes: vehicle crashes (37%), falls (33%), violence (15%) and sports (8%).</li></ul>
+<p class="src">Source: <a href="https://sites.uab.edu/nscisc/" target="_blank" rel="noopener">National Spinal Cord Injury Statistical Center, Facts and Figures at a Glance, 2026</a></p></div>
+<div><h3>Traumatic Brain Injuries (TBI) in the United States</h3><ul>
+<li>About 214,000 TBI-related hospitalizations (2020) and 68,663 TBI-related deaths (2023): more than 586 hospitalizations and 190 deaths every day.</li>
+<li>Falls are the leading cause of TBI-related hospitalizations.</li>
+<li>Explosive blasts are the most frequent cause of TBI among deployed U.S. service members.</li></ul>
+<p class="src">Sources: <a href="https://www.cdc.gov/traumaticbraininjury/data/" target="_blank" rel="noopener">CDC, TBI Data</a>; <a href="https://stacks.cdc.gov/view/cdc/111900" target="_blank" rel="noopener">CDC TBI Surveillance Report</a>; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4840828/" target="_blank" rel="noopener">Journal of Neurotrauma</a></p></div>
+<div><h3>Burns</h3><ul>
+<li>Globally, burns cause an estimated 180,000 deaths every year, most in low- and middle-income countries.</li>
+<li>In the U.S., about 398,000 fire- or burn-related injuries are treated each year, and about 29,000 people are hospitalized for burns.</li>
+<li>Non-fatal burn injuries are a leading cause of long-term illness and disability.</li></ul>
+<p class="src">Sources: <a href="https://www.who.int/news-room/fact-sheets/detail/burns" target="_blank" rel="noopener">World Health Organization</a>; <a href="https://ameriburn.org/resources/burn-incidence-fact-sheet/" target="_blank" rel="noopener">American Burn Association</a></p></div>
+</div>
+<p class="src" style="text-align:center;font-size:.85rem;color:#555;margin-top:18px">Injury figures: <a style="color:#c93683" href="https://www.cdc.gov/nchs/fastats/injury.htm" target="_blank" rel="noopener">CDC, FastStats: All Injuries</a> and <a style="color:#c93683" href="https://www.cdc.gov/injury/wisqars/animated-leading-causes.html" target="_blank" rel="noopener">CDC WISQARS</a>.</p>
+<div class="more2" style="margin-top:clamp(40px,5vw,64px)">
+<a href="/lauras-story/"><b>Learn about Laura’s story</b><span>Laura’s Story →</span></a>
+<a href="/team/"><b>Get to know the team</b><span>Meet the Team →</span></a>
+</div>
+<h2 class="sec">Testimonials</h2>
+<div class="vtest"><figure style="margin:0"><blockquote>“Seeing this transformative experience firsthand was really incredible and such a satisfaction to be able to help.”</blockquote><cite>– Ki</cite></figure><figure style="margin:0"><blockquote>“The experience that AFT provides to artists and survivors is tremendously rewarding for both parties.”</blockquote><cite>– Etan</cite></figure><figure style="margin:0"><blockquote>“The whole experience was deeply moving and I am grateful to Lauree and Ford for their generous and loving spirits.”</blockquote><cite>– Bruce</cite></figure></div>
+<h2 class="sec">@artistsfortrauma on Instagram</h2>
+<p class="ctr"><a class="vbtn" href="https://www.instagram.com/artistsfortrauma/" target="_blank" rel="noopener">Follow us on Instagram</a></p>
 </div></main>
 <footer><div class="wrap"><span>© Artists for Trauma · Powered by human spirit™</span><a href="/">artistsfortrauma.org</a></div></footer>
 <script>(function(){var n=document.querySelector('nav.main'),b=n&&n.querySelector('.menubtn');if(!b)return;

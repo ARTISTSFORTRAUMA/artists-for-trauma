@@ -14,13 +14,15 @@ for label, var in VARS.items():
 for m in re.finditer(r'Photo (\w+)\.\w+: zoom ([\d.]+), left/right ([\d.]+)%, up/down ([\d.]+)%(?:, move up/down (-?\d+)px)?(?:, move left/right (-?\d+)px)?', txt):
     k, z, x, y = m.group(1), m.group(2), m.group(3), m.group(4)
     my, mx = int(m.group(5) or 0), int(m.group(6) or 0)
+    cm = re.search(r'Photo ' + re.escape(k) + r'\.[^\n]*crop left ([\d.]+)%, crop right ([\d.]+)%, crop top ([\d.]+)%, crop bottom ([\d.]+)%', txt)
+    clip = f'clip-path:inset({cm.group(3)}% {cm.group(2)}% {cm.group(4)}% {cm.group(1)}%)' if cm and any(float(v) for v in cm.groups()) else ''
     t = (f'translate({mx}px, {my}px) ' if (mx or my) else '') + f'scale({z})'
     im = re.search(r'<img src="\{\{' + k + r'\}\}"[^>]*?>', s)
     if not im: print('not found', k); continue
     tag = im.group(0)
     st = re.search(r' style="([^"]*)"', tag)
-    keep = ';'.join(p for p in (st.group(1).split(';') if st else []) if p and not p.strip().startswith(('object-position','transform-origin','transform')))
-    tag = re.sub(r' style="[^"]*"', '', tag)[:-1] + f' style="{keep + ";" if keep else ""}object-position:{x}% {y}%;transform-origin:{x}% {y}%;transform:{t}">'
+    keep = ';'.join(p for p in (st.group(1).split(';') if st else []) if p and not p.strip().startswith(('object-position','transform-origin','transform','clip-path')))
+    tag = re.sub(r' style="[^"]*"', '', tag)[:-1] + f' style="{keep + ";" if keep else ""}object-position:{x}% {y}%;transform-origin:{x}% {y}%;transform:{t}{";" + clip if clip else ""}">'
     s = s[:im.start()] + tag + s[im.end():]
     print('photo', k, t)
 open(src, 'w').write(s)

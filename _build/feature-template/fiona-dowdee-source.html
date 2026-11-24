@@ -145,7 +145,7 @@ figcaption{font-size:1rem;color:var(--mute);font-weight:600}
 .pq.il{grid-template-columns:minmax(0,47%) minmax(0,1fr);padding-left:clamp(0px,6vw,72px)}
 .pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,47%);padding-right:clamp(0px,6vw,72px)}
 @media (min-width:761px){.pq .q,.pq.up .q{align-self:start;padding-top:150px}}
-@media (max-width:760px){.pq .q,.pq.up .q,.wrap.col,.wrap.big,.lede,.col h2,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits{top:0 !important;left:0 !important}.pq.up .q{padding-top:clamp(24px,4vw,56px)}}
+@media (max-width:760px){.pq .q,.pq.up .q,.wrap.col,.wrap.big,.lede,.col h2,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits,.hero .txt{top:0 !important;left:0 !important}.pq.up .q{padding-top:clamp(24px,4vw,56px)}}
 @media (max-width:760px){.pq,.pq.il,.pq.ir{grid-template-columns:1fr;padding:0}.pq.ir .q{padding-left:24px}.pq.ir figure{order:-1}.pq figure{min-height:0;aspect-ratio:4/3}}
 .big{text-align:center;max-width:760px;width:100%;margin:0 auto;display:grid;gap:14px}
 .big blockquote{margin:0;font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:700;line-height:.95;text-transform:uppercase}
@@ -201,7 +201,7 @@ footer p span{color:#fff;white-space:nowrap}
 /* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
    Spacing and sizes are variables so they can be tuned in one place. */
 .hero{--cov:"Fraunces",Georgia,serif;
-  --gap-eyebrow:24px;--gap-name:28px;--gap-deck:60px;--name-ls:0em;--name-size:7rem;--name-lh:.82;--deck-size:2.3rem;--deck-lh:1;--deck-gap:14px;--gap-top:56px}
+  --gap-eyebrow:31px;--gap-name:18px;--gap-deck:63px;--name-ls:-0.03em;--name-size:7.6rem;--name-lh:0.83;--deck-size:2.45rem;--deck-lh:1.02;--deck-gap:23px;--gap-top:63px}
 .hero .txt{justify-content:flex-start;gap:0;padding-top:var(--gap-top)}
 .hero .eyebrow{color:#000;margin-bottom:var(--gap-eyebrow)}
 .hero h1{font-family:var(--cov);font-weight:900;font-variation-settings:"SOFT" 100,"WONK" 1;color:#fff;letter-spacing:var(--name-ls);display:block;text-align:center;line-height:var(--name-lh);font-size:min(var(--name-size),9vw);margin-bottom:var(--gap-name)}
@@ -243,18 +243,18 @@ footer p span{color:#fff;white-space:nowrap}
 
   <section class="hero full">
     <div class="wrap">
-      <div class="txt">
+      <div class="txt" style="position:relative;top:-19px;left:624px">
         <div class="eyebrow">AFT &amp; Laura Sharpe's Artists Profile</div>
         <h1><span class="fn">Fiona</span> <span>Dowdee</span></h1>
         <p class="deck"><b>Creating Confidence Through Creativity</b>Visual Artist · Youth Program Manager · Artists for Trauma Volunteer</p>
         <div class="credits"><span><b>Cover Photo &amp; Design</b> Per Bernal</span><span><b>Interview &amp; Story</b> Tattiahna Welsh</span></div>
       </div>
-      <div class="ph"><img src="{{hero}}" alt="Fiona Dowdee in a leopard-print top, holding out a paintbrush dripping with yellow paint"></div>
+      <div class="ph"><img src="{{hero}}" alt="Fiona Dowdee in a leopard-print top, holding out a paintbrush dripping with yellow paint" style="object-position:0% 100%;transform-origin:0% 100%;transform:translate(-775px, 89px) scale(1.42)"></div>
     </div>
   </section>
 
   <div class="story">
-    <div class="wrap col" style="margin-top:23px;margin-bottom:14px">
+    <div class="wrap col" style="margin-top:23px;margin-bottom:14px;position:relative;top:-11px">
       <p class="lede">For Fiona Dowdee, creativity has never been just a hobby. It’s been a way for her to understand both herself and the world around her.</p>
       <p>Raised in a family of artists, she grew up surrounded by painting, drawing, and creative expression. Both of her parents earned master’s degrees in fine arts, and she and her siblings were encouraged to create from an early age. While she explored many artistic mediums growing up, it was oil painting that truly captured her attention in high school.</p>
       <p>Over time, her work evolved from realism into paintings that blend realism with abstraction, exploring identity, emotion, and perception.</p>

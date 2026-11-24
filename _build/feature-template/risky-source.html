@@ -202,7 +202,9 @@ footer p span{color:#505050}
 /* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
    Spacing and sizes are variables so they can be tuned in one place. */
 .hero{--cov:"elza-text","Inter Tight","Helvetica Neue",Arial,sans-serif;
-  --gap-eyebrow:28px;--gap-name:10px;--gap-deck:56px;--name-ls:-0.05em;--name-size:9rem;--name-lh:0.86;--deck-size:2.45rem;--deck-lh:1.05;--deck-gap:22px;--gap-top:63px}
+  --gap-eyebrow:28px;--gap-name:10px;--gap-deck:56px;--name-ls:-0.05em;--name-size:9rem;--name-lh:0.86;--deck-size:2.45rem;--deck-lh:1.05;--deck-gap:22px;--gap-top:63px;--txt-scale:1;--eyebrow-size:1.5rem;--credits-size:1.2rem}
+/* Whole cover text block scales together; profile line and credits sized separately */
+.hero .txt{zoom:var(--txt-scale)}.hero .eyebrow{font-size:var(--eyebrow-size)}.hero .credits{font-size:var(--credits-size)}
 .hero{color:#fff}
 .hero .txt{justify-content:flex-start;gap:0;padding-top:var(--gap-top)}
 .hero .eyebrow{color:var(--yel);margin-bottom:var(--gap-eyebrow)}

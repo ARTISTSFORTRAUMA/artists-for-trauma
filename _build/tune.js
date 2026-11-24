@@ -14,8 +14,11 @@
     ['Title size','--deck-size',1,5,.05,'rem'],
     ['Title line spacing','--deck-lh',.8,1.6,.01,''],
     ['Space between title lines','--deck-gap',0,60,1,'px'],
-    ['Space above credits','--gap-deck',0,140,1,'px']
-  ];
+    ['Space above credits','--gap-deck',0,140,1,'px'],
+    ['Whole text size','--txt-scale',.5,1.6,.01,''],
+    ['Profile line size','--eyebrow-size',.6,3,.05,'rem'],
+    ['Credits size','--credits-size',.6,2.5,.05,'rem']
+  ].filter(function(c){return c[1]!=='--txt-scale'&&c[1]!=='--eyebrow-size'&&c[1]!=='--credits-size'||cs.getPropertyValue(c[1]).trim()});
   var K=[['First name','.hero h1','color'],['Last name','.hero h1 span','color'],['Title line 1','.hero .deck b','color'],['Title line 2','.hero .deck','color'],['Profile line & credits','.hero .eyebrow, .hero .credits','color']];
   var st=document.createElement('style');document.head.appendChild(st);var col={};
   function css(){st.textContent=Object.keys(col).map(function(s){return s+'{color:'+col[s]+' !important}'}).join('\n')}

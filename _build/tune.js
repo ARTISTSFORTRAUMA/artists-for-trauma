@@ -25,10 +25,22 @@
   function css(){st.textContent=Object.keys(col).map(function(s){return s+'{color:'+col[s]+' !important}'}).join('\n')}
   var p=document.createElement('div');p.id='tune';
   p.innerHTML='<style>#tune{position:fixed;right:12px;bottom:12px;z-index:9999;width:300px;max-height:80vh;overflow:auto;background:#fff;color:#000;font:14px/1.3 -apple-system,Helvetica,Arial,sans-serif;border:1px solid #ccc;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.25);padding:12px}#tune h4{margin:0 0 8px;font-size:15px;display:flex;justify-content:space-between}#tune label{display:block;margin:8px 0 2px}#tune input[type=range]{width:100%}#tune .row{display:flex;justify-content:space-between;align-items:center;margin:6px 0}#tune button{font:600 13px -apple-system,Helvetica,Arial;padding:8px 10px;border:0;border-radius:6px;background:#000;color:#fff;cursor:pointer;margin-top:10px;width:100%}#tune .min{background:none;color:#000;width:auto;margin:0;padding:0 4px;font-size:18px}#tune.c>:not(h4){display:none}</style><h4>Tune <button class="min" title="Hide">–</button></h4>';
-  if(!heroTune){C=[];K=[];}
+  var side=hero.querySelector('.side');
+  if(!heroTune&&side&&cs.getPropertyValue('--vs').trim()){C=[
+    ['Whole text size','--txt-scale',.5,1.6,.01,''],
+    ['Verse size','--vs',1.5,7,.05,'rem'],
+    ['Verse line spacing','--vlh',.7,1.4,.01,''],
+    ['Verse letter spacing','--vls',-.08,.15,.005,'em'],
+    ['Space under verse','--vgap',0,80,1,'px'],
+    ['Reference size','--rs',1,5,.05,'rem'],
+    ['Space above credit lines','--cgap',0,120,1,'px'],
+    ['Credits size','--credits-size',.6,2.5,.05,'rem'],
+    ['Text box width','--sidew',30,100,1,'%']
+  ];K=[['Verse','.hero .side .verse','color'],['Reference','.hero .side .ref','color'],['Credits','.hero .side .credits, .hero .side .credits b, .hero .side .credits span','color']]}
+  else if(!heroTune){C=[];K=[];}
   if(C.length){var hb=document.createElement('h4');hb.textContent='Opening box';hb.style.cssText='margin:14px 0 0;border-top:1px solid #ddd;padding-top:10px';p.appendChild(hb)}
   C.forEach(function(c){
-    var v=parseFloat(cs.getPropertyValue(c[1]))||c[2];
+    var v=parseFloat(cs.getPropertyValue(c[1]));if(isNaN(v))v=c[2];
     var l=document.createElement('label');l.innerHTML=c[0]+': <b>'+v+c[5]+'</b>';
     var r=document.createElement('input');r.type='range';r.min=c[2];r.max=c[3];r.step=c[4];r.value=v;r.dataset.v=c[1];r.dataset.u=c[5];
     r.oninput=function(){hero.style.setProperty(c[1],r.value+c[5]);l.querySelector('b').textContent=r.value+c[5]};
@@ -112,9 +124,9 @@
   var tx=document.createElement('div');
   tx.innerHTML='<h4 style="margin:14px 0 4px;border-top:1px solid #ddd;padding-top:10px">Text blocks</h4><p class="hint" style="margin:0;color:#666">Click any text, including the opening box lines, to select it.</p><button class="selall" style="margin:6px 0 0;background:#333">Select whole opening-box text</button><div class="tc" hidden><p class="nm" style="margin:6px 0;font-weight:600"></p><label>Up / down: <b>0</b> px <span style="color:#888">(minus = up)</span></label><input type=range min=-1200 max=1200 step=1 value=0 data-k=y><label>Left / right: <b>0</b> px <span style="color:#888">(minus = left)</span></label><input type=range min=-1200 max=1200 step=1 value=0 data-k=x><button class=rs1 style="background:#777;margin-top:8px">Reset this block</button></div>';
   ph.parentNode.insertBefore(tx,ph.nextSibling);
-  var TSEL='.pq .q,.big,.inline,.col h2,.lede,.basics,.col,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits',tsel=null,tdone={};
+  var TSEL='.pq .q,.big,.inline,.col h2,.lede,.basics,.col,.hero .side,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits',tsel=null,tdone={};
   var st3=document.createElement('style');st3.textContent='.tunetsel{outline:3px dashed #f567af;outline-offset:6px}';document.head.appendChild(st3);
-  function tname(el){if(el.matches('.hero .txt'))return 'Opening box text (whole block)';return '“'+el.textContent.replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')+'…”'}
+  function tname(el){if(el.matches('.hero .txt,.hero .side'))return 'Opening box text (whole block)';return '“'+el.textContent.replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')+'…”'}
   var tc=tx.querySelector('.tc'),trs=tc.querySelectorAll('input');
   function tapply(el,v){el.style.position='relative';el.style.top=v.y+'px';el.style.left=v.x+'px';if(v.x||v.y)tdone[tname(el)]=v;else delete tdone[tname(el)]}
   document.querySelector('main').addEventListener('click',function(e){
@@ -125,7 +137,7 @@
     p.classList.remove('c');
   },true);
   trs.forEach(function(r){r.oninput=function(){if(!tsel)return;var v={};trs.forEach(function(q){v[q.dataset.k]=+q.value;q.previousElementSibling.querySelector('b').textContent=q.value});tapply(tsel,v)}});
-  tx.querySelector('.selall').onclick=function(){var el=document.querySelector('.hero .txt');if(!el)return;if(tsel)tsel.classList.remove('tunetsel');tsel=el;el.classList.add('tunetsel');var v=tdone[tname(el)]||{x:parseFloat(el.style.left)||0,y:parseFloat(el.style.top)||0};tc.hidden=false;tc.querySelector('.nm').textContent=tname(el);trs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]});};
+  tx.querySelector('.selall').onclick=function(){var el=document.querySelector('.hero .txt')||document.querySelector('.hero .side');if(!el)return;if(tsel)tsel.classList.remove('tunetsel');tsel=el;el.classList.add('tunetsel');var v=tdone[tname(el)]||{x:parseFloat(el.style.left)||0,y:parseFloat(el.style.top)||0};tc.hidden=false;tc.querySelector('.nm').textContent=tname(el);trs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]});};
   tc.querySelector('.rs1').onclick=function(){if(!tsel)return;tapply(tsel,{x:0,y:0});trs.forEach(function(r){r.value=0;r.previousElementSibling.querySelector('b').textContent=0})};
   var r=document.createElement('button');r.textContent='Reset';r.style.background='#777';r.onclick=function(){location.reload()};p.appendChild(r);
   p.querySelector('.min').onclick=function(){p.classList.toggle('c')};

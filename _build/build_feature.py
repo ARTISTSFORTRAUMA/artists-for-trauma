@@ -33,7 +33,7 @@ html = html.replace('href="#top">See all features', 'href="/#features">See all f
 html = html.replace('<a href="#top" aria-label="Artists for Trauma home">', '<a href="/" aria-label="Artists for Trauma home">')
 html = html.replace('<a href="#top">Home</a> / <a href="#top">Features</a>', '<a href="/">Home</a> / <a href="/#features">Features</a>')
 html = re.sub(r'<a class="btn" href="#top"', '<a class="btn" href="https://www.zeffy.com/"', html)
-more = {'Ford Austin': 'ford-austin', 'Chelsie Hill': 'chelsie-hill', 'Onofre Banderas': 'onofre-banderas', 'Aaron Baker': 'aaron-baker', 'Lilian Raven': 'lilian-raven', 'Fiona Dowdee': 'fiona-dowdee', 'Risky': 'risky', 'Dr. Thomas K. Duncan': 'thomas-duncan', 'Tobias Forrest': 'tobias-forrest', 'Tommy Hollenstein': 'tommy-hollenstein', 'Quan.B': 'quan-b'}
+more = {'Ford Austin': 'ford-austin', 'Chelsie Hill': 'chelsie-hill', 'Onofre Banderas': 'onofre-banderas', 'Aaron Baker': 'aaron-baker', 'Lilian Raven': 'lilian-raven', 'Fiona Dowdee': 'fiona-dowdee', 'Risky': 'risky', 'Dr. Thomas K. Duncan': 'thomas-duncan', 'Tobias Forrest': 'tobias-forrest', 'Tommy Hollenstein': 'tommy-hollenstein', 'Quan.B': 'quan-b', 'Damon Bell': 'damon-bell'}
 for n, s in more.items():
     html = html.replace(f'<a href="#top" aria-label="{n}">', f'<a href="/#feature-{s}" aria-label="{n}">')
 html = html.replace('<img src="/features/', '<img loading="lazy" src="/features/').replace('<img loading="lazy" src="/features/' + slug + '/img/' + paths.get('hero', 'x'), '<img src="/features/' + slug + '/img/' + paths.get('hero', 'x'), 1)

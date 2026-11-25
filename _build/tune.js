@@ -112,9 +112,9 @@
   var tx=document.createElement('div');
   tx.innerHTML='<h4 style="margin:14px 0 4px;border-top:1px solid #ddd;padding-top:10px">Text blocks</h4><p class="hint" style="margin:0;color:#666">Click any text, including the opening box lines, to select it.</p><button class="selall" style="margin:6px 0 0;background:#333">Select whole opening-box text</button><div class="tc" hidden><p class="nm" style="margin:6px 0;font-weight:600"></p><label>Up / down: <b>0</b> px <span style="color:#888">(minus = up)</span></label><input type=range min=-1200 max=1200 step=1 value=0 data-k=y><label>Left / right: <b>0</b> px <span style="color:#888">(minus = left)</span></label><input type=range min=-1200 max=1200 step=1 value=0 data-k=x><button class=rs1 style="background:#777;margin-top:8px">Reset this block</button></div>';
   ph.parentNode.insertBefore(tx,ph.nextSibling);
-  var TSEL='.pq .q,.big,.inline,.col h2,.lede,.basics,.col,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits',tsel=null,tdone={};
+  var TSEL='.pq .q,.big,.inline,.col h2,.lede,.basics,.col,.hero .side,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits',tsel=null,tdone={};
   var st3=document.createElement('style');st3.textContent='.tunetsel{outline:3px dashed #f567af;outline-offset:6px}';document.head.appendChild(st3);
-  function tname(el){if(el.matches('.hero .txt'))return 'Opening box text (whole block)';return '“'+el.textContent.replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')+'…”'}
+  function tname(el){if(el.matches('.hero .txt,.hero .side'))return 'Opening box text (whole block)';return '“'+el.textContent.replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')+'…”'}
   var tc=tx.querySelector('.tc'),trs=tc.querySelectorAll('input');
   function tapply(el,v){el.style.position='relative';el.style.top=v.y+'px';el.style.left=v.x+'px';if(v.x||v.y)tdone[tname(el)]=v;else delete tdone[tname(el)]}
   document.querySelector('main').addEventListener('click',function(e){
@@ -125,7 +125,7 @@
     p.classList.remove('c');
   },true);
   trs.forEach(function(r){r.oninput=function(){if(!tsel)return;var v={};trs.forEach(function(q){v[q.dataset.k]=+q.value;q.previousElementSibling.querySelector('b').textContent=q.value});tapply(tsel,v)}});
-  tx.querySelector('.selall').onclick=function(){var el=document.querySelector('.hero .txt');if(!el)return;if(tsel)tsel.classList.remove('tunetsel');tsel=el;el.classList.add('tunetsel');var v=tdone[tname(el)]||{x:parseFloat(el.style.left)||0,y:parseFloat(el.style.top)||0};tc.hidden=false;tc.querySelector('.nm').textContent=tname(el);trs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]});};
+  tx.querySelector('.selall').onclick=function(){var el=document.querySelector('.hero .txt')||document.querySelector('.hero .side');if(!el)return;if(tsel)tsel.classList.remove('tunetsel');tsel=el;el.classList.add('tunetsel');var v=tdone[tname(el)]||{x:parseFloat(el.style.left)||0,y:parseFloat(el.style.top)||0};tc.hidden=false;tc.querySelector('.nm').textContent=tname(el);trs.forEach(function(r){r.value=v[r.dataset.k];r.previousElementSibling.querySelector('b').textContent=v[r.dataset.k]});};
   tc.querySelector('.rs1').onclick=function(){if(!tsel)return;tapply(tsel,{x:0,y:0});trs.forEach(function(r){r.value=0;r.previousElementSibling.querySelector('b').textContent=0})};
   var r=document.createElement('button');r.textContent='Reset';r.style.background='#777';r.onclick=function(){location.reload()};p.appendChild(r);
   p.querySelector('.min').onclick=function(){p.classList.toggle('c')};

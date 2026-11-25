@@ -1,7 +1,7 @@
 <title>Tommy Hollenstein · Clean Feature</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Poppins:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Teko:wght@600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap">
 <style>
 /* Layout: clean AFT feature — white page, hairline rules, black type, uncropped photo breaks; colour only in site header/footer */
@@ -242,6 +242,9 @@ footer p span{color:#e08f00}
 .hero.cover .credits.cov{position:absolute;left:0;top:0;z-index:3;display:flex;flex-direction:column;gap:.15em;align-items:flex-start;font-family:"Poppins",sans-serif;font-weight:500;font-size:var(--covfs,1rem);transform:translate(var(--covx,0),var(--covy,0));line-height:1.15;color:#fff;text-align:left;margin:0}
 .hero.cover .credits.cov b{font-weight:700}
 .story>.wrap.col{width:100%;box-sizing:border-box}
+/* Phil. 4:13 verse set on the cover, just above the reference in the bottom right */
+.hero.cover .ph{position:relative}
+.hero.cover .verse{position:absolute;left:0;top:0;z-index:3;width:var(--vw,30%);font-family:"Teko",sans-serif;font-weight:600;font-size:var(--vfs,1.4rem);line-height:.92;color:#1a1a1a;text-align:right;text-wrap:balance;transform:translate(var(--vx,0),var(--vy,0)) translateY(-100%)}
 </style>
 
 <header>
@@ -265,7 +268,7 @@ footer p span{color:#e08f00}
 
   <section class="hero full cover">
     <div class="wrap">
-      <div class="ph"><img src="{{hero}}" alt="Tommy Hollenstein. Art in Motion. Phil. 4:13"></div>
+      <div class="ph"><div class="verse">“I can do all things through Christ who strengthens me.”</div><img src="{{hero}}" alt="Tommy Hollenstein. Art in Motion. Phil. 4:13"></div>
     </div>
   </section>
 
@@ -413,4 +416,11 @@ footer p span{color:#e08f00}
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
   fit();
 })();
+</script>
+<script>
+/* place the verse above "PHIL. 4:13" on the cover image, scaled with it */
+(function(){var img=document.querySelector('.hero.cover .ph img'),v=document.querySelector('.hero.cover .verse');if(!img||!v)return;img.loading='eager';
+function vfit(){var r=img.getBoundingClientRect(),pr=img.parentNode.getBoundingClientRect(),w=r.width,h=r.height;if(!w)return;
+v.style.setProperty('--vfs',(w*.036)+'px');v.style.setProperty('--vw',(w*.42)+'px');v.style.setProperty('--vx',(r.left-pr.left+w*.565)+'px');v.style.setProperty('--vy',(r.top-pr.top+h*.835)+'px')}
+if(img.complete)requestAnimationFrame(vfit);img.addEventListener('load',vfit);addEventListener('resize',vfit);addEventListener('load',vfit);if(window.ResizeObserver)new ResizeObserver(vfit).observe(img)})();
 </script>

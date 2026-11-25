@@ -3,7 +3,7 @@
 (function(){
   if(!/[?&]tune\b/.test(location.search))return;
   var hero=document.querySelector('.hero');if(!hero)return;
-  var cs=getComputedStyle(hero);var heroTune=!!cs.getPropertyValue('--gap-name').trim();
+  var cs=getComputedStyle(hero);var heroTune=!!cs.getPropertyValue('--gap-name').trim()&&!!hero.querySelector('h1');
   var C=[
     ['Space above profile line','--gap-top',0,200,1,'px'],
     ['Space under profile line','--gap-eyebrow',0,120,1,'px'],
@@ -35,7 +35,7 @@
     p.appendChild(l);p.appendChild(r);
   });
   K.forEach(function(k){
-    var el=document.querySelector(k[1].split(',')[0]);var rgb=getComputedStyle(el).color.match(/\d+/g).slice(0,3);
+    var el=document.querySelector(k[1].split(',')[0]);if(!el)return;var rgb=getComputedStyle(el).color.match(/\d+/g).slice(0,3);
     var hex='#'+rgb.map(function(x){return(+x).toString(16).padStart(2,'0')}).join('');
     var d=document.createElement('div');d.className='row';d.innerHTML='<span>'+k[0]+'</span>';
     var i=document.createElement('input');i.type='color';i.value=hex;i.oninput=function(){col[k[1]]=i.value;css()};

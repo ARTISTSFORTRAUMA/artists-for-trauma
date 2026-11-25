@@ -183,6 +183,9 @@ footer p span{color:#fff;white-space:nowrap}
 .basics b{display:block;font-size:clamp(3rem,5vw,4.2rem);font-weight:700;line-height:.9}
 .basics span{font-size:1.2rem;font-weight:500;display:block;margin-top:6px;color:var(--mute)}
 @media (max-width:760px){.basics .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* tighter editorial spacing */
+.story{gap:24px!important}
+.story>.g+.g,.story>.g+.wrap.wide:has(.pq.boxed),.story>.wrap.wide:has(.pq.boxed)+.g{margin-top:-18px!important}
 </style>
 
 <header>

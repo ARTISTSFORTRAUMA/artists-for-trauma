@@ -25,10 +25,22 @@
   function css(){st.textContent=Object.keys(col).map(function(s){return s+'{color:'+col[s]+' !important}'}).join('\n')}
   var p=document.createElement('div');p.id='tune';
   p.innerHTML='<style>#tune{position:fixed;right:12px;bottom:12px;z-index:9999;width:300px;max-height:80vh;overflow:auto;background:#fff;color:#000;font:14px/1.3 -apple-system,Helvetica,Arial,sans-serif;border:1px solid #ccc;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.25);padding:12px}#tune h4{margin:0 0 8px;font-size:15px;display:flex;justify-content:space-between}#tune label{display:block;margin:8px 0 2px}#tune input[type=range]{width:100%}#tune .row{display:flex;justify-content:space-between;align-items:center;margin:6px 0}#tune button{font:600 13px -apple-system,Helvetica,Arial;padding:8px 10px;border:0;border-radius:6px;background:#000;color:#fff;cursor:pointer;margin-top:10px;width:100%}#tune .min{background:none;color:#000;width:auto;margin:0;padding:0 4px;font-size:18px}#tune.c>:not(h4){display:none}</style><h4>Tune <button class="min" title="Hide">–</button></h4>';
-  if(!heroTune){C=[];K=[];}
+  var side=hero.querySelector('.side');
+  if(!heroTune&&side&&cs.getPropertyValue('--vs').trim()){C=[
+    ['Whole text size','--txt-scale',.5,1.6,.01,''],
+    ['Verse size','--vs',1.5,7,.05,'rem'],
+    ['Verse line spacing','--vlh',.7,1.4,.01,''],
+    ['Verse letter spacing','--vls',-.08,.15,.005,'em'],
+    ['Space under verse','--vgap',0,80,1,'px'],
+    ['Reference size','--rs',1,5,.05,'rem'],
+    ['Space above credit lines','--cgap',0,120,1,'px'],
+    ['Credits size','--credits-size',.6,2.5,.05,'rem'],
+    ['Text box width','--sidew',30,100,1,'%']
+  ];K=[['Verse','.hero .side .verse','color'],['Reference','.hero .side .ref','color'],['Credits','.hero .side .credits, .hero .side .credits b, .hero .side .credits span','color']]}
+  else if(!heroTune){C=[];K=[];}
   if(C.length){var hb=document.createElement('h4');hb.textContent='Opening box';hb.style.cssText='margin:14px 0 0;border-top:1px solid #ddd;padding-top:10px';p.appendChild(hb)}
   C.forEach(function(c){
-    var v=parseFloat(cs.getPropertyValue(c[1]))||c[2];
+    var v=parseFloat(cs.getPropertyValue(c[1]));if(isNaN(v))v=c[2];
     var l=document.createElement('label');l.innerHTML=c[0]+': <b>'+v+c[5]+'</b>';
     var r=document.createElement('input');r.type='range';r.min=c[2];r.max=c[3];r.step=c[4];r.value=v;r.dataset.v=c[1];r.dataset.u=c[5];
     r.oninput=function(){hero.style.setProperty(c[1],r.value+c[5]);l.querySelector('b').textContent=r.value+c[5]};

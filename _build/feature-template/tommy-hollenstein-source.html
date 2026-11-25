@@ -251,6 +251,13 @@ footer p span{color:#e08f00}
 .hero.cover.tw .ref{font-family:"Teko",sans-serif;font-weight:600;font-size:min(var(--rs),3.2vw);line-height:1;margin:var(--vgap) 0 0;color:#fff;letter-spacing:.02em}
 .hero.cover.tw .credits{margin-top:var(--cgap);display:flex;flex-direction:column;gap:4px;font-size:var(--credits-size);color:#000}.hero.cover.tw .credits b{color:#000}.hero.cover.tw .credits span{color:#000}
 @media (max-width:820px){.hero.cover.tw .wrap{grid-template-columns:1fr;padding:0 0 28px}.hero.cover.tw .side{order:0}.hero.cover.tw .side{padding:28px 24px 0;zoom:1;width:auto;top:0!important;left:0!important}.hero.cover.tw .verse{font-size:9vw}.hero.cover.tw .ref{font-size:6vw}}
+/* tighter editorial spacing */
+@media (max-width:760px){.story>:nth-child(4){margin-top:15px!important}.story>:nth-child(6){margin-top:1px!important}.story>:nth-child(8){margin-top:1px!important}.story>:nth-child(13){margin-top:2px!important}}
+
+@media (min-width:761px){.story>:nth-child(2){margin-top:8px!important}.story>:nth-child(3){margin-top:13px!important}.story>:nth-child(4){margin-top:2px!important}.story>:nth-child(5){margin-top:-1px!important}.story>:nth-child(6){margin-top:2px!important}.story>:nth-child(7){margin-top:-1px!important}.story>:nth-child(8){margin-top:2px!important}.story>:nth-child(11){margin-top:4px!important}.story>:nth-child(13){margin-top:2px!important}}
+
+.story{gap:24px!important}
+.story>.g+.g,.story>.g+.wrap.wide:has(.pq.boxed),.story>.wrap.wide:has(.pq.boxed)+.g{margin-top:-18px!important}
 </style>
 
 <header>

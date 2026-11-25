@@ -233,6 +233,13 @@ footer p span{color:#ed1b2e}
 /* Closing quote in a box in the cover colours, set left like the boxed quotes */
 .big.boxq{background:var(--grad);text-align:left;padding:clamp(24px,3vw,36px) 34px;max-width:788px;justify-items:start}
 .big.boxq blockquote{color:#fff!important;text-transform:none;line-height:.95}.big.boxq cite{color:#000!important}
+/* tighter editorial spacing */
+@media (max-width:760px){.story>:nth-child(4){margin-top:1px!important}.story>:nth-child(6){margin-top:1px!important}.story>:nth-child(8){margin-top:1px!important}.story>:nth-child(10){margin-top:3px!important}.story>:nth-child(12){margin-top:1px!important}.story>:nth-child(14){margin-top:1px!important}.story>:nth-child(16){margin-top:1px!important}.story>:nth-child(18){margin-top:-10px!important}}
+
+@media (min-width:761px){.story>:nth-child(2){margin-top:2px!important}.story>:nth-child(3){margin-top:-1px!important}.story>:nth-child(4){margin-top:2px!important}.story>:nth-child(5){margin-top:-1px!important}.story>:nth-child(6){margin-top:2px!important}.story>:nth-child(7){margin-top:-1px!important}.story>:nth-child(8){margin-top:2px!important}.story>:nth-child(9){margin-top:-1px!important}.story>:nth-child(10){margin-top:4px!important}.story>:nth-child(11){margin-top:-1px!important}.story>:nth-child(12){margin-top:2px!important}.story>:nth-child(13){margin-top:-1px!important}.story>:nth-child(14){margin-top:2px!important}.story>:nth-child(15){margin-top:-1px!important}.story>:nth-child(16){margin-top:2px!important}.story>:nth-child(18){margin-top:2px!important}.story>:nth-child(19){margin-top:4px!important}}
+
+.story{gap:24px!important}
+.story>.g+.g,.story>.g+.wrap.wide:has(.pq.boxed),.story>.wrap.wide:has(.pq.boxed)+.g{margin-top:-18px!important}
 </style>
 
 <header>

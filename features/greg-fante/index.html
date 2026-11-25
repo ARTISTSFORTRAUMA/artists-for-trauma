@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Greg Fante · Features · Artists for Trauma</title>
+<link rel="stylesheet" href="https://use.typekit.net/scq8iav.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Anton&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap">
+<style>
+/* Layout: clean AFT feature — white page, hairline rules, black type, uncropped photo breaks; colour only in site header/footer */
+:root{
+  --bg:#ffffff; --fg:#000000; --mute:#555555; --line:#d9d9d9; --soft:#f3f3ee;
+  --pink:#f567af; --pink-ink:#c93683;
+  --grad:#8e735c;--yel:#fff;
+  --head:"gotham-condensed","Barlow Condensed","Arial Narrow",sans-serif;
+  --sp:clamp(48px,6vw,80px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{background:var(--bg);color:var(--fg);font-family:var(--head);font-weight:500;font-size:24px;line-height:1.15}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:700;line-height:.92;letter-spacing:-.01em;text-wrap:balance}
+img{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px}
+.eyebrow{font-weight:600;font-size:1rem;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:700 1.15rem var(--head);text-decoration:none;padding:12px 24px;border-radius:2px;background:#000;color:#fff}
+.btn:hover{background:var(--pink);color:#000}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+
+/* header (same as home page) */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.bar .lm{height:56px;width:auto;object-fit:contain}
+.bar .lw{height:40px;width:auto;object-fit:contain}
+nav.main{display:flex;gap:clamp(14px,1.6vw,24px);align-items:center;margin-right:auto;margin-left:12px}
+nav.main a{text-decoration:none;font-weight:600;font-size:1.15rem}
+nav.main a:hover,nav.main a.on{text-decoration:underline;text-underline-offset:6px}
+@media (max-width:1140px){nav.main a.n{display:none}}
+@media (max-width:620px){.bar .lw{display:none}}
+
+/* hero */
+.crumb{font-size:1.05rem;color:var(--mute);padding-block:18px}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--fg)}
+.hero{background:var(--grad);color:#000}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:stretch;padding-block:clamp(20px,2.6vw,32px)}
+.hero .txt{display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:20px;text-align:center;padding-block:4px}
+.hero .eyebrow{color:#000;font-size:clamp(1.1rem,1.9vw,1.5rem);letter-spacing:.04em}
+.hero h1{font-size:clamp(5rem,12.6vw,10.4rem);font-weight:800;text-transform:uppercase;line-height:.8;letter-spacing:-.01em}
+.hero h1 span{display:block;color:#fff}
+.hero .deck{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:700;line-height:1.08}
+.hero .deck em{font-style:normal}
+.hero .credits{font-size:clamp(1rem,1.5vw,1.25rem);font-weight:500;display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center}
+.hero .credits b{font-weight:700}
+.hero .ph{aspect-ratio:1.18;max-width:100%}
+.hero .ph{overflow:hidden;border-radius:2px}
+.hero .ph img{object-position:center top;transform:scale(1.16);transform-origin:47% 82%}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero .txt{padding-bottom:0}}
+
+/* story */
+.story{padding-block:36px;display:grid;gap:36px}
+.col{max-width:760px;margin:0 auto;display:grid;gap:20px}
+.lede{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:700;line-height:.95}
+
+.col h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;margin-top:8px;line-height:.89}
+.col h2:first-child{margin-top:0}
+.col h2 small{display:block;font-size:1rem;letter-spacing:.08em;color:#d9461a;margin-bottom:8px}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figcaption{font-size:1rem;color:var(--mute);font-weight:600}
+.wide{max-width:1240px;width:100%}
+.g{display:grid;gap:6px}
+.story>.g+.g{margin-top:-30px}
+.story>.g+.wrap.wide:has(.pq.boxed),.story>.wrap.wide:has(.pq.boxed)+.g{margin-top:-30px}
+/* Side caption: runs up the left edge of its photo, outside the frame, so the photo bottoms line up */
+.g figure:has(figcaption.side){position:relative}
+.g figcaption.side{position:absolute;left:0;bottom:0;margin:0;white-space:nowrap;line-height:1.2;transform-origin:0 100%;transform:rotate(-90deg) translateY(-8px)}
+@media (max-width:760px){.g figcaption.side{position:static;transform:none;margin:6px 0 0}}
+/* Pull quotes on white-backdrop studio shots sit in a box in the cover colour, so the photo is anchored, like the opening box */
+.pq.boxed{background:var(--grad);padding:clamp(20px,3.4vw,48px);padding-block:clamp(20px,2.6vw,32px);border-radius:2px}
+.pq.boxed.ir,.pq.boxed.il{padding-left:clamp(20px,3.4vw,48px);padding-right:clamp(20px,3.4vw,48px)}
+.pq.boxed blockquote{color:#fff!important}.pq.boxed cite{color:#000!important}
+/* Ono: cut-out studio portraits stand on the cover yellow, whole figure in view */
+.boxed figure{background:none;aspect-ratio:4/5;min-height:0}
+/* Photos stand on the bottom edge of their yellow box, like the cover */
+.pq.boxed{padding-bottom:0}.pq.boxed figure{align-self:end}
+.g.boxed{padding-bottom:0!important;align-items:end}
+/* Photos may run past their frame anywhere inside the yellow box; the box edge is the only crop */
+.pq.boxed,.g.boxed{overflow:hidden}.pq.boxed .q{position:relative;z-index:1}.boxed figure,.boxed .crop,.boxed .tunewrap{overflow:visible!important}
+/* Opening photo runs edge to edge, top and bottom */
+.hero.full .wrap{padding-block:0}.hero.full .ph{align-self:stretch;aspect-ratio:auto;min-height:640px;height:100%}
+.hero .txt{padding-bottom:32px}
+.hero.full .ph{overflow:visible}.hero.full{overflow:hidden}.hero.full .ph img{position:relative;top:var(--hero-down,40px)}
+.boxed figure .crop{height:100%}
+.boxed figure img{width:100%;height:100%;object-fit:contain;object-position:50% 100%}
+.g.boxed{background:var(--grad);padding:clamp(20px,2.6vw,32px) clamp(20px,3.4vw,48px)}
+.g.boxed figure{aspect-ratio:3/4}
+.pq figure:has(figcaption.side){position:relative}
+.pq figcaption.side{position:absolute;left:0;bottom:0;margin:0;white-space:nowrap;line-height:1.2;transform-origin:0 100%;transform:rotate(-90deg) translateY(-8px);color:#000}
+.hl{background:var(--grad);color:#fff;font-weight:700;padding:10px 14px;margin-inline:-14px}
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,38%);gap:22px;align-items:start}.duo>div{display:grid;gap:inherit;align-content:start}.col figure.inset{margin:4px 0 0}.col figure.inset img{width:100%;display:block;border-radius:2px}.col figure.inset figcaption{font-size:.9rem;margin-top:6px;font-weight:600}
+@media (max-width:600px){.duo{grid-template-columns:1fr}}
+@media (max-width:820px){.hero h1{font-size:min(var(--name-size),12.5vw) !important}}
+/* Phones: the pixel nudges were set on a desktop screen, so photos go back to their plain framing */
+@media (max-width:760px){.boxed figure img,.hero.full .ph img{transform:none!important;clip-path:none!important}.hero.full .ph img{width:100%;object-fit:cover}.pq figcaption.side{display:none}
+.hero.full .wrap{grid-template-columns:minmax(0,1fr)}.hero.full .ph{min-height:0;height:auto;aspect-ratio:4/5}
+.pq.boxed figure,.g.boxed figure{display:block;aspect-ratio:4/5!important;min-height:0}.boxed figure .crop{display:block;height:100%;overflow:hidden!important}.boxed figure img{width:100%;height:100%}.pq.boxed{padding:20px 20px 0}.pq.boxed .q{padding:0 0 20px}}
+@media (min-width:761px){.pq.boxed .q{align-self:center;padding-top:0}}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g .t{aspect-ratio:3/4}.g .l{aspect-ratio:4/3}.g .s{aspect-ratio:1}
+@media (max-width:760px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3 figure:first-child{grid-column:1/-1}}
+
+.uncrop{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.uncrop figure{flex:0 1 auto}
+.uncrop img{width:auto;height:auto;max-height:560px;max-width:100%;object-fit:contain}
+@media (max-width:760px){.uncrop figure{flex:1 1 40%}.uncrop img{width:100%;max-height:none}}
+/* stats band */
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:0}
+.stats b{display:block;font-size:clamp(2.4rem,4.3vw,3.6rem);font-weight:700;line-height:.9}
+.stats span{font-size:1.1rem;font-weight:500;display:block;margin-top:8px;color:var(--mute)}
+@media (max-width:760px){.stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* quotes */
+.pq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:center}
+.pq .q{padding:clamp(24px,4vw,56px);display:grid;align-content:center;gap:16px}
+
+
+
+.pq blockquote{margin:0;font-size:clamp(1.7rem,3.1vw,2.7rem);font-weight:700;line-height:.95}
+.pq cite{font-style:normal;font-weight:500;font-size:1.3rem;color:var(--mute)}
+.pq figure{min-height:340px}
+
+.pq.il{grid-template-columns:minmax(0,48%) minmax(0,1fr);padding-left:clamp(0px,5vw,64px)}
+.pq.il .q{padding-left:clamp(20px,2.6vw,32px);padding-right:clamp(16px,2vw,24px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,46%);padding-right:clamp(0px,6vw,72px)}
+.pq.ir .q{padding-left:clamp(24px,6vw,76px);padding-right:32px;justify-self:end;width:fit-content;max-width:100%}
+.pq.il .q{padding-left:32px}
+.pq figure{min-height:0}
+.pq blockquote.long{font-size:clamp(1.6rem,2.9vw,2.45rem);font-weight:700;line-height:.95}
+@media (min-width:1100px){.pq blockquote.two span{display:block;white-space:nowrap}}
+.pq figure img{height:auto}
+@media (min-width:601px){.col h2.one{white-space:nowrap}}
+/* Pull quotes: photos inset equally from both edges, same width; quotes start the same distance below the photo top */
+.pq.il{grid-template-columns:minmax(0,47%) minmax(0,1fr);padding-left:clamp(0px,6vw,72px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,47%);padding-right:clamp(0px,6vw,72px)}
+@media (min-width:761px){.pq .q,.pq.up .q{align-self:start;padding-top:150px}}
+@media (max-width:760px){.pq .q,.pq.up .q,.wrap.col,.wrap.big,.lede,.col h2,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits,.hero .txt{top:0 !important;left:0 !important}.pq.up .q{padding-top:clamp(24px,4vw,56px)}}
+@media (max-width:760px){.pq,.pq.il,.pq.ir{grid-template-columns:1fr;padding:0}.pq.ir .q{padding-left:24px}.pq.ir figure{order:-1}.pq figure{min-height:0;aspect-ratio:4/3}}
+.big{text-align:center;max-width:760px;width:100%;margin:0 auto;display:grid;gap:14px}
+.big blockquote{margin:0;font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:700;line-height:.95;text-transform:uppercase}
+@media (min-width:1100px){.big blockquote span{display:block;white-space:nowrap}}
+.big blockquote.nofit{font-size:clamp(2rem,3.6vw,3rem);line-height:1;text-wrap:balance}.big blockquote.nofit span{display:block;white-space:normal}
+
+.crop{display:block;overflow:hidden;border-radius:2px}
+.story .lede,.story h2,.pq blockquote,.inline,.big blockquote,.basics b{font-weight:600;-webkit-text-stroke:.4px currentColor}
+.col h2 small{-webkit-text-stroke:0}
+.col h2{text-transform:none;font-size:clamp(2.4rem,4.4vw,3.3rem);line-height:.95}
+.col h2 small{text-transform:uppercase}
+.book{font-style:italic;font-weight:700}
+.big cite{font-style:normal;font-size:1.1rem;color:var(--mute);font-weight:500}
+.inline{border-left:3px solid var(--fg);padding:4px 0 4px 22px;font-size:1.6rem;font-weight:700;line-height:1.08}
+
+/* closing */
+.closing{position:relative;width:calc(100% - 40px);max-width:1200px;margin:0 auto;aspect-ratio:2.65;min-height:300px;display:grid;align-items:start;color:#fff;background:#222;border-radius:2px;overflow:hidden}
+.closing img{position:absolute;inset:0;border-radius:0}
+.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0) 55%)}
+.closing .wrap{position:relative;z-index:1;padding:clamp(20px,3vw,32px);display:grid;gap:10px;width:100%;max-width:none}
+.closing blockquote{margin:0;max-width:520px;font-size:clamp(1.7rem,3.3vw,2.9rem);font-weight:700;line-height:.95}
+.closing cite{font-style:normal;font-weight:600;font-size:1.1rem}
+
+@media (max-width:760px){
+.closing{aspect-ratio:auto;min-height:0;background:none;color:var(--fg);display:block;overflow:visible}
+.closing img{position:static;aspect-ratio:2.67;height:auto;border-radius:2px}
+.closing::after{display:none}
+.closing .wrap{padding:16px 0 0}
+.closing cite{color:var(--mute)}
+}
+/* credits + more */
+.credbox{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-wrap:wrap;gap:10px 40px;font-size:1.1rem}
+.credbox b{display:block;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.more{display:grid;gap:22px}
+.more .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.more h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;line-height:.89}
+.more .all{font-weight:700;font-size:1.15rem;text-decoration:none}.more .all::after{content:" →"}
+.rack{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.rack a{aspect-ratio:3/4;display:block;transition:transform .15s}
+.rack a:hover{transform:translateY(-4px)}
+@media (max-width:760px){.rack{grid-template-columns:repeat(3,minmax(0,1fr))}.rack a:nth-child(n+4){display:none}}
+.give .wrap{border-top:1px solid var(--line)}
+.give .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:36px}
+.give h2{font-size:clamp(2rem,3.6vw,2.8rem);line-height:.89}
+.give p{font-size:1.2rem;margin-top:8px;max-width:52ch;color:var(--mute)}
+footer{background:#f2f2f2;color:#000}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-block:32px}
+footer img{height:44px;width:auto;object-fit:contain}
+footer p{font-weight:700;font-size:1.15rem}
+footer p span{color:#fff;white-space:nowrap}
+footer p span{color:#8e735c}
+/* Chelsie Hill: hero shows the cover portrait; colours from the cover (taupe band, cream title page) */
+.hero.full .ph{aspect-ratio:4/5}.hero.full .ph img{transform:none;object-position:50% 100%;height:100%;width:100%;object-fit:contain}
+/* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
+   Spacing and sizes are variables so they can be tuned in one place. */
+.hero{--cov:"aktiv-grotesk","Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --gap-eyebrow:24px;--gap-name:18px;--gap-deck:40px;--name-ls:-0.03em;--name-size:6.6rem;--name-lh:0.88;--deck-size:1.9rem;--deck-lh:1.05;--deck-gap:20px;--gap-top:56px;--txt-scale:1;--eyebrow-size:1.3rem;--credits-size:1.25rem;--sub-gap:6px}
+/* Whole cover text block scales together; profile line and credits sized separately */
+.hero .txt{zoom:var(--txt-scale)}.hero .eyebrow{font-size:var(--eyebrow-size)}.hero .credits{font-size:var(--credits-size)}
+.hero{color:#fff}
+.hero .txt{justify-content:flex-start;gap:0;padding-top:var(--gap-top)}
+.hero .eyebrow{color:#fff;margin-bottom:var(--gap-eyebrow)}
+.hero h1{font-family:var(--cov);font-weight:700;color:#fff;letter-spacing:var(--name-ls);display:block;text-align:center;line-height:var(--name-lh);font-size:min(var(--name-size),10vw);margin-bottom:var(--gap-name)}
+.hero h1 span{color:#fff;display:block;text-align:center}.hero h1 .plus{font-style:normal;color:#000}.hero h1 span.x{color:#000}.hero h1 span.x{display:block}.hero h1{text-transform:none!important}
+.hero .deck{color:#fff;font-weight:600;font-size:min(var(--deck-size),3.4vw);line-height:var(--deck-lh);margin-bottom:var(--gap-deck)}
+.hero .deck b{display:block;color:#000;font-family:var(--cov);font-weight:700;letter-spacing:-.04em;margin-bottom:var(--deck-gap)}
+.hero .credits{color:#fff}
+/* Cover photo: whole frame shown, free to zoom and move anywhere inside the box (box edge is the crop) */
+.hero.full .ph{overflow:visible;display:flex;justify-content:center;align-items:flex-end;position:relative;z-index:1}.hero.full .ph img{width:auto;max-width:none;height:100%;object-fit:contain;object-position:50% 100%;top:0;transform-origin:50% 100%}
+/* Cover text always sits in front of the photo */
+.hero .txt{position:relative;z-index:2}
+/* Tobias: the cover JPEG is the whole opening box (title and taglines are part of the design) */
+.hero.cover .wrap{display:flex;justify-content:center;align-items:stretch}.hero.cover .ph{flex:0 0 auto;height:100%;display:flex;justify-content:center}
+.hero.cover .ph img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:50% 50%}
+@media (max-width:820px){.hero h1{font-size:min(var(--name-size),20vw)}.hero .deck{font-size:min(var(--deck-size),7.4vw)}}
+/* Bold display text in the article in the box mauve */
+.story .lede,.story h2,.pq blockquote,.inline,.big blockquote,.basics b{color:#000}
+.inline{border-left-color:var(--yel)}
+.col h2 small{color:#000;font-size:1.25rem;letter-spacing:.06em;margin-bottom:6px}
+.big cite{color:#000;font-weight:700;font-size:1.6rem}
+.basics .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px 24px;padding-block:0}
+.basics .grp{grid-column:span 3;font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:6px}
+.basics b{display:block;font-size:clamp(3rem,5vw,4.2rem);font-weight:700;line-height:.9}
+.basics span{font-size:1.2rem;font-weight:500;display:block;margin-top:6px;color:var(--mute)}
+@media (max-width:760px){.basics .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.story>.wrap.col:first-child,.story>.wrap.big{margin-bottom:0 !important}}
+@media (min-width:601px){}
+/* Closing quote in a box in the cover colours, set left like the boxed quotes */
+.big.boxq{background:var(--grad);text-align:left;padding:clamp(24px,3vw,36px) 34px;max-width:788px;justify-items:start}
+.big.boxq blockquote{color:#fff!important;text-transform:none;line-height:.95}.big.boxq cite{color:#000!important}
+.col p.cap{font-size:1rem;color:var(--mute);font-weight:600;margin:0}
+/* Credits set on the cover, under the name, in the cover's font */
+.hero.cover .ph{position:relative}
+.hero.cover .credits.cov{position:absolute;left:0;top:0;z-index:3;display:flex;flex-direction:column;gap:.15em;align-items:flex-start;font-family:"Poppins",sans-serif;font-weight:500;font-size:var(--covfs,1rem);transform:translate(var(--covx,0),var(--covy,0));line-height:1.15;color:#fff;text-align:left;margin:0}
+.hero.cover .credits.cov b{font-weight:700}
+.story>.wrap.col{width:100%;box-sizing:border-box}
+/* Tommy: cover image left, verse and credits on the orange to its right */
+.hero.cover.tw .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:clamp(24px,4vw,64px);padding:0 0 0 clamp(24px,5vw,72px)}.hero.cover.tw .side{color:#fff;order:-1}
+.hero.cover.tw .ph{height:auto;aspect-ratio:auto;min-height:0;display:block}.hero.cover.tw .ph img{width:100%;height:auto;max-width:none;display:block}
+.hero.cover.tw{--txt-scale:1;--vs:3.2rem;--vlh:1.02;--vls:0em;--vgap:18px;--rs:1.5rem;--cgap:40px;--credits-size:1.25rem;--sidew:100%}
+.hero.cover.tw .side{zoom:var(--txt-scale);width:var(--sidew);display:flex;flex-direction:column;align-items:flex-start;text-align:left;color:#000}
+.hero.cover.tw .verse{font-family:"Anton",sans-serif;font-weight:400;font-size:min(var(--vs),5.2vw);line-height:var(--vlh);letter-spacing:var(--vls);margin:0;color:#fff;text-wrap:balance}
+.hero.cover.tw .ref{color:#c9b29a!important;font-family:"Anton",sans-serif;font-weight:400;font-size:min(var(--rs),3.2vw);line-height:1;margin:var(--vgap) 0 0;color:#fff;letter-spacing:.02em}
+.hero.cover.tw .credits{margin-top:var(--cgap);display:flex;flex-direction:column;gap:4px;font-size:var(--credits-size);color:#fff}.hero.cover.tw .credits b{color:#c9b29a}.hero.cover.tw .credits span{color:#fff}
+@media (max-width:820px){.hero.cover.tw .wrap{grid-template-columns:1fr;padding:0 0 28px}.hero.cover.tw .side{order:0}.hero.cover.tw .side{padding:28px 24px 0;zoom:1;width:auto;top:0!important;left:0!important}.hero.cover.tw .verse{font-size:9vw}.hero.cover.tw .ref{font-size:6vw}}
+.pq.boxed cite,.big.boxq cite{color:#1a1a1a!important}
+.hero.cover.tw{background:#141414}
+.boxed figure img{object-fit:cover!important}
+.banner{padding-inline:clamp(12px,1.6vw,24px)}
+.pq.boxed.photo{padding:clamp(20px,2.6vw,32px)!important;align-items:center}.pq.boxed.photo figure{aspect-ratio:var(--ar)!important;align-self:center!important}.pq.boxed.photo figure .crop{height:100%}.pq.boxed.photo figure img{width:100%;height:100%;object-fit:cover;top:0!important}
+@media (min-width:761px){.pq.boxed.photo.ir{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)!important}.pq.boxed.photo.ir figure{order:2}}
+@media (min-width:821px){.hero.cover.tw.flip .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);padding:0 clamp(24px,5vw,72px) 0 0}.hero.cover.tw.flip .side{order:1}}
+.pq.boxed.photo figure .crop{overflow:hidden!important}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a href="/" aria-label="Artists for Trauma home"><img class="lm" src="/features/greg-fante/img/logomark.png" alt=""></a>
+    <nav class="main" aria-label="Main">
+      <a class="n" href="/">Home</a>
+      <a class="n" href="/#programs">Programs</a>
+      <a class="n on" href="/#features">Features</a>
+      <a class="n" href="/#videos">Videos</a>
+      <a class="n" href="/#about">About</a>
+      <a class="n" href="/#events">Events</a>
+      <a class="btn" href="https://www.zeffy.com/" style="background:var(--pink);color:#000">Give with Zeffy</a>
+    </nav>
+    <img class="lw" src="/features/greg-fante/img/logoword.png" alt="Artists For Trauma">
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap crumb"><a href="/">Home</a> / <a href="/#features">Features</a> / Greg Fante</div>
+
+  <section class="hero full cover tw">
+    <div class="wrap">
+      <div class="ph"><img src="/features/greg-fante/img/hero.jpg" alt="Greg Fante, the Coach of Louisville, at Louisville Tourism. October 2026"></div>
+      <div class="side">
+        <p class="verse">“When we win, our community wins.”</p>
+        <p class="ref">The Coach of Louisville</p>
+        <div class="credits"><span><b>Interview &amp; Story</b> Tattiahna Welsh</span><span><b>Photography</b> Sarah Ann Cohen</span><span><b>Design</b> Per Bernal</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="story">
+    <div class="wrap col">
+      <p class="lede">Sports have always meant more to Greg Fante than what happens in competition. He has built his career around something bigger:</p>
+      <p class="hl">Creating the team, the opportunities, and the partnerships that allow Louisville to win.</p>
+      <p>As President and CEO of the Louisville Sports Commission, Greg is helping shape what sports can do for a city, on the field and far beyond it.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/desk.jpg" alt="Greg Fante at his desk" style="aspect-ratio:1022/674;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Fourth-generation Louisvillian</small>A family story</h2>
+      <p>Louisville is more than the city where Greg built his career. It is part of his family story.</p>
+      <p>A fourth-generation Louisvillian whose children now represent a fifth, he began his career in hospitality in 1984, working with sports organizations at a Louisville hotel before sports tourism had become an established industry.</p>
+      <p>Greg rose to regional general manager of three hotel properties, but sports remained a constant. By 1999, that experience placed him alongside the early development of what would become the Louisville Sports Commission.</p>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>What began as a small operation would eventually help reshape Louisville’s identity as an international sports destination.</span></blockquote>
+    </div>
+
+    <div class="wrap col">
+      <p>Greg initially worked on the tourism side, identifying sporting events Louisville could attract, before officially joining the Louisville Sports Commission in 2007. After serving under each of its first three presidents, he became President and CEO in 2023.</p>
+      <p>As the organization grew, so did Greg’s philosophy on leadership.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir boxed photo" style="--ar:1016/613">
+        <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/above.jpg" alt="Greg Fante seen from above, arms crossed"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“I see myself more as a coach than I do as an athlete… when we win, our community wins.”</blockquote><cite>Greg Fante</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>The impact</small>Louisville’s number one market</h2>
+      <p>Those wins can now be measured across the entire city. In 1999, sporting events generated roughly 15,000 hotel room nights annually for Louisville.</p>
+      <p>Last year, that number grew to approximately 303,000 hotel room nights in new business booked for the upcoming years, making sports Louisville’s number one market.</p>
+      <p>Greg sees the impact on people. Visitors support hotels, restaurants, and attractions, creating business for everyone from bell staff and laundry workers to restaurant servers. The impact reaches far beyond the event itself, strengthening Louisville’s local economy.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/hands.jpg" alt="Greg Fante seated at his desk, hands clasped" style="aspect-ratio:1017/978;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Collaboration</small>Built together</h2>
+      <p>Greg notes this impact requires collaboration across public agencies, private businesses, nonprofits and community organizations.</p>
+      <p>The Norton Healthcare Sports &amp; Learning Center, developed in West Louisville alongside the Louisville Urban League and other partners, opened the city to competitions it previously could not host.</p>
+      <p>The Louisville Sports Commission helped raise funds as well as oversee improvements to the BMX track at E.P. “Tom” Sawyer State Park.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/norton.jpg" alt="The Norton Healthcare Sports &amp; Learning Center, outside and its indoor track" style="aspect-ratio:1032/457;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Louisville Active</small>Access to sports</h2>
+      <p>As Louisville’s sports infrastructure grew, so did the mission. Bringing events into the city mattered, but so did making sure more people within the city could participate.</p>
+      <p>That mission evolved as the Louisville Sports Commission looked beyond hosting events to expanding access to sports within the community. Through Louisville Active, programs including Kids Finish First, Playing It Forward, Sports Fun(d) and We Play work to reduce barriers and create greater access to sports.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/kids.jpg" alt="Children in orange shirts running at Kids Finish First in a stadium" style="aspect-ratio:1018/361;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>Greg remembers one young participant from Louisville’s West End who returned to Kids Finish First year after year. Through the program, he developed a genuine passion for running, progressing to 5Ks and eventually carrying that passion into athletic competition in high school.</p>
+      <p>The young man’s story reflects something that runs throughout Greg’s work:</p>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>Sometimes opportunity begins simply by giving someone a place to start.</span></blockquote>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Family</small>The Fante brothers</h2>
+      <p>That connection to Louisville runs through the Fante family. Greg’s older brother, Leo, has built his career in the coffee industry and opened Fante’s Coffee in Louisville, while his younger brother, Stephen, serves as an international brand ambassador for Yellowstone Bourbon.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/family.jpg" alt="The KFC Yum! Center, Fante’s Coffee and Yellowstone Bourbon" style="aspect-ratio:1035/481;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p class="hl">Greg jokes that the Fante brothers can take care of an entire day in Louisville: Leo can get you coffee in the morning, Greg can get you into a sporting event, and Stephen can finish the night with bourbon.</p>
+      <p>Greg’s early meetings with Eddie Donaldson, founder of TRUST Agency, at Fante’s Coffee eventually introduced Donaldson to Leo, and the two developed a friendship of their own.</p>
+      <p>Leo has since supported Eddie Donaldson’s events, creating “Knockout Coffee,” which he packages with an MMA theme. He also supports a fighter or two at the events.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/eddie.jpg" alt="Greg Fante and Eddie Donaldson shaking hands" style="aspect-ratio:1022/533;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>TRUST Agency &amp; LFA</small>Combat sports momentum</h2>
+      <p>Louisville’s combat sports community was gaining momentum when Greg first connected with Eddie through mutual friend Marty Storch. Eddie’s relationship with LFA founder Ed Soares helped bring LFA to Louisville for three successful events.</p>
+      <p>Greg believes that momentum helped pave the way for UFC’s return. On June 10, 2024, UFC Fight Night: Cannonier vs. Imavov drew 19,578 fans to the KFC Yum! Center, setting a UFC Fight Night attendance record.</p>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Artists for Trauma</small>Alongside TRUST</h2>
+      <p>Laura Sharpe’s and Artists for Trauma’s connection to Louisville’s combat sports community began well before the development of Athletes for Trauma.</p>
+      <p>AFT previously sponsored Louisville fighter Eden Hall, and Laura visited RFG Integrative Fitness alongside Lisa Mills, VP of Marketing and PR for the Louisville Sports Commission.</p>
+      <p>Laura and AFT have since been alongside Eddie throughout the growth of TRUST. Greg admires how Laura has overcome so much physically, mentally and emotionally while continuing to bring positive energy and collaborative activation to the work.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/laura.jpg" alt="Laura Sharpe at RFG Integrative Fitness, and with Greg Fante" style="aspect-ratio:1041/628;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>The name TRUST resonates with Greg. In an industry of driven personalities protective of their brands, he sees Eddie as a bridge between them.</p>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>“Trust Eddie and trust each other that all boats will rise if we work together.”</span></blockquote>
+      <cite>Greg Fante</cite>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Louisville vs. Ireland</small>Bridges Beyond Boxing</h2>
+      <p>That growing network continues to bring Louisville’s combat sports community together. Most recently, the Louisville Sports Commission helped produce Bridges Beyond Boxing over Labor Day weekend, bringing young boxers from Northern Ireland and the Louisville region together for competition and cultural exchange.</p>
+      <p>The initiative came to the Louisville Sports Commission through Mayor Craig Greenberg’s office, with John Ramsey, Director of City Partnerships, driving the opportunity to the Commission. They then brought together half a dozen local sponsors, TKO Gym owner James Dixon, Eddie Donaldson, and Laura Sharpe to help produce the exchange.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/ireland.jpg" alt="Louisville vs. Ireland TKO Boxing poster and a bout in the ring" style="aspect-ratio:1032/576;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>Twelve young boxers from Northern Ireland joined 12 regional U.S. boxers for an experience that extended beyond the ring. The visiting athletes explored Louisville landmarks including the Muhammad Ali Center, Louisville Slugger Museum &amp; Factory, Cave Hill Cemetery and Lakeside Swim Club, while spending five nights with members of Louisville’s Irish immigrant community who welcomed them into their homes.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/boxers.jpg" alt="Young boxers in the ring and touring Louisville" style="aspect-ratio:1028/352;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>October 10, 2026</small>ONI Fights 5: MMA</h2>
+      <p>That momentum now carries into ONI Fights 5: MMA, coming to the historic Galt House Hotel on October 10, 2026. The event will be streamed live on LFA platforms, bringing professional MMA into one of Louisville’s landmark hotels and reaching audiences beyond the city.</p>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>“It’s going to have a great feel, it’s going to have a great look, and more importantly, it’s going to have some great fights.”</span></blockquote>
+      <cite>Greg Fante</cite>
+    </div>
+
+    <div class="wrap col">
+      <p>In a city shaped by combat sports legends including Muhammad Ali, Jimmy Ellis and Greg Page, ONI Fights 5: MMA builds on Louisville’s history while creating another platform for Louisville’s next chapter.</p>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>2025–2026</small>A challenge of his own</h2>
+      <p>While Greg Fante continued his work with the Louisville Sports Commission, he was navigating a major challenge of his own.</p>
+      <p>In 2025, after being diagnosed with prostate cancer, Greg underwent 25 rounds of radiation treatment. He entered 2026 believing that chapter was behind him and returned to work, but soon noticed his energy beginning to disappear.</p>
+      <p>Following an early morning Sports Commission event at Churchill Downs during Derby week, Greg went to a medical appointment. Diagnostic testing revealed acute myeloid leukemia (AML).</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/challenge.jpg" alt="Greg Fante during his treatment and back at work" style="aspect-ratio:1026/600;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>Greg began chemotherapy that same afternoon, beginning four intensive rounds of treatment and three bone marrow biopsies.</p>
+      <p>After years spent building teams, he found himself relying on the strength of his own. Greg’s team showed up and his leadership group kept the Sports Commission moving, while family, friends, colleagues and partners surrounded him with support. Meals arrived. Flowers were sent. People helped around his home, and relationships built across decades reached back to him when he needed them most.</p>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>“I cried more tears of happiness and just respect for others than I ever did about the situation that I was in.”</span></blockquote>
+      <cite>Greg Fante</cite>
+    </div>
+
+    <div class="wrap col">
+      <p>Greg called the experience an <b>“accounting of life,”</b> changing his perspective on the relationships and work that mattered most.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/greg-fante/img/team.jpg" alt="Greg Fante with his team at the Louisville Sports Commission" style="aspect-ratio:1029/311;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Gymnastics City USA</small>Louisville’s next chapter</h2>
+      <p>Greg returned to his work with Louisville’s next chapter already taking shape.</p>
+      <p>In 2028, the city will become Gymnastics City USA, hosting fifteen days of events culminating in the U.S. Olympic Team Trials: Gymnastics at the KFC Yum! Center. Months later, the Solheim Cup will arrive at Valhalla Golf Club.</p>
+      <p>Greg’s definition of success reaches beyond the next major event. It lives in the young athlete given a chance to participate, the worker who benefits when visitors come to town, the organizations that accomplish more together and a community brought together by sports.</p>
+      <p>After a career built around teams, and a year that showed him the strength of his own, Greg’s vision for Louisville remains rooted in the same belief:</p>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>“The more success that we have as a team and a community, the better our city is going to be.”</span></blockquote>
+      <cite>Greg Fante</cite>
+    </div>
+
+    <div class="wrap col">
+      <div class="credbox">
+        <div><b>Series</b>Laura Sharpe's Athletes Profile</div>
+        <div><b>Photography</b>Sarah Ann Cohen</div>
+        <div><b>Design</b>Per Bernal</div>
+        <div><b>Interview &amp; Story</b>Tattiahna Welsh</div>
+        <div><b>Follow</b>@artistsfortrauma</div>
+      </div>
+    </div>
+    <div class="wrap more">
+      <div class="head"><h2>More features</h2><a class="all" href="/#features">See all features</a></div>
+      <div class="rack">
+        <a href="/#feature-chelsie-hill" aria-label="Chelsie Hill"><img loading="lazy" src="/features/greg-fante/img/f_chelsie.jpg" alt=""></a>
+        <a href="/#feature-onofre-banderas" aria-label="Onofre Banderas"><img loading="lazy" src="/features/greg-fante/img/f_onofre.jpg" alt=""></a>
+        <a href="/#feature-aaron-baker" aria-label="Aaron Baker"><img loading="lazy" src="/features/greg-fante/img/f_aaron.jpg" alt=""></a>
+        <a href="/#feature-quan-b" aria-label="Quan.B"><img loading="lazy" src="/features/greg-fante/img/f_quan.jpg" alt=""></a>
+        <a href="/#feature-fiona-dowdee" aria-label="Fiona Dowdee"><img loading="lazy" src="/features/greg-fante/img/f_fiona.jpg" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="give">
+    <div class="wrap">
+      <div><h2>Be part of the story.</h2><p>Every survivor’s journey is bigger than one injury, one loss, one setback. Artists for Trauma is here to help support that journey through creativity, connectivity, and community.</p></div>
+      <a class="btn" href="https://www.zeffy.com/">Give with Zeffy</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img loading="lazy" src="/features/greg-fante/img/logoword.png" alt="Artists For Trauma">
+    <p>Where Recovery is an Art. Powered by <span>human spirit™</span></p>
+  </div>
+</footer>
+
+<script>
+/* Fit big pull-quote lines to the article text width */
+(function(){
+  function fit(){
+    document.querySelectorAll('.big blockquote:not(.nofit)').forEach(function(q){
+      q.style.fontSize='';q.style.width='';
+      if(window.innerWidth<1100) return;
+      var spans=q.querySelectorAll('span');if(!spans.length) return;
+      var max=0;spans.forEach(function(s){var r=document.createRange();r.selectNodeContents(s);max=Math.max(max,r.getBoundingClientRect().width)});
+      var target=0;var big=q.closest('.big');[big.previousElementSibling,big.nextElementSibling].forEach(function(c){if(c)c.querySelectorAll('p').forEach(function(p){var r=document.createRange();r.selectNodeContents(p);[].forEach.call(r.getClientRects(),function(b){target=Math.max(target,b.width)})})});
+      target=Math.min(target||q.parentElement.getBoundingClientRect().width,q.parentElement.getBoundingClientRect().width);
+      if(max>0){var fs=parseFloat(getComputedStyle(q).fontSize);q.style.fontSize=(fs*target/max).toFixed(1)+'px';q.style.width=target.toFixed(0)+'px'}
+    });
+  }
+  function snug(){
+    document.querySelectorAll('.pq.ir .q').forEach(function(q){
+      q.style.transform='';
+      if(window.innerWidth<761) return;
+      var R=0;q.querySelectorAll('blockquote,cite').forEach(function(e){var r=document.createRange();r.selectNodeContents(e);[].forEach.call(r.getClientRects(),function(b){if(b.width>2)R=Math.max(R,b.right)})});
+      var img=q.parentElement.querySelector('figure').getBoundingClientRect();
+      var shift=img.left-32-R;if(shift>0.5)q.style.transform='translateX('+shift.toFixed(1)+'px)';
+    });
+  }
+  var _fit=fit;fit=function(){_fit();snug()};
+  window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
+  fit();
+})();
+</script>
+
+<script src="/features/tune.js" defer></script>
+</body>
+</html>

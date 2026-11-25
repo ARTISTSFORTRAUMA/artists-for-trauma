@@ -247,9 +247,14 @@ footer p span{color:#e08f00}
 .hero.cover .credits.cov{position:absolute;left:0;top:0;z-index:3;display:flex;flex-direction:column;gap:.15em;align-items:flex-start;font-family:"Poppins",sans-serif;font-weight:500;font-size:var(--covfs,1rem);transform:translate(var(--covx,0),var(--covy,0));line-height:1.15;color:#fff;text-align:left;margin:0}
 .hero.cover .credits.cov b{font-weight:700}
 .story>.wrap.col{width:100%;box-sizing:border-box}
-/* Phil. 4:13 verse set on the cover, just above the reference in the bottom right */
-.hero.cover .ph{position:relative}
-.hero.cover .verse{position:absolute;left:0;top:0;z-index:3;width:var(--vw,30%);font-family:"Teko",sans-serif;font-weight:600;font-size:var(--vfs,1.4rem);line-height:.92;color:#1a1a1a;text-align:right;text-wrap:balance;transform:translate(var(--vx,0),var(--vy,0)) translateY(-100%)}
+/* Tommy: cover image left, verse and credits on the orange to its right */
+.hero.cover.tw .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:center;gap:clamp(24px,4vw,64px);padding:0 clamp(24px,5vw,72px) 0 0}
+.hero.cover.tw .ph{height:auto;aspect-ratio:auto;min-height:0;display:block}.hero.cover.tw .ph img{width:100%;height:auto;max-width:none;display:block}
+.hero.cover.tw .side{display:flex;flex-direction:column;align-items:flex-start;text-align:left;color:#000}
+.hero.cover.tw .verse{font-family:"Teko",sans-serif;font-weight:600;font-size:clamp(2.2rem,4.6vw,4.6rem);line-height:.9;margin:0;color:#1a1a1a;text-wrap:balance}
+.hero.cover.tw .ref{font-family:"Teko",sans-serif;font-weight:600;font-size:clamp(1.6rem,2.8vw,2.8rem);line-height:1;margin:.35em 0 0;color:#fff;letter-spacing:.02em}
+.hero.cover.tw .credits{margin-top:clamp(24px,3vw,44px);display:flex;flex-direction:column;gap:4px;font-size:clamp(1rem,1.3vw,1.3rem);color:#000}.hero.cover.tw .credits b{color:#000}.hero.cover.tw .credits span{color:#000}
+@media (max-width:820px){.hero.cover.tw .wrap{grid-template-columns:1fr;padding:0 0 28px}.hero.cover.tw .side{padding:0 24px}}
 </style>
 
 </head>
@@ -273,9 +278,14 @@ footer p span{color:#e08f00}
 <main id="top">
   <div class="wrap crumb"><a href="/">Home</a> / <a href="/#features">Features</a> / Tommy Hollenstein</div>
 
-  <section class="hero full cover">
+  <section class="hero full cover tw">
     <div class="wrap">
-      <div class="ph"><div class="verse">“I can do all things through Christ who strengthens me.”</div><img src="/features/tommy-hollenstein/img/hero.jpg" alt="Tommy Hollenstein. Art in Motion. Phil. 4:13"></div>
+      <div class="ph"><img src="/features/tommy-hollenstein/img/hero.jpg" alt="Tommy Hollenstein. Art in Motion. Phil. 4:13"></div>
+      <div class="side">
+        <p class="verse">“I can do all things through Christ who strengthens me.”</p>
+        <p class="ref">Phil. 4:13</p>
+        <div class="credits"><span><b>Cover &amp; Design</b> Per Bernal</span><span><b>Story</b> Tattiahna Welsh</span></div>
+      </div>
     </div>
   </section>
 
@@ -365,6 +375,7 @@ footer p span{color:#e08f00}
       <div class="credbox">
         <div><b>Series</b>Laura Sharpe's Artists Profile</div>
         <div><b>Cover &amp; Design</b>Per Bernal</div>
+        <div><b>Story</b>Tattiahna Welsh</div>
         <div><b>Follow</b>@artistsfortrauma</div>
       </div>
     </div>
@@ -423,13 +434,6 @@ footer p span{color:#e08f00}
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
   fit();
 })();
-</script>
-<script>
-/* place the verse above "PHIL. 4:13" on the cover image, scaled with it */
-(function(){var img=document.querySelector('.hero.cover .ph img'),v=document.querySelector('.hero.cover .verse');if(!img||!v)return;img.loading='eager';
-function vfit(){var r=img.getBoundingClientRect(),pr=img.parentNode.getBoundingClientRect(),w=r.width,h=r.height;if(!w)return;
-v.style.setProperty('--vfs',(w*.036)+'px');v.style.setProperty('--vw',(w*.42)+'px');v.style.setProperty('--vx',(r.left-pr.left+w*.565)+'px');v.style.setProperty('--vy',(r.top-pr.top+h*.835)+'px')}
-if(img.complete)requestAnimationFrame(vfit);img.addEventListener('load',vfit);addEventListener('resize',vfit);addEventListener('load',vfit);if(window.ResizeObserver)new ResizeObserver(vfit).observe(img)})();
 </script>
 
 <script src="/features/tune.js" defer></script>

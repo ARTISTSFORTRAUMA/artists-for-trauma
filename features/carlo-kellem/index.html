@@ -262,6 +262,8 @@ footer p span{color:#8b190b}
 .banner{padding-inline:clamp(12px,1.6vw,24px)}
 .pq.boxed.photo{padding:clamp(20px,2.6vw,32px)!important;align-items:center}.pq.boxed.photo figure{aspect-ratio:var(--ar)!important;align-self:center!important}.pq.boxed.photo figure .crop{height:100%}.pq.boxed.photo figure img{width:100%;height:100%;object-fit:cover;top:0!important}
 @media (min-width:761px){.pq.boxed.photo.ir{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)!important}.pq.boxed.photo.ir figure{order:2}}
+@media (min-width:821px){.hero.cover.tw.flip .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);padding:0 clamp(24px,5vw,72px) 0 0}.hero.cover.tw.flip .side{order:1}}
+.pq.boxed.photo figure .crop{overflow:hidden!important}
 </style>
 
 </head>
@@ -285,7 +287,7 @@ footer p span{color:#8b190b}
 <main id="top">
   <div class="wrap crumb"><a href="/">Home</a> / <a href="/#features">Features</a> / Carlo Kellem</div>
 
-  <section class="hero full cover tw">
+  <section class="hero full cover tw flip">
     <div class="wrap">
       <div class="ph"><img src="/features/carlo-kellem/img/hero.jpg" alt="Carlo Kellem, the boxing commissioner. From ringside to regulation. ONI Fights 5 MMA, Galt House Hotel, Saturday October 10, 2026"></div>
       <div class="side">
@@ -297,7 +299,7 @@ footer p span{color:#8b190b}
   </section>
 
   <div class="story">
-    <div class="wrap col">
+    <div class="wrap col" style="position:relative;top:-6px;margin-bottom:-6px">
       <p class="lede">Carlo Kellem has spent years learning combat sports from every side of the ring. Today, he brings that experience to the Kentucky Boxing and Wrestling Commission, with fighter safety at the center of his work.</p>
       <p>Boxing has been part of Kellem’s life since childhood. After returning to the sport in his late 20s, he began learning the business from the ground up. He worked corners, announced, commentated fights, handled gloves at events and even helped put up the ring. Each role gave him a different perspective on what it takes to make a fight happen.</p>
     </div>
@@ -317,7 +319,7 @@ footer p span{color:#8b190b}
     <div class="wrap wide">
       <div class="pq ir boxed photo" style="--ar:521/1133">
         <figure><span class="crop"><img loading="lazy" src="/features/carlo-kellem/img/judge.jpg" alt="Carlo Kellem seated ringside in a suit"></span></figure>
-        <div class="q"><blockquote class="long" style="text-wrap:balance">“It was just consistency.”</blockquote><cite>Carlo Kellem</cite></div>
+        <div class="q" style="position:relative;top:0px;left:-46px"><blockquote class="long" style="text-wrap:balance">“It was just consistency.”</blockquote><cite>Carlo Kellem</cite></div>
       </div>
     </div>
 
@@ -353,8 +355,8 @@ footer p span{color:#8b190b}
 
     <div class="wrap wide">
       <div class="pq il boxed photo" style="--ar:1029/512">
-        <figure><span class="crop"><img loading="lazy" src="/features/carlo-kellem/img/belt.jpg" alt="Carlo Kellem speaking beside a man holding a championship belt"></span></figure>
-        <div class="q"><blockquote class="long" style="text-wrap:balance">“They’re boots on the ground.”</blockquote><cite>Carlo Kellem</cite></div>
+        <figure><span class="crop"><img loading="lazy" src="/features/carlo-kellem/img/belt.jpg" alt="Carlo Kellem speaking beside a man holding a championship belt" style="object-position:26% 52%;transform-origin:26% 52%;transform:scale(1.13)"></span></figure>
+        <div class="q" style="position:relative;top:16px;left:62px"><blockquote class="long" style="text-wrap:balance">“They’re boots on the ground.”</blockquote><cite>Carlo Kellem</cite></div>
       </div>
     </div>
 

@@ -1,0 +1,557 @@
+<title>Eddie Donaldson · Clean Feature</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Anton&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap">
+<style>
+/* Layout: clean AFT feature — white page, hairline rules, black type, uncropped photo breaks; colour only in site header/footer */
+:root{
+  --bg:#ffffff; --fg:#000000; --mute:#555555; --line:#d9d9d9; --soft:#f3f3ee;
+  --pink:#f567af; --pink-ink:#c93683;
+  --grad:#505050;--yel:#fff;
+  --head:"gotham-condensed","Barlow Condensed","Arial Narrow",sans-serif;
+  --sp:clamp(48px,6vw,80px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e0d0e;--fg:#f5f2f3;--mute:#b3aaae;--line:#333;--soft:#1a1819;--pink-ink:#f78dc2;color-scheme:dark}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{background:var(--bg);color:var(--fg);font-family:var(--head);font-weight:500;font-size:24px;line-height:1.15}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:700;line-height:.92;letter-spacing:-.01em;text-wrap:balance}
+img{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px}
+.eyebrow{font-weight:600;font-size:1rem;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:700 1.15rem var(--head);text-decoration:none;padding:12px 24px;border-radius:2px;background:#000;color:#fff}
+.btn:hover{background:var(--pink);color:#000}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+
+/* header (same as home page) */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.bar .lm{height:56px;width:auto;object-fit:contain}
+.bar .lw{height:40px;width:auto;object-fit:contain}
+nav.main{display:flex;gap:clamp(14px,1.6vw,24px);align-items:center;margin-right:auto;margin-left:12px}
+nav.main a{text-decoration:none;font-weight:600;font-size:1.15rem}
+nav.main a:hover,nav.main a.on{text-decoration:underline;text-underline-offset:6px}
+@media (max-width:1140px){nav.main a.n{display:none}}
+@media (max-width:620px){.bar .lw{display:none}}
+
+/* hero */
+.crumb{font-size:1.05rem;color:var(--mute);padding-block:18px}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--fg)}
+.hero{background:var(--grad);color:#000}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:stretch;padding-block:clamp(20px,2.6vw,32px)}
+.hero .txt{display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:20px;text-align:center;padding-block:4px}
+.hero .eyebrow{color:#000;font-size:clamp(1.1rem,1.9vw,1.5rem);letter-spacing:.04em}
+.hero h1{font-size:clamp(5rem,12.6vw,10.4rem);font-weight:800;text-transform:uppercase;line-height:.8;letter-spacing:-.01em}
+.hero h1 span{display:block;color:#fff}
+.hero .deck{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:700;line-height:1.08}
+.hero .deck em{font-style:normal}
+.hero .credits{font-size:clamp(1rem,1.5vw,1.25rem);font-weight:500;display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center}
+.hero .credits b{font-weight:700}
+.hero .ph{aspect-ratio:1.18;max-width:100%}
+.hero .ph{overflow:hidden;border-radius:2px}
+.hero .ph img{object-position:center top;transform:scale(1.16);transform-origin:47% 82%}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero .txt{padding-bottom:0}}
+
+/* story */
+.story{padding-block:36px;display:grid;gap:36px}
+.col{max-width:760px;margin:0 auto;display:grid;gap:20px}
+.lede{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:700;line-height:.95}
+
+.col h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;margin-top:8px;line-height:.89}
+.col h2:first-child{margin-top:0}
+.col h2 small{display:block;font-size:1rem;letter-spacing:.08em;color:#d9461a;margin-bottom:8px}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figcaption{font-size:1rem;color:var(--mute);font-weight:600}
+.wide{max-width:1240px;width:100%}
+.g{display:grid;gap:6px}
+.story>.g+.g{margin-top:-30px}
+.story>.g+.wrap.wide:has(.pq.boxed),.story>.wrap.wide:has(.pq.boxed)+.g{margin-top:-30px}
+/* Side caption: runs up the left edge of its photo, outside the frame, so the photo bottoms line up */
+.g figure:has(figcaption.side){position:relative}
+.g figcaption.side{position:absolute;left:0;bottom:0;margin:0;white-space:nowrap;line-height:1.2;transform-origin:0 100%;transform:rotate(-90deg) translateY(-8px)}
+@media (max-width:760px){.g figcaption.side{position:static;transform:none;margin:6px 0 0}}
+/* Pull quotes on white-backdrop studio shots sit in a box in the cover colour, so the photo is anchored, like the opening box */
+.pq.boxed{background:var(--grad);padding:clamp(20px,3.4vw,48px);padding-block:clamp(20px,2.6vw,32px);border-radius:2px}
+.pq.boxed.ir,.pq.boxed.il{padding-left:clamp(20px,3.4vw,48px);padding-right:clamp(20px,3.4vw,48px)}
+.pq.boxed blockquote{color:#fff!important}.pq.boxed cite{color:#000!important}
+/* Ono: cut-out studio portraits stand on the cover yellow, whole figure in view */
+.boxed figure{background:none;aspect-ratio:4/5;min-height:0}
+/* Photos stand on the bottom edge of their yellow box, like the cover */
+.pq.boxed{padding-bottom:0}.pq.boxed figure{align-self:end}
+.g.boxed{padding-bottom:0!important;align-items:end}
+/* Photos may run past their frame anywhere inside the yellow box; the box edge is the only crop */
+.pq.boxed,.g.boxed{overflow:hidden}.pq.boxed .q{position:relative;z-index:1}.boxed figure,.boxed .crop,.boxed .tunewrap{overflow:visible!important}
+/* Opening photo runs edge to edge, top and bottom */
+.hero.full .wrap{padding-block:0}.hero.full .ph{align-self:stretch;aspect-ratio:auto;min-height:640px;height:100%}
+.hero .txt{padding-bottom:32px}
+.hero.full .ph{overflow:visible}.hero.full{overflow:hidden}.hero.full .ph img{position:relative;top:var(--hero-down,40px)}
+.boxed figure .crop{height:100%}
+.boxed figure img{width:100%;height:100%;object-fit:contain;object-position:50% 100%}
+.g.boxed{background:var(--grad);padding:clamp(20px,2.6vw,32px) clamp(20px,3.4vw,48px)}
+.g.boxed figure{aspect-ratio:3/4}
+.pq figure:has(figcaption.side){position:relative}
+.pq figcaption.side{position:absolute;left:0;bottom:0;margin:0;white-space:nowrap;line-height:1.2;transform-origin:0 100%;transform:rotate(-90deg) translateY(-8px);color:#000}
+.hl{background:var(--grad);color:#fff;font-weight:700;padding:10px 14px;margin-inline:-14px}
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,38%);gap:22px;align-items:start}.duo>div{display:grid;gap:inherit;align-content:start}.col figure.inset{margin:4px 0 0}.col figure.inset img{width:100%;display:block;border-radius:2px}.col figure.inset figcaption{font-size:.9rem;margin-top:6px;font-weight:600}
+@media (max-width:600px){.duo{grid-template-columns:1fr}}
+@media (max-width:820px){.hero h1{font-size:min(var(--name-size),12.5vw) !important}}
+/* Phones: the pixel nudges were set on a desktop screen, so photos go back to their plain framing */
+@media (max-width:760px){.boxed figure img,.hero.full .ph img{transform:none!important;clip-path:none!important}.hero.full .ph img{width:100%;object-fit:cover}.pq figcaption.side{display:none}
+.hero.full .wrap{grid-template-columns:minmax(0,1fr)}.hero.full .ph{min-height:0;height:auto;aspect-ratio:4/5}
+.pq.boxed figure,.g.boxed figure{display:block;aspect-ratio:4/5!important;min-height:0}.boxed figure .crop{display:block;height:100%;overflow:hidden!important}.boxed figure img{width:100%;height:100%}.pq.boxed{padding:20px 20px 0}.pq.boxed .q{padding:0 0 20px}}
+@media (min-width:761px){.pq.boxed .q{align-self:center;padding-top:0}}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g .t{aspect-ratio:3/4}.g .l{aspect-ratio:4/3}.g .s{aspect-ratio:1}
+@media (max-width:760px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3 figure:first-child{grid-column:1/-1}}
+
+.uncrop{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.uncrop figure{flex:0 1 auto}
+.uncrop img{width:auto;height:auto;max-height:560px;max-width:100%;object-fit:contain}
+@media (max-width:760px){.uncrop figure{flex:1 1 40%}.uncrop img{width:100%;max-height:none}}
+/* stats band */
+.stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:0}
+.stats b{display:block;font-size:clamp(2.4rem,4.3vw,3.6rem);font-weight:700;line-height:.9}
+.stats span{font-size:1.1rem;font-weight:500;display:block;margin-top:8px;color:var(--mute)}
+@media (max-width:760px){.stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* quotes */
+.pq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:center}
+.pq .q{padding:clamp(24px,4vw,56px);display:grid;align-content:center;gap:16px}
+
+
+
+.pq blockquote{margin:0;font-size:clamp(1.7rem,3.1vw,2.7rem);font-weight:700;line-height:.95}
+.pq cite{font-style:normal;font-weight:500;font-size:1.3rem;color:var(--mute)}
+.pq figure{min-height:340px}
+
+.pq.il{grid-template-columns:minmax(0,48%) minmax(0,1fr);padding-left:clamp(0px,5vw,64px)}
+.pq.il .q{padding-left:clamp(20px,2.6vw,32px);padding-right:clamp(16px,2vw,24px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,46%);padding-right:clamp(0px,6vw,72px)}
+.pq.ir .q{padding-left:clamp(24px,6vw,76px);padding-right:32px;justify-self:end;width:fit-content;max-width:100%}
+.pq.il .q{padding-left:32px}
+.pq figure{min-height:0}
+.pq blockquote.long{font-size:clamp(1.6rem,2.9vw,2.45rem);font-weight:700;line-height:.95}
+@media (min-width:1100px){.pq blockquote.two span{display:block;white-space:nowrap}}
+.pq figure img{height:auto}
+@media (min-width:601px){.col h2.one{white-space:nowrap}}
+/* Pull quotes: photos inset equally from both edges, same width; quotes start the same distance below the photo top */
+.pq.il{grid-template-columns:minmax(0,47%) minmax(0,1fr);padding-left:clamp(0px,6vw,72px)}
+.pq.ir{grid-template-columns:minmax(0,1fr) minmax(0,47%);padding-right:clamp(0px,6vw,72px)}
+@media (min-width:761px){.pq .q,.pq.up .q{align-self:start;padding-top:150px}}
+@media (max-width:760px){.pq .q,.pq.up .q,.wrap.col,.wrap.big,.lede,.col h2,.hero .eyebrow,.hero h1,.hero .deck,.hero .credits,.hero .txt{top:0 !important;left:0 !important}.pq.up .q{padding-top:clamp(24px,4vw,56px)}}
+@media (max-width:760px){.pq,.pq.il,.pq.ir{grid-template-columns:1fr;padding:0}.pq.ir .q{padding-left:24px}.pq.ir figure{order:-1}.pq figure{min-height:0;aspect-ratio:4/3}}
+.big{text-align:center;max-width:760px;width:100%;margin:0 auto;display:grid;gap:14px}
+.big blockquote{margin:0;font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:700;line-height:.95;text-transform:uppercase}
+@media (min-width:1100px){.big blockquote span{display:block;white-space:nowrap}}
+.big blockquote.nofit{font-size:clamp(2rem,3.6vw,3rem);line-height:1;text-wrap:balance}.big blockquote.nofit span{display:block;white-space:normal}
+
+.crop{display:block;overflow:hidden;border-radius:2px}
+.story .lede,.story h2,.pq blockquote,.inline,.big blockquote,.basics b{font-weight:600;-webkit-text-stroke:.4px currentColor}
+.col h2 small{-webkit-text-stroke:0}
+.col h2{text-transform:none;font-size:clamp(2.4rem,4.4vw,3.3rem);line-height:.95}
+.col h2 small{text-transform:uppercase}
+.book{font-style:italic;font-weight:700}
+.big cite{font-style:normal;font-size:1.1rem;color:var(--mute);font-weight:500}
+.inline{border-left:3px solid var(--fg);padding:4px 0 4px 22px;font-size:1.6rem;font-weight:700;line-height:1.08}
+
+/* closing */
+.closing{position:relative;width:calc(100% - 40px);max-width:1200px;margin:0 auto;aspect-ratio:2.65;min-height:300px;display:grid;align-items:start;color:#fff;background:#222;border-radius:2px;overflow:hidden}
+.closing img{position:absolute;inset:0;border-radius:0}
+.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0) 55%)}
+.closing .wrap{position:relative;z-index:1;padding:clamp(20px,3vw,32px);display:grid;gap:10px;width:100%;max-width:none}
+.closing blockquote{margin:0;max-width:520px;font-size:clamp(1.7rem,3.3vw,2.9rem);font-weight:700;line-height:.95}
+.closing cite{font-style:normal;font-weight:600;font-size:1.1rem}
+
+@media (max-width:760px){
+.closing{aspect-ratio:auto;min-height:0;background:none;color:var(--fg);display:block;overflow:visible}
+.closing img{position:static;aspect-ratio:2.67;height:auto;border-radius:2px}
+.closing::after{display:none}
+.closing .wrap{padding:16px 0 0}
+.closing cite{color:var(--mute)}
+}
+/* credits + more */
+.credbox{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-wrap:wrap;gap:10px 40px;font-size:1.1rem}
+.credbox b{display:block;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.more{display:grid;gap:22px}
+.more .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.more h2{font-size:clamp(2.2rem,4vw,3rem);text-transform:uppercase;line-height:.89}
+.more .all{font-weight:700;font-size:1.15rem;text-decoration:none}.more .all::after{content:" →"}
+.rack{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.rack a{aspect-ratio:3/4;display:block;transition:transform .15s}
+.rack a:hover{transform:translateY(-4px)}
+@media (max-width:760px){.rack{grid-template-columns:repeat(3,minmax(0,1fr))}.rack a:nth-child(n+4){display:none}}
+.give .wrap{border-top:1px solid var(--line)}
+.give .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:36px}
+.give h2{font-size:clamp(2rem,3.6vw,2.8rem);line-height:.89}
+.give p{font-size:1.2rem;margin-top:8px;max-width:52ch;color:var(--mute)}
+footer{background:#f2f2f2;color:#000}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-block:32px}
+footer img{height:44px;width:auto;object-fit:contain}
+footer p{font-weight:700;font-size:1.15rem}
+footer p span{color:#fff;white-space:nowrap}
+footer p span{color:#505050}
+/* Chelsie Hill: hero shows the cover portrait; colours from the cover (taupe band, cream title page) */
+.hero.full .ph{aspect-ratio:4/5}.hero.full .ph img{transform:none;object-position:50% 100%;height:100%;width:100%;object-fit:contain}
+/* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
+   Spacing and sizes are variables so they can be tuned in one place. */
+.hero{--cov:"aktiv-grotesk","Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --gap-eyebrow:24px;--gap-name:18px;--gap-deck:40px;--name-ls:-0.03em;--name-size:6.6rem;--name-lh:0.88;--deck-size:1.9rem;--deck-lh:1.05;--deck-gap:20px;--gap-top:56px;--txt-scale:1;--eyebrow-size:1.3rem;--credits-size:1.25rem;--sub-gap:6px}
+/* Whole cover text block scales together; profile line and credits sized separately */
+.hero .txt{zoom:var(--txt-scale)}.hero .eyebrow{font-size:var(--eyebrow-size)}.hero .credits{font-size:var(--credits-size)}
+.hero{color:#fff}
+.hero .txt{justify-content:flex-start;gap:0;padding-top:var(--gap-top)}
+.hero .eyebrow{color:#fff;margin-bottom:var(--gap-eyebrow)}
+.hero h1{font-family:var(--cov);font-weight:700;color:#fff;letter-spacing:var(--name-ls);display:block;text-align:center;line-height:var(--name-lh);font-size:min(var(--name-size),10vw);margin-bottom:var(--gap-name)}
+.hero h1 span{color:#fff;display:block;text-align:center}.hero h1 .plus{font-style:normal;color:#000}.hero h1 span.x{color:#000}.hero h1 span.x{display:block}.hero h1{text-transform:none!important}
+.hero .deck{color:#fff;font-weight:600;font-size:min(var(--deck-size),3.4vw);line-height:var(--deck-lh);margin-bottom:var(--gap-deck)}
+.hero .deck b{display:block;color:#000;font-family:var(--cov);font-weight:700;letter-spacing:-.04em;margin-bottom:var(--deck-gap)}
+.hero .credits{color:#fff}
+/* Cover photo: whole frame shown, free to zoom and move anywhere inside the box (box edge is the crop) */
+.hero.full .ph{overflow:visible;display:flex;justify-content:center;align-items:flex-end;position:relative;z-index:1}.hero.full .ph img{width:auto;max-width:none;height:100%;object-fit:contain;object-position:50% 100%;top:0;transform-origin:50% 100%}
+/* Cover text always sits in front of the photo */
+.hero .txt{position:relative;z-index:2}
+/* Tobias: the cover JPEG is the whole opening box (title and taglines are part of the design) */
+.hero.cover .wrap{display:flex;justify-content:center;align-items:stretch}.hero.cover .ph{flex:0 0 auto;height:100%;display:flex;justify-content:center}
+.hero.cover .ph img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:50% 50%}
+@media (max-width:820px){.hero h1{font-size:min(var(--name-size),20vw)}.hero .deck{font-size:min(var(--deck-size),7.4vw)}}
+/* Bold display text in the article in the box mauve */
+.story .lede,.story h2,.pq blockquote,.inline,.big blockquote,.basics b{color:#000}
+.inline{border-left-color:var(--yel)}
+.col h2 small{color:#000;font-size:1.25rem;letter-spacing:.06em;margin-bottom:6px}
+.big cite{color:#000;font-weight:700;font-size:1.6rem}
+.basics .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px 24px;padding-block:0}
+.basics .grp{grid-column:span 3;font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:6px}
+.basics b{display:block;font-size:clamp(3rem,5vw,4.2rem);font-weight:700;line-height:.9}
+.basics span{font-size:1.2rem;font-weight:500;display:block;margin-top:6px;color:var(--mute)}
+@media (max-width:760px){.basics .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.story>.wrap.col:first-child,.story>.wrap.big{margin-bottom:0 !important}}
+@media (min-width:601px){}
+/* Closing quote in a box in the cover colours, set left like the boxed quotes */
+.big.boxq{background:var(--grad);text-align:left;padding:clamp(24px,3vw,36px) 34px;max-width:788px;justify-items:start}
+.big.boxq blockquote{color:#fff!important;text-transform:none;line-height:.95}.big.boxq cite{color:#000!important}
+.col p.cap{font-size:1rem;color:var(--mute);font-weight:600;margin:0}
+/* Credits set on the cover, under the name, in the cover's font */
+.hero.cover .ph{position:relative}
+.hero.cover .credits.cov{position:absolute;left:0;top:0;z-index:3;display:flex;flex-direction:column;gap:.15em;align-items:flex-start;font-family:"Poppins",sans-serif;font-weight:500;font-size:var(--covfs,1rem);transform:translate(var(--covx,0),var(--covy,0));line-height:1.15;color:#fff;text-align:left;margin:0}
+.hero.cover .credits.cov b{font-weight:700}
+.story>.wrap.col{width:100%;box-sizing:border-box}
+/* Tommy: cover image left, verse and credits on the orange to its right */
+.hero.cover.tw .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:clamp(24px,4vw,64px);padding:0 0 0 clamp(24px,5vw,72px)}.hero.cover.tw .side{color:#fff;order:-1}
+.hero.cover.tw .ph{height:auto;aspect-ratio:auto;min-height:0;display:block}.hero.cover.tw .ph img{width:100%;height:auto;max-width:none;display:block}
+.hero.cover.tw{--txt-scale:1;--vs:3.2rem;--vlh:1.02;--vls:0em;--vgap:18px;--rs:1.5rem;--cgap:40px;--credits-size:1.25rem;--sidew:100%}
+.hero.cover.tw .side{zoom:var(--txt-scale);width:var(--sidew);display:flex;flex-direction:column;align-items:flex-start;text-align:left;color:#000}
+.hero.cover.tw .verse{font-family:"Anton",sans-serif;font-weight:400;font-size:min(var(--vs),5.2vw);line-height:var(--vlh);letter-spacing:var(--vls);margin:0;color:#fff;text-wrap:balance}
+.hero.cover.tw .ref{color:#000!important;font-family:"Anton",sans-serif;font-weight:400;font-size:min(var(--rs),3.2vw);line-height:1;margin:var(--vgap) 0 0;color:#fff;letter-spacing:.02em}
+.hero.cover.tw .credits{margin-top:var(--cgap);display:flex;flex-direction:column;gap:4px;font-size:var(--credits-size);color:#fff}.hero.cover.tw .credits b{color:#000}.hero.cover.tw .credits span{color:#fff}
+@media (max-width:820px){.hero.cover.tw .wrap{grid-template-columns:1fr;padding:0 0 28px}.hero.cover.tw .side{order:0}.hero.cover.tw .side{padding:28px 24px 0;zoom:1;width:auto;top:0!important;left:0!important}.hero.cover.tw .verse{font-size:9vw}.hero.cover.tw .ref{font-size:6vw}}
+.pq.boxed cite,.big.boxq cite{color:#1a1a1a!important}
+.hero.cover.tw{background:#505050}
+.boxed figure img{object-fit:cover!important}
+.banner{padding-inline:clamp(12px,1.6vw,24px)}
+.pq.boxed.photo{padding:clamp(20px,2.6vw,32px)!important;align-items:center}.pq.boxed.photo figure{aspect-ratio:var(--ar)!important;align-self:center!important}.pq.boxed.photo figure .crop{height:100%}.pq.boxed.photo figure img{width:100%;height:100%;object-fit:cover;top:0!important}
+@media (min-width:761px){.pq.boxed.photo.ir{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)!important}.pq.boxed.photo.ir figure{order:2}}
+@media (min-width:821px){.hero.cover.tw.flip .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);padding:0 clamp(24px,5vw,72px) 0 0}.hero.cover.tw.flip .side{order:1}}
+.pq.boxed.photo figure .crop{overflow:hidden!important}
+/* tighter editorial spacing */
+.story{gap:24px!important}
+.story>.g+.g,.story>.g+.wrap.wide:has(.pq.boxed),.story>.wrap.wide:has(.pq.boxed)+.g{margin-top:-18px!important}
+
+.hero.cover.tw{background:#505050}
+.hero.cover.tw .qt{font-family:"Inter Tight",sans-serif;font-weight:800;font-style:italic;color:#fff;font-size:min(1.6rem,4vw);margin:0 0 14px}
+.hero.cover.tw .verse{font-family:"Inter Tight",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.03em;color:#d7a036}
+.hero.cover.tw .ref{font-family:"Inter Tight",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;color:#84e2eb!important}
+.hero.cover.tw .credits b{color:#d7a036}
+.big.boxq blockquote,.big.boxq blockquote span,.pq.boxed blockquote{color:#fff!important}.big.boxq cite,.pq.boxed cite{color:#d7a036!important}
+.story figcaption{font-size:.95rem;color:var(--mute);margin-top:6px}
+</style>
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" aria-label="Artists for Trauma home"><img class="lm" src="{{logomark}}" alt=""></a>
+    <nav class="main" aria-label="Main">
+      <a class="n" href="#top">Home</a>
+      <a class="n" href="#top">Programs</a>
+      <a class="n on" href="#top">Features</a>
+      <a class="n" href="#top">Videos</a>
+      <a class="n" href="#top">About</a>
+      <a class="n" href="#top">Events</a>
+      <a class="btn" href="#top" style="background:var(--pink);color:#000">Give with Zeffy</a>
+    </nav>
+    <img class="lw" src="{{logoword}}" alt="Artists For Trauma">
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap crumb"><a href="#top">Home</a> / <a href="#top">Features</a> / Eddie Donaldson</div>
+
+  <section class="hero full cover tw">
+    <div class="wrap">
+      <div class="ph"><img src="{{hero}}" alt="Eddie Donaldson, arms crossed, in front of Shepard Fairey artwork and a blue lowrider"></div>
+      <div class="side">
+        <p class="qt">“It’s an energy thing…”</p>
+        <p class="verse">Eddie Donaldson</p>
+        <p class="ref">Founder of GuerillaOne</p>
+        <div class="credits"><span><b>Design</b> Per Bernal</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="story">
+    <div class="wrap col">
+      <p class="lede">For more than 25 years, Eddie Donaldson has moved through graffiti and street art culture, not just as a writer, but as a builder, connecting artists with clients.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.5000fr) minmax(0,1.5000fr)">
+      <figure><span class="crop"><img src="{{lowrider}}" alt="Eddie Donaldson crouching between two lowriders" style="aspect-ratio:2400/1600;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{risky}}" alt="Risky in front of a graffiti piece" style="aspect-ratio:2400/1600;object-position:50% 50%"></span><figcaption>©Risky</figcaption></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>GuerillaOne</small>A global network</h2>
+      <p>What started on walls, railway cars and highway overpasses became something much larger.</p>
+      <p class="hl">GuerillaOne grew into a global network of artists, built organically through people, movement, and shared energy.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.4963fr) minmax(0,0.6667fr)">
+      <figure><span class="crop"><img src="{{shepard}}" alt="Shepard Fairey painting a mural" style="aspect-ratio:2400/1604;object-position:50% 50%"></span><figcaption>©Shepard Fairey</figcaption></figure>
+      <figure><span class="crop"><img src="{{tulip2}}" alt="Eddie Donaldson with a friend in front of a tulip mural" style="aspect-ratio:1600/2400;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Sixteen</small>Louisville to Los Angeles</h2>
+      <p>Born in Louisville, Kentucky, Eddie’s early life was structured and stable. That shifted at 16, when his mother passed away, and he had to move to Los Angeles to live with his aunt.</p>
+      <p>In a city defined by intensity and survival, he had to quickly learn how to make money, how to move, and how to take care of himself.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.6168fr) minmax(0,0.6667fr)">
+      <figure><span class="crop"><img src="{{lostangel}}" alt="A LOST ANGEL tattoo across a man’s back" style="aspect-ratio:1502/929;object-position:50% 50%"></span><figcaption>©Estevan Oriol</figcaption></figure>
+      <figure><span class="crop"><img src="{{hug}}" alt="Eddie Donaldson embracing a friend" style="aspect-ratio:1600/2400;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>TCF &amp; The Seventh Letter</small>A brotherhood</h2>
+      <p class="hl">In that environment, graffiti became an alternative path. Through crews like TCF, and The Seventh Letter, he not only found art, but a brotherhood that felt like home.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.5000fr) minmax(0,1.5000fr)">
+      <figure><span class="crop"><img src="{{page}}" alt="Eddie Donaldson and Page Gamboa, arms crossed" style="aspect-ratio:2400/1600;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{shop}}" alt="A lowrider inside a shop with The Seventh Letter mural" style="aspect-ratio:2400/1600;object-position:50% 50%"></span><figcaption>©TheSeventhLetter</figcaption></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>The beginning</small>Painting for free</h2>
+      <p>It began with painting for free; liquor stores, local spots, anywhere they could get wall space to display their art.</p>
+      <p>Eddie watched how the store owners reacted. They were excited. Proud to have one-of-a-kind artwork on their building. That reaction changed everything.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,0.6675fr) minmax(0,0.7992fr)">
+      <figure><span class="crop"><img src="{{retna}}" alt="Retna painting a wall" style="aspect-ratio:801/1200;object-position:50% 50%"></span><figcaption>©Retna</figcaption></figure>
+      <figure><span class="crop"><img src="{{tower}}" alt="Cuauhtemoc Building, Tlatelolco, Mexico City, painted by Retna" style="aspect-ratio:768/961;object-position:50% 50%"></span><figcaption>Cuauhtemoc Building, Tlatelolco, Mexico City. ©Retna</figcaption></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Negotiating</small>Real value</h2>
+      <p>Eddie started negotiating. He asked for $20. Then $100. Then $200. Over time, what began as free work turned into real money, real value, and eventually large scale 6-figure commissions.</p>
+      <p class="hl">What looked like graffiti became something else. A way to build, to connect, and to create opportunity beyond the street and shape pop culture.</p>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Before social media</small>GuerillaOne.com</h2>
+      <p>As the work expanded, so did the vision. Eddie created GuerillaOne, the first online graffiti art platform, at a time before social media, giving artists a way to see and share work from around the world.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir boxed photo" style="--ar:1798/2400">
+        <figure><span class="crop"><img src="{{spider}}" alt="Saturday Nights at the Spider Club poster, Obey Giant and GuerillaOne"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“We needed to do this website where a guy in France can do a painting, and we can see what he did, and he can see what we did… and so we started GuerillaOne.com.”</blockquote><cite>Eddie Donaldson</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col"><p class="cap">Poster ©Shepard Fairey</p></div>
+
+    <div class="wrap col">
+      <p>What began as a name became a network, giving writers visibility, identity, and a way to communicate far beyond their immediate environment.</p>
+      <p class="hl">The GuerillaOne website created real opportunity. What lived on the street evolved into exhibitions, brand work, and paid projects that could support artists in a lasting way.</p>
+    </div>
+
+    <div class="wrap wide g g3" style="grid-template-columns:minmax(0,0.9867fr) minmax(0,1.0070fr) minmax(0,0.9514fr)">
+      <figure><span class="crop"><img src="{{slick}}" alt="Slick hand artwork" style="aspect-ratio:2368/2400;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{shades}}" alt="Portrait artwork of a man in round glasses" style="aspect-ratio:1000/993;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{buddha}}" alt="Buddha artwork with butterflies" style="aspect-ratio:1880/1976;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap wide g g3" style="grid-template-columns:minmax(0,0.6883fr) minmax(0,0.8004fr) minmax(0,0.7317fr)">
+      <figure><span class="crop"><img src="{{hands}}" alt="Two hands forming letters" style="aspect-ratio:1652/2400;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{retna2}}" alt="Retna script artwork" style="aspect-ratio:1921/2400;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{makeart}}" alt="Make Art Not War print" style="aspect-ratio:1756/2400;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>The culture moves mainstream</small>Authentic &amp; alive</h2>
+      <p>In the early days, graffiti took real risk, stealing spray paint, painting illegally, constantly being on the lookout. But over time, it became more accessible as the culture moved mainstream.</p>
+      <p>With that came new possibilities, but also change. Some of the friction that shaped the work began to fade, requiring a new kind of adaptability to keep the culture authentic &amp; alive.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.4991fr) minmax(0,0.7500fr)">
+      <figure><span class="crop"><img src="{{crates}}" alt="Crates of spray paint cans" style="aspect-ratio:2400/1601;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{can}}" alt="A Guerilla spray paint can in hand" style="aspect-ratio:1800/2400;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap wide g g3" style="grid-template-columns:minmax(0,1.0016fr) minmax(0,0.7911fr) minmax(0,1.0248fr)">
+      <figure><span class="crop"><img src="{{riskoleum}}" alt="Risk-Oleum spray paint can" style="aspect-ratio:1893/1890;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{mtn}}" alt="A boxed collectible spray can" style="aspect-ratio:1238/1565;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{toy}}" alt="A smiling spray can collectible figure" style="aspect-ratio:2400/2342;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Risk Rock Studios</small>A critical moment</h2>
+      <p>A chance meeting at Risk Rock Studios brought Eddie into contact with Laura Sharpe, founder of Artists for Trauma, at a critical moment.</p>
+      <p>His youngest daughter was going through a crisis. Laura offered Eddie guidance, support, and real solutions during a deeply sensitive time.</p>
+      <p class="hl">That connection turned into action. Eddie recognized the healing power of art and became Laura’s collaborative partner.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.5000fr) minmax(0,0.7163fr)">
+      <figure><span class="crop"><img src="{{studio}}" alt="Laura Sharpe and friends at Risk Rock Studios" style="aspect-ratio:2400/1600;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{laura_car}}" alt="Laura Sharpe and Eddie Donaldson beside a lowrider" style="aspect-ratio:1719/2400;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq il boxed photo" style="--ar:1600/2400">
+        <figure><span class="crop"><img src="{{tulip}}" alt="Eddie Donaldson and Laura Sharpe in front of a tulip mural"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“I know a lot about trauma, and I know a lot about art. So the idea that I can help heal myself by being of service to others, by connecting these dots, it’s twofold. It’s being of service to others and being of service to myself. It’s all encompassing to me.”</blockquote><cite>Eddie Donaldson</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col"><p class="cap">Mural ©Shepard Fairey</p></div>
+
+    <div class="wrap col">
+      <h2><small>Louisville, Kentucky</small>Direct impact</h2>
+      <p>Through GuerillaOne and Artists for Trauma, Eddie and Laura bring artists into spaces where their work has a direct impact.</p>
+      <p>Working with local and international artists, they create meaningful, community-driven projects like the Muhammad Ali mural in Louisville, Kentucky, created by Shepard Fairey.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img src="{{ali1}}" alt="Shepard Fairey’s Muhammad Ali mural in Louisville" style="aspect-ratio:2400/1655;object-position:50% 50%"></span><figcaption>©Shepard Fairey</figcaption></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Where Ali grew up</small>The West End</h2>
+      <p class="hl">The team chose the West End Louisville neighborhood for a reason. This is the socio-economic area where Muhammad Ali grew up.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.7817fr) minmax(0,1.7765fr)">
+      <figure><span class="crop"><img src="{{ali2}}" alt="Close-up of the Muhammad Ali mural" style="aspect-ratio:2400/1347;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{street}}" alt="A historic street scene in Louisville" style="aspect-ratio:2400/1351;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>“Art belongs where it can change the trajectory of life.”</span></blockquote>
+      <cite>Eddie Donaldson</cite>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img src="{{ali3}}" alt="The Muhammad Ali mural seen through a fence" style="aspect-ratio:2400/1335;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>“When you look at this mural, 25 feet from you, is a little tricycle on a patio where a family lives. We hope the child that rides that tricycle is inspired by the Ali mural and realizes that anything in life is possible.”</span></blockquote>
+      <cite>Eddie Donaldson</cite>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir boxed photo" style="--ar:1794/2400">
+        <figure><span class="crop"><img src="{{trust}}" alt="TRUST artwork: a fighter seen from behind in the ring"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“As Eddie continues to evolve, he has stepped into the world of combat sports; building The Trust Agency.”</blockquote></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Combat sports</small>The Trust Agency</h2>
+      <p>TRUST is a marketing agency that represents athletes and promotions across mixed martial arts, boxing &amp; wrestling.</p>
+      <p>It’s a new arena, but the approach is familiar, rooted in trust and creating opportunity.</p>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Legacy</small>Who he is</h2>
+      <p>Eddie is proud of the relationships he continues to build along the way. At this point, the focus is simple: to be remembered not just for what he created, but for who he is.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img src="{{seated}}" alt="Eddie Donaldson seated beside a lowrider" style="aspect-ratio:1600/2400;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>“I’m 57 years old, and a majority of that time might not be what I want to be remembered for. So I’m trying to spend the rest of the time I have here on earth just being a good person.”</span></blockquote>
+      <cite>Eddie Donaldson</cite>
+    </div>
+
+    <div class="wrap col">
+      <div class="credbox">
+        <div><b>Series</b>Laura Sharpe's Artist Profile</div>
+        <div><b>Design</b>Per Bernal</div>
+                <div><b>Follow</b>@artistsfortrauma</div>
+      </div>
+    </div>
+    <div class="wrap more">
+      <div class="head"><h2>More features</h2><a class="all" href="#top">See all features</a></div>
+      <div class="rack">
+        <a href="#top" aria-label="Chelsie Hill"><img src="{{f_chelsie}}" alt=""></a>
+        <a href="#top" aria-label="Onofre Banderas"><img src="{{f_onofre}}" alt=""></a>
+        <a href="#top" aria-label="Aaron Baker"><img src="{{f_aaron}}" alt=""></a>
+        <a href="#top" aria-label="Quan.B"><img src="{{f_quan}}" alt=""></a>
+        <a href="#top" aria-label="Fiona Dowdee"><img src="{{f_fiona}}" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="give">
+    <div class="wrap">
+      <div><h2>Be part of the story.</h2><p>Every survivor’s journey is bigger than one injury, one loss, one setback. Artists for Trauma is here to help support that journey through creativity, connectivity, and community.</p></div>
+      <a class="btn" href="#top">Give with Zeffy</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="{{logoword}}" alt="Artists For Trauma">
+    <p>Where Recovery is an Art. Powered by <span>human spirit™</span></p>
+  </div>
+</footer>
+
+<script>
+/* Fit big pull-quote lines to the article text width */
+(function(){
+  function fit(){
+    document.querySelectorAll('.big blockquote:not(.nofit)').forEach(function(q){
+      q.style.fontSize='';q.style.width='';
+      if(window.innerWidth<1100) return;
+      var spans=q.querySelectorAll('span');if(!spans.length) return;
+      var max=0;spans.forEach(function(s){var r=document.createRange();r.selectNodeContents(s);max=Math.max(max,r.getBoundingClientRect().width)});
+      var target=0;var big=q.closest('.big');[big.previousElementSibling,big.nextElementSibling].forEach(function(c){if(c)c.querySelectorAll('p').forEach(function(p){var r=document.createRange();r.selectNodeContents(p);[].forEach.call(r.getClientRects(),function(b){target=Math.max(target,b.width)})})});
+      target=Math.min(target||q.parentElement.getBoundingClientRect().width,q.parentElement.getBoundingClientRect().width);
+      if(max>0){var fs=parseFloat(getComputedStyle(q).fontSize);q.style.fontSize=(fs*target/max).toFixed(1)+'px';q.style.width=target.toFixed(0)+'px'}
+    });
+  }
+  function snug(){
+    document.querySelectorAll('.pq.ir .q').forEach(function(q){
+      q.style.transform='';
+      if(window.innerWidth<761) return;
+      var R=0;q.querySelectorAll('blockquote,cite').forEach(function(e){var r=document.createRange();r.selectNodeContents(e);[].forEach.call(r.getClientRects(),function(b){if(b.width>2)R=Math.max(R,b.right)})});
+      var img=q.parentElement.querySelector('figure').getBoundingClientRect();
+      var shift=img.left-32-R;if(shift>0.5)q.style.transform='translateX('+shift.toFixed(1)+'px)';
+    });
+  }
+  var _fit=fit;fit=function(){_fit();snug()};
+  window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
+  fit();
+})();
+</script>

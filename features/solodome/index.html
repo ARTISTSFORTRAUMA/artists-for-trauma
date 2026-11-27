@@ -13,7 +13,7 @@
 :root{
   --bg:#ffffff; --fg:#000000; --mute:#555555; --line:#d9d9d9; --soft:#f3f3ee;
   --pink:#f567af; --pink-ink:#c93683;
-  --grad:#8e735c;--yel:#fff;
+  --grad:#fed438;--yel:#fff;
   --head:"gotham-condensed","Barlow Condensed","Arial Narrow",sans-serif;
   --sp:clamp(48px,6vw,80px);
 }
@@ -201,7 +201,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
 footer img{height:44px;width:auto;object-fit:contain}
 footer p{font-weight:700;font-size:1.15rem}
 footer p span{color:#fff;white-space:nowrap}
-footer p span{color:#8e735c}
+footer p span{color:#fed438}
 /* Chelsie Hill: hero shows the cover portrait; colours from the cover (taupe band, cream title page) */
 .hero.full .ph{aspect-ratio:4/5}.hero.full .ph img{transform:none;object-position:50% 100%;height:100%;width:100%;object-fit:contain}
 /* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
@@ -257,7 +257,7 @@ footer p span{color:#8e735c}
 .hero.cover.tw .credits{margin-top:var(--cgap);display:flex;flex-direction:column;gap:4px;font-size:var(--credits-size);color:#fff}.hero.cover.tw .credits b{color:#000}.hero.cover.tw .credits span{color:#fff}
 @media (max-width:820px){.hero.cover.tw .wrap{grid-template-columns:1fr;padding:0 0 28px}.hero.cover.tw .side{order:0}.hero.cover.tw .side{padding:28px 24px 0;zoom:1;width:auto;top:0!important;left:0!important}.hero.cover.tw .verse{font-size:9vw}.hero.cover.tw .ref{font-size:6vw}}
 .pq.boxed cite,.big.boxq cite{color:#1a1a1a!important}
-.hero.cover.tw{background:#8e735c}
+.hero.cover.tw{background:#fed438}
 .boxed figure img{object-fit:cover!important}
 .banner{padding-inline:clamp(12px,1.6vw,24px)}
 .pq.boxed.photo{padding:clamp(20px,2.6vw,32px)!important;align-items:center}.pq.boxed.photo figure{aspect-ratio:var(--ar)!important;align-self:center!important}.pq.boxed.photo figure .crop{height:100%}.pq.boxed.photo figure img{width:100%;height:100%;object-fit:cover;top:0!important}
@@ -268,17 +268,15 @@ footer p span{color:#8e735c}
 .story{gap:24px!important}
 .story>.g+.g,.story>.g+.wrap.wide:has(.pq.boxed),.story>.wrap.wide:has(.pq.boxed)+.g{margin-top:-18px!important}
 
-.sd{background:#fff;color:#000;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;padding:0 0 40px}
-.sd .cv{width:min(100%,640px);margin:0 auto}.sd .cv img{width:100%;display:block}
-.sd .sp{width:min(100%,1280px);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(20px,4vw,64px);padding:clamp(20px,3vw,40px) clamp(20px,4vw,56px)}
-.sd .sp figure{margin:0}.sd .sp figure img{width:100%;display:block;mix-blend-mode:multiply}
-.sd .t{font-weight:700;font-size:clamp(1.4rem,2.4vw,2.3rem);line-height:1.08;letter-spacing:-.01em}
-.sd .t p{margin:0}.sd .t p+p{margin-top:.7em}.sd .t .q,.sd .t i{font-style:italic}
-.sd .mix .t figure{margin-bottom:.7em}
-.sd .lr{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);align-items:end;gap:16px;margin-top:.7em}
-.sd .lr p+p{margin-top:.7em}
-.sd .tm{text-align:center;font-weight:700;font-size:.95rem;margin-top:10px}
-@media (max-width:760px){.sd .sp{grid-template-columns:1fr}.sd .t{font-size:1.25rem}}
+.hero.cover.tw{background:#fed438}
+.hero.cover.tw .verse{font-family:"Archivo Black",sans-serif;font-weight:400;color:#000;letter-spacing:-.02em}
+.hero.cover.tw .ref{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;color:#000!important;letter-spacing:-.01em}
+.hero.cover.tw .roles{margin:14px 0 0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:1.15rem;line-height:1.3;color:#000}
+.hero.cover.tw .credits span,.hero.cover.tw .credits b{color:#000}
+.hl{color:#000!important}
+.pq.boxed blockquote,.big.boxq blockquote,.big.boxq blockquote span{color:#000!important;font-style:italic}
+.pq.boxed cite,.big.boxq cite{color:#000!important}
+.boxed figure img{mix-blend-mode:normal}
 </style>
 
 </head>
@@ -302,20 +300,151 @@ footer p span{color:#8e735c}
 <main id="top">
   <div class="wrap crumb"><a href="/">Home</a> / <a href="/#features">Features</a> / Solodome</div>
 
-  <div class="sd">
-    <section class="cv"><img src="/features/solodome/img/hero.jpg" alt="Solodome x Solotones. Kris Cadle, Laura Sharpe and Joshua Chaney with the Solodome chair. Meet the Engineers behind the Experience. The Chair. The Tones. The Technology. Intersecting Art, Architecture &amp; Science."></section>
-    <section class="sp "><div class="t"><p>Solodome was not initially designed as a wellness tool. The initial concept was sparked by desire for high quality immersive sound.</p><p>An ambition to create the world’s best audio phonic chair quickly revealed something unexpected.</p><p>Sound is meant to be more than heard, it is meant to be felt and rehabilitative.</p><p>What followed became Solodome, an immersive experience designed to support nervous system regulation, recovery, and restoration.</p></div><figure><img loading="lazy" src="/features/solodome/img/s3.jpg" alt="The Solodome chair"></figure></section>
-    <section class="sp "><div class="t"><p class="q"><i>What is Solodome?</i></p><p>An architecturally designed chair created to deliver quality sound and vibration through the body.</p><p>Powered by Solotones, quality sound and vibration modalities, powered by a frequency system built for rehabilitation, relaxation, and joy.</p><p>Not something to hear. Something to feel.</p><p class="q">“This isn’t music. These are standing waves that create something very effective in your body.” - Joshua Chaney</p></div><figure><img loading="lazy" src="/features/solodome/img/s5.jpg" alt="Joshua Chaney, Co-Founder, meditating in the Solodome"></figure></section>
-    <section class="sp "><div class="t"><p>The Solodome journey began in 2020, at the start of the pandemic.</p><p>What started as an audio innovation became something more personal.</p><p>After witnessing a close friend living with Parkinson’s struggle through physical episodes, the focus shifted from building a product to creating something that could help, an immersive, golden ratio-based sound experience designed to support healing and rehabilitation.</p></div><figure><img loading="lazy" src="/features/solodome/img/s7.jpg" alt="Kris Cadle, Co-Founder, seated in the Solodome"></figure></section>
-    <section class="sp mix"><div class="t"><p>Through significant research, they discovered that vibro - acoustic therapy, where sound and vibration can support the nervous system.</p><p>Josh and Kris began recreating those effects using intentional sound and engineered healing frequencies.</p><p>Not pre-recorded compressed audio, but procedurally generated vibrational sound in real time.</p><p>High-fidelity frequencies designed to maintain their full impact because when compressed, the effect is lost.</p><p>Solotones are not about forcing outcomes; they are about supporting the body’s ability to self-regulate.</p></div><div class="t"><figure><img loading="lazy" src="/features/solodome/img/s9.jpg" alt="Kris Cadle and Joshua Chaney with the Solodome"></figure><p>During a close friend’s Parkinson’s episode, using Solodome and Solotones,</p><p class="q">“We were able to dissipate the episode while it was happening.”</p><p>A moment that changed everything.</p></div></section>
-    <section class="sp "><div class="t"><p>Joshua Chaney, Co-Founder</p><p>Joshua grew up in the motion picture industry, where he developed an eye for detail and an instinct for execution.</p><p>He later transitioned into entrepreneurship, building ventures and business models across industries with a focus on creation and scale.</p><p>A builder by nature, he sees potential and brings ideas to life.</p><p>Driven by a desire for impact, Josh focused on creating something meaningful.</p></div><figure><img loading="lazy" src="/features/solodome/img/s11.jpg" alt="Joshua Chaney, Co-Founder, seated against the Solodome signed by Steven Tyler"></figure></section>
-    <section class="sp "><div class="t"><p>Kris Cadle, Co-Founder</p><p>Kris is a self-taught engineer with a background in audio, physics, and research and development (R&amp;D).</p><p>His work thrives at the intersection of science and healing sound, where technical precision meets experimentation.</p><p>Designing and building everything in-house, Kris approaches sound as something more than auditory.</p><p>He is driven by passionate curiosity and a deep understanding of how sound interacts with the body.</p></div><figure><img loading="lazy" src="/features/solodome/img/s13.jpg" alt="Kris Cadle, Co-Founder, seated in the Solodome"></figure></section>
-    <section class="sp "><div class="t"><p>The Solodome photographed here was signed by Steven Tyler, lead singer of the iconic band Aerosmith.</p><p>This personalized Solodome was auctioned for $50,000, with proceeds benefiting Janie’s Fund, a nonprofit founded by Steven Tyler to support vulnerable and abused girls.</p><p>Solodome and Solotones work in concert as real changemakers for the greater good of humanity, their enjoyment, and their health challenges.</p></div><figure><img loading="lazy" src="/features/solodome/img/s15.jpg" alt="The Solodome signed by Steven Tyler"></figure></section>
-    <section class="sp "><div class="t"><p>With the Solotones app, this experience extends beyond the chair, allowing access to these frequencies from anywhere, turning everyday environments into spaces for healing.</p><p>From clinical pain to opportunities for self-regulation, such as headaches, menstrual cramps, nervous system regulation, and much more.</p><p>In pediatric care, the impact becomes deeper.</p><p>Supporting children who experience the world differently.</p><p>Creating moments of calm where there were none before.</p><p>Allowing oneself to regulate and reset.</p></div><figure><img loading="lazy" src="/features/solodome/img/s17.jpg" alt="The Solodome, front view"></figure></section>
-    <section class="sp mix"><div class="t"><p>This is just the beginning.</p><p>Expanding beyond the individual into shared experience.</p><p>A platform that extends from immersive environments to accessible, everyday use.</p><p>What started with sound became something more: a new way to support healing the body.</p></div><div class="t last"><p>Solodome and Solotones have partnered with Artists for Trauma to highlight the use of Solotones as a healing tool and customize the Solodome chairs as a canvas.</p><p>An intentional collaboration of shared goals to heal various human conditions internally and externally through art, sound, and wonder.</p><div class="lr"><div><p>Listening to Solotones, Laura Sharpe, AFT Founder, described feeling,</p><p class="q">“Relief… I felt relief.”</p></div><figure><img loading="lazy" src="/features/solodome/img/s19.jpg" alt="Laura Sharpe listening to Solotones in the Solodome"></figure></div></div></section>
-  </div>
+  <section class="hero full cover tw">
+    <div class="wrap">
+      <div class="ph"><img loading="lazy" src="/features/solodome/img/group.png" alt="Kris Cadle, Laura Sharpe and Joshua Chaney with the Solodome chair"></div>
+      <div class="side">
+        <p class="verse">Solodome × Solotones</p>
+        <p class="ref">Meet the Engineers behind the Experience</p>
+        <p class="roles">The Chair. The Tones. The Technology.<br>Intersecting Art, Architecture &amp; Science.</p>
+        <div class="credits"><span><b>Design</b> Per Bernal</span></div>
+      </div>
+    </div>
+  </section>
 
   <div class="story">
+    <div class="wrap col">
+      <p class="lede">Solodome was not initially designed as a wellness tool. The initial concept was sparked by desire for high quality immersive sound.</p>
+      <p>An ambition to create the world’s best audio phonic chair quickly revealed something unexpected.</p>
+      <p class="hl">Sound is meant to be more than heard, it is meant to be felt and rehabilitative.</p>
+      <p>What followed became Solodome, an immersive experience designed to support nervous system regulation, recovery, and restoration.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,0.8438fr) minmax(0,0.8036fr)">
+      <figure><span class="crop"><img loading="lazy" src="/features/solodome/img/s3.jpg" alt="The Solodome chair from behind" style="aspect-ratio:1350/1600;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/solodome/img/s17.jpg" alt="The Solodome chair, front view" style="aspect-ratio:1350/1680;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>The chair</small>What is Solodome?</h2>
+      <p>An architecturally designed chair created to deliver quality sound and vibration through the body.</p>
+      <p>Powered by Solotones, quality sound and vibration modalities, powered by a frequency system built for rehabilitation, relaxation, and joy.</p>
+      <p class="hl">Not something to hear. Something to feel.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir boxed photo" style="--ar:1350/1800">
+        <figure><span class="crop"><img loading="lazy" src="/features/solodome/img/s5.png" alt="Joshua Chaney, Co-Founder, meditating in the Solodome"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“This isn’t music. These are standing waves that create something very effective in your body.”</blockquote><cite>Joshua Chaney, Co-Founder</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>2020</small>Something more personal</h2>
+      <p>The Solodome journey began in 2020, at the start of the pandemic.</p>
+      <p>What started as an audio innovation became something more personal.</p>
+      <p>After witnessing a close friend living with Parkinson’s struggle through physical episodes, the focus shifted from building a product to creating something that could help, an immersive, golden ratio-based sound experience designed to support healing and rehabilitation.</p>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Vibro-acoustic therapy</small>Healing frequencies</h2>
+      <p>Through significant research, they discovered that vibro - acoustic therapy, where sound and vibration can support the nervous system.</p>
+      <p>Josh and Kris began recreating those effects using intentional sound and engineered healing frequencies.</p>
+      <p>Not pre-recorded compressed audio, but procedurally generated vibrational sound in real time.</p>
+      <p>High-fidelity frequencies designed to maintain their full impact because when compressed, the effect is lost.</p>
+      <p class="hl">Solotones are not about forcing outcomes; they are about supporting the body’s ability to self-regulate.</p>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/solodome/img/s9.jpg" alt="Kris Cadle and Joshua Chaney with the Solodome" style="aspect-ratio:1350/1188;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p>During a close friend’s Parkinson’s episode, using Solodome and Solotones,</p>
+    </div>
+
+    <div class="wrap big boxq">
+      <blockquote class="nofit" style="text-wrap:balance"><span>“We were able to dissipate the episode while it was happening.”</span></blockquote>
+    </div>
+
+    <div class="wrap col">
+      <p class="hl">A moment that changed everything.</p>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Co-Founder</small>Joshua Chaney</h2>
+      <p>Joshua grew up in the motion picture industry, where he developed an eye for detail and an instinct for execution.</p>
+      <p>He later transitioned into entrepreneurship, building ventures and business models across industries with a focus on creation and scale.</p>
+      <p>A builder by nature, he sees potential and brings ideas to life. Driven by a desire for impact, Josh focused on creating something meaningful.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq il boxed photo" style="--ar:1350/1800">
+        <figure><span class="crop"><img loading="lazy" src="/features/solodome/img/s11.png" alt="Joshua Chaney seated against the Solodome signed by Steven Tyler"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“A builder by nature, he sees potential and brings ideas to life.”</blockquote></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Co-Founder</small>Kris Cadle</h2>
+      <p>Kris is a self-taught engineer with a background in audio, physics, and research and development (R&amp;D).</p>
+      <p>His work thrives at the intersection of science and healing sound, where technical precision meets experimentation.</p>
+      <p>Designing and building everything in-house, Kris approaches sound as something more than auditory.</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir boxed photo" style="--ar:1350/1800">
+        <figure><span class="crop"><img loading="lazy" src="/features/solodome/img/s13.png" alt="Kris Cadle seated in the Solodome"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“He is driven by passionate curiosity and a deep understanding of how sound interacts with the body.”</blockquote></div>
+      </div>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Janie’s Fund</small>Signed by Steven Tyler</h2>
+      <p>The Solodome photographed here was signed by Steven Tyler, lead singer of the iconic band Aerosmith.</p>
+      <p>This personalized Solodome was auctioned for $50,000, with proceeds benefiting Janie’s Fund, a nonprofit founded by Steven Tyler to support vulnerable and abused girls.</p>
+    </div>
+
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,0.7500fr) minmax(0,0.7500fr)">
+      <figure><span class="crop"><img loading="lazy" src="/features/solodome/img/s15.jpg" alt="The Solodome signed by Steven Tyler" style="aspect-ratio:1350/1800;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/solodome/img/s7.jpg" alt="Kris Cadle seated in the Solodome" style="aspect-ratio:1350/1800;object-position:50% 50%"></span></figure>
+    </div>
+
+    <div class="wrap col">
+      <p class="hl">Solodome and Solotones work in concert as real changemakers for the greater good of humanity, their enjoyment, and their health challenges.</p>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>The Solotones app</small>Beyond the chair</h2>
+      <p>With the Solotones app, this experience extends beyond the chair, allowing access to these frequencies from anywhere, turning everyday environments into spaces for healing.</p>
+      <p>From clinical pain to opportunities for self-regulation, such as headaches, menstrual cramps, nervous system regulation, and much more.</p>
+      <p>In pediatric care, the impact becomes deeper. Supporting children who experience the world differently. Creating moments of calm where there were none before.</p>
+      <p class="hl">Allowing oneself to regulate and reset.</p>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>What’s next</small>Just the beginning</h2>
+      <p>This is just the beginning. Expanding beyond the individual into shared experience.</p>
+      <p>A platform that extends from immersive environments to accessible, everyday use.</p>
+      <p>What started with sound became something more: a new way to support healing the body.</p>
+    </div>
+
+    <div class="wrap col">
+      <h2><small>Artists for Trauma</small>Art, sound &amp; wonder</h2>
+      <p>Solodome and Solotones have partnered with Artists for Trauma to highlight the use of Solotones as a healing tool and customize the Solodome chairs as a canvas.</p>
+      <p>An intentional collaboration of shared goals to heal various human conditions internally and externally through art, sound, and wonder.</p>
+      <p>Listening to Solotones, Laura Sharpe, AFT Founder, described feeling,</p>
+    </div>
+
+    <div class="wrap wide">
+      <div class="pq ir boxed photo" style="--ar:900/1557">
+        <figure><span class="crop"><img loading="lazy" src="/features/solodome/img/s19.png" alt="Laura Sharpe listening to Solotones in the Solodome"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“Relief… I felt relief.”</blockquote><cite>Laura Sharpe, AFT Founder</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap col"><p class="cap">Solodome and Solotones are registered Trademarks.</p></div>
+
     <div class="wrap col">
       <div class="credbox">
         <div><b>Series</b>Solodome × Solotones</div>

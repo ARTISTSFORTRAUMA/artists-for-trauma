@@ -98,5 +98,5 @@ footer.full .fdonate:hover{background:var(--pink);color:#000;text-decoration:non
 footer.full .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:36px;padding-top:18px;border-top:1px solid rgba(0,0,0,.25);font-size:.88rem;color:#333}
 @media (max-width:1000px){footer.full .fcols{grid-template-columns:1fr 1fr 1fr}}
 @media (max-width:640px){footer.full .fcols{grid-template-columns:1fr 1fr}}
-footer.full .fsocial{display:flex;gap:10px;flex-wrap:wrap}footer.full .fsocial a{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#000;color:#fff !important;text-decoration:none !important;transition:background .15s,color .15s}footer.full .fsocial a:hover{background:var(--pink);color:#000 !important}
+footer.full .fsocial{display:flex;gap:7px;flex-wrap:nowrap}footer.full .fsocial a{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:50%;background:#000;color:#fff !important;text-decoration:none !important;transition:background .15s,color .15s}footer.full .fsocial a:hover{background:var(--pink);color:#000 !important}
 @media (max-width:1000px){footer.full .fcols{grid-template-columns:1fr 1fr}}

@@ -101,4 +101,4 @@ footer.full .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap
 footer.full .fsocial{display:flex;gap:7px;flex-wrap:nowrap}footer.full .fsocial a{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:50%;background:#000;color:#fff !important;text-decoration:none !important;transition:background .15s,color .15s}footer.full .fsocial a:hover{background:var(--pink);color:#000 !important}
 @media (max-width:1000px){footer.full .fcols{grid-template-columns:1fr 1fr}}
 
-footer.full .fstack{display:block;background:#3d3d3d;padding:18px 16px;border-radius:2px;max-width:220px;line-height:0}footer.full .fstack img{width:100%;height:auto;display:block}footer.full .fpow{margin:10px 0 0;font:700 1.05rem var(--head);color:#000}
+footer.full .fstack{display:block;background:none;padding:0;max-width:210px;line-height:0}footer.full .fstack img{width:100%;height:auto;display:block}footer.full .fpow{margin:10px 0 0;font:700 1.05rem var(--head);color:#000}

@@ -80,3 +80,25 @@ nav.main .menubtn{display:none;font:700 1.05rem var(--head);padding:9px 14px;bor
 /* title band on every page (same as the Blog archive) */
 .band.sm h1{font-size:clamp(2rem,4.2vw,3.4rem);line-height:.95}
 .band.xs h1{font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1}
+
+/* full footer on subpages (matches the homepage) */
+footer.full{padding-block:52px 28px}
+footer.full .wrap{display:block}
+footer.full .fcols{display:grid;grid-template-columns:1.3fr 1.3fr 1fr 1fr;gap:28px}
+footer.full .fcols>*{min-width:0}
+footer.full h4{margin:0 0 12px;font:700 1.3rem var(--head);color:#c93683}
+footer.full ul{list-style:none;margin:0;padding:0}
+footer.full li{margin:0 0 8px;line-height:1.45}
+footer.full a{color:#000;text-decoration:none}
+footer.full a:hover{text-decoration:underline}
+footer.full .fbrand p{color:#333;font-size:1.05rem;margin:10px 0 0}
+footer.full .logofull{max-width:100%;height:auto;max-height:44px;width:auto}
+footer.full .fdonate{display:inline-block;margin-top:14px;background:#000;color:#fff;font:700 1.05rem var(--head);letter-spacing:.06em;text-transform:uppercase;padding:11px 22px;border-radius:2px}
+footer.full .fdonate:hover{background:var(--pink);color:#000;text-decoration:none}
+footer.full .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:36px;padding-top:18px;border-top:1px solid rgba(0,0,0,.25);font-size:.88rem;color:#333}
+@media (max-width:1000px){footer.full .fcols{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:640px){footer.full .fcols{grid-template-columns:1fr 1fr}}
+footer.full .fsocial{display:flex;gap:7px;flex-wrap:nowrap}footer.full .fsocial a{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:50%;background:#000;color:#fff !important;text-decoration:none !important;transition:background .15s,color .15s}footer.full .fsocial a:hover{background:var(--pink);color:#000 !important}
+@media (max-width:1000px){footer.full .fcols{grid-template-columns:1fr 1fr}}
+
+footer.full .fstack{display:block;background:none;padding:0;max-width:210px;line-height:0}footer.full .fstack img{width:100%;height:auto;display:block}footer.full .fpow{margin:10px 0 0;font:700 1.05rem var(--head);color:#000}

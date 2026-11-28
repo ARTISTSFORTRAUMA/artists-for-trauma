@@ -621,6 +621,39 @@ new IntersectionObserver(function(e){hd.classList.toggle('stuck',!e[0].isInterse
     </div>
   </section>
 
+  <section id="workshop-spotlight">
+    <div class="wrap">
+      <div class="ws-card">
+        <div class="ws-txt">
+          <span class="ws-eyebrow">Workshop spotlight · July 24, 2026</span>
+          <h2>Rollettes Experience 2026: the AFT Artist Workshop</h2>
+          <p>Nearly 60 participants, differently abled girls ages 7–17 and their families, came together at the Marriott Burbank Convention Center to paint, play and plant seeds of friendship with our volunteer artists Alex Baker, Fiona Dowdee and Onofre “Ono” Banderas.</p>
+          <p class="ws-note">All Artists for Trauma workshops are free of charge to trauma survivors.</p>
+          <div class="ws-btns"><a class="ws-b1" href="/features/rollettes-2026/">Read the story</a><a class="ws-b2" href="/workshops/">See all workshops</a></div>
+        </div>
+        <div class="ws-ph">
+          <img class="ws-1" src="images/rol_group.jpg" alt="Laura Sharpe with the AFT volunteer team at the Rollettes Experience" loading="lazy">
+          <img class="ws-2" src="images/rol_girl.jpg" alt="A smiling participant painting" loading="lazy">
+          <img class="ws-3" src="images/rol_flower.jpg" alt="A painted balsa wood flower reading Rollettes 2026" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+  #workshop-spotlight .ws-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px;background:#ef5a98;color:#fff;padding:clamp(22px,3.5vw,44px)}
+  #workshop-spotlight .ws-eyebrow{display:inline-block;background:#f4cb13;color:#000;font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px}
+  #workshop-spotlight h2{color:#fff;margin:14px 0 12px;font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1}
+  #workshop-spotlight p{color:#fff;font-size:1.08rem;line-height:1.4;margin:0 0 12px}
+  #workshop-spotlight .ws-note{font-weight:700}
+  #workshop-spotlight .ws-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  #workshop-spotlight .ws-btns a{font-weight:800;text-decoration:none;padding:12px 18px}
+  #workshop-spotlight .ws-b1{background:#57cfff;color:#000}#workshop-spotlight .ws-b2{background:#fff;color:#000}
+  #workshop-spotlight .ws-ph{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:6px}
+  #workshop-spotlight .ws-ph img{width:100%;height:100%;object-fit:cover;display:block}
+  #workshop-spotlight .ws-1{grid-column:1/-1;aspect-ratio:16/10}
+  #workshop-spotlight .ws-2,#workshop-spotlight .ws-3{aspect-ratio:1/1}
+  @media (max-width:820px){#workshop-spotlight .ws-card{grid-template-columns:1fr}}
+  </style>
   <section id="programs">
     <div class="wrap">
       <div class="head"><div><h2>Programs</h2><p>All Artists for Trauma workshops are FREE of charge to veterans and civilian trauma survivors. Pick an art form, or browse them all.</p></div></div>

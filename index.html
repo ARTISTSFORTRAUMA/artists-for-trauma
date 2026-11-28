@@ -862,24 +862,24 @@ function cards(target, withImg){
 
 const FEATURES = [
   ['chelsie-hill','Chelsie Hill','Creating Space','','','f_chelsie'],
-  ['onofre-banderas','Onofre Banderas','Turning Trauma Into Purpose Through Art','July 2026','','f_onofre'],
   ['aaron-baker','Aaron Baker','The Will to Rise','','','f_aaron'],
+  ['onofre-banderas','Onofre Banderas','Turning Trauma Into Purpose Through Art','July 2026','','f_onofre'],
   ['lilian-raven','Lilian Raven','Fashion Born From Survival','Designer · Seamstress · Sewing Teacher · June 2026','I’m just a happy trauma survivor, thankful to still be alive and still be here in the world, and to be able to live my life to the fullest.','f_lilian'],
   ['ford-austin','Ford Austin','From Trauma to Creative Healing','Artists For Trauma’s first student artist','','f_ford'],
   ['fiona-dowdee','Fiona Dowdee','Creating Confidence Through Creativity','Visual Artist · Youth Program Manager · AFT Volunteer','Creativity is such a powerful tool.','f_fiona'],
-  ['risky','RISKY (Kelly Graval)','Keep On Keepin’ On','West Coast Writing Pioneer','','f_risky'],
   ['thomas-duncan','Dr. Thomas K. Duncan','The Art of Healing','D.O., FACS, FICS · How the healing journey extends beyond the operating room','','f_duncan'],
+  ['risky','RISKY (Kelly Graval)','Keep On Keepin’ On','West Coast Writing Pioneer','','f_risky'],
   ['tobias-forrest','Tobias Forrest','Redefining Diverse Abilities in the Entertainment Industry','Actor · Artist · Singer · Advocate','','f_tobias'],
   ['tommy-hollenstein','Tommy Hollenstein','Art in Motion','Phil. 4:13','','f_tommy'],
-  ['quan-b','Quan.B','Rhythm & Roots','Faith · Family · Music','','f_quan'],
-  ['damon-bell','Damon Bell','“The Demon”: From the Other Side of the Cage','Athletes for Trauma presents · Oni Fights 5 MMA · October 10, 2026','Hard work never betrays you.','f_damon'],
-  ['carlo-kellem','Carlo Kellem','From Ringside to Regulation','The Boxing Commissioner · Oni Fights 5 MMA, Galt House Hotel, October 10, 2026','','f_carlo'],
-  ['kent-seton','Kent Seton','Building Connection Across Business, Philanthropy and Human Potential','Lawyer · Former Professional Athlete · Founder of AthletesTouch · CEO & Chairman, Edward Charles Foundation','','f_kent'],
-  ['greg-fante','Greg Fante','The Coach of Louisville','Laura Sharpe’s Athletes Profile · October 2026','','f_greg'],
   ['eddie-donaldson','Eddie Donaldson','Founder of GuerillaOne','Graffiti · Street Art · The Trust Agency','It’s an energy thing…','f_eddie'],
-  ['solodome','Solodome × Solotones','Meet the Engineers Behind the Experience','The Chair · The Tones · The Technology','Not something to hear. Something to feel.','f_solodome'],
+  ['quan-b','Quan.B','Rhythm & Roots','Faith · Family · Music','','f_quan'],
   ['page-gamboa','Page Gamboa','The Mind Behind Metal Masterpieces','Custom Car Builder · Westside Car Club Lifer · Founder, Supreme Motorsports','I’m a product of my environment.','f_page'],
-  ['chantel-navarro','Chantel Navarro','Sponsored by Athletes for Trauma','Boxer · Athletes for Trauma','','f_chantel']];
+  ['kent-seton','Kent Seton','Building Connection Across Business, Philanthropy and Human Potential','Lawyer · Former Professional Athlete · Founder of AthletesTouch · CEO & Chairman, Edward Charles Foundation','','f_kent'],
+  ['solodome','Solodome × Solotones','Meet the Engineers Behind the Experience','The Chair · The Tones · The Technology','Not something to hear. Something to feel.','f_solodome'],
+  ['damon-bell','Damon Bell','“The Demon”: From the Other Side of the Cage','Athletes for Trauma presents · Oni Fights 5 MMA · October 10, 2026','Hard work never betrays you.','f_damon'],
+  ['chantel-navarro','Chantel Navarro','Sponsored by Athletes for Trauma','Boxer · Athletes for Trauma','','f_chantel'],
+  ['carlo-kellem','Carlo Kellem','From Ringside to Regulation','The Boxing Commissioner · Oni Fights 5 MMA, Galt House Hotel, October 10, 2026','','f_carlo'],
+  ['greg-fante','Greg Fante','The Coach of Louisville','Laura Sharpe’s Athletes Profile · October 2026','','f_greg']];
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const ARTICLES = new Set(['ford-austin','aaron-baker','chelsie-hill','onofre-banderas','lilian-raven','fiona-dowdee','risky','thomas-duncan','tobias-forrest','tommy-hollenstein','quan-b','damon-bell','carlo-kellem','kent-seton','greg-fante','eddie-donaldson','solodome','page-gamboa']); const EXT = {'chantel-navarro':'https://athletes-for-trauma.netlify.app/features/chantel-navarro/'}; const fhref = id => EXT[id] ? EXT[id] : ARTICLES.has(id) ? `/features/${id}/` : `#feature-${id}`;
 const cover = ([id,n,d,,,im]) => `<a class="fcover" data-id="${id}" href="${fhref(id)}" aria-label="${esc(n)}: ${esc(d)}"><img src="${IMG[im]}" alt="${esc(n)} magazine cover"><span class="cap"><span><b>${esc(n)}</b><small>${esc(d)}</small></span><i>→</i></span></a>`;

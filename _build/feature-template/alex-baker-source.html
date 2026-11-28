@@ -273,6 +273,8 @@ footer p span{color:#c4ab7c}
 .big.boxq cite,.pq.boxed cite{font-weight:700!important;font-style:normal!important;color:#fff!important}
 .big.boxq blockquote,.big.boxq blockquote span{font-size:clamp(1.6rem,2.9vw,2.55rem)!important}
 .big.boxq{padding:clamp(22px,3vw,40px) clamp(24px,3.4vw,44px)!important}
+.flyrow{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:24px;align-items:center}.flyrow img{width:100%;display:block}.flyrow .flb{background:#c4ab7c;padding:clamp(22px,3vw,40px)}.flyrow .flb p{font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1.1;margin:0 0 18px;color:#000}.flyrow .flb a{display:inline-block;background:#000;color:#fff;padding:12px 18px;font-weight:800;text-decoration:none}@media (max-width:760px){.flyrow{grid-template-columns:1fr}}
+@media (max-width:820px){.pq.boxed .q[style]{top:0!important;left:0!important}}
 .pq.boxed.photo,.pq.boxed.photo figure,.pq.boxed.photo figure .crop{overflow:visible!important}
 </style>
 
@@ -389,9 +391,9 @@ footer p span{color:#c4ab7c}
       <p>Artists for Trauma is the proud sponsor of the Artists Workshop for Rollettes Experience 2026. AFT brings its mission of healing, celebrating friendship, creativity, connection, and camaraderie.</p>
     </div>
 
-    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,0.7727fr) minmax(0,0.7123fr)">
-      <figure><span class="crop"><img src="{{flyer}}" alt="Rollettes Experience 2026 Artist Workshop flyer" style="aspect-ratio:1700/2200;object-position:50% 50%"></span></figure>
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,0.7123fr) minmax(0,1.0827fr)">
       <figure><span class="crop"><img src="{{raccoon}}" alt="A tintype portrait of a man holding a raccoon" style="aspect-ratio:1567/2200;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{stool}}" alt="Alex Baker seated on a stool" style="aspect-ratio:2200/2032;object-position:71% 86%;transform-origin:71% 86%;transform:scale(1.08)"></span></figure>
     </div>
 
     <div class="wrap col">
@@ -406,13 +408,7 @@ footer p span{color:#c4ab7c}
       <cite>Alex Baker</cite>
     </div>
 
-    <div class="wrap wide g g1">
-      <figure><span class="crop"><img src="{{stool}}" alt="Alex Baker seated on a stool" style="aspect-ratio:2200/2032;object-position:71% 86%;transform-origin:71% 86%;transform:scale(1.08)"></span></figure>
-    </div>
-
-    <div class="wrap col">
-      <a href="/features/rollettes-2026/" style="display:inline-block;background:#c4ab7c;color:#000;padding:12px 20px;font-weight:800;text-decoration:none">Read about the Rollettes 2026 workshop →</a>
-    </div>
+    <div class="wrap wide flyrow"><a class="fl" href="/features/rollettes-2026/"><img src="{{flyer}}" alt="Rollettes Experience 2026 Artist Workshop flyer"></a><div class="flb"><p>Artists for Trauma was the proud sponsor of the Rollettes Experience 2026 Artist Workshop.</p><a href="/features/rollettes-2026/">Read about the Rollettes 2026 workshop →</a></div></div>
 
     <div class="wrap col">
       <div class="credbox">

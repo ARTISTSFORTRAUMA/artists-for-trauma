@@ -202,7 +202,7 @@ footer p span{color:#da9561}
 /* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
    Spacing and sizes are variables so they can be tuned in one place. */
 .hero{--cov:"aktiv-grotesk","Inter Tight","Helvetica Neue",Arial,sans-serif;
-  --gap-eyebrow:24px;--gap-name:18px;--gap-deck:40px;--name-ls:-0.03em;--name-size:6.6rem;--name-lh:0.88;--deck-size:1.9rem;--deck-lh:1.05;--deck-gap:20px;--gap-top:56px;--txt-scale:1.6;--eyebrow-size:1.3rem;--credits-size:1.1rem;--sub-gap:6px}
+  --gap-eyebrow:24px;--gap-name:18px;--gap-deck:40px;--name-ls:-0.03em;--name-size:6.6rem;--name-lh:0.88;--deck-size:1.9rem;--deck-lh:1.05;--deck-gap:20px;--gap-top:56px;--txt-scale:1.41;--eyebrow-size:1.3rem;--credits-size:1.1rem;--sub-gap:6px}
 /* Whole cover text block scales together; profile line and credits sized separately */
 .hero .txt{zoom:var(--txt-scale)}.hero .eyebrow{font-size:var(--eyebrow-size)}.hero .credits{font-size:var(--credits-size)}
 .hero{color:#fff}
@@ -245,7 +245,7 @@ footer p span{color:#da9561}
 /* Tommy: cover image left, verse and credits on the orange to its right */
 .hero.cover.tw .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:clamp(24px,4vw,64px);padding:0 0 0 clamp(24px,5vw,72px)}.hero.cover.tw .side{color:#fff;order:-1}
 .hero.cover.tw .ph{height:auto;aspect-ratio:auto;min-height:0;display:block}.hero.cover.tw .ph img{width:100%;height:auto;max-width:none;display:block}
-.hero.cover.tw{--txt-scale:1.6;--vs:4.35rem;--vlh:0.78;--vls:0.005em;--vgap:15px;--rs:1.8rem;--cgap:21px;--credits-size:1.1rem;--sidew:100%}
+.hero.cover.tw{--txt-scale:1.41;--vs:4.3rem;--vlh:0.78;--vls:0.005em;--vgap:15px;--rs:1.8rem;--cgap:21px;--credits-size:1.1rem;--sidew:100%}
 .hero.cover.tw .side{zoom:var(--txt-scale);width:var(--sidew);display:flex;flex-direction:column;align-items:flex-start;text-align:left;color:#000}
 .hero.cover.tw .verse{font-family:"Anton",sans-serif;font-weight:400;font-size:min(var(--vs),5.2vw);line-height:var(--vlh);letter-spacing:var(--vls);margin:0;color:#fff;text-wrap:balance}
 .hero.cover.tw .ref{color:#000!important;font-family:"Anton",sans-serif;font-weight:400;font-size:min(var(--rs),3.2vw);line-height:1;margin:var(--vgap) 0 0;color:#fff;letter-spacing:.02em}
@@ -299,7 +299,7 @@ footer p span{color:#da9561}
   <section class="hero full cover tw">
     <div class="wrap">
       <div class="ph"><img src="{{standing}}" alt="Page Gamboa standing in front of his 1964 Chevrolet Impala lowrider" style="object-position:50% 58.5%;transform-origin:50% 58.5%;transform:translate(-26px, 0px) scale(1.17);clip-path:inset(0% 6.5% 0% 0%)"></div>
-      <div class="side" style="position:relative;top:-4px;left:-20px">
+      <div class="side" style="position:relative;top:-14px;left:-26px">
         <p class="verse">Page Gamboa</p>
         <p class="ref">The mind behind metal masterpieces</p>
         <p class="roles">Custom Car Builder<br>Westside Car Club Lifer<br>Founder, Supreme Motorsports</p>
@@ -311,13 +311,13 @@ footer p span{color:#da9561}
   <div class="story">
     <div class="wrap wide">
       <div class="pq il boxed photo" style="--ar:2108/2400">
-        <figure><span class="crop"><img src="{{west}}" alt="Page Gamboa’s hand tattooed WEST" style="object-position:50% 100%;transform-origin:50% 100%;transform:scale(1.04)"></span></figure>
-        <div class="q"><blockquote class="long" style="text-wrap:balance">“I’m a product of my environment.”</blockquote><cite>Page Gamboa</cite></div>
+        <figure><span class="crop"><img src="{{west}}" alt="Page Gamboa’s hand tattooed WEST" style="object-position:50% 46.5%;transform-origin:50% 46.5%;transform:translate(10px, 5px) scale(1.18);clip-path:inset(2% 4% 4.5% 1%)"></span></figure>
+        <div class="q" style="position:relative;top:16px;left:54px"><blockquote class="long" style="text-wrap:balance">“I’m a product of my environment.”</blockquote><cite>Page Gamboa</cite></div>
       </div>
     </div>
 
     <div class="wrap wide g g1">
-      <figure><span class="crop"><img src="{{shop}}" alt="Page Gamboa opening the door of his 1964 Impala" style="aspect-ratio:2400/1628;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img src="{{shop}}" alt="Page Gamboa opening the door of his 1964 Impala" style="aspect-ratio:2400/1628;object-position:46.5% 79.5%;transform-origin:46.5% 79.5%;transform:scale(1.06)"></span></figure>
     </div>
 
     <div class="wrap col">

@@ -882,7 +882,7 @@ const FEATURES = [
   ['chantel-navarro','Chantel Navarro','Sponsored by Athletes for Trauma','Boxer · Athletes for Trauma','','f_chantel']];
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const ARTICLES = new Set(['ford-austin','aaron-baker','chelsie-hill','onofre-banderas','lilian-raven','fiona-dowdee','risky','thomas-duncan','tobias-forrest','tommy-hollenstein','quan-b','damon-bell','carlo-kellem','kent-seton','greg-fante','eddie-donaldson','solodome','page-gamboa']); const EXT = {'chantel-navarro':'https://athletes-for-trauma.netlify.app/features/chantel-navarro/'}; const fhref = id => EXT[id] ? EXT[id] : ARTICLES.has(id) ? `/features/${id}/` : `#feature-${id}`;
-const cover = ([id,n,d,,,im]) => `<a class="fcover" href="${fhref(id)}" aria-label="${esc(n)}: ${esc(d)}"><img src="${IMG[im]}" alt="${esc(n)} magazine cover"><span class="cap"><span><b>${esc(n)}</b><small>${esc(d)}</small></span><i>→</i></span></a>`;
+const cover = ([id,n,d,,,im]) => `<a class="fcover" data-id="${id}" href="${fhref(id)}" aria-label="${esc(n)}: ${esc(d)}"><img src="${IMG[im]}" alt="${esc(n)} magazine cover"><span class="cap"><span><b>${esc(n)}</b><small>${esc(d)}</small></span><i>→</i></span></a>`;
 document.getElementById('fwall').innerHTML = FEATURES.map(cover).join('');
 const home = document.getElementById('top'), fview = document.getElementById('fview');
 const pview = document.getElementById('pview');
@@ -987,3 +987,5 @@ start()})();
 b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu'});
 n.querySelectorAll('.menu a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Menu'})});})();</script>
 </html>
+
+<script src="/order.js" defer></script>

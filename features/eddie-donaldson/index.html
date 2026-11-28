@@ -207,7 +207,7 @@ footer p span{color:#5ccbdd}
 /* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
    Spacing and sizes are variables so they can be tuned in one place. */
 .hero{--cov:"aktiv-grotesk","Inter Tight","Helvetica Neue",Arial,sans-serif;
-  --gap-eyebrow:24px;--gap-name:18px;--gap-deck:40px;--name-ls:-0.03em;--name-size:6.6rem;--name-lh:0.88;--deck-size:1.9rem;--deck-lh:1.05;--deck-gap:20px;--gap-top:56px;--txt-scale:1.28;--eyebrow-size:1.3rem;--credits-size:1.25rem;--sub-gap:6px}
+  --gap-eyebrow:24px;--gap-name:18px;--gap-deck:40px;--name-ls:-0.03em;--name-size:6.6rem;--name-lh:0.88;--deck-size:1.9rem;--deck-lh:1.05;--deck-gap:20px;--gap-top:56px;--txt-scale:1.29;--eyebrow-size:1.3rem;--credits-size:1.25rem;--sub-gap:6px}
 /* Whole cover text block scales together; profile line and credits sized separately */
 .hero .txt{zoom:var(--txt-scale)}.hero .eyebrow{font-size:var(--eyebrow-size)}.hero .credits{font-size:var(--credits-size)}
 .hero{color:#fff}
@@ -250,7 +250,7 @@ footer p span{color:#5ccbdd}
 /* Tommy: cover image left, verse and credits on the orange to its right */
 .hero.cover.tw .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:clamp(24px,4vw,64px);padding:0 0 0 clamp(24px,5vw,72px)}.hero.cover.tw .side{color:#fff;order:-1}
 .hero.cover.tw .ph{height:auto;aspect-ratio:auto;min-height:0;display:block}.hero.cover.tw .ph img{width:100%;height:auto;max-width:none;display:block}
-.hero.cover.tw{--txt-scale:1.28;--vs:3.6rem;--vlh:0.84;--vls:0.025em;--vgap:21px;--rs:1.7rem;--cgap:36px;--credits-size:1.25rem;--sidew:99%}
+.hero.cover.tw{--txt-scale:1.29;--vs:3.6rem;--vlh:0.8;--vls:0.015em;--vgap:22px;--rs:1.7rem;--cgap:30px;--credits-size:1.25rem;--sidew:100%}
 .hero.cover.tw .side{zoom:var(--txt-scale);width:var(--sidew);display:flex;flex-direction:column;align-items:flex-start;text-align:left;color:#000}
 .hero.cover.tw .verse{font-family:"Anton",sans-serif;font-weight:400;font-size:min(var(--vs),5.2vw);line-height:var(--vlh);letter-spacing:var(--vls);margin:0;color:#fff;text-wrap:balance}
 .hero.cover.tw .ref{color:#000!important;font-family:"Anton",sans-serif;font-weight:400;font-size:min(var(--rs),3.2vw);line-height:1;margin:var(--vgap) 0 0;color:#fff;letter-spacing:.02em}
@@ -302,7 +302,7 @@ footer p span{color:#5ccbdd}
   <section class="hero full cover tw">
     <div class="wrap">
       <div class="ph"><img src="/features/eddie-donaldson/img/hero.jpg" alt="Eddie Donaldson, arms crossed, in front of Shepard Fairey artwork and a blue lowrider" style="object-position:94.5% 4%;transform-origin:94.5% 4%;transform:translate(-13px, -14px) scale(1.17);clip-path:inset(0% 1% 0% 1.5%)"></div>
-      <div class="side" style="position:relative;top:-8px;left:-42px">
+      <div class="side" style="position:relative;top:-29px;left:-46px">
         <p class="qt">“It’s an energy thing…”</p>
         <p class="verse">Eddie Donaldson</p>
         <p class="ref">Founder of GuerillaOne</p>
@@ -317,8 +317,8 @@ footer p span{color:#5ccbdd}
     </div>
 
     <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.5800fr) minmax(0,1.5989fr)">
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/lowrider.jpg" alt="Eddie Donaldson crouching between two lowriders" style="aspect-ratio:2400/1519;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/risky.jpg" alt="Risky in front of a graffiti piece" style="aspect-ratio:2400/1501;object-position:50% 50%"></span><figcaption>©Risky</figcaption></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/lowrider.jpg" alt="Eddie Donaldson crouching between two lowriders" style="aspect-ratio:2400/1519;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1);clip-path:inset(0% 0% 1% 0%)"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/risky.jpg" alt="Risky in front of a graffiti piece" style="aspect-ratio:2400/1501;object-position:50% 47%;transform-origin:50% 47%;transform:translate(0px, -3px) scale(1)"></span><figcaption>©Risky</figcaption></figure>
     </div>
 
     <div class="wrap col">
@@ -329,7 +329,7 @@ footer p span{color:#5ccbdd}
 
     <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.6925fr) minmax(0,0.6725fr)">
       <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/shepard.jpg" alt="Shepard Fairey painting a mural" style="aspect-ratio:2400/1418;object-position:50% 50%"></span><figcaption>©Shepard Fairey</figcaption></figure>
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/tulip2.jpg" alt="Eddie Donaldson with a friend in front of a tulip mural" style="aspect-ratio:1614/2400;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/tulip2.jpg" alt="Eddie Donaldson with a friend in front of a tulip mural" style="aspect-ratio:1614/2400;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1)"></span></figure>
     </div>
 
     <div class="wrap col">
@@ -339,8 +339,8 @@ footer p span{color:#5ccbdd}
     </div>
 
     <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.6271fr) minmax(0,0.7271fr)">
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/lostangel.jpg" alt="A LOST ANGEL tattoo across a man’s back" style="aspect-ratio:2400/1475;object-position:50% 50%"></span><figcaption>©Estevan Oriol</figcaption></figure>
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/hug.jpg" alt="Eddie Donaldson embracing a friend" style="aspect-ratio:1745/2400;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/lostangel.jpg" alt="A LOST ANGEL tattoo across a man’s back" style="aspect-ratio:2400/1475;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1)"></span><figcaption>©Estevan Oriol</figcaption></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/hug.jpg" alt="Eddie Donaldson embracing a friend" style="aspect-ratio:1745/2400;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1)"></span></figure>
     </div>
 
     <div class="wrap col">
@@ -349,8 +349,8 @@ footer p span{color:#5ccbdd}
     </div>
 
     <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.5296fr) minmax(0,1.5000fr)">
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/page.jpg" alt="Eddie Donaldson and Page Gamboa, arms crossed" style="aspect-ratio:2400/1569;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/shop.jpg" alt="A lowrider inside a shop with The Seventh Letter mural" style="aspect-ratio:2400/1600;object-position:50% 50%"></span><figcaption>©TheSeventhLetter</figcaption></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/page.jpg" alt="Eddie Donaldson and Page Gamboa, arms crossed" style="aspect-ratio:2400/1569;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1.19)"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/shop.jpg" alt="A lowrider inside a shop with The Seventh Letter mural" style="aspect-ratio:2400/1600;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1)"></span><figcaption>©TheSeventhLetter</figcaption></figure>
     </div>
 
     <div class="wrap col">
@@ -360,8 +360,8 @@ footer p span{color:#5ccbdd}
     </div>
 
     <div class="wrap wide g g2" style="grid-template-columns:minmax(0,0.7479fr) minmax(0,0.7417fr)">
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/retna.jpg" alt="Retna painting a wall" style="aspect-ratio:1795/2400;object-position:50% 50%"></span><figcaption>©Retna</figcaption></figure>
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/tower.jpg" alt="Cuauhtemoc Building, Tlatelolco, Mexico City, painted by Retna" style="aspect-ratio:1780/2400;object-position:50% 50%"></span><figcaption>Cuauhtemoc Building, Tlatelolco, Mexico City. ©Retna</figcaption></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/retna.jpg" alt="Retna painting a wall" style="aspect-ratio:1795/2400;object-position:78.5% 37.5%;transform-origin:78.5% 37.5%;transform:scale(1.19)"></span><figcaption>©Retna</figcaption></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/tower.jpg" alt="Cuauhtemoc Building, Tlatelolco, Mexico City, painted by Retna" style="aspect-ratio:1780/2400;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1)"></span><figcaption>Cuauhtemoc Building, Tlatelolco, Mexico City. ©Retna</figcaption></figure>
     </div>
 
     <div class="wrap col">
@@ -377,8 +377,8 @@ footer p span{color:#5ccbdd}
 
     <div class="wrap wide">
       <div class="pq ir boxed photo" style="--ar:1813/2400">
-        <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/spider.jpg" alt="Saturday Nights at the Spider Club poster, Obey Giant and GuerillaOne"></span></figure>
-        <div class="q"><blockquote class="long" style="text-wrap:balance">“We needed to do this website where a guy in France can do a painting, and we can see what he did, and he can see what we did… and so we started GuerillaOne.com.”</blockquote><cite>Eddie Donaldson</cite></div>
+        <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/spider.jpg" alt="Saturday Nights at the Spider Club poster, Obey Giant and GuerillaOne" style="object-position:50% 100%;transform-origin:50% 100%;transform:scale(1);clip-path:inset(0% 0% 0% 2.5%)"></span></figure>
+        <div class="q" style="position:relative;top:36px;left:2px"><blockquote class="long" style="text-wrap:balance">“We needed to do this website where a guy in France can do a painting, and we can see what he did, and he can see what we did… and so we started GuerillaOne.com.”</blockquote><cite>Eddie Donaldson</cite></div>
       </div>
     </div>
 
@@ -396,7 +396,7 @@ footer p span{color:#5ccbdd}
 
     <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.0137fr) minmax(0,1.1612fr)">
       <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/shades.jpg" alt="Portrait artwork of a man in round glasses" style="aspect-ratio:1776/1752;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/beyond.jpg" alt="Beyond the Streets exhibition" style="aspect-ratio:2248/1936;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/beyond.jpg" alt="Beyond the Streets exhibition" style="aspect-ratio:2248/1936;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1);clip-path:inset(0% 0% 0% 1%)"></span></figure>
     </div>
 
     <div class="wrap wide g g2" style="grid-template-columns:minmax(0,0.7942fr) minmax(0,0.8154fr)">
@@ -433,14 +433,14 @@ footer p span{color:#5ccbdd}
     </div>
 
     <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.9624fr) minmax(0,0.7021fr)">
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/studio.jpg" alt="Laura Sharpe and friends at Risk Rock Studios" style="aspect-ratio:2400/1223;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/laura_car.jpg" alt="Laura Sharpe and Eddie Donaldson beside a lowrider" style="aspect-ratio:1685/2400;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/studio.jpg" alt="Laura Sharpe and friends at Risk Rock Studios" style="aspect-ratio:2400/1223;object-position:66% 63%;transform-origin:66% 63%;transform:scale(1.07)"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/laura_car.jpg" alt="Laura Sharpe and Eddie Donaldson beside a lowrider" style="aspect-ratio:1685/2400;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1)"></span></figure>
     </div>
 
     <div class="wrap wide">
       <div class="pq il boxed photo" style="--ar:1612/2400">
-        <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/tulip.jpg" alt="Eddie Donaldson and Laura Sharpe in front of a tulip mural"></span></figure>
-        <div class="q"><blockquote class="long" style="text-wrap:balance">“I know a lot about trauma, and I know a lot about art. So the idea that I can help heal myself by being of service to others, by connecting these dots, it’s twofold. It’s being of service to others and being of service to myself. It’s all encompassing to me.”</blockquote><cite>Eddie Donaldson</cite></div>
+        <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/tulip.jpg" alt="Eddie Donaldson and Laura Sharpe in front of a tulip mural" style="object-position:50% 100%;transform-origin:50% 100%;transform:scale(1);clip-path:inset(0% 1.5% 0% 1%)"></span></figure>
+        <div class="q" style="position:relative;top:9px;left:-6px"><blockquote class="long" style="text-wrap:balance">“I know a lot about trauma, and I know a lot about art. So the idea that I can help heal myself by being of service to others, by connecting these dots, it’s twofold. It’s being of service to others and being of service to myself. It’s all encompassing to me.”</blockquote><cite>Eddie Donaldson</cite></div>
       </div>
     </div>
 
@@ -472,7 +472,7 @@ footer p span{color:#5ccbdd}
     </div>
 
     <div class="wrap wide g g1">
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/ali3.jpg" alt="The Muhammad Ali mural seen through a fence" style="aspect-ratio:2400/1574;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/ali3.jpg" alt="The Muhammad Ali mural seen through a fence" style="aspect-ratio:2400/1574;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1)"></span></figure>
     </div>
 
     <div class="wrap big boxq">
@@ -482,7 +482,7 @@ footer p span{color:#5ccbdd}
 
     <div class="wrap wide">
       <div class="pq ir boxed photo" style="--ar:1801/2400">
-        <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/trust.jpg" alt="TRUST artwork: a fighter seen from behind in the ring"></span></figure>
+        <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/trust.jpg" alt="TRUST artwork: a fighter seen from behind in the ring" style="object-position:50% 100%;transform-origin:50% 100%;transform:scale(1)"></span></figure>
         <div class="q"><blockquote class="long" style="text-wrap:balance">“As Eddie continues to evolve, he has stepped into the world of combat sports; building The Trust Agency.”</blockquote></div>
       </div>
     </div>
@@ -499,7 +499,7 @@ footer p span{color:#5ccbdd}
     </div>
 
     <div class="wrap wide g g1">
-      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/seated.jpg" alt="Eddie Donaldson seated beside a lowrider" style="aspect-ratio:1560/2400;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/eddie-donaldson/img/seated.jpg" alt="Eddie Donaldson seated beside a lowrider" style="aspect-ratio:1560/2400;object-position:50% 50%;transform-origin:50% 50%;transform:scale(1)"></span></figure>
     </div>
 
     <div class="wrap big boxq">

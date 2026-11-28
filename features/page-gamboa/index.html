@@ -13,7 +13,7 @@
 :root{
   --bg:#ffffff; --fg:#000000; --mute:#555555; --line:#d9d9d9; --soft:#f3f3ee;
   --pink:#f567af; --pink-ink:#c93683;
-  --grad:#d79b7e;--yel:#fff;
+  --grad:#da9561;--yel:#fff;
   --head:"gotham-condensed","Barlow Condensed","Arial Narrow",sans-serif;
   --sp:clamp(48px,6vw,80px);
 }
@@ -201,7 +201,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
 footer img{height:44px;width:auto;object-fit:contain}
 footer p{font-weight:700;font-size:1.15rem}
 footer p span{color:#fff;white-space:nowrap}
-footer p span{color:#d79b7e}
+footer p span{color:#da9561}
 /* Chelsie Hill: hero shows the cover portrait; colours from the cover (taupe band, cream title page) */
 .hero.full .ph{aspect-ratio:4/5}.hero.full .ph img{transform:none;object-position:50% 100%;height:100%;width:100%;object-fit:contain}
 /* Opening box: name set like the V7 cover (Gotham via Montserrat stand-in); other lines in the site font; cover colours.
@@ -257,7 +257,7 @@ footer p span{color:#d79b7e}
 .hero.cover.tw .credits{margin-top:var(--cgap);display:flex;flex-direction:column;gap:4px;font-size:var(--credits-size);color:#fff}.hero.cover.tw .credits b{color:#000}.hero.cover.tw .credits span{color:#fff}
 @media (max-width:820px){.hero.cover.tw .wrap{grid-template-columns:1fr;padding:0 0 28px}.hero.cover.tw .side{order:0}.hero.cover.tw .side{padding:28px 24px 0;zoom:1;width:auto;top:0!important;left:0!important}.hero.cover.tw .verse{font-size:9vw}.hero.cover.tw .ref{font-size:6vw}}
 .pq.boxed cite,.big.boxq cite{color:#1a1a1a!important}
-.hero.cover.tw{background:#d79b7e}
+.hero.cover.tw{background:#da9561}
 .boxed figure img{object-fit:cover!important}
 .banner{padding-inline:clamp(12px,1.6vw,24px)}
 .pq.boxed.photo{padding:clamp(20px,2.6vw,32px)!important;align-items:center}.pq.boxed.photo figure{aspect-ratio:var(--ar)!important;align-self:center!important}.pq.boxed.photo figure .crop{height:100%}.pq.boxed.photo figure img{width:100%;height:100%;object-fit:cover;top:0!important}
@@ -268,7 +268,7 @@ footer p span{color:#d79b7e}
 .story{gap:24px!important}
 .story>.g+.g,.story>.g+.wrap.wide:has(.pq.boxed),.story>.wrap.wide:has(.pq.boxed)+.g{margin-top:-18px!important}
 
-.hero.cover.tw{background:#d79b7e}
+.hero.cover.tw{background:#da9561}
 .hero.cover.tw .verse{font-family:"Playfair Display",Georgia,serif;font-weight:900;color:#000}
 .hero.cover.tw .ref{font-family:"Playfair Display",Georgia,serif;font-weight:900;color:#fff!important}
 .hl{color:#000!important}
@@ -300,27 +300,32 @@ footer p span{color:#d79b7e}
 
   <section class="hero full cover tw">
     <div class="wrap">
-      <div class="ph"><img src="/features/page-gamboa/img/hero.jpg" alt="Page Gamboa leaning on his 1964 Chevrolet Impala lowrider"></div>
+      <div class="ph"><img loading="lazy" src="/features/page-gamboa/img/standing.jpg" alt="Page Gamboa standing in front of his 1964 Chevrolet Impala lowrider"></div>
       <div class="side">
-        <p class="verse">The mind behind metal masterpieces</p>
-        <p class="ref">Page Gamboa</p>
+        <p class="verse">Page Gamboa</p>
+        <p class="ref">The mind behind metal masterpieces</p>
         <p class="roles">Custom Car Builder<br>Westside Car Club Lifer<br>Founder, Supreme Motorsports</p>
-        <div class="credits"><span><b>Interview</b> Tattiahna Welsh</span><span><b>Photography &amp; Design</b> Per Bernal</span></div>
+        <div class="credits"><span><b>Cover Photo &amp; Design</b> Per Bernal</span><span><b>Story</b> Tattiahna Welsh</span></div>
       </div>
     </div>
   </section>
 
   <div class="story">
+    <div class="wrap wide">
+      <div class="pq il boxed photo" style="--ar:2108/2400">
+        <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/west.jpg" alt="Page Gamboa’s hand tattooed WEST"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“I’m a product of my environment.”</blockquote><cite>Page Gamboa</cite></div>
+      </div>
+    </div>
+
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/shop.jpg" alt="Page Gamboa opening the door of his 1964 Impala" style="aspect-ratio:2400/1628;object-position:50% 50%"></span></figure>
+    </div>
+
     <div class="wrap col">
       <p class="lede">Los Angeles defines the way Page Gamboa sees everything.</p>
       <p>Growing up on the Westside, he was surrounded by car culture at every level, lowriders in the streets, Porsches, Benzes, and Ferraris moving through the city.</p>
-      <p class="hl">That early exposure gave him a wider lens, shaping not just what he liked, but how he puts cars together today.</p>
-      <p>He pulls from all of it, not confined to one style, but building from a mix of influences that reflect where he came from.</p>
-    </div>
-
-    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,0.6967fr) minmax(0,1.4742fr)">
-      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/standing.jpg" alt="Page Gamboa standing in front of his 1964 Impala" style="aspect-ratio:1672/2400;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/shop.jpg" alt="Page Gamboa opening the door of his 1964 Impala" style="aspect-ratio:2400/1628;object-position:50% 50%"></span></figure>
+      <p class="hl">That early exposure gave him a wider lens, shaping not just what he liked, but how he puts cars together today. He pulls from all of it, not confined to one style, but building from a mix of influences that reflect where he came from.</p>
     </div>
 
     <div class="wrap big boxq">
@@ -332,14 +337,14 @@ footer p span{color:#d79b7e}
       <p>That environment wasn’t just visual, it was cultural. It taught him how to observe, how to move, and how to create something that feels real to where he’s from.</p>
     </div>
 
+    <div class="wrap wide g g1">
+      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/graffiti.jpg" alt="Page Gamboa in front of a graffiti mural" style="aspect-ratio:2296/1526;object-position:50% 50%"></span></figure>
+    </div>
+
     <div class="wrap col">
       <h2><small>Graffiti &amp; street art</small>A name people recognize</h2>
       <p>Before the cars, there was graffiti and street art. Inspired by his cousin, Page stepped into writing as a way to put his name into the world.</p>
       <p>It wasn’t just style, it was identity, reputation, and being seen. In that culture, your name carried weight, and he learned early how to create something people would recognize.</p>
-    </div>
-
-    <div class="wrap wide g g1">
-      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/graffiti.jpg" alt="Page Gamboa in front of a graffiti mural" style="aspect-ratio:2296/1526;object-position:50% 50%"></span></figure>
     </div>
 
     <div class="wrap col">
@@ -391,7 +396,7 @@ footer p span{color:#d79b7e}
     </div>
 
     <div class="wrap wide g g1">
-      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/fins.jpg" alt="The tail fins and continental kit of a classic Chevrolet" style="aspect-ratio:2348/1495;object-position:50% 50%"></span></figure>
+      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/fins.jpg" alt="The tail fins and spare-tire cover of a 1959 Chevrolet" style="aspect-ratio:2348/1495;object-position:50% 50%"></span></figure>
     </div>
 
     <div class="wrap col">
@@ -410,9 +415,7 @@ footer p span{color:#d79b7e}
 
     <div class="wrap col">
       <h2><small>Artists for Trauma</small>Beyond the car</h2>
-      <p class="hl">Then came a moment that showed Page what those builds could mean beyond the car itself.</p>
-      <p>Through Eddie Donaldson, he was introduced to Artists for Trauma and Laura Sharpe. What stood out was the intention, helping people move through trauma, creativity and shared experience.</p>
-      <p>That connection came to life at a Lowrider Car Show at the Los Angeles Convention Center, where Eddie and Page hosted an art pop-up with Artists For Trauma as the selected charity.</p>
+      <p class="hl">Then came a moment that showed Page what those builds could mean beyond the car itself. Through Eddie Donaldson, he was introduced to Artists for Trauma and Laura Sharpe. What stood out was the intention, helping people move through trauma, creativity and shared experience.</p>
     </div>
 
     <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.3921fr) minmax(0,0.7542fr)">
@@ -426,8 +429,8 @@ footer p span{color:#d79b7e}
     </div>
 
     <div class="wrap col">
-      <p>It was there that Page helped Laura transition from her wheelchair into a lowrider for the first time. He remembers the way her face lit up, a moment that made the impact clear.</p>
-      <p class="hl">That experience is now evolving into action, with Page partnering with AFT to create adaptive lowrider experiences, blending cultural legacy with accessible design.</p>
+      <p>That connection came to life at a Lowrider Car Show at the Los Angeles Convention Center, where Eddie and Page hosted an art pop-up with Artists For Trauma as the selected charity.</p>
+      <p class="hl">It was there that Page helped Laura transition from her wheelchair into a lowrider for the first time. He remembers the way her face lit up, a moment that made the impact clear. That experience is now evolving into action, with Page partnering with AFT to create adaptive lowrider experiences, blending cultural legacy with accessible design.</p>
     </div>
 
     <div class="wrap col">
@@ -454,8 +457,7 @@ footer p span{color:#d79b7e}
       <p>Driving through the city, playing music, surrounded by the same people and culture that shaped him, it becomes something else entirely.</p>
     </div>
 
-    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.3314fr) minmax(0,1.4043fr)">
-      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/sunset.jpg" alt="Lowriders cruising a palm-lined street at sunset" style="aspect-ratio:1169/878;object-position:50% 50%"></span></figure>
+    <div class="wrap wide g g1">
       <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/impala.jpg" alt="Page Gamboa with a lowrider lifted on its hydraulics" style="aspect-ratio:2400/1709;object-position:50% 50%"></span></figure>
     </div>
 
@@ -483,28 +485,27 @@ footer p span{color:#d79b7e}
       <p>From the streets of Los Angeles to the clients he works with, to the community he continues to show up for, it all stays connected.</p>
     </div>
 
-    <div class="wrap wide g g1">
+    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,1.5094fr) minmax(0,1.5009fr)">
+      <figure><span class="crop"><img src="/features/page-gamboa/img/hero.jpg" alt="Page Gamboa leaning on his 1964 Impala" style="aspect-ratio:2400/1590;object-position:50% 50%"></span></figure>
       <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/window.jpg" alt="Page Gamboa at the wheel of a lowrider" style="aspect-ratio:2400/1599;object-position:50% 50%"></span></figure>
     </div>
 
-    <div class="wrap big boxq">
-      <blockquote class="nofit" style="text-wrap:balance"><span>What started as watching, learning, and putting his name out there turned into a way of creating that carries its own signature.</span></blockquote>
-    </div>
-
     <div class="wrap col">
-      <p>Not just a body of work, but a way of creating that reflects where he’s from and speaks for itself wherever it goes.</p>
+      <p class="hl">What started as watching, learning, and putting his name out there turned into a way of creating that carries its own signature.</p>
     </div>
 
-    <div class="wrap wide g g2" style="grid-template-columns:minmax(0,0.8783fr) minmax(0,0.8562fr)">
-      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/west.jpg" alt="Page Gamboa’s hand tattooed WEST" style="aspect-ratio:2108/2400;object-position:50% 50%"></span></figure>
-      <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/side.jpg" alt="Page Gamboa’s hand tattooed SIDE" style="aspect-ratio:2055/2400;object-position:50% 50%"></span></figure>
+    <div class="wrap wide">
+      <div class="pq ir boxed photo" style="--ar:2055/2400">
+        <figure><span class="crop"><img loading="lazy" src="/features/page-gamboa/img/side.jpg" alt="Page Gamboa’s hand tattooed SIDE"></span></figure>
+        <div class="q"><blockquote class="long" style="text-wrap:balance">“Not just a body of work, but a way of creating that reflects where he’s from and speaks for itself wherever it goes.”</blockquote></div>
+      </div>
     </div>
 
     <div class="wrap col">
       <div class="credbox">
         <div><b>Series</b>Laura Sharpe's Artist Profile</div>
-        <div><b>Photography &amp; Design</b>Per Bernal</div>
-        <div><b>Interview</b>Tattiahna Welsh</div>
+        <div><b>Cover Photo &amp; Design</b>Per Bernal</div>
+        <div><b>Story</b>Tattiahna Welsh</div>
         <div><b>Follow</b>@artistsfortrauma</div>
       </div>
     </div>
